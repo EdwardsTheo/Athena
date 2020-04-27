@@ -1,0 +1,22 @@
+.all{
+    display:flex;
+    flex-direction: row;
+}
+.resumer_exo{
+    display:flex;
+    flex-direction: column;
+    padding: 10%;
+    border: 0.5px solid black;
+    margin-left: 10px;
+}
+.horraire{
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    margin-top: 25%;
+}
+.exercice{
+    display:flex;
+    flex-direction: column;
+    padding: 10%;
+}
