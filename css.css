@@ -1,0 +1,22 @@
+body{
+    background-color:rgba(126, 213, 111, 0.8);
+}
+input{
+    background-color: white;
+    Color:green;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 3px;
+    cursor: pointer; 
+    box-shadow: 0 8px 16px 0 grey;
+    text-decoration: none;
+    position:relative;
+    overflow: hidden;
+    transition: background 200ms 6ms ease-in-out;
+    border-radius: 20px;
+}
+input:hover{
+    background: green;
+    color : white;
+    transition-delay: 10ms;
+}
