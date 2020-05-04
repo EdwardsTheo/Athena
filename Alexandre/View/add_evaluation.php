@@ -1,11 +1,17 @@
+<?php 
+    require('../../Baptiste/Public/styles/header.css');
+    require('../../Baptiste/View/header.html');
+?>
 <!doctype html>
 <head>
     <meta charset="utf-8">
     <title>Ajouter Evaluation</title>
-    <link rel="stylesheet" type="text/css" href="css.css"/>
-    <link rel="stylesheet" type="text/css" href="add_evaluation.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css.css"/>
+    <link rel="stylesheet" type="text/css" href="../Public/add_evaluation.css"/>
+
 </head>
 <body>
+    <center>
     <div class="all">
         <div class="resumer_exo">
             <table>
@@ -31,4 +37,9 @@
             </table>
         </div>
     </div>
+    </center>
 </body>
+<?php 
+    require('../../Baptiste/Public/styles/header.css');
+    require('../../Baptiste/View/header.html');
+?>
