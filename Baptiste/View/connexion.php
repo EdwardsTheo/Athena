@@ -1,8 +1,11 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="Public/styles/connexion.css">
+        <link rel="stylesheet" href="Public/styles/button.css">
+        <link rel="stylesheet" href="Public/styles/font.css">
         <title></title>
     </head>
     <body>
@@ -32,7 +35,7 @@
                             </div>
             
                             <div class="form_group">
-                                <button class="btn btn--green">Next Step &rarr;</button>
+                                <input type="button" class="btn btn--green" value="Connection">
                             </div>
                         </form>
                     </div>

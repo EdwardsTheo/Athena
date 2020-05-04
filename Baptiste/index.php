@@ -1,5 +1,5 @@
 <?php
 
-require('View/header.html');
+require('View/home_student.php');
 
 ?>
