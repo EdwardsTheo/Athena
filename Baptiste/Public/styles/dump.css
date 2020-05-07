@@ -1,0 +1,75 @@
+/*-----------------*/
+
+.main_student {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 20%;
+    margin: 2%;
+}
+
+.info_box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 4%;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+}
+
+.redirect {
+    margin: 2%;
+    background-color: hotpink;
+    height: 10%;
+}
+
+.information_box{
+    display: flex;
+    font-family: "Roboto-Regular";
+}
+
+
+
+.contenu {
+    padding: 20px;
+}
+
+
+.box_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+    font-family: "Roboto-Regular";
+    
+}
+
+.label_profil {
+    display: flex;
+    
+}
+
+.person_profil {
+    display: flex;
+
+}
+
+.box_mdp {
+   display: flex;
+   margin: 2rem;
+   justify-content: space-evenly;
+}
+
+.form_mdp {
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info_title2 {
+    
+}

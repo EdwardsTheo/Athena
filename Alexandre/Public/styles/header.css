@@ -65,6 +65,7 @@
 .footer {
     display: flex;
     justify-content: space-evenly;
+   /*margin-top: 60rem;*/
     height: 20rem;
     background-color: #333;
     font-family: "Roboto";
@@ -102,8 +103,9 @@
     letter-spacing: 1.3rem;
     border-bottom: 1px solid #FFF;
 }
-
-.footer-primary {
-   
+@media only screen and (max-width: 56.25em) {
+    .footer__logo2 {
+      margin: auto;
+      padding: auto;
+    } 
 }
-

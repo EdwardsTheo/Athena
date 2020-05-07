@@ -1,45 +1,36 @@
-<?php 
-    require('../../Baptiste/Public/styles/header.css');
-    require('../../Baptiste/View/header.html');
-?>
 <!doctype html>
 <head>
     <meta charset="utf-8">
     <title>Ajouter Evaluation</title>
-    <link rel="stylesheet" type="text/css" href="../../css.css"/>
-    <link rel="stylesheet" type="text/css" href="../Public/add_evaluation.css"/>
+    <link rel="stylesheet" type="text/css" href="../../Baptiste/Public/styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../Public/styles/add_evaluation.css"/>
+    <link rel="stylesheet" type="text/css" href="../Public/css.css"/>
 
 </head>
 <body>
+<?php 
+    require('header.html');
+?>
     <center>
     <div class="all">
         <div class="resumer_exo">
-            <table>
-                <H3>Résumer exercice</H3>
-            </table>
+            <div class='tableau' style='overflow:scroll; border:#000000 1px solid; width:400px; height: 250px;'>
+                <table>
+                    <H3>Résumer exercice</H3>
+                </table>
+            </div>
         </div>
         <div class="horraire">
-            <table>
-                <tr>
-                    <p>Date, heure de lancement</p>
-                    <p>Date, heure de fin</p>
-                    <input type="submit" name="valider_eval" value="Valider évaluation" >
-                </tr>
-            </table>
+            <p>Date, heure de lancement</p>
+            <p>Date, heure de fin</p>
+            <input type="submit" name="valider_eval" value="Valider évaluation">
         </div>
         <div class="exercice">
-            <table>
-                <tr>
-                    <h3>Titre de l'excercie</h3> 
-                    <p>Consigne de L'exercice</p> 
-                    <input type="submit" name="add_evaluation" value="Ajouter exercice à l'évaluation">
-                </tr>
-            </table>
+            <h3>Titre de l'excercie</h3> 
+            <p>Consigne de L'exercice</p> 
+            <input type="submit" name="add_evaluation" value="Ajouter exercice à l'évaluation">
         </div>
     </div>
+    <?php require('footer.html')?>
     </center>
 </body>
-<?php 
-    require('../../Baptiste/Public/styles/header.css');
-    require('../../Baptiste/View/header.html');
-?>
