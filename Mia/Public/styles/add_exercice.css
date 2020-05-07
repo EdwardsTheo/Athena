@@ -1,0 +1,165 @@
+*{
+    border: none;
+}
+.all{
+    display :flex;
+    flex-direction: column;
+    background-color: #f8fff8;
+    border: none;
+  }
+input{
+    margin-top: 80px;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    }
+.up{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    }
+.right_up{
+    flex-basis: 50%;
+}
+
+.test{
+    padding: 0px;
+    list-style-type: none;
+    }
+.test .deroulant{
+    padding: 0px;
+    float : left;
+    width : 50%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    color: white;
+    background-color: rgb(108, 220, 113);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin-bottom : 10px;
+}
+.test::after{
+    content: "";
+    display : table;
+    clear: both;
+}
+.sous{
+    padding: 0px;
+    display: none;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    background-color : white;
+    /*z-index: 1000;*/
+}
+.test .deroulant:hover .sous{
+    padding: 0px;
+    display: block;
+}
+
+.sous li{
+    float: left;
+    width: 100%;
+    text-align : left;
+    list-style-type: none;
+    color : green;
+    background-color : white;
+}
+.sous input[type="checkbox"]{
+    margin : 0px;
+    padding : 0px;
+    /*! display:none; */
+}
+
+.sous input[type="radio"]{
+    margin : 0px;
+    padding : 0px;
+}
+input[type="radio"]{
+    color: green;
+}
+.left_up{
+    padding: 60px 60px 60px 120px; 
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    }
+
+textarea {
+    resize: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    border-color : grey;
+    border-block-end-color: grey;
+    }
+button{
+    padding: 0px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    margin-left : 75px;
+    width: 175px;
+    height: 19px;
+    background-color: white;
+    Color:green;
+    font-weight: bold;
+    cursor: pointer; 
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    position:relative;
+    overflow: hidden;
+    transition: background 200ms 6ms ease-in-out;
+    border-radius: 20px;
+    }
+    button:hover{
+    background: rgb(108, 220, 113);
+    color : white;
+    transition-delay: 10ms;
+    }
+
+/*_________________________________________*/
+
+
+.down{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    }
+.left_down{
+    flex-basis: 75%;
+    align-self: center;
+    align-content: right;
+    padding-left: 35%;
+    /*align-items: center;*/
+    }
+.right_down{
+    flex-basis: 25%;
+    align-content: right;
+    }
+
+input[type="submit"]{
+    background-color: rgb(108, 220, 113);
+    color : white;
+    margin: 0px;
+    margin-left: 23%
+    
+    }
+#chat{
+    width: 90px;
+    height: 90px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left : 0px;
+    margin-right: 0px;
+    background: rgb(108, 220, 113);
+    color : white;
+    border-radius: 50%;
+    }
+
+    #dropfile{
+        width: 400px;
+        height: 100px;
+        border: 3px dashed #BBBBBB;
+        line-height:50px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom : 10px
+        }
