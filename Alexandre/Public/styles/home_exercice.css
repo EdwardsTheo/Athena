@@ -1,0 +1,38 @@
+.link{
+    padding: 20px;
+    outline: none;
+    text-decoration: none;
+    line-height: 3;
+    color: black;
+    font-size: 1.2em;
+    
+}
+
+.link:hover {     
+    cursor:pointer;
+    color: #4A4A4A;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+.link:active {
+    color:black;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(0px); 
+}
+.top{
+    margin-top:30px;
+}
+.bottom{
+    margin-top:30px;
+
+}
+html{
+    height:100%;
+}
+body{
+    min-height: 100%;
+    margin:0;
+    padding:0;
+    position: relative;
+}

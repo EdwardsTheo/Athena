@@ -1,0 +1,67 @@
+.all{
+    display:flex;
+    flex-direction:column;
+    margin-left: 5%;
+}
+.part{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+.bottom{
+    display: flex;
+    flex-direction: row;
+}
+.exercice{
+    display:flex;
+    flex-direction: column;
+}
+.bottom_right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+}
+.chapter{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 120%;
+}
+.extra{
+    display: flex;
+    flex-direction: row;
+    margin-left: 40%;
+}
+.lien{
+    padding: 30px;
+    outline: none;
+    text-decoration: none;
+    line-height: 3;
+    color: black;
+}
+.lien:hover:before{
+    content:">>>"
+}
+
+.lien:hover {     
+    cursor:pointer;
+    color: #4A4A4A;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    text-decoration:red;
+
+}
+.lien:active {
+    color:black;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(0px); 
+}
+
+p{
+    margin-left:30%;
+}
+.tableau{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: grey 6px 6px 30px ;
+}

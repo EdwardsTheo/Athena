@@ -1,0 +1,44 @@
+.all{
+    display:flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.ressources{
+    display: flex;
+    flex-direction: column;
+}
+.exercices{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.input{
+    display: flex;
+    flex-direction: row;
+}
+.drop{
+    display: flex;
+    flex-direction: column;
+}
+.option{
+    display: flex;
+    flex-direction: column;
+}
+.extra{
+    display: flex;
+    flex-direction: row;
+}
+
+.tableau{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 10px 5px 5px grey ;
+}
+.input-left{
+    margin-top: 50%;
+}
+.input-bottom-right{
+    display: flex;
+    flex-direction: row;
+}
