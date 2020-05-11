@@ -1,5 +1,5 @@
 <?php
 
-require('View/home_student.php');
+require('View/add_exercice.php');
 
 ?>

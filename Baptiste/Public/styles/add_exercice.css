@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main_add_exo {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.box_ressource {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    flex: 0.5;
+
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+}
+
+.choose_chapter {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_index {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_add_exo {
+    background-color: green !important;
+}

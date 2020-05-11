@@ -1,5 +1,5 @@
 <?php
 
-require('View/add_class.php');
+require('View/evaluation.php');
 
 ?>

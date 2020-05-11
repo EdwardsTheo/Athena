@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.visu {
+    display: flex;
+    flex-direction: column;
+}
+
+.main_stu {
+    display: flex;
+}
+
+.box_visu {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+.progress_student {
+    
+}

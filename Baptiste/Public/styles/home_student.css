@@ -185,8 +185,8 @@
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
     font-size: 1.5rem;
     border-radius: 3px;
-    
 }
+
 .student:not(:last-child) {
     background-color: rgba(255, 255, 255, 0.8);
 }
