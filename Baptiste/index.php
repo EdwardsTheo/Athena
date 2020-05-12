@@ -1,5 +1,5 @@
 <?php
 
-require('View/add_exercice.php');
+require('View/visu_class.php');
 
 ?>
