@@ -1,0 +1,3 @@
+INSERT INTO `users` (`id_user`, `nom`, `prenom`, `email`, `status_user`, `password`) VALUES (NULL, 'Salerno', 'Mia', 'salerno@intechinfo.fr', 'eleve', 'salerno');
+INSERT INTO `users` (`id_user`, `nom`, `prenom`, `email`, `status_user`, `password`) VALUES (NULL, 'Theobald', 'Baptiste', 'theobald@intechinfo.fr', 'eleve', 'theobald');
+INSERT INTO `users` (`id_user`, `nom`, `prenom`, `email`, `status_user`, `password`) VALUES (NULL, 'Trillot', 'Alexandre', 'atrillot@intechinfo.fr', 'eleve', 'trillot');

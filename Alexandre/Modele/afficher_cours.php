@@ -10,12 +10,7 @@
             unset($data[array_search($delete,$data)]);
             $nom_cours = implode($data);
             $nom_cours = str_replace(" ","",$nom_cours);
-            for ($j=1;$j<=8;$j++) {
-                if ($j == 1 OR $j == 4 OR $j == 8) {
-                    echo '<tr>';
-               }
-            }
-            echo "<form method='GET' action=''><td><input type='submit' value=".$nom_cours." name=".$nom_cours."></form></td>";
+            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form><tr> ";
         }
     }
 
