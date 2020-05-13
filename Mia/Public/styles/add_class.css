@@ -1,69 +1,12 @@
-.all{
-  display :flex;
-  flex-direction: column;
-  background-color: #f8fff8;
-}
-.up{
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-}
-.right_up{
-  flex-basis: 50%;
-}
-.center_up{
-  display: flex;
-  flex-direction: column;
-   flex-basis: 25%;
-}
-.left_up{
-  flex-basis: 25%;
-  padding-left : 50px;
-}
-input{
-  margin-top: 80px;
-  border-radius: 5px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  border : none;
-}
-textarea {
-  resize: none;
-  margin-top: 20px;
-  border-radius: 5px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  border-color : grey;
-  border : none;
+.form_add {
+    display: flex;
+    flex-direction: column;
 }
 
-
-/*_________________________________________*/
-
-
-.down{
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-}
-.left_down{
-  padding-left: 50px; 
+.add {
+    margin: 1.5rem;
 }
 
-
-input[type="submit"]{
-  background-color: rgb(108, 220, 113);
-  color : white;
-  margin: 0px;
-  margin-left: 23%;
-  margin-top : 50%;
-  }
-#chat{
-  width: 90px;
-  height: 90px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  margin-left : 0px;
-  margin-right:40px;
-  background: rgb(108, 220, 113);
-  color : white;
-  border-radius: 50%;
+.main_add_class {
+    margin-bottom: 3rem;
 }

@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php
-            require("header.html");
+            require("header.php");
         ?>
         <form action="#" method="POST">
             <div class="all">
@@ -37,7 +37,7 @@
             </div>
         
         <?php 
-            require("footer.html");
+            require("footer.php");
         ?>
     </body>
 </html>
