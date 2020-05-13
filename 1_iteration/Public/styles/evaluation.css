@@ -1,0 +1,122 @@
+*{
+    border: none;
+}
+.all{
+    display :flex;
+    flex-direction: column;
+    background-color: #f8fff8;
+    border: none;
+  }
+input{
+    margin-top: 80px;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    }
+.up{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    }
+.right_up{
+    flex-basis: 60%;
+}
+
+.test{
+    padding: 0px;
+    list-style-type: none;
+    }
+
+.test .deroulant{
+    padding: 0px;
+    float : left;
+    width : 50%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    color: white;
+    background-color: rgb(108, 220, 113);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin-bottom : 10px;
+}
+.test::after{
+    content: "";
+    display : table;
+    clear: both;
+}
+.sous{
+    padding: 0px;
+    display: none;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    background-color : white;
+    /*z-index: 1000;*/
+}
+.test .deroulant:hover .sous{
+    padding: 0px;
+    display: block;
+}
+
+.sous li{
+    float: left;
+    width: 100%;
+    text-align : left;
+    list-style-type: none;
+    color : green;
+    background-color : white;
+}
+.sous input[type="checkbox"]{
+    margin : 0px;
+    padding : 0px;
+    /*! display:none; */
+}
+a{
+    color : green;
+}
+.sous input[type="radio"]{
+    margin : 0px;
+    padding : 0px;
+}
+input[type="radio"]{
+    color: green;
+}
+.left_up{
+    padding: 60px 60px 60px 120px; 
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    }
+
+textarea {
+    resize: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    border-color : grey;
+    border-block-end-color: grey;
+    }
+/*_________________________________________*/
+
+
+.down{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    }
+
+input[type="submit"]{
+    background-color: rgb(108, 220, 113);
+    color : white;
+    margin: 0px;
+    width : 200px;
+    margin-left : 20%;
+    }
+#dropfile{
+    width: 400px;
+    height: 100px;
+    border: 3px dashed #BBBBBB;
+    line-height:50px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom : 10px;
+
+    }
