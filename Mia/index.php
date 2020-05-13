@@ -1,5 +1,5 @@
 <?php
-/*if(isset($_GET["layout"])){
+if(isset($_GET["layout"])){
     $layout = $_GET["layout"];
     switch ($layout) {
         case "home_prof" : require('View/home_prof.php');
@@ -12,13 +12,13 @@ else{
     if(isset($_GET["action"])){
         $action = $_GET["action"];
         switch ($action) {
-            case "connecter" : require('View/connecter.php');
+            case "connecter" : require('Modele/connecter.php');
             break;
         }
     }
     else{
         require('View/connexion.php');
     }
-}*/
-require('View/add_class.php');
+}
+
 ?>

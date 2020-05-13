@@ -18,7 +18,7 @@
             <section class="section-book">
                 <div class="row">
                     <div class="book">
-                        <?php 
+                    <?php 
                             if(isset($_GET["error"])){
                                 $error = $_GET["error"];
                                 if ($error == "1"){
@@ -29,14 +29,14 @@
                                 }
                             }
                         ?>
-                        <form action="index.php?action=connecter" class="form" method="POST">
+                         <form action="index.php?action=connecter" class="form" method="POST">
                            <div class="u-margin-bottom-medium">
                                 <h2 class="heading-secondary">
                                     Connectez-vous avec votre adresse email intech
                                 </h2>
                             </div>
                             <div class="form_group">
-                                <input type="email" class="form_input" placeholder="Email" id="name" name="email" pattern=".+@intechinfo.fr" required>
+                            <input type="email" class="form_input" placeholder="Email" id="name" name="email" pattern=".+@intechinfo.fr" required>
                                 
                             </div>
                             <div class="form_group">

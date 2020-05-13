@@ -10,7 +10,7 @@
             unset($data[array_search($delete,$data)]);
             $nom_cours = implode($data);
             $nom_cours = str_replace(" ","",$nom_cours);
-            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form><tr>";
+            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form><tr> ";
         }
     }
 
