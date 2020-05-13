@@ -1,5 +1,5 @@
 <?php
 
-require('View/visu_class.php');
+require('View/evaluation.php');
 
 ?>

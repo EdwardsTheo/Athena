@@ -59,22 +59,22 @@
                 </div>
             </div>
             <div class="box_text">
-            <div class="box_ressource order">
-                <div class="heading_zone">    
-                    <div class="input_text">
-                        <input type="text" class="form_input" placeholder="Titre du cours" id="mdp">
+                <div class="box_ressource order">
+                    <div class="heading_zone">    
+                        <div class="input_text">
+                            <input type="text" class="form_input" placeholder="Titre du cours" id="mdp">
+                        </div>
+                    </div>
+                    <div class="text_area_consigne">
+                        <textarea class="text_consigne" id="text_area">Contenue du Cours</textarea>
                     </div>
                 </div>
-                <div class="text_area_consigne">
-                    <textarea class="text_consigne" id="text_area">Contenue du Cours</textarea>
+                <div class="validation box_add">
+                    <form action="#" class="form_bottom">
+                        <input type="submit" class="btn btn--green btn_bottom2" value="Ajouter Cours" id="btn">
+                    </form>
                 </div>
             </div>
-            <div class="validation box_add">
-                <form action="#" class="form_bottom">
-                    <input type="submit" class="btn btn--green btn_bottom2" value="Ajouter Cours" id="btn">
-                </form>
-            </div>
-        </div>
         </section>
 
     <?php require("footer.php"); ?>
