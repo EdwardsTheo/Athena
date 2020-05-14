@@ -10,7 +10,7 @@
             unset($data[array_search($delete,$data)]);
             $nom_cours = implode($data);
             $nom_cours = str_replace(" ","",$nom_cours);
-            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form><tr>";
+            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form><tr> ";
         }
     }
 
@@ -26,7 +26,7 @@
             $answer = $bdd->query('SELECT`nom_cours` FROM `cours` WHERE id_chapitre = 2 AND index_cours = "'.$i.'"');
             classes($answer);
             if ($i == 4 OR $i == 8) {
-                echo '<br/>';
+                echo '</tr>';
             }
         }
     }
