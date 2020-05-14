@@ -29,7 +29,7 @@
                     Exercices de l'évaluation
                     </p>
                 </div>
-                <form action="#" class="form_index">
+                <form action="index.php?action=exercice.php" class="form_index" method="GET">
                     <input type="submit" class="btn_index btn_add_exo" value="Bonbon.js" id="btn">
                     <input type="submit" class="btn_index btn_add_exo" value="Exercice Facile" id="btn">
                     </form>

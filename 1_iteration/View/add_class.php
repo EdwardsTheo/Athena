@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Public/styles/add_exercice.css">
-        <link rel="stylesheet" href="Public/styles/add_class.css">
-        <link rel="stylesheet" href="Public/styles/home_student.css">
-        <link rel="stylesheet" href="Public/styles/exercice.css">
-        <link rel="stylesheet" href="Public/styles/button.css">
-        <link rel="stylesheet" href="Public/styles/font.css">
-        <link rel="stylesheet" href="Public/styles/class.css">
+        <link rel="stylesheet" href="../Public/styles/add_exercice.css">
+        <link rel="stylesheet" href="../Public/styles/add_class.css">
+        <link rel="stylesheet" href="../Public/styles/home_student.css">
+        <link rel="stylesheet" href="../Public/styles/exercice.css">
+        <link rel="stylesheet" href="../Public/styles/button.css">
+        <link rel="stylesheet" href="../Public/styles/font.css">
+        <link rel="stylesheet" href="../Public/styles/class.css">
         <title>Page d'ajout de cours</title>
     </head>
     <body>

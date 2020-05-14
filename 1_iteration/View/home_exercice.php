@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Public/styles/home_prof.css">
-    <link rel="stylesheet" href="Public/styles/home_exercice.css">
-    <link rel="stylesheet" href="Public/styles/font.css">
-    <link rel="stylesheet" href="Public/styles/button.css">
-    <link rel="stylesheet" href="Public/styles/home_student.css">
+    <link rel="stylesheet" href="../Public/styles/home_prof.css">
+    <link rel="stylesheet" href="../Public/styles/home_exercice.css">
+    <link rel="stylesheet" href="../Public/styles/font.css">
+    <link rel="stylesheet" href="../Public/styles/button.css">
+    <link rel="stylesheet" href="../Public/styles/home_student.css">
     <title>Home Exercice</title>
 
 </head>
@@ -30,8 +30,15 @@
                 <div class="progress-bar progress_exo">
                     <span style="width: 15%">15%</span>
                 </div>
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                <form action="index.php?action" class="form_mdp">
+                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='cours_1'>
+                    <table>
+                        <?php 
+                            if(isset($_GET['cours_1'])) {
+                                require('../Modele/afficher_cours.php');
+                            }
+                        ?>
+                    </table>
                 </form>
             </div>
             <div class="red_section">
@@ -43,8 +50,15 @@
                 <div class="progress-bar progress_exo">
                     <span style="width: 30%">30%</span>
                 </div>
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                <form action="" class="form_mdp">
+                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='action=cours_2'>
+                    <table>
+                        <?php 
+                            if(isset($_GET['cours_2'])) {
+                                require('../Modele/afficher_cours.php');
+                            }
+                        ?>
+                    </table>
                 </form>
             </div>
             <div class="red_section">
@@ -56,8 +70,15 @@
                 <div class="progress-bar progress_exo">
                     <span style="width: 25%">25%</span>
                 </div>
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                <form action="" class="form_mdp">
+                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="action=cours_3">
+                    <table>
+                        <?php 
+                            if(isset($_GET['cours_3'])) {
+                                require('../Modele/afficher_cours.php');
+                            }
+                        ?>
+                    </table>
                 </form>
             </div>
             <div class="red_section">
@@ -69,8 +90,15 @@
                 <div class="progress-bar progress_exo">
                     <span style="width: 15%">15%</span>
                 </div>
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                <form action="" class="form_mdp">
+                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='action=cours_4'>
+                    <table>
+                        <?php 
+                            if(isset($_GET['cours_4'])) {
+                                require('../Modele/afficher_cours.php');
+                            }
+                        ?>
+                    </table>
                 </form>
             </div>
             <div class="red_section">
@@ -82,8 +110,15 @@
                 <div class="progress-bar progress_exo">
                     <span style="width: 0%">0%</span>
                 </div>
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                <form action="" class="form_mdp">
+                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="action=cours_5">
+                    <table>
+                        <?php 
+                            if(isset($_GET['cours_5'])) {
+                                require('../Modele/afficher_cours.php');
+                            }
+                        ?>
+                    </table>
                 </form>
             </div>
         </div>
