@@ -27,7 +27,7 @@
                     }
                 }
                 ?>
-                <form action="#" class="form">
+                <form action="index.php?action=connecter.php" class="form" method="POST">
                     <div class="u-margin-bottom-medium">
                         <p class="heading-secondary">
                             Connectez-vous avec votre adresse email
