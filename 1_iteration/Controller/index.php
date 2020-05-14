@@ -1,6 +1,7 @@
 <?php 
 $content_for_layout = '../Modele/afficher_cours.php';
-    if (isset($_GET['action'])) {
+    
+    if(isset($_GET['action'])) {
             switch ($_GET['action']) {
                 case 'add_class.php':
                     require('../View/add_class.php');
@@ -51,7 +52,7 @@ $content_for_layout = '../Modele/afficher_cours.php';
                 break;
             }
     }
-    elseif (isset($_GET['cours_1']) OR isset($_GET['cours_2']) OR isset($_GET['cours_3']) OR isset($_GET['cours_4']) OR isset($_GET['cours_5'])) {
+    elseif (isset($_GET['afficher']) OR isset($_GET['afficher']) OR isset($_GET['afficher']) OR isset($_GET['afficher']) OR isset($_GET['afficher'])) {
         require('../View/home_class.php');
     }
     else {

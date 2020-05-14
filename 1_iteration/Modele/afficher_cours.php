@@ -5,63 +5,76 @@
     ///--------Afficher rubriques--------////
 
     function classes($answer) {
+        echo " <div class='box_row'>";
         while ($data = $answer->fetch()) {
-            $delete = $data['nom_cours'];
-            unset($data[array_search($delete,$data)]);
-            $nom_cours = implode($data);
-            $nom_cours = str_replace(" ","",$nom_cours);
+            $name_rubrik = $data['nom_rubrique'];
             echo "<div class=\"red_section red_exo\">
             <svg class=\"box-nav_exo\">
-                <use xlink:href=\"../Public/svg/symbol-defs.svg#icon-javascript\"></use>
+                <use xlink:href='$_GET[SVG]'></use>
             </svg>
             <h3 class=\"heading_red heading_exo\">
-            \"$nom_cours\"
+            \"$name_rubrik\"
             </h3>
             <div class=\"status\">
                 <p class=\"message\">
-                Cours lu
+                Rubrique non commencée
                 </p>
                 <svg class=\"box-nav_exo\">
-                    <use xlink:href=\"../Public/svg/symbol-defs.svg#icon-check\"></use>
+                    <use xlink:href=\"../Public/svg/symbol-defs.svg#icon-circle-with-cross\"></use>
                 </svg>
             </div>  
             <form action=\"#\" class=\"form_mdp\">
-                <input type=\"submit\" class=\"btn btn--green btn_section \" name=\"$nom_cours\" value=\"$nom_cours\" id=\"btn\">
+                <input type=\"submit\" class=\"btn btn--green btn_section \" name=\"$name_rubrik\" value=\"Lire cours\" id=\"btn\">
             </form>
         </div>";
         }
+        echo " </div>";
     }
 
-
-    if (isset($_GET['cours_1'])) {
-        for ($i=1;$i<7;$i++){
-            $answer = $bdd->query('SELECT`nom_cours` FROM `cours` WHERE id_chapitre = 1 AND index_cours = "'.$i.'"');
-            classes($answer);
-        }
-    }
-    elseif (isset($_GET['cours_2'])) {
-        for ($i=1;$i<13;$i++) {
-            $answer = $bdd->query('SELECT`nom_cours` FROM `cours` WHERE id_chapitre = 2 AND index_cours = "'.$i.'"');
-            classes($answer);
-            if ($i == 3 OR $i == 7) {
-                echo '</div>';
+    function classesNode($answer) {
+        $i = 0;
+        while ($data = $answer->fetch()) {
+            $name_rubrik = $data['nom_rubrique'];
+            if($i == 0) {
+                echo "<div class='box_row'>";
             }
+            elseif($i == 6) {
+                echo "</div>";
+                echo "<div class='box_row'>";
+            }
+            elseif($i == 9) {
+                echo "</div>";
+                echo "<div class='box_row'>";
+            }
+            echo "<div class=\"red_section red_exo\">
+            <svg class=\"box-nav_exo\">
+                <use xlink:href='$_GET[SVG]'></use>
+            </svg>
+            <h3 class=\"heading_red heading_exo\">
+            \"$name_rubrik\"
+            </h3>
+            <div class=\"status\">
+                <p class=\"message\">
+                Rubrique non commencée
+                </p>
+                <svg class=\"box-nav_exo\">
+                    <use xlink:href=\"../Public/svg/symbol-defs.svg#icon-circle-with-cross\"></use>
+                </svg>
+            </div>  
+            <form action=\"#\" class=\"form_mdp\">
+                <input type=\"submit\" class=\"btn btn--green btn_section \" name=\"$name_rubrik\" value=\"Lire cours\" id=\"btn\">
+            </form>
+        </div>";
+        $i++;
         }
+        echo "</div>";
     }
-    elseif (isset($_GET['cours_3'])) {
-        for ($i=1;$i<4;$i++) {
-            $answer = $bdd->query('SELECT`nom_cours` FROM `cours` WHERE id_chapitre = 3 AND index_cours = "'.$i.'"');
-            classes($answer);
-        }
+
+
+    if (isset($_GET['afficher'])) {
+        $answer = $bdd->query('SELECT`nom_rubrique` FROM `rubriques` WHERE id_chapitre = "'.$_GET['rubrique'].'"');
+        if($_GET['rubrique'] == 2) classesNode($answer);
+        else classes($answer);
     }
-    elseif (isset($_GET['cours_4'])) {
-        $answer = $bdd->query('SELECT`nom_cours` FROM `cours` WHERE id_chapitre = 4 AND index_cours = 1');
-        classes($answer);
-    }
-    elseif (isset($_GET['cours_5'])) {
-        for ($i=1;$i<3;$i++){
-            $answer = $bdd->query('SELECT`nom_cours` FROM `cours` WHERE id_chapitre = 5 AND index_cours = "'.$i.'"');
-            classes($answer);
-        }
-    }
+    
 ?>

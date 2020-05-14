@@ -36,3 +36,11 @@ INSERT INTO `cours`(`id_cours`, `id_chapitre`, `index_cours`, `nom_cours`, `cont
 INSERT INTO `cours`(`id_cours`, `id_chapitre`, `index_cours`, `nom_cours`, `contenu_cours`) VALUES ('23','5','2','Expressions régulières avancées','');
 
 
+INSERT INTO `rubriques` (`id_rubrique`, `id_chapitre`, `index_rubrique`, `nom_rubrique`) VALUES (NULL, '3', '1', 'HTML5');
+INSERT INTO `rubriques` (`id_rubrique`, `id_chapitre`, `index_rubrique`, `nom_rubrique`) VALUES (NULL, '3', '2', 'CSS3');
+INSERT INTO `rubriques` (`id_rubrique`, `id_chapitre`, `index_rubrique`, `nom_rubrique`) VALUES (NULL, '3', '3', 'Exemples HTML5/CSS3');
+
+INSERT INTO `rubriques` (`id_rubrique`, `id_chapitre`, `index_rubrique`, `nom_rubrique`) VALUES (NULL, '4', '1', 'Algorithmique : tri'); 
+
+INSERT INTO `rubriques` (`id_rubrique`, `id_chapitre`, `index_rubrique`, `nom_rubrique`) VALUES (NULL, '5', '1', 'Initiation à la programmation en Perl');
+INSERT INTO `rubriques` (`id_rubrique`, `id_chapitre`, `index_rubrique`, `nom_rubrique`) VALUES (NULL, '5', '2', 'Expressions régulières avancées'); 
