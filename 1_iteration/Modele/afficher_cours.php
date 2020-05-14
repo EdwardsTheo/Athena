@@ -1,22 +1,7 @@
 <?php 
-    //require('connexion_sql.php');
-    //$bdd = connexion_bdd();
-    $host = "127.0.0.1";
-    $dbname = "Athena";
-    $user= "root";
-    $mdp = "root";
-    $port = "8889";
-    try {
-            $bdd = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $mdp);
-            
-            // set the PDO error mode to exception
-            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-            return $bdd;
-    }
-    catch(PDOException $e)
-    {
-            echo "Connection failed: " . $e->getMessage();
-    }
+    require('connexion_bdd.php');
+    $bdd = connexion_bdd();
+
     ///--------Afficher rubriques--------////
 
     function classes($answer) {
@@ -25,7 +10,7 @@
             unset($data[array_search($delete,$data)]);
             $nom_cours = implode($data);
             $nom_cours = str_replace(" ","",$nom_cours);
-            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form><tr>";
+            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form></tr>";
         }
     }
 

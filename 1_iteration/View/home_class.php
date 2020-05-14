@@ -3,13 +3,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de cours</title>
-    <link rel="stylesheet" href="Public/styles/home_prof.css">
-    <link rel="stylesheet" href="Public/styles/home_student.css">
-    <link rel="stylesheet"  href="Public/styles/home_exercice.css">
-    <link rel="stylesheet"  href="Public/styles/header.css">
-    <link rel="stylesheet"  href="Public/styles/button.css">
-    <link rel="stylesheet"  href="Public/styles/font.css">
-    <link rel="stylesheet"  href="Public/styles/test.css">
+    <link rel="stylesheet" href="../Public/styles/home_prof.css">
+    <link rel="stylesheet" href="../Public/styles/home_student.css">
+    <link rel="stylesheet" href="../Public/styles/home_exercice.css">
+    <link rel="stylesheet" href="../Public/styles/header.css">
+    <link rel="stylesheet" href="../Public/styles/button.css">
+    <link rel="stylesheet" href="../Public/styles/font.css">
+    <link rel="stylesheet" href="../Public/styles/test.css">
 </head>
 <body>
 <?php require('header.php') ?>
@@ -23,7 +23,7 @@
         <div class="box_row">
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-tux"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-tux"></use>
                 </svg>
                 <h3 class="heading_red">
                 Prise en main de Linux</h3>
@@ -32,10 +32,10 @@
                 </div>
                 <form action="" class="form_mdp" method="GET">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_1"><br/>
-                    <table>
+                    <table>          
                         <?php 
                             if (isset($_GET['cours_1'])) {
-                                require('../../Alexandre/Modele/afficher_cours.php');
+                                require('../Modele/afficher_cours.php');
                             }
                         ?>
                     </table>
@@ -43,7 +43,7 @@
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-javascript"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
                 </svg>
                 <h3 class="heading_red">
                 Apprendre à programmer</h3>
@@ -53,19 +53,17 @@
                 <form action="" class="form_mdp" method="GET">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_2"><br/>
                     <table>
-                        <tr>
                             <?php 
                                 if (isset($_GET['cours_2'])) {
-                                    require('../../Alexandre/Modele/afficher_cours.php');
-                                }
+                                    require('../Modele/afficher_cours.php');
+                                }                                
                             ?>
-                        </tr>
                     </table>
                 </form>
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-html-five"></use>
                 </svg>
                 <h3 class="heading_red">
                 Initiation à HTML5</h3>
@@ -75,19 +73,19 @@
                 <form action="" class="form_mdp">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_3"><br/>
                     <table>
-                        <tr>
+
                             <?php 
                                 if (isset($_GET['cours_3'])) {
-                                    require('../../Alexandre/Modele/afficher_cours.php');
+                                    require('../Modele/afficher_cours.php');                                
                                 }
                             ?>
-                        </tr>
+
                     </table>
                 </form>
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-datacamp"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-datacamp"></use>
                 </svg>
                 <h3 class="heading_red">
                 Structure de données</h3>
@@ -97,19 +95,19 @@
                 <form action="" class="form_mdp">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_4"><br/>
                     <table>
-                        <tr>
+
                             <?php 
                                 if (isset($_GET['cours_4'])) {
-                                    require('../../Alexandre/Modele/afficher_cours.php');
+                                    require('../Modele/afficher_cours.php');                                
                                 }
                             ?>
-                        </tr>
+
                     </table>
                 </form>
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-terminal"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-terminal"></use>
                 </svg>
                 <h3 class="heading_red">
                 PERL</h3>
@@ -119,13 +117,13 @@
                 <form action="" class="form_mdp">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_5"><br/>
                     <table>
-                        <tr>
+
                             <?php 
                                 if (isset($_GET['cours_5'])) {
-                                    require('../../Alexandre/Modele/afficher_cours.php');
+                                    require('../Modele/afficher_cours.php');                                
                                 }
                             ?>
-                        </tr>
+
                     </table>
                 </form>
             </div>
@@ -141,7 +139,7 @@
         <div class="box_row">
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-javascript"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 Valeurs et variables
@@ -151,7 +149,7 @@
                     Cours lu
                     </p>
                     <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-check"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-check"></use>
                     </svg>
                 </div>  
                 <form action="#" class="form_mdp">
@@ -160,7 +158,7 @@
             </div>
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-javascript"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 Structures de contrôle
@@ -170,7 +168,7 @@
                     Cours lu
                     </p>
                     <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-check"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-check"></use>
                     </svg>
                 </div>  
                 <form action="#" class="form_mdp">
@@ -179,7 +177,7 @@
             </div>
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-javascript"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 Fonction
@@ -189,7 +187,7 @@
                     Continuez la lecture
                     </p>
                     <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
                     </svg>
                 </div>  
                 <form action="#" class="form_mdp">
@@ -198,7 +196,7 @@
             </div>
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-javascript"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 Objet et tableau
@@ -208,7 +206,7 @@
                     Commencez le cours !
                     </p>
                     <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
                     </svg>
                 </div>  
                 <form action="#" class="form_mdp">

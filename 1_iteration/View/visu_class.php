@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="Public/styles/font.css">
-    <link rel="stylesheet" href="Public/styles/button.css">
-    <link rel="stylesheet" href="Public/styles/home_student.css">
-    <link rel="stylesheet" href="Public/styles/home_exercice.css">
-    <link rel="stylesheet" href="Public/styles/visu_class.css">
+    <link rel="stylesheet" href="../Public/styles/font.css">
+    <link rel="stylesheet" href="../Public/styles/button.css">
+    <link rel="stylesheet" href="../Public/styles/home_student.css">
+    <link rel="stylesheet" href="../Public/styles/home_exercice.css">
+    <link rel="stylesheet" href="../Public/styles/visu_class.css">
     <title>Visu Class</title>
     
 </head>

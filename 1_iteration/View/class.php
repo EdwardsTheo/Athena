@@ -3,11 +3,11 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Public/styles/home_prof.css">
-        <link rel="stylesheet" href="Public/styles/home_student.css">
-        <link rel="stylesheet" href="Public/styles/font.css">
-        <link rel="stylesheet" href="Public/styles/button.css">
-        <link rel="stylesheet" href="Public/styles/class.css">
+        <link rel="stylesheet" href="../Public/styles/home_prof.css">
+        <link rel="stylesheet" href="../Public/styles/home_student.css">
+        <link rel="stylesheet" href="../Public/styles/font.css">
+        <link rel="stylesheet" href="../Public/styles/button.css">
+        <link rel="stylesheet" href="../Public/styles/class.css">
         <title>Page de cours</title>
     </head>
     <body>
@@ -22,7 +22,7 @@
         <div class="main_class">
             <div class="box_class index">
                 <div class="head_btn">
-                    <a href="#" class="btn-text_index">&larr; Retour au choix du cours</a>
+                    <a href="index.php?action=home_class.php" class="btn-text_index">&larr; Retour au choix du cours</a>
                 </div>
                 <form action="#" class="form_index">
                     <input type="submit" class="btn_index" value="01 Valeur et information" id="btn">

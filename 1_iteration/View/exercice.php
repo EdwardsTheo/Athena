@@ -3,12 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercices</title>
-    <link rel="stylesheet" href="Public/styles/home_prof.css">
-    <link rel="stylesheet" href="Public/styles/home_student.css">
-    <link rel="stylesheet"  href="Public/styles/exercice.css">
-    <link rel="stylesheet"  href="Public/styles/header.css">
-    <link rel="stylesheet"  href="Public/styles/button.css">
-    <link rel="stylesheet"  href="Public/styles/font.css">
+    <link rel="stylesheet" href="../Public/styles/home_prof.css">
+    <link rel="stylesheet" href="../Public/styles/home_student.css">
+    <link rel="stylesheet"  href="../Public/styles/exercice.css">
+    <link rel="stylesheet"  href="../Public/styles/header.css">
+    <link rel="stylesheet"  href="../Public/styles/button.css">
+    <link rel="stylesheet"  href="../Public/styles/font.css">
 </head>
 <body>
 <?php require('header.php') ?>
