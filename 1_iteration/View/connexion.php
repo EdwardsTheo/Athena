@@ -40,7 +40,7 @@
                         <input type="password" class="form_input" placeholder="Mot de passe" id="password" required>
                     </div>
                     <div class="form_group">
-                        <input type="button" class="btn btn--green" value="Connexion">
+                        <input type="submit" class="btn btn--green" value="Connexion">
                     </div>
                 </form>
             </div>
