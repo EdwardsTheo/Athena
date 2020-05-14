@@ -10,7 +10,25 @@
             unset($data[array_search($delete,$data)]);
             $nom_cours = implode($data);
             $nom_cours = str_replace(" ","",$nom_cours);
-            echo "<tr><form method='GET' action=''><input type='submit' value=".$nom_cours." name=".$nom_cours."></form></tr>";
+            echo "<div class=\"red_section red_exo\">
+            <svg class=\"box-nav_exo\">
+                <use xlink:href=\"../Public/svg/symbol-defs.svg#icon-javascript\"></use>
+            </svg>
+            <h3 class=\"heading_red heading_exo\">
+            Valeurs et variables
+            </h3>
+            <div class=\"status\">
+                <p class=\"message\">
+                Cours lu
+                </p>
+                <svg class=\"box-nav_exo\">
+                    <use xlink:href=\"../Public/svg/symbol-defs.svg#icon-check\"></use>
+                </svg>
+            </div>  
+            <form action=\"#\" class=\"form_mdp\">
+                <input type=\"submit\" class=\"btn btn--green btn_section \" name=\"$nom_cours\" value=\"$nom_cours\" id=\"btn\">
+            </form>
+        </div>";
         }
     }
 

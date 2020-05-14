@@ -52,13 +52,7 @@
                 </div>
                 <form action="" class="form_mdp" method="GET">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_2"><br/>
-                    <table>
-                        <?php 
-                            if (isset($_GET['cours_2']) AND $_GET['cours_2'] == 'Afficher') {
-                                include($content_for_layout);                                  
-                            }
-                        ?>
-                    </table>
+                        
                 </form>
             </div>
             <div class="red_section">
@@ -131,82 +125,11 @@
             </p>
         </div>
         <div class="box_row">
-            <div class="red_section red_exo">
-                <svg class="box-nav_exo">
-                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
-                </svg>
-                <h3 class="heading_red heading_exo">
-                Valeurs et variables
-                </h3>
-                <div class="status">
-                    <p class="message">
-                    Cours lu
-                    </p>
-                    <svg class="box-nav_exo">
-                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-check"></use>
-                    </svg>
-                </div>  
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                </form>
-            </div>
-            <div class="red_section red_exo">
-                <svg class="box-nav_exo">
-                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
-                </svg>
-                <h3 class="heading_red heading_exo">
-                Structures de contrôle
-                </h3>
-                <div class="status">
-                    <p class="message">
-                    Cours lu
-                    </p>
-                    <svg class="box-nav_exo">
-                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-check"></use>
-                    </svg>
-                </div>  
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                </form>
-            </div>
-            <div class="red_section red_exo">
-                <svg class="box-nav_exo">
-                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
-                </svg>
-                <h3 class="heading_red heading_exo">
-                Fonction
-                </h3>
-                <div class="status">
-                    <p class="message">
-                    Continuez la lecture
-                    </p>
-                    <svg class="box-nav_exo">
-                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
-                    </svg>
-                </div>  
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                </form>
-            </div>
-            <div class="red_section red_exo">
-                <svg class="box-nav_exo">
-                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
-                </svg>
-                <h3 class="heading_red heading_exo">
-                Objet et tableau
-                </h3>
-                <div class="status">
-                    <p class="message">
-                    Commencez le cours !
-                    </p>
-                    <svg class="box-nav_exo">
-                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
-                    </svg>
-                </div>  
-                <form action="#" class="form_mdp">
-                    <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                </form>
-            </div>
+            <?php 
+                if (isset($_GET['cours_2']) AND $_GET['cours_2'] == 'Afficher') {
+                    include($content_for_layout);                                  
+                }
+            ?>
         </div>
     </section>
 <?php require('footer.php') ?>
