@@ -34,13 +34,13 @@
                         </p>
                     </div>
                     <div class="form_group">
-                        <input type="text" class="form_input" placeholder="Email" id="name" pattern=".+@intechinfo.fr" required>
+                        <input type="text" class="form_input" placeholder="Email" id="name" pattern=".+@intechinfo.fr" name="email" required>
                     </div>
                     <div class="form_group">
-                        <input type="password" class="form_input" placeholder="Mot de passe" id="password" required>
+                        <input type="password" class="form_input" placeholder="Mot de passe" id="password" name="password" required>
                     </div>
                     <div class="form_group">
-                        <input type="button" class="btn btn--green" value="Connexion">
+                        <input type="submit" class="btn btn--green" name="button" value="Connexion">
                     </div>
                 </form>
             </div>
