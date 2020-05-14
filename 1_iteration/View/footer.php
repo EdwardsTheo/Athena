@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="Public/styles/header.css">
-        <link rel="stylesheet" href="Public/styles/font.css">
+        <link rel="stylesheet" href="../Public/styles/header.css">
+        <link rel="stylesheet" href="../Public/styles/font.css">
         <title>Header</title>
     </head>
     <body>

@@ -23,7 +23,7 @@
         <div class="box_row">
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-tux"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-tux"></use>
                 </svg>
                 <h3 class="heading_red">
                 Prise en main de Linux</h3>
@@ -43,7 +43,7 @@
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-javascript"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-javascript"></use>
                 </svg>
                 <h3 class="heading_red">
                 Apprendre à programmer</h3>
@@ -63,7 +63,7 @@
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-html-five"></use>
                 </svg>
                 <h3 class="heading_red">
                 Initiation à HTML5</h3>
@@ -83,7 +83,7 @@
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-datacamp"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-datacamp"></use>
                 </svg>
                 <h3 class="heading_red">
                 Structure de données</h3>
@@ -103,7 +103,7 @@
             </div>
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-terminal"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-terminal"></use>
                 </svg>
                 <h3 class="heading_red">
                 PERL</h3>
@@ -133,7 +133,7 @@
         <div class="box_row">
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-html-five"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 home page evolué
@@ -152,7 +152,7 @@
             </div>
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-html-five"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 Formulaire d'inscription
@@ -162,7 +162,7 @@
                     Exercice terminé
                     </p>
                     <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-check"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-check"></use>
                     </svg>
                 </div>  
                 <form action="#" class="form_mdp">
@@ -171,7 +171,7 @@
             </div>
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-html-five"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 Navigation animale
@@ -181,7 +181,7 @@
                     Continuez l'exercice 
                     </p>
                     <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
                     </svg>
                 </div>  
                 <form action="#" class="form_mdp">
@@ -190,7 +190,7 @@
             </div>
             <div class="red_section red_exo">
                 <svg class="box-nav_exo">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-html-five"></use>
                 </svg>
                 <h3 class="heading_red heading_exo">
                 Poème
@@ -200,7 +200,7 @@
                     Commencez l'exercice !
                     </p>
                     <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
                     </svg>
                 </div>  
                 <form action="#" class="form_mdp">
