@@ -32,13 +32,6 @@
                 </div>
                 <form action="index.php?action=home_class.php" class="form_mdp" method="GET">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='cours_1'><br/>
-                    <table>          
-                        <?php
-                            if (isset($_GET['cours_1']) AND $_GET['cours_1'] == 'Afficher') {
-                                include($content_for_layout);
-                            }
-                        ?>
-                    </table>
                 </form>
             </div>
             <div class="red_section">
@@ -66,13 +59,6 @@
                 </div>
                 <form action="" class="form_mdp">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_3"><br/>
-                    <table>
-                        <?php
-                             if (isset($_GET['cours_3']) AND $_GET['cours_3'] == 'Afficher') {
-                                include($content_for_layout);
-                            }
-                        ?>
-                    </table>
                 </form>
             </div>
             <div class="red_section">
@@ -86,13 +72,6 @@
                 </div>
                 <form action="" class="form_mdp">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_4"><br/>
-                    <table>
-                        <?php 
-                            if (isset($_GET['cours_4']) AND $_GET['cours_4'] == 'Afficher') {
-                                include($content_for_layout);
-                            }       
-                        ?>
-                    </table>
                 </form>
             </div>
             <div class="red_section">
@@ -106,13 +85,6 @@
                 </div>
                 <form action="" class="form_mdp">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name="cours_5"><br/>
-                    <table>
-                        <?php
-                             if (isset($_GET['cours_5']) AND $_GET['cours_5'] == 'Afficher') { 
-                                include($content_for_layout);
-                             }
-                        ?>
-                    </table>
                 </form>
             </div>
         </div>
@@ -126,8 +98,20 @@
         </div>
         <div class="box_row">
             <?php 
-                if (isset($_GET['cours_2']) AND $_GET['cours_2'] == 'Afficher') {
+                if (isset($_GET['cours_1']) AND $_GET['cours_1'] == 'Afficher') {
                     include($content_for_layout);                                  
+                }
+                elseif (isset($_GET['cours_2']) AND $_GET['cours_2'] == 'Afficher') {
+                    include($content_for_layout);
+                }
+                elseif (isset($_GET['cours_3']) AND $_GET['cours_3'] == 'Afficher') {
+                    include($content_for_layout);
+                }
+                elseif (isset($_GET['cours_4']) AND $_GET['cours_4'] == 'Afficher') {
+                    include($content_for_layout);
+                }  
+                elseif (isset($_GET['cours_5']) AND $_GET['cours_5'] == 'Afficher') { 
+                    include($content_for_layout);
                 }
             ?>
         </div>

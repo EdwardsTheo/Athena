@@ -15,7 +15,7 @@
                 <use xlink:href=\"../Public/svg/symbol-defs.svg#icon-javascript\"></use>
             </svg>
             <h3 class=\"heading_red heading_exo\">
-            Valeurs et variables
+            \"$nom_cours\"
             </h3>
             <div class=\"status\">
                 <p class=\"message\">
@@ -43,8 +43,8 @@
         for ($i=1;$i<13;$i++) {
             $answer = $bdd->query('SELECT`nom_cours` FROM `cours` WHERE id_chapitre = 2 AND index_cours = "'.$i.'"');
             classes($answer);
-            if ($i == 4 OR $i == 8) {
-                echo '<br/>';
+            if ($i == 3 OR $i == 7) {
+                echo '</div>';
             }
         }
     }
