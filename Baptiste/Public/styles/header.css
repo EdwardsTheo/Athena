@@ -56,36 +56,16 @@ html {
 .footer_logo-box {
     display: flex;
     }
-    @media only screen and (max-width: 56.25em) {
-        .footer__logo-box {
-          margin-bottom: 6rem;
-          padding-right: 50px; 
-          margin: 50rem; 
-        } }
-
-
+  
 .footer_logo2 {
     height: 6.5rem;
 }
-
-@media only screen and (max-width: 56.25em) {
-    .footer__logo2 {
-      margin: auto;
-      padding: auto;
-    } }
-
 
 .copyright {
     width: 20%;
     font-size: 1.5rem;
     border-bottom: 1px solid #FFF;}
-    @media only screen and (max-width: 80.25em) {
-        .copyright {
-          width: 100%;
-          border-bottom: none;
-          margin-left: 0.5px;
-        }}
-
+    
   
 
 .title {
@@ -94,13 +74,6 @@ html {
     border-bottom: 1px solid #FFF;
 }
 
-
-@media only screen and (max-width: 80.25em) {
-    .title {
-    width: 100%;
-    text-align: center; 
-    border-bottom: none;
-    }}
 
 
 

@@ -19,15 +19,8 @@
 }
 
 .red_section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 1rem;
     flex: 0.5;
-
-    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 3px;
 }
 
 .btn_section {
@@ -36,21 +29,7 @@
     margin-bottom: 1rem;
 }
 
-.progress_exo {
-    font-family: "Roboto-Light";
-    font-size: 1.1rem;
-    border: 0.5px solid #C0C0C0 !important;
-    border-radius: 5px !important;
-    color: white;
-    letter-spacing: 3px;
-}
 
-.progress_exo > span {
-    border-top-right-radius: 5px !important;
-    border-bottom-right-radius: 5px  !important;
-    border-top-left-radius: 5px  !important;
-    border-bottom-left-radius: 5px  !important;
-}
 /*-----------------------------*/
 
 .choose_exo {

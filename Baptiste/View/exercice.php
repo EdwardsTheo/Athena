@@ -5,6 +5,7 @@
     <title>Exercices</title>
     <link rel="stylesheet" href="Public/styles/home_prof.css">
     <link rel="stylesheet" href="Public/styles/home_student.css">
+    <link rel="stylesheet" href="Public/styles/box.css">
     <link rel="stylesheet"  href="Public/styles/exercice.css">
     <link rel="stylesheet"  href="Public/styles/header.css">
     <link rel="stylesheet"  href="Public/styles/button.css">
@@ -21,7 +22,7 @@
     </div>
     
     <div class="main_class">
-        <div class="box_class index">
+        <div class="basic_box box_class index">
             <div class="head_btn">
                 <a href="#" class="btn-text_index">&larr; Retour au choix des exercices</a>
             </div>
@@ -38,7 +39,7 @@
                 <input type="submit" class="btn_news" value="Modifier rubrique" id="btn">
             </div>
         </div>
-        <div class="box_class zone_class">
+        <div class="basic_box box_class zone_class">
             <div class="heading_zone">    
                 <p class="heading_zone_class">
                     Consigne de l'exercice

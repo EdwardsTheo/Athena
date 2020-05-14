@@ -5,6 +5,7 @@
 
 .visu {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .main_stu {
@@ -12,9 +13,12 @@
 }
 
 .box_visu {
-    display: flex;
-    justify-content: space-evenly;
-    flex: 1 !important;
+    flex: 0 1 5% !important;
+    margin-bottom: 2rem;
+}
+
+.box-nav_section {
+    width: 20%;
 }
 
 .navigation_link {
@@ -37,13 +41,6 @@
 
 .form_mdp {
     display: flex;
-    margin-bottom: 1rem;
+    margin: 1rem;
 }
 
-.btn_visu {
-    padding: 5px;
-    margin: 1px;
-    font-size: 1.3rem;
-    flex: 1;
-    background-color: #55c57a;
-}
