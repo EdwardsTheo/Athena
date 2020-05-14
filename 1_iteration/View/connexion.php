@@ -29,7 +29,7 @@
                                 }
                             }
                         ?>
-                         <form action="index.php?action=home_prof.php" class="form" method="POST">
+                         <form action="index.php?action=connecter.php" class="form" method="POST">
                            <div class="u-margin-bottom-medium">
                                 <h2 class="heading-secondary">
                                     Connectez-vous avec votre adresse email intech

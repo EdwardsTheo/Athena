@@ -1,4 +1,5 @@
-x<?php 
+<?php 
+$content_for_layout = '../Modele/afficher_cours.php';
     if (isset($_GET['action'])) {
             switch ($_GET['action']) {
                 case 'add_class.php':
@@ -44,7 +45,14 @@ x<?php
                 case 'visu_class.php':
                     require('../View/visu_class.php');
                 break;
+
+                case 'connecter.php':
+                    require('../Modele/connecter.php');
+                break;
             }
+    }
+    elseif (isset($_GET['cours_1']) OR isset($_GET['cours_2']) OR isset($_GET['cours_3']) OR isset($_GET['cours_4']) OR isset($_GET['cours_5'])) {
+        require('../View/home_class.php');
     }
     else {
         require('../View/connexion.php');
