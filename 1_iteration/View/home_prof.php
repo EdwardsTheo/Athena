@@ -82,42 +82,42 @@
             <div class="prof_redirect">
                 <div class="red_prof">
                     <svg class="box-nav_prof">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-eye"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-eye"></use>
                     </svg>
                     <h3 class="heading_red">
                     Suivre votre classe</h3>
                     <div class="red_bouton">
-                        <a href="#" class="btn-red btn btn--green ">Classe</a>
+                        <a href="index.php?action=visu_class.php" class="btn-red btn btn--green ">Classe</a>
                     </div>
                 </div>
                 <div class="red_prof">
                     <svg class="box-nav_prof">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-book"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-book"></use>
                     </svg>
                     <h3 class="heading_red">
                         Créer un cours</h3>
                     <div class="red_bouton">
-                        <a href="#" class="btn-red btn btn--green ">Cours</a>
+                        <a href="index.php?action=add_class.php" class="btn-red btn btn--green ">Cours</a>
                     </div>
                 </div>
                 <div class="red_prof">
                     <svg class="box-nav_prof">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-new-message"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-new-message"></use>
                     </svg>
                     <h3 class="heading_red">
                     Créer un exercice</h3>
                     <div class="red_bouton">
-                        <a href="#" class="btn-red btn btn--green ">Exercices</a>
+                        <a href="index.php?action=add_exercice.php" class="btn-red btn btn--green ">Exercices</a>
                     </div>
                 </div>
                 <div class="red_prof">
                     <svg class="box-nav_prof">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-hour-glass"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-hour-glass"></use>
                     </svg>
                     <h3 class="heading_red">
                     Créer une evalutation </h3>
                     <div class="red_bouton">
-                        <a href="#1" class="btn-red btn btn--green ">Evaluation</a>
+                        <a href="index.php?action=add_evaluation.php" class="btn-red btn btn--green ">Evaluation</a>
                     </div>
                 </div>
             </div>

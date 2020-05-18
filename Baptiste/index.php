@@ -1,4 +1,4 @@
 <?php
-require('View/add_evaluation.php');
+require('View/home_prof.php');
 
 ?>

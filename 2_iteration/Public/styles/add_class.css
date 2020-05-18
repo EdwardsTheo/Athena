@@ -1,0 +1,12 @@
+.form_add {
+    display: flex;
+    flex-direction: column;
+}
+
+.add {
+    margin: 1.5rem;
+}
+
+.main_add_class {
+    margin-bottom: 3rem;
+}

@@ -68,7 +68,7 @@
                 </p>    
             </div>
             <svg class="box_drop_svg">
-                <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
+                <use xlink:href="../Public/svg/symbol-defs.svg#icon-install"></use>
             </svg>
         </div>
     </div>

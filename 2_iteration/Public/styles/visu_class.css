@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.visu {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.main_stu {
+    display: flex;
+}
+
+.box_visu {
+    flex: 0 1 5% !important;
+    margin-bottom: 2rem;
+}
+
+.box-nav_section {
+    width: 20%;
+}
+
+.navigation_link {
+    display: inline-block;
+}
+
+.heading_red {
+    font-family: "Roboto-Light";
+    color: #55c57a;
+    border-bottom: 1px solid black;
+    margin: 1rem;
+    margin-top: -1.5rem;
+}
+
+.activity {
+    font-family: "Roboto-LightItalic";
+    font-size: 1.1rem;
+    margin: 1rem;
+}
+
+.form_mdp {
+    display: flex;
+    margin: 1rem;
+}
+

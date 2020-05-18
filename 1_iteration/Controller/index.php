@@ -52,7 +52,7 @@ $content_for_layout = '../Modele/afficher_cours.php';
                 break;
             }
     }
-    elseif (isset($_GET['afficher']) OR isset($_GET['afficher']) OR isset($_GET['afficher']) OR isset($_GET['afficher']) OR isset($_GET['afficher'])) {
+    elseif (isset($_GET['afficher'])) {
         require('../View/home_class.php');
     }
     else {

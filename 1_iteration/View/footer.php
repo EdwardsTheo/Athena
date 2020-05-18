@@ -15,7 +15,7 @@
         <span class="footer-primary">Athéna</span>
     </div>
     <div class="footer_logo-box">
-        <img src="Public/intechlogo/logovert.png" alt="img2" class="footer_logo2">
+        <img src="../Public/intechlogo/logovert.png" alt="img2" class="footer_logo2">
     </div>
     </footer>
 </body>

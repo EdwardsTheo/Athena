@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../Public/styles/connexion.css">
-        <link rel="stylesheet" href="../Public/styles/button.css">
-        <link rel="stylesheet" href="../Public/styles/font.css">
+        <link rel="stylesheet" href="Public/styles/connexion.css">
+        <link rel="stylesheet" href="Public/styles/button.css">
+        <link rel="stylesheet" href="Public/styles/font.css">
         <title></title>
     </head>
     <body>
         <section class="main"> 
             <div class="logo-box1">
-               <img src="../Public/intechlogo/logovert.png" alt="Logo1" class="logo1">
+               <img src="Public/intechlogo/logovert.png" alt="Logo1" class="logo1">
             </div>
             <h1 class="heading-primary">
                 <span class="heading-primary1">Athéna</span>

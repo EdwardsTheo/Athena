@@ -20,7 +20,7 @@
             </div>
             <div class="top">
                 <div class="box_prof">
-                <div class="basic_box box info_box">
+                    <div class="basic_box box info_box">
                         <h3 class="heading_box heading_student">Informations profil</h3>
                         <div class ="box_info label_profil">
                             <label for="prenom" class="profil_titre">Prénom : Thomas</label>

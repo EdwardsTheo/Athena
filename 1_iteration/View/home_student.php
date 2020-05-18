@@ -22,7 +22,7 @@
             <div class="box_student">
                 <div class="box box-1">
                     <svg class="box-nav__icon">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-book"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-book"></use>
                     </svg>
                     <h3 class="heading-tertiary">
                         Avancement Cours</h3>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="box box-3">
                     <svg class="box-nav__icon">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-area-graph"></use>
+                        <use xlink:href="../Public/svg/symbol-defs.svg#icon-area-graph"></use>
                     </svg>
                     <h3 class="heading-tertiary">
                         Avancement Exercices</h3>

@@ -24,7 +24,7 @@
        <div class="box_row box_visu">
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-user1"></use>
                 </svg>
                 <h3 class="heading_red">
                 Theobald Baptiste</h3>
@@ -43,7 +43,7 @@
         <div class="box_row box_visu">
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-user1"></use>
                 </svg>
                 <h3 class="heading_red">
                 Alexandre Trillot</h3>
@@ -62,7 +62,7 @@
          <div class="box_row box_visu">
             <div class="red_section">
                 <svg class="box-nav_section">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
+                    <use xlink:href="../Public/svg/symbol-defs.svg#icon-user1"></use>
                 </svg>
                 <h3 class="heading_red">
                 Mia Salerno</h3>

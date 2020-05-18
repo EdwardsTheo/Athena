@@ -75,19 +75,6 @@
                         <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
                     </form>
                 </div>
-                <div class="basic_box red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-terminal"></use>
-                    </svg>
-                    <h3 class="heading_red">
-                    PERL</h3>
-                    <div class="progress-bar progress_exo">
-                        <span style="width: 0%">0%</span>
-                    </div>
-                    <form action="#" class="form_mdp">
-                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                    </form>
-                </div>
             </div>
         </section>
 
