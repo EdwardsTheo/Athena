@@ -23,58 +23,28 @@
                 </p>
             </div>
             <div class="box_row">
-                <div class="basic_box red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-tux"></use>
-                    </svg>
-                    <h3 class="heading_red">
-                    Prise en main de Linux</h3>
-                    <div class="progress-bar progress_exo">
-                        <span style="width: 15%">15%</span>
-                    </div>
-                    <form action="#" class="form_mdp">
-                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                    </form>
-                </div>
-                <div class="basic_box red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-javascript"></use>
-                    </svg>
-                    <h3 class="heading_red">
-                    Apprendre à programmer</h3>
-                    <div class="progress-bar progress_exo">
-                        <span style="width: 30%">30%</span>
-                    </div>
-                    <form action="#" class="form_mdp">
-                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                    </form>
-                </div>
-                <div class="basic_box red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
-                    </svg>
-                    <h3 class="heading_red">
-                    Initiation à HTML5</h3>
-                    <div class="progress-bar progress_exo">
-                        <span style="width: 25%">25%</span>
-                    </div>
-                    <form action="#" class="form_mdp">
-                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                    </form>
-                </div>
-                <div class="basic_box red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-datacamp"></use>
-                    </svg>
-                    <h3 class="heading_red">
-                    Structure de données</h3>
-                    <div class="progress-bar progress_exo">
-                        <span style="width: 15%">15%</span>
-                    </div>
-                    <form action="#" class="form_mdp">
-                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
-                    </form>
-                </div>
+<?php
+while($data = $request->fetch()) {
+    $name_ru = $data['nom_rubrique'];
+    $svg = $data['svg'];
+?>
+    <div class="basic_box red_section">
+        <svg class="box-nav_section">
+         <use xlink:href="Public/svg/symbol-defs.svg#<?php echo $svg?>"></use>
+        </svg>
+        <h3 class="heading_red">
+        <?php echo $name_ru ?></h3>
+        <div class="progress-bar progress_exo">
+            <span style="width: 15%">15%</span>
+        </div>
+        <form action="#" class="form_mdp">
+            <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+        </form>
+    </div>
+<?php
+}
+$request->closeCursor();
+?>                
             </div>
         </section>
 

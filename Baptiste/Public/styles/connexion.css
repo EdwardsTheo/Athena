@@ -4,7 +4,7 @@
 }
 
 body {
-    height: 80rem;
+    height: 90rem;
     background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8));
     background-size: cover;
     background-position: top;
@@ -108,6 +108,13 @@ body {
     visibility: hidden;
     transform: translateY(-4rem);
   }
+
+.error {
+  font-family: "Roboto-BoldItalic";
+  text-align: center;
+  font-size: 2rem;
+  color:  	#DC143C;
+}
   
   
   

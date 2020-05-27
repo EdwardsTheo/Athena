@@ -16,22 +16,27 @@
         <section class="class">
             <div class="heading">    
                 <p class="heading_primary heading_class">
-                    Node.js - valeurs et variables
+                    <?php echo $_POST['nom_cours']; ?>
                 </p>
             </div>
             <div class="main_class">
                 <div class="basic_box box_class index">
                     <div class="head_btn">
-                        <a href="#" class="btn-text_index">&larr; Retour au choix du cours</a>
+                        <a href="index.php?action=home_class.php" class="btn-text_index">&larr; Retour au choix du cours</a>
                     </div>
-                    <form action="#" class="form_index">
-                        <input type="submit" class="btn_index" value="01 Valeur et information" id="btn">
-                        <input type="submit" class="btn_index" value="02 Valeurs de type primitif" id="btn">
-                        <input type="submit" class="btn_index" value="03 Variables" id="btn">
-                        <input type="submit" class="btn_index" value="04 Nom des Variables" id="btn">
-                        <input type="submit" class="btn_index" value="05 Choix du nom des variables" id="btn">
-                        <input type="submit" class="btn_index" value="06 Snake case / Camel case" id="btn">
-                        <input type="submit" class="btn_index" value="07 Déclaration des variables" id="btn">
+                    <form action="index.php?action=class.php" class="form_index" method="POST">
+<?php
+$i = 0;
+while($data = $request->fetch()) {
+    $name_chap = $data['nom_chapitre'];
+    $i++;
+?>
+<input type="submit" class="btn_index btn_class" name="Afficher_chap" value="<?php echo $name_chap ?>" id="btn">
+<?php            
+}
+$request->closeCursor();
+?>                      <input type="hidden" name="id_cours" value="<?php echo $_POST['id_cours']?>">
+                        <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
                     </form>
                     <div class="bottom_btn">
                         <input type="submit" class="btn_news" value="Modifier rubrique" id="btn">
@@ -40,7 +45,7 @@
                 <div class="basic_box box_class zone_class">
                     <div class="heading_zone">    
                         <p class="heading_zone_class">
-                        Valeurs de type primitif
+                        <?php echo $_POST['Afficher_chap'];?>
                         </p>
                     </div>
                     <div class="text_class">
