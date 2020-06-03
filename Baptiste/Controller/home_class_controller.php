@@ -14,7 +14,6 @@ function classes($answer) {
     while ($data = $answer->fetch()) {
         $name_class = $data['nom_cours'];
         $id = $data['index_cours'];
-        $id_rubrique = $data['id_rubrique'];
         if($i == 0) {
             echo "<div class='box_row'>";
         }
@@ -43,8 +42,7 @@ function classes($answer) {
         </div>  
         <form action='index.php?action=class.php' class='form_mdp' method='POST'>
             <input type='hidden' name='nom_cours' value='$name_class' id='btn'>
-            <input type='hidden' name='id_rubrique' value='$id_rubrique' id='btn'>
-            <input type='hidden' name='index_cours' value='$id' id='btn'>
+            <input type='hidden' name='id_cours' value='$id' id='btn'>
             <input type='submit' class='btn btn--green btn_section' name='Afficher' value='Lire cours' id='btn'>
         </form>
     </div>";

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,21 +14,28 @@
     <?php require("header.php"); ?>
         <section class="home_class">
             <div class="heading">
-                <p class=heading_primary>Bienvenue élève !</p>
+                <p class=heading_primary>
+                    Bienvenue élève !
+                </p>
             </div>
             <div class="box_student">
                 <div class="box basic_box box-1">
-                    <svg class="box-nav__icon">
+                    <svg class="box basic_box box-nav__icon">
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-book"></use>
                     </svg>
-                    <h3 class="heading-tertiary">Avancement Cours</h3>
-                    <p class="feature-percent">20%</p>
+                    <h3 class="heading-tertiary">
+                        Avancement Cours</h3>
+                    <p class="feature-percent">
+                        20%
+                    </p>
                 </div>
                 <div class="box basic_box box-2 news">
                     <h3 class="heading_box">News</h3>
                     <div class="contenu">
                         <h4 class="heading_news">Nouvelle du Lundi 29 avril</h4>
-                        <p class="contenu_new">Bonjour, n'oubliez pas votre évaluation de demain !</p>
+                        <p class="contenu_new">
+                            Bonjour, n'oubliez pas votre évaluation de demain !
+                        </p>
                     </div>
                     <div class="contenu">
                         <h4 class="heading_news">Nouvelle du Lundi 13 avril</h4>
@@ -43,14 +49,19 @@
                     <svg class="box-nav__icon">
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-area-graph"></use>
                     </svg>
-                    <h3 class="heading-tertiary">Avancement Exercices</h3>
-                    <p class="feature-percent">10%</p>
+                    <h3 class="heading-tertiary">
+                        Avancement Exercices</h3>
+                    <p class="feature-percent">
+                        10%
+                    </p>
                 </div>  
                 
             </div>
             <div class="box_progressbar">
                 <div class="text-progress">
-                    <p class="main-advancement">Avancement Global</p>
+                    <p class="main-advancement">
+                        Avancement Global
+                    </p>
                 </div> 
                 <div class="progress-bar">
                     <span style="width: 15%">15%</span>
@@ -61,11 +72,13 @@
                    <div class="information_box">
                         <h3 class="heading_box heading_student">Informations profil</h3>
                         <div class ="box_info label_profil">
-                            <label for="prenom" class="profil_titre">Prénom : Theobald</label>
-                            <label for="nom" class="profil_titre">Nom : Baptiste</label>
-                            <label for="email" class="profil_titre">Email : theobald@intechinfo.fr</label>
+                        <?php 
+                            echo '<label for="prenom" class="profil_titre">Prénom : '.htmlspecialchars($_SESSION["prenom"]).'</label>
+                            <label for="nom" class="profil_titre">Nom : '.htmlspecialchars($_SESSION["nom"]).'</label>
+                            <label for="email" class="profil_titre">Email : '. htmlspecialchars($_SESSION["email"]).'</label>';
+                        ?>                   
                         </div>
-                        
+
                         <div class="box_mdp">
                             <form action="#" class="form_mdp">
                                 <h4 class="heading_news heading_student">Modifiez votre mot de passe</h4>  
@@ -78,7 +91,7 @@
                 <div class="student redirect">
                     <div class="red red1">
                         <div class="red_title">
-                            <h3 class="heading-tertiary">Votre Dernier cours suivis</h3>
+                            <h3 class="heading_redirect">Votre Dernier cours suivis</h3>
                         </div>
                         <div class="red_contenu">
                             <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
@@ -90,7 +103,7 @@
                     </div>
                     <div class="red red2">
                         <div class="red_title">
-                            <h3 class="heading-tertiary">Votre Dernier exercice suivis</h3>
+                            <h3 class="heading_redirect">Votre Dernier exercice suivis</h3>
                         </div>
                         <div class="red_contenu">
                             <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>

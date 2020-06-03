@@ -27,9 +27,9 @@
                     <h3 class="heading_box heading_student">Informations profil</h3>
                     <div class ="box_info label_profil">
                     <?php 
-                        echo '<label for="prenom" class="profil_titre">Prénom : '.$_SESSION["prenom"].'</label>
-                        <label for="nom" class="profil_titre">Nom : '.$_SESSION["nom"].'</label>
-                        <label for="email" class="profil_titre">Email : '. $_SESSION["email"].'</label>';
+                        echo '<label for="prenom" class="profil_titre">Prénom : '.htmlspecialchars($_SESSION["prenom"]).'</label>
+                        <label for="nom" class="profil_titre">Nom : '.htmlspecialchars($_SESSION["nom"]).'</label>
+                        <label for="email" class="profil_titre">Email : '. htmlspecialchars($_SESSION["email"]).'</label>';
                     ?>
                     </div>
                         

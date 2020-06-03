@@ -4,6 +4,7 @@ session_start();
 require('Controller/connexion.php');
 require('Controller/home_class_controller.php');
 require('Controller/home_exercice_controller.php');
+require('Controller/class_controller.php');
 
 if(!isset($_GET['action'])) {
     welcome();
@@ -12,13 +13,10 @@ if(!isset($_GET['action'])) {
 if(isset($_GET['action'])) {
     if($_GET['action'] == 'connecter.php') connexion();
     elseif($_GET['action'] == 'home_prof.php') startProf();
-    
-    elseif($_GET['action'] == 'home_student.php') {
-        startStudent();
-    }
+    elseif($_GET['action'] == 'home_student.php') startStudent();
     elseif($_GET['action'] == 'home_class.php') {
         showClass();
-        if (isset($_GET['afficher'])) {
+        if (isset($_POST['afficher'])) {
             $answer = getClass();
             showSection($answer);
         }
@@ -27,6 +25,15 @@ if(isset($_GET['action'])) {
     elseif($_GET['action'] == 'home_exercice.php') {
         startExo();
     }
+    elseif($_GET['action'] == 'class.php') {
+        if(isset($_POST['Modifier_chap'])) {
+            modifChapter();
+        }
+        if(isset($_POST['Read'])) {
+            changeRead();
+        }
+        showClasses();
+    } 
     elseif($_GET['action'] == 'visu_class.php') {
         startVisu();
     }

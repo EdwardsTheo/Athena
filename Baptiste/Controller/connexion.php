@@ -31,7 +31,6 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "eleve";
-                            $_SESSION['id_user'] = $row['id_user'];
                             header("Location: index.php?action=home_student.php");
                             exit();
                         }

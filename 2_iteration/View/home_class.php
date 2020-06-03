@@ -24,6 +24,7 @@
         </div>
         <div class="box_row">
 <?php
+
 while($data = $request->fetch()) {
     $name_ru = $data['nom_rubrique'];
     $id = $data['id_rubrique'];
@@ -38,7 +39,7 @@ while($data = $request->fetch()) {
         <div class="progress-bar progress_exo">
             <span style="width: 15%">15%</span>
         </div>
-        <form action="index.php?action=home_class.php" class="form_mdp" method="GET">
+        <form action="index.php?action=home_class.php" class="form_mdp" method="POST">
             <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='afficher'><br/>
             <input type="hidden"  id="btn" name="SVG" value="Public/svg/symbol-defs.svg#<?php echo $svg?>"><br/>
             <input type="hidden"  id="btn" name="rubrique" value="<?php echo $id?>"><br/>
@@ -56,7 +57,7 @@ $request->closeCursor();
     <section class="choose_exo">
         <div class="heading">
             <p class="heading_primary">
-            RUBRIQUES
+            Cours
             </p>
         </div>
     </section>
