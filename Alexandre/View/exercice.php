@@ -1,52 +1,85 @@
 <!DOCTYPE html>
 <head>
-    <meta cahrset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercices</title>
-    <link rel="stylesheet" type="text/css" href="../Public/styles/exercice.css">
-    <link rel="stylesheet" type="text/css" href="../../Baptiste/Public/styles/button.css">
+    <link rel="stylesheet" href="Public/styles/home_prof.css">
+    <link rel="stylesheet" href="Public/styles/home_student.css">
+    <link rel="stylesheet" href="Public/styles/box.css">
+    <link rel="stylesheet"  href="Public/styles/exercice.css">
+    <link rel="stylesheet"  href="Public/styles/header.css">
+    <link rel="stylesheet"  href="Public/styles/button.css">
+    <link rel="stylesheet"  href="Public/styles/font.css">
 </head>
 <body>
-<?php require('header.html') ?>
-<center>
-    <div class="all">
-        <div class="resources">
-            <label class="input-left">
-                <center><input type="submit" value="Retour section exos" name="back_exos" class="btn btn--green"></center>
-            </label>
-            <div class="tableau" style='overflow:scroll; border:#000000 1px solid; width:400px; height: 250px;'>
-                <table>
-                    <tr>Ressources nécessaires</tr>
-                </table> 
+<?php require('header.php') ?>
+
+<section class="class">
+    <div class="heading">    
+        <p class="heading_primary heading_class">
+            Bonbon.js
+        </p>
+    </div>
+    
+    <div class="main_class">
+        <div class="basic_box box_class index">
+            <div class="head_btn">
+                <a href="#" class="btn-text_index">&larr; Retour au choix des exercices</a>
             </div>
-            <center><input type="submit" value="Ajouter ressources (prof)" name="add_ressource" class="btn btn--green"></center>
+            <div class="heading_zone">    
+                    <p class="heading_zone-rubrik">
+                        Ressources necessaires
+                    </p>
+            </div>
+            <div class="form_index">
+                <a href="#" class="btn-text_index ressource">Node JS: valeurs et variables </a>
+                <a href="#" class="btn-text_index ressource">Node JS: structures de contrôle</a>
+            </div>
+            <div class="bottom_btn">
+                <input type="submit" class="btn_news" value="Modifier rubrique" id="btn">
+            </div>
         </div>
-        <div class="exercices">
-            <div class="tableau" style='overflow:scroll; border:#000000 1px solid; width:400px; height: 250px; margin-top:16.5%'>
-                <table>
-                    <tr>Consigne exercice</tr>
-                </table>
-            </div>
-            <div class="extra">
-                <div class="drop">
-                    <div class="tableau" style='border:#000000 1px dashed; width:100px; height: 100px;'>
-                        <table>
-                            <tr>Dépot de fichier (DRAG AND DROP)</tr>
-                        </table>
-                    </div>
-                    <input type="submit" name="valid_exercice" value="Valider exercices" class="btn btn--green" style="font-size: 100%; height:50% width:50%" > 
-                </div>
-                <div class="option">
-                    <div class="input-bottom-right">
-                        <input type="submit" name="correction" value="Correction (prof)" class="btn btn--green" style="font-size: 100%; height:75%">
-                        <input type="submit" name="edit" value="Modifier (prof)" class="btn btn--green" style="font-size: 100%; height:75%">
-                    </div>
-                    <div class="input">
-                        <input type="submit" name="next_exercie" value="Exercice suivant" class="btn btn--green" style="font-size: 100%; height:75%; margin-left:25%">
-                    </div>
-                </div>
-            </div>
+        <div class="basic_box box_class zone_class">
+            <div class="heading_zone">    
+                <p class="heading_zone_class">
+                    Consigne de l'exercice
+                </p>
+        </div>
+        
+        <div class="text_class">
+            <p class="text">
+            Ecrire un programme qui demande un bonbon jusqu'à ce qu'on lui ait donné ! 
+            </p>
+            <p class="text">
+            Astuce : vous aurez besoin d'utiliser une boucle while ... 
+            </p>
+        </div>
+        <div class="box_btn">
+            <input type="submit" class="btn_news btn_text btn_prof" value="Modifier consigne" id="btn">
         </div>
     </div>
-</center>
-<?php require('footer.html') ?>
+</section>
+
+<section class="bottom_exercice">
+    <div class="drop">
+        <div class="box_drop">
+            <div class="heading_zone">
+                <p class="contenu_new">
+                    Déposer votre exercice ici !
+                </p>    
+            </div>
+            <svg class="box_drop_svg">
+                <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="bottom_button">
+        <form action="#" class="form_bottom">
+            <input type="submit" class="btn btn--green btn_bottom1" value="Correction" id="btn">
+            <input type="submit" class="btn btn--green btn_bottom2" value="Valider exercice" id="btn">
+            <input type="submit" class="btn btn--green btn_bottom3" value="Exercice suivant &rarr;" id="btn">
+        </form>
+    </div>
+</section>
+<?php require('footer.php') ?>
 </body>

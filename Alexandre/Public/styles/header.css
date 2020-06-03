@@ -3,16 +3,14 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: "Roboto";
-    src:url("../Font/Roboto-Thin.ttf") format("truetype");
-}
 
+html {
+    box-sizing: border-box;
+    font-size: 100%; }
+    @media only screen and (max-width: 70em) {
+      html {
+        font-size: 50%; } }
 
-@font-face {
-    font-family: "Roboto1";
-    src:url("../Font/Roboto-Regular.ttf") format("truetype");
-}
 
 .main {
     display: flex;
@@ -29,83 +27,53 @@
     height: 6rem;
 }
 
+@media only screen and (max-width: 70.25em) {
+    .header{
+        height: 10rem; } }
+
 .form {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 2rem;
-    padding-top: 1rem;
-    font-family: "Roboto";
+    align-items: center;
+    font-family: "Roboto-Light";
     font-weight: 700;
 }
 
-.btn-text:link, .btn-text:visited {
-    font-size: 1.6rem;
-    color: whitesmoke;
-    display: inline-block;
-    text-decoration: none;
-    border-bottom: 1px solid #000;
-    padding: 3px;
-    transition: all .2s;
-}
-
-.btn-text:hover {
-    background-color: #55c57a;
-    color: #fff;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px); }
-  
-.btn-text:active {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    transform: translateY(0px); 
-}
 
 /*-------------------------------------------------*/
 
 .footer {
     display: flex;
     justify-content: space-evenly;
-   /*margin-top: 60rem;*/
+    align-items: center;
     height: 20rem;
     background-color: #333;
-    font-family: "Roboto";
-    color: ivory;
-}
+    font-family: "Roboto-Light";
+    color: ivory;}
+    
 
 .footer_logo-box {
-    height: 1.5rem;
-    padding-top: 5.5rem;
-}
-
+    display: flex;
+    }
+  
 .footer_logo2 {
     height: 6.5rem;
 }
 
 .copyright {
-    padding-bottom: 6rem;
-    padding-left: 3.5rem;
-    width: 30%;
-    margin-top: 6.5rem;
-    margin-bottom: 8.5rem;
-    margin-left: -10rem;
+    width: 20%;
     font-size: 1.5rem;
-    border-bottom: 1px solid #FFF;
-}
+    border-bottom: 1px solid #FFF;}
+    
+  
 
 .title {
-    padding-bottom: 6rem;
-    padding-left: 2rem;
-    width: 18.5%;
-    margin-top: 6.5rem;
-    margin-bottom: 8.5rem;
-    margin-left: -10rem;
     font-size: 5rem;
     letter-spacing: 1.3rem;
     border-bottom: 1px solid #FFF;
 }
-@media only screen and (max-width: 56.25em) {
-    .footer__logo2 {
-      margin: auto;
-      padding: auto;
-    } 
-}
+
+
+
+
