@@ -13,6 +13,13 @@ INSERT INTO chapitres VALUES('12', '1', 'En classe tu te découvriras', 'vide');
 INSERT INTO chapitres VALUES('13', '1', 'De 12h00 à 13h15 tu te sustenteras', 'vide');
 INSERT INTO chapitres VALUES('14', '1', 'En classe vous n\'êtes plus', 'vide');
 
+INSERT INTO chapitres VALUES(NULL, "1", "Valeur et information ", "vide");
+INSERT INTO chapitres VALUES(NULL, '1', 'Valeurs de type primitif', 'vide');
+INSERT INTO chapitres VALUES(NULL, '1', 'Variables ', 'vide');
+INSERT INTO chapitres VALUES(NULL, '1', 'Nom des variables', 'vide');
+INSERT INTO chapitres VALUES(NULL, '1', 'Choix du nom des variables', 'vide');
+
+
 INSERT INTO chapitres VALUES(NULL, '2', 'Configuration matérielle', 'vide');
 INSERT INTO chapitres VALUES(NULL, '2', 'Configuration logicielle', 'vide');
 INSERT INTO chapitres VALUES(NULL, '2', 'Avertissement !', 'vide');
@@ -51,3 +58,9 @@ INSERT INTO chapitres VALUES(NULL, '5', 'Commandes de remplacement', 'vide');
 
 INSERT INTO progress_cours VALUES(NULL, "1", "2", "non_lu");
 INSERT INTO progress_cours VALUES(NULL, "1", "3", "non_lu");
+
+INSERT INTO progress_cours VALUES(NULL, "6", "3", "non_lu");
+INSERT INTO progress_cours VALUES(NULL, "7", "3", "non_lu");
+INSERT INTO progress_cours VALUES(NULL, "8", "3", "non_lu");
+INSERT INTO progress_cours VALUES(NULL, "9", "3", "non_lu");
+INSERT INTO progress_cours VALUES(NULL, "10", "3", "non_lu");

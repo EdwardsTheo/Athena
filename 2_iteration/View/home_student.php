@@ -91,14 +91,29 @@
                 <div class="student redirect">
                     <div class="red red1">
                         <div class="red_title">
-                            <h3 class="heading_redirect">Votre Dernier cours suivis</h3>
+                            <h3 class="heading_redirect">Votre Prochain cours</h3>
                         </div>
                         <div class="red_contenu">
-                            <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
-                            <label for="cours" class="redirect_titre">Nom du Cours : Les Variables.</label>
+                        <?php
+                        while($data = $request_student->fetch()) {
+                            $nom_cours = $data['nom_cours'];
+                            $nom_rubrique = $data['nom_rubrique'];
+                            $id_rubrique = $data['id_rubrique'];
+                            $index_cours = $data['index_cours'];
+                        }
+                        $request_student->closeCursor();
+                        ?>
+                            <label for="Cours" class="redirect_titre">Rubrique : <?php echo $nom_rubrique ?></label>
+                            <label for="Chapitre" class="redirect_titre">Cours :  <?php echo $nom_cours ?></label>
                         </div>
                         <div class="red_bouton">
-                            <a href="#" class="btn-red btn btn--green ">Rediriger</a>
+                            <form action="index.php?action=class.php" method="POST">
+                                <input type='submit' class='btn btn--green btn_section' name='Rediriger' value='Rediriger' id='btn'>
+                                <input type='hidden' name='nom_cours' value=' <?php echo $nom_cours ?>'>
+                                <input type='hidden' name='id_rubrique' value='<?php echo $id_rubrique; ?>'>
+                                <input type='hidden' name='index_cours' value='<?php echo $index_cours; ?>'>
+                                <input type='hidden' name='Afficher' value='lire cours'>
+                            </form>
                         </div>
                     </div>
                     <div class="red red2">
@@ -110,7 +125,9 @@
                             <label for="exercice" class="redirect_titre">Nom de l'exercice : Bonbon.js.</label>
                         </div>
                         <div class="red_bouton">
-                            <a href="#" class="btn-red btn btn--green ">Rediriger</a>
+                            <form action="index.php?action=home_class.php" method="POST">
+                                <input type='submit' class='btn btn--green btn_section' name='Rediriger' value='Rediriger' id='btn'>
+                            </form>
                         </div>
                     </div> 
                 </div>

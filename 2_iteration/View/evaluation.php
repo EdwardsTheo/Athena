@@ -16,7 +16,7 @@
     </head>
     <body>
     <?php require("header.php"); ?>
-   
+    <meta http-equiv="refresh" content="0;url=index.php?action=class.php" />
     <div class="heading">    
         <p class="heading_primary heading_class">
             Evaluation

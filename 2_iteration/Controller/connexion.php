@@ -11,7 +11,13 @@ function startProf() {
 }
 
 function startStudent() {
+    $request_student = selectLast();
     require('View/home_student.php');
+}
+
+function who() {
+    if($_SESSION['status'] == 'eleve') return $string = 'index.php?action=home_student.php'; 
+    else  return $string = "index.php?action=home_prof.php";
 }
 
 function connexion() {

@@ -11,8 +11,7 @@
     </head>
 
     <body>
-    <?php 
-    var_dump($_SESSION);
+    <?php
     require("header.php"); ?>
 
         <section class="class">
@@ -20,10 +19,11 @@
                 <p class="heading_primary heading_class">
                     <?php 
                     while($data = $request1->fetch()) {
-                        $name_cours = $data['nom_cours'];
+                        $name_cours1 = $data['nom_cours'];
                     }
                     $request1->closeCursor();
-                    echo $name_cours; 
+                    echo $name_cours1;
+                    $_POST['nom_cours'] = $name_cours1; 
                     ?>
                 </p>
             </div>
@@ -95,12 +95,20 @@
                             if($_SESSION['status'] == "professeur") echo  "<input type='submit' class='btn_news btn_text btn_prof' value='Modifier' id='btn'>";
                             
                             else echo "<input type='submit' class='btn_news btn_text btn_prof btn_mark' name='Read' value='$_POST[status_cours]' id='btn'>";
-                            
+                            hiddenBtn();
                             ?>
-                            <input type="submit" class="btn_news btn_text btn_prof" name="Next" value="Cours suivant &rarr;" id="btn">
-                            <input type="hidden" name="Afficher_chap" value="<?php echo $_POST['Afficher_chap'];?>" id="btn">
-                            <?php addOne(); 
-                            hiddenBtn(); ?>
+
+                        </form>
+                        <?php
+                            $end = nextChapter();
+                            if($end == false) {
+                            ?>
+                                <form action="index.php?action=class.php" class="form_index form_class" method="POST">
+                                <input type="submit" class="btn_news btn_text btn_prof" name="Next" value="Cours suivant &rarr;" id="btn">
+                                <input type="hidden" name="Afficher_chap" value="<?php echo $_POST['Afficher_chap'];?>" id="btn">
+                            <?php
+                            }  
+                            hiddenBtnNext(); ?>   
                         </form>
                     </div>
                 </div>

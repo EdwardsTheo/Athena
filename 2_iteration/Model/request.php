@@ -11,16 +11,24 @@ function getUser() {
 
 function getClass() {
     $db = connexion_db();
-    $answer = $db->query('SELECT * FROM cours WHERE id_rubrique = "'.htmlspecialchars($_POST['rubrique']).'"');
+    $answer = $db->query('SELECT * FROM cours WHERE 
+    id_rubrique = "'.htmlspecialchars($_POST['rubrique']).'"');
 
     return $answer;
+}
+
+function selectWithName() {
+    $db = connexion_db();
+
+    $request = $db->query('SELECT * FROM cours WHERE nom_cours = \''.htmlspecialchars($_POST['nom_cours']).'\'');
+    return $request;
 }
 
 function getMaxChapter() {
     //Requete pour connaitre le maximum de cours
     $db = connexion_db();
-    $request = $db->query('SELECT index_cours FROM cours
-    WHERE id_rubrique = \''.htmlspecialchars($_POST['id_rubrique']).'\'');
+    $request = $db->query('SELECT id_chapitre FROM chapitres
+    WHERE index_cours = \''.htmlspecialchars($_POST['index_cours']).'\'');
     return $request;
 }
 
@@ -51,9 +59,20 @@ function getRub() {
 
 function checkRead() {
     $db = connexion_db();
-    $request = $db->query('SELECT status_cours
+    $request = $db->query('SELECT status_cours, id_cours
     FROM progress_cours
     WHERE id_user = \''.$_SESSION['id_user'].'\'');
+    return $request;
+}
+
+function checkReadRubrique($id_rubrique) {
+    $db = connexion_db();
+    $request = $db->query('SELECT p.status_cours, p.id_cours
+    FROM progress_cours AS p
+    LEFT JOIN cours AS co
+    ON p.id_cours = co.id_cours
+    WHERE id_user = \''.$_SESSION['id_user'].'\'
+    AND id_rubrique = \''.$id_rubrique.'\'');
     return $request;
 }
 
@@ -79,7 +98,7 @@ function getChapterClass() {
     return $request;
 }
 
-function req_modifChapter() {
+function requestModifChapter() {
     $db = connexion_db();
     
     $req = $db->prepare('UPDATE chapitres
@@ -89,5 +108,15 @@ function req_modifChapter() {
 }
 
 
+function getLastClass($id) {
+    $db = connexion_db();
+
+    $request = $db->query('SELECT r.nom_rubrique, c.nom_cours, c.index_cours, r.id_rubrique 
+    FROM rubriques AS r
+    LEFT JOIN cours AS c
+    ON c.id_rubrique = r.id_rubrique
+    WHERE c.id_cours = \''.$id.'\'');
+    return $request;
+}
 
 ?>

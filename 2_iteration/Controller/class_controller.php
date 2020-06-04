@@ -1,7 +1,8 @@
 <?php
 
+var_dump($_POST);
+
 function showClasses() {
-    var_dump($_POST);
     if(!isset($_POST['Afficher_chap']) | isset($_POST['Next'])) $_POST['Afficher_chap'] = 'Selectionner un chapitre';
     $request1 = nameClass();
     $request = GetChapterClass();
@@ -10,13 +11,18 @@ function showClasses() {
     require('View/class.php');
 }
 
-function hiddenBtn() {
-    //Boutons cachés pour l'affichage des cours
-    ?>
-    <input type="hidden" name="index_cours" value="<?php echo $_POST['index_cours']?>">
-    <input type="hidden" name="id_rubrique" value="<?php echo $_POST['id_rubrique']?>">
-    <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
-    <?php
+function knowID() {
+    $request = getChapterClass();
+    while($data = $request->fetch()) {
+        $name_chap = $data['nom_chapitre'];
+        
+        if($_POST['Afficher_chap'] == $name_chap) {
+            $id_chap = $data['id_chapitre'];
+        }
+    }
+    $request->closeCursor();
+    if(isset($id_chap)) return $id_chap;
+    else return $id_chap = 0;
 }
 
 function maxChapter() {
@@ -29,21 +35,21 @@ function maxChapter() {
     return $i;
 }
 
-function addOne() {
-    //Ajoute + 1 à la rubrique pour passer au cours suivants
+
+function nextChapter() {
     $max = maxChapter();
+    echo $max;
+    $end = false;
     if($max == $_POST['index_cours']) {
-        echo 'Bravo !';
+        $end = true;
     }
-    else {
-        $_POST['index_cours'] = $_POST['index_cours'] + 1;
-    }
+    return $end;
 }
 
 function modifChapter()  {
     //Permet au prof de modifier le nom d'un chapitre
     if(($_POST['nom_chapitre']) !== 'Selectionner un chapitre') {
-        $req = req_modifChapter();
+        $req = requestModifChapter();
         $nv_nom = $_POST['chap'];
         $req->execute(array(
             'nv_nom' => $nv_nom
@@ -58,7 +64,11 @@ function modifChapter()  {
 function readOrNot() {
     $request_read = checkRead();
     while($data = $request_read->fetch()) {
-        $status = $data['status_cours'];
+        $id_class = $data['id_cours'];
+        if($id_class == $_POST['index_cours']) {
+            $status = $data['status_cours'];
+            break;
+        }
     }
     $request_read->closeCursor();
     if($status == 'non_lu') $_POST['status_cours'] = "Marquer le cours comme lu";
@@ -83,6 +93,29 @@ function changeRead() {
         ));
         $req->closeCursor();
     }
+}
+
+function hiddenBtn() {
+    $id_chap = knowID();
+    //Boutons cachés pour l'affichage des cours
+    ?>
+    <input type="hidden" name="id_chap" value="<?php echo $id_chap?>">
+    <input type="hidden" name="index_cours" value="<?php echo $_POST['index_cours']?>">
+    <input type="hidden" name="id_rubrique" value="<?php echo $_POST['id_rubrique']?>">
+    <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
+    <?php
+}
+
+function hiddenBtnNext() {
+    $id_chap = knowID();
+    //Boutons cachés pour l'affichage des cours
+    $index_cours = $_POST['index_cours'] + 1;
+    ?>
+    <input type="hidden" name="id_chap" value="<?php echo $id_chap?>">
+    <input type="hidden" name="index_cours" value="<?php echo $index_cours ?>">
+    <input type="hidden" name="id_rubrique" value="<?php echo $_POST['id_rubrique']?>">
+    <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
+    <?php
 }
 
 ?>

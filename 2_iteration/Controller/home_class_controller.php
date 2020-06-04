@@ -1,5 +1,6 @@
 <?php
 
+
 function showClass() {
     $request = getRub();
     require('View/home_class.php');
@@ -9,12 +10,26 @@ function showSection($answer) {
     classes($answer);
 }
 
+function checkStatus($id_rubrique, $id_cours) {
+    $request = checkReadRubrique($id_rubrique); 
+    while($data = $request->fetch()) {
+        $status = $data['status_cours'];
+        $p_id_cours = $data['id_cours'];
+        if($id_cours == $p_id_cours) {
+            if($status == 'lu') return 'icon-check';
+            else return 'icon-circle-with-cross';
+        }
+    }
+}
+
 function classes($answer) {
     $i = 0;
-    while ($data = $answer->fetch()) {
+    while($data = $answer->fetch()) {
         $name_class = $data['nom_cours'];
         $id = $data['index_cours'];
+        $id_cours = $data['id_cours'];
         $id_rubrique = $data['id_rubrique'];
+        $svg = checkStatus($id_rubrique, $id_cours); 
         if($i == 0) {
             echo "<div class='box_row'>";
         }
@@ -38,7 +53,7 @@ function classes($answer) {
             Cours non commencée
             </p>
             <svg class='box-nav_exo'>
-                <use xlink:href='Public/svg/symbol-defs.svg#icon-circle-with-cross'></use>
+                <use xlink:href='Public/svg/symbol-defs.svg#$svg'></use>
             </svg>
         </div>  
         <form action='index.php?action=class.php' class='form_mdp' method='POST'>
