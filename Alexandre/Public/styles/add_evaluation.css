@@ -1,31 +1,3 @@
-.all{
-    display:flex;
-    flex-direction: row;
-}
-.resumer_exo{
-    display:flex;
-    flex-direction: column;
-}
-.horraire{
-    display: flex;
-    flex-direction: column;
-    padding: 10%;
-    margin-top: 25%;
-}
-.exercice{
-    display:flex;
-    flex-direction: column;
-    padding: 10%;
-}
-.tableau{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.all2{
-    display: flex;
-    flex-direction: column;
-}
-.tableau{
-    box-shadow: 10px 5px 5px grey ;
-    margin-left: 20px;
+.form_date {
+    width: 20% !important;
 }

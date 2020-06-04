@@ -1,26 +1,140 @@
-<!doctype html>
-<head>
-    <meta charset="utf-8">
-    <title>Home Exercice</title>
-    <link rel="stylesheet" type="text/css" href="../Public/styles/home_exercice.css">
-</head>
-<body>
-    <?php require('header.html') ?>
-    <center>
-    <div class="all" style="margin-bottom:15%">
-        <div class="top">
-            <a class="link" href="">Prise en main de Linus</a>
-            <a class="link" href="">Apprendre à programmer</a>
-            <a class="link" href="">Iniatiation à HTML5</a>
-            <a class="link" href="">Structure de données</a>
-            <a class="link" href="">PERL</a>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Public/styles/home_prof.css">
+        <link rel="stylesheet" href="Public/styles/home_exercice.css">
+        <link rel="stylesheet" href="Public/styles/progress_bar.css">
+        <link rel="stylesheet" href="Public/styles/box.css">
+        <link rel="stylesheet" href="Public/styles/font.css">
+        <link rel="stylesheet" href="Public/styles/button.css">
+        <link rel="stylesheet" href="Public/styles/heading.css">
+        <title>Home Exercice</title>
+
+    </head>
+    <body>
+        <?php require('header.php') ?>
+        
+        <section class="choose_sec">
+            <div class="heading">
+                <p class="heading_primary">
+                INDEX DES EXERCICES
+                </p>
+            </div>
+            <div class="box_row">
+<?php
+while($data = $request->fetch()) {
+    $name_ru = $data['nom_rubrique'];
+    $svg = $data['svg'];
+?>
+    <div class="basic_box red_section">
+        <svg class="box-nav_section">
+         <use xlink:href="Public/svg/symbol-defs.svg#<?php echo $svg?>"></use>
+        </svg>
+        <h3 class="heading_red">
+        <?php echo $name_ru ?></h3>
+        <div class="progress-bar progress_exo">
+            <span style="width: 15%">15%</span>
         </div>
-        <div class="bottom">
-            <a class="link" href="">Exercice 1</a>
-            <a class="link" href="">Exercice 2</a>
-            <a class="link" href="">Exercice 3</a>
-        </div>
+        <form action="#" class="form_mdp">
+            <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+        </form>
     </div>
-    </center>
-    <?php require('footer.html') ?>
-</body>
+<?php
+}
+$request->closeCursor();
+?>                
+            </div>
+        </section>
+
+        <section class="choose_exo">
+            <div class="heading">
+                <p class="heading_primary">
+                Exercice
+                </p>
+            </div>
+            <div class="box_row">
+                <div class="basic_box red_section red_exo">
+                    <svg class="box-nav_exo">
+                        <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    </svg>
+                    <h3 class="heading_red heading_exo">
+                    home page evolué
+                    </h3>
+                    <div class="status">
+                        <p class="message">
+                        Exercice terminé
+                        </p>
+                        <svg class="box-nav_exo">
+                            <use xlink:href="Public/svg/symbol-defs.svg#icon-check"></use>
+                        </svg>
+                    </div>  
+                    <form action="#" class="form_mdp">
+                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                    </form>
+                </div>
+                <div class="basic_box red_section red_exo">
+                    <svg class="box-nav_exo">
+                        <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    </svg>
+                    <h3 class="heading_red heading_exo">
+                    Formulaire d'inscription
+                    </h3>
+                    <div class="status">
+                        <p class="message">
+                        Exercice terminé
+                        </p>
+                        <svg class="box-nav_exo">
+                            <use xlink:href="Public/svg/symbol-defs.svg#icon-check"></use>
+                        </svg>
+                    </div>  
+                    <form action="#" class="form_mdp">
+                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                    </form>
+                </div>
+                <div class="basic_box red_section red_exo">
+                    <svg class="box-nav_exo">
+                        <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    </svg>
+                    <h3 class="heading_red heading_exo">
+                    Navigation animale
+                    </h3>
+                    <div class="status">
+                        <p class="message">
+                        Continuez l'exercice 
+                        </p>
+                        <svg class="box-nav_exo">
+                            <use xlink:href="Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </div>  
+                    <form action="#" class="form_mdp">
+                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                    </form>
+                </div>
+                <div class="basic_box red_section red_exo">
+                    <svg class="box-nav_exo">
+                        <use xlink:href="Public/svg/symbol-defs.svg#icon-html-five"></use>
+                    </svg>
+                    <h3 class="heading_red heading_exo">
+                    Poème
+                    </h3>
+                    <div class="status">
+                        <p class="message">
+                        Commencez l'exercice !
+                        </p>
+                        <svg class="box-nav_exo">
+                            <use xlink:href="Public/svg/symbol-defs.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </div>  
+                    <form action="#" class="form_mdp">
+                        <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <?php require('footer.php') ?>
+    </body>
+</html>

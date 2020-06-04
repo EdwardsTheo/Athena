@@ -1,55 +1,65 @@
-<?php 
-    require('header.html')
-?>
-<!doctype html>
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Home Class</title>
-    <link rel="stylesheet" type="text/css" href="../Public/home_class.css"/>
-    <link rel="stylesheet" type="text/css" href="../Public/css.css"/>
-    <link rel="stylesheet" type="text/css" href="../../Baptiste/Public/styles/button.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page des chapitres</title>
+    <link rel="stylesheet"  href="Public/styles/home_exercice.css">
+    <link rel="stylesheet"  href="Public/styles/header.css">
+    <link rel="stylesheet"  href="Public/styles/heading.css">
+    <link rel="stylesheet"  href="Public/styles/box.css">
+    <link rel="stylesheet"  href="Public/styles/progress_bar.css">
+    <link rel="stylesheet"  href="Public/styles/button.css">
+    <link rel="stylesheet"  href="Public/styles/font.css">
+    <link rel="stylesheet"  href="Public/styles/test.css">
 </head>
 <body>
-    <center>
-    <div class="all">
-        <div class="part">
-            <a class="lien" href="">Prise en main de linux</a>
-            <a class="lien" href="">Apprendre à programmer</a>
-            <a class="lien" href="">Initiation à HTML5</a>
-            <a class="lien" href="">Structure de données</a>
-            <a class="lien" href="">PERL</a>
+<?php require('header.php') ?>
+
+<section class="choose_sec">
+        <div class="heading">
+            <p class="heading_primary">
+            INDEX DES RUBRIQUES
+            </p>
         </div>
-        <div class="bottom">
-            <div class="exercice">
-                <div class="tableau" style='overflow:scroll; border:#000000 1px solid; width:400px; height: 250px;'>
-                    <table>
-                        <tr>Résumé section</tr>
-                    </table>
-                </div>
-                <a href="#" class="btn-red btn btn--green ">Modifier cours</a>
-                <div class="tableau" style='overflow:scroll; border:#000000 1px solid; width:400px; height: 250px;'>
-                <table>
-                    <tr>Exercice en rapport</tr>
-                </table>
-                </div>
-            </div>
-            <div class="bottom_right">
-                <div class="chapter">
-                    <a class="lien" href="">Chapitre 1</a>
-                    <a class="lien" href="">Chapitre 2</a>
-                    <a class="lien" href="">Chapitre 3</a>
-                </div>
-                <div class="extra">
-                    <table>
-                        <tr>Ressources Additionnelles</tr>
-                    </table>
-                    <p>chat</p>
-                </div>
-            </div>
+        <div class="box_row">
+<?php
+while($data = $request->fetch()) {
+    $name_ru = $data['nom_rubrique'];
+    $id = $data['id_rubrique'];
+    $svg = $data['svg'];
+?>
+    <div class="basic_box red_section">
+        <svg class="box-nav_section">
+            <use xlink:href="Public/svg/symbol-defs.svg#<?php echo $svg?>"></use>
+        </svg>
+        <h3 class="heading_red">
+        <?php echo $name_ru ?></h3>
+        <div class="progress-bar progress_exo">
+            <span style="width: 15%">15%</span>
         </div>
+        <form action="index.php?action=home_class.php" class="form_mdp" method="GET">
+            <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='afficher'><br/>
+            <input type="hidden"  id="btn" name="SVG" value="Public/svg/symbol-defs.svg#<?php echo $svg?>"><br/>
+            <input type="hidden"  id="btn" name="rubrique" value="<?php echo $id?>"><br/>
+            <input type="hidden"  id="btn" name="action" value="home_class.php"><br/>
+        </form>
     </div>
-    </center>
-    <?php 
-        require('footer.html')
-    ?>
-</body>
+<?php            
+}
+$request->closeCursor();
+?>   
+            
+        </div>
+    </section>
+    
+    <section class="choose_exo">
+        <div class="heading">
+            <p class="heading_primary">
+            RUBRIQUES
+            </p>
+        </div>
+    </section>
+
+    </body>
+</html>
