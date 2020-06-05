@@ -15,7 +15,7 @@
         <section class="home_class">
             <div class="heading">
                 <p class=heading_primary>
-                    Bienvenue élève !
+                    <?php title() ?>
                 </p>
             </div>
             <div class="box_student">
@@ -30,20 +30,26 @@
                     </p>
                 </div>
                 <div class="box basic_box box-2 news">
-                    <h3 class="heading_box">News</h3>
-                    <div class="contenu">
-                        <h4 class="heading_news">Nouvelle du Lundi 29 avril</h4>
-                        <p class="contenu_new">
-                            Bonjour, n'oubliez pas votre évaluation de demain !
-                        </p>
-                    </div>
-                    <div class="contenu">
-                        <h4 class="heading_news">Nouvelle du Lundi 13 avril</h4>
-                        <p class="contenu_new">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
-                    </div>
+                <?php
+                
+                    $i = 1;
+                    while($data = $request2->fetch()){
+                        if($i<=2){
+                ?>
+                        <h3 class="heading_box">News</h3>
+                        <div class="contenu">
+                            <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
+                            <p class="contenu_new">
+                                <?php echo $data['contenu_annonce']; ?>;
+                            </p>
+                        </div>
+                    <?php 
+                                $i++;
+                            }
+                        }
+                        $request2->closeCursor();
+
+                    ?>
                 </div>
                 <div class="box basic_box box-3">
                     <svg class="box-nav__icon">
@@ -69,6 +75,7 @@
             </div>
             <div class="main_student">
                 <div class="student info">
+                <?php if(!isset($_POST['Profil'])){ ?>
                    <div class="information_box">
                         <h3 class="heading_box heading_student">Informations profil</h3>
                         <div class ="box_info label_profil">
@@ -94,10 +101,13 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
                 <div class="student redirect">
                     <div class="red red1">
                         <div class="red_title">
-                            <h3 class="heading_redirect">Votre Dernier cours suivis</h3>
+                            <h3 class="heading_redirect">
+                            <?php titleLastCours(); ?>
+                            </h3>
                         </div>
                         <div class="red_contenu">
                             <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
@@ -109,7 +119,9 @@
                     </div>
                     <div class="red red2">
                         <div class="red_title">
-                            <h3 class="heading_redirect">Votre Dernier exercice suivis</h3>
+                            <h3 class="heading_redirect">
+                            <?php titleLastExercice(); ?>
+                            </h3>
                         </div>
                         <div class="red_contenu">
                             <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>

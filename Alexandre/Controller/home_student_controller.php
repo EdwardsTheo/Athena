@@ -15,4 +15,31 @@ function ErrorMessage(){
     }
     echo $message;
 }
+
+function title(){
+    if($_SESSION['status'] == 'eleve'){
+        echo 'Bienvenue '.$_SESSION['prenom'];
+    }
+    elseif($_SESSION['status'] == 'professeur'){
+        echo 'Profil de '.$_POST['Profil'];
+    }
+}
+
+function titleLastCours(){
+    if($_SESSION['status'] == 'eleve'){
+        echo 'Votre dernier cours suivis';
+    }
+    elseif($_SESSION['status'] == 'professeur'){
+        echo 'Le dernier cours suivis';
+    }
+}
+
+function titleLastExercice(){
+    if($_SESSION['status'] == 'eleve'){
+        echo 'Votre dernier exercice fait';
+    }
+    elseif($_SESSION['status'] == 'professeur'){
+        echo 'Le dernier exercice fait';
+    }
+}
 ?>

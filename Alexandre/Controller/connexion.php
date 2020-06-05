@@ -13,6 +13,7 @@ function startProf() {
 
 function startStudent() {
     $request = updatePasseWord();
+    $request2 = getAnnonce();
     require('View/home_student.php');
 }
 
