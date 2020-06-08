@@ -22,6 +22,11 @@ function checkStatus($id_rubrique, $id_cours) {
     }
 }
 
+function checkSVG($svg) {
+    if($svg == 'icon-check') return $phrase = 'Cours lu';
+    else return $phrase = 'Cours non lu';
+}
+
 function classes($answer) {
     $i = 0;
     while($data = $answer->fetch()) {
@@ -29,7 +34,8 @@ function classes($answer) {
         $id = $data['index_cours'];
         $id_cours = $data['id_cours'];
         $id_rubrique = $data['id_rubrique'];
-        $svg = checkStatus($id_rubrique, $id_cours); 
+        $svg = checkStatus($id_rubrique, $id_cours);
+        $phrase = checkSVG($svg); 
         if($i == 0) {
             echo "<div class='box_row'>";
         }
@@ -50,7 +56,7 @@ function classes($answer) {
         </h3>
         <div class='status'>
             <p class='message'>
-            Cours non commencée
+            $phrase
             </p>
             <svg class='box-nav_exo'>
                 <use xlink:href='Public/svg/symbol-defs.svg#$svg'></use>
@@ -59,6 +65,7 @@ function classes($answer) {
         <form action='index.php?action=class.php' class='form_mdp' method='POST'>
             <input type='hidden' name='nom_cours' value='$name_class' id='btn'>
             <input type='hidden' name='id_rubrique' value='$id_rubrique' id='btn'>
+            <input type='hidden' name='id_cours' value='$id_cours' id='btn'>
             <input type='hidden' name='index_cours' value='$id' id='btn'>
             <input type='submit' class='btn btn--green btn_section' name='Afficher' value='Lire cours' id='btn'>
         </form>

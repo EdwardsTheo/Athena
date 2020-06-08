@@ -1,6 +1,5 @@
 <?php
 
-var_dump($_POST);
 
 function showClasses() {
     if(!isset($_POST['Afficher_chap']) | isset($_POST['Next'])) $_POST['Afficher_chap'] = 'Selectionner un chapitre';
@@ -65,15 +64,16 @@ function readOrNot() {
     $request_read = checkRead();
     while($data = $request_read->fetch()) {
         $id_class = $data['id_cours'];
-        if($id_class == $_POST['index_cours']) {
+        if($id_class == $_POST['id_cours']) {
             $status = $data['status_cours'];
             break;
         }
     }
     $request_read->closeCursor();
+  
     if($status == 'non_lu') $_POST['status_cours'] = "Marquer le cours comme lu";
     else $_POST['status_cours'] = "Marquer le cours comme non lu";
-
+    
 }
 
 function changeRead() {
@@ -101,6 +101,7 @@ function hiddenBtn() {
     ?>
     <input type="hidden" name="id_chap" value="<?php echo $id_chap?>">
     <input type="hidden" name="index_cours" value="<?php echo $_POST['index_cours']?>">
+    <input type="hidden" name="id_cours" value="<?php echo $_POST['id_cours']?>">
     <input type="hidden" name="id_rubrique" value="<?php echo $_POST['id_rubrique']?>">
     <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
     <?php
@@ -110,10 +111,12 @@ function hiddenBtnNext() {
     $id_chap = knowID();
     //Boutons cachés pour l'affichage des cours
     $index_cours = $_POST['index_cours'] + 1;
+    $id_cours = $_POST['id_cours'] + 1;
     ?>
     <input type="hidden" name="id_chap" value="<?php echo $id_chap?>">
     <input type="hidden" name="index_cours" value="<?php echo $index_cours ?>">
     <input type="hidden" name="id_rubrique" value="<?php echo $_POST['id_rubrique']?>">
+    <input type="hidden" name="id_cours" value="<?php echo $_POST['id_cours']?>">
     <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
     <?php
 }

@@ -67,34 +67,34 @@ function checkRead() {
 
 function checkReadRubrique($id_rubrique) {
     $db = connexion_db();
-    $request = $db->query('SELECT p.status_cours, p.id_cours
-    FROM progress_cours AS p
-    LEFT JOIN cours AS co
-    ON p.id_cours = co.id_cours
-    WHERE id_user = \''.$_SESSION['id_user'].'\'
-    AND id_rubrique = \''.$id_rubrique.'\'');
-    return $request;
+    if(isset($_SESSION['id_user'])) {
+        $request = $db->query('SELECT p.status_cours, p.id_cours
+        FROM progress_cours AS p
+        LEFT JOIN cours AS co
+        ON p.id_cours = co.id_cours
+        WHERE id_user = \''.$_SESSION['id_user'].'\'
+        AND id_rubrique = \''.$id_rubrique.'\'');
+        return $request;
+    }
 }
 
 function updateRead() {
     $db = connexion_db();
-    
+   
     $req = $db->prepare('UPDATE progress_cours
     SET status_cours = :nv_status
     WHERE id_user = \''.$_SESSION['id_user'].'\'
-    AND id_cours = \''.htmlspecialchars($_POST['index_cours']).'\'');
+    AND id_cours = \''.htmlspecialchars($_POST['id_cours']).'\'');
     return $req;
 }
 
 function getChapterClass() {
     $db = connexion_db();
     
-    $request = $db->query('SELECT c.nom_chapitre, co.id_rubrique, c.id_chapitre
+    $request = $db->query('SELECT c.nom_chapitre, c.id_rubrique, c.id_chapitre
     FROM chapitres AS c
-    LEFT JOIN cours AS co
-    ON c.index_cours = co.index_cours
     WHERE c.index_cours = \''.htmlspecialchars($_POST['index_cours']).'\'
-    AND co.id_rubrique = \''.htmlspecialchars($_POST['id_rubrique']).'\'');
+    AND c.id_rubrique = \''.htmlspecialchars($_POST['id_rubrique']).'\'');
     return $request;
 }
 
@@ -111,12 +111,31 @@ function requestModifChapter() {
 function getLastClass($id) {
     $db = connexion_db();
 
-    $request = $db->query('SELECT r.nom_rubrique, c.nom_cours, c.index_cours, r.id_rubrique 
+    $request = $db->query('SELECT r.nom_rubrique, c.nom_cours, c.index_cours, r.id_rubrique, c.id_cours 
     FROM rubriques AS r
     LEFT JOIN cours AS c
     ON c.id_rubrique = r.id_rubrique
     WHERE c.id_cours = \''.$id.'\'');
     return $request;
+}
+
+/***************--------------ADD NEW CLASS---------------********/
+
+function reqAddClass() {
+    $db = connexion_db();
+
+    $req = $db->prepare('INSERT INTO cours(id_rubrique, index_cours, nom_cours)
+    VALUES(:id_rubrique, :index_cours, :nom_cours)');
+
+    return $req;
+}
+
+function reqAddNewChapter() {
+    $db = connexion_db();
+
+    $req = $db->prepare('INSERT INTO chapitres(index_cours, id_rubrique, nom_chapitre, contenu_chapitre)
+    VALUES(:index_cours, :id_rubrique, :nom_chapitre, :contenu_chapitre)');
+    return $req;
 }
 
 ?>

@@ -2,13 +2,12 @@
 //just a test
 session_start();
 
-var_dump($_GET);
-
 require('Controller/connexion.php');
 require('Controller/home_class_controller.php');
 require('Controller/home_student_controller.php');
 require('Controller/home_exercice_controller.php');
 require('Controller/class_controller.php');
+require('Controller/add_class_controller.php');
 
 if(!isset($_GET['action'])) {
     welcome();
@@ -52,6 +51,12 @@ if(isset($_GET['action'])) {
         startEval();
     }
     elseif($_GET['action'] == 'add_class.php') {
+        if(isset($_POST['Add_new_class'])) {
+            addNewClass();
+        }
+        if(isset($_POST['add_class_final'])) {
+            addNewChapter();
+        }
         startAddClass();
     }
     elseif($_GET['action'] == 'add_evaluation.php') {

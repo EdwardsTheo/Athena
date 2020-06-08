@@ -100,6 +100,7 @@
                             $nom_rubrique = $data['nom_rubrique'];
                             $id_rubrique = $data['id_rubrique'];
                             $index_cours = $data['index_cours'];
+                            $id_cours = $data['id_cours'];
                         }
                         $request_student->closeCursor();
                         ?>
@@ -112,6 +113,7 @@
                                 <input type='hidden' name='nom_cours' value=' <?php echo $nom_cours ?>'>
                                 <input type='hidden' name='id_rubrique' value='<?php echo $id_rubrique; ?>'>
                                 <input type='hidden' name='index_cours' value='<?php echo $index_cours; ?>'>
+                                <input type='hidden' name='id_cours' value='<?php echo $id_cours; ?>'>
                                 <input type='hidden' name='Afficher' value='lire cours'>
                             </form>
                         </div>
