@@ -84,7 +84,10 @@ if(isset($_GET['action'])) {
         startAddEval();
     }
     elseif($_GET['action'] == 'add_exercice.php') {
-        showEx();
+        startAddExo();
+    }
+    elseif($_GET['action'] == 'exercice.php') {
+       showExo();
     }
 }
 
