@@ -1,23 +1,73 @@
-<?php
-if(isset($_GET["layout"])){
-    $layout = $_GET["layout"];
-    switch ($layout) {
-        case "home_prof" : require('View/home_prof.php');
-        break;
-        case "home_student" : require('View/home_student.php');
-        break;
-    }
+<?php 
+//just a test
+session_start();
+
+require('Controller/connexion.php');
+require('Controller/home_class_controller.php');
+require('Controller/home_student_controller.php');
+require('Controller/home_exercice_controller.php');
+require('Controller/class_controller.php');
+require('Controller/add_class_controller.php');
+
+
+if(!isset($_GET['action'])) {
+    welcome();
 }
-else{
-    if(isset($_GET["action"])){
-        $action = $_GET["action"];
-        switch ($action) {
-            case "connecter" : require('Modele/connecter.php');
-            break;
-        }
+
+if(isset($_GET['action'])) {
+    if($_GET['action'] == 'connecter.php') connexion();
+    elseif($_GET['action'] == 'home_prof.php') startProf();
+    
+    elseif($_GET['action'] == 'home_student.php') {
+        startStudent();
     }
-    else{
-        require('View/connexion.php');
+    
+    elseif($_GET['action'] == 'home_class.php') {
+        showClass();
+        if (isset($_POST['afficher'])) {
+            $answer = getClass();
+            showSection($answer);
+        }
+        else require('View/footer.php');
+    }
+    elseif($_GET['action'] == 'home_exercice.php') {
+        startExo();
+    }
+    elseif($_GET['action'] == 'class.php') {
+        if(isset($_POST['Modifier_chap'])) {
+            modifChapter();
+        }
+        if(isset($_POST['Read'])) {
+            changeRead();
+        }
+        if(isset($_POST['Next'])) {
+            nextChapter();
+        }
+        showClasses();
+    } 
+    elseif($_GET['action'] == 'visu_class.php') {
+        startVisu();
+    }
+    elseif($_GET['action'] == 'evaluation.php') {
+        startEval();
+    }
+    elseif($_GET['action'] == 'add_class.php') {
+        if(isset($_POST['Add_new_class'])) {
+            addNewClass();
+        }
+        if(isset($_POST['add_class_final'])) {
+            addNewChapter();
+        }
+        startAddClass();
+    }
+    elseif($_GET['action'] == 'add_evaluation.php') {
+        startAddEval();
+    }
+    elseif($_GET['action'] == 'add_exercice.php') {
+        startAddExo();
+    }
+    elseif($_GET['action'] == 'exercice.php'){
+        showEx();
     }
 }
 

@@ -13,7 +13,7 @@
     justify-content: space-evenly;
     margin: 2rem;
     margin-bottom: -2rem;
-    height: 40rem;
+    min-height: 40rem;
 }
 
 
@@ -22,7 +22,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     font-family: "Roboto-Regular";
-    height: 30rem;
+    min-height: 30rem;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
     font-size: 1.5rem;
     border-radius: 3px;
@@ -94,7 +94,7 @@
 }
 
 .text {
-    font-size: 1.8rem;
+    /*font-size: 1.8rem;*/
     margin: 2rem;
     color: #333;
 }
@@ -108,6 +108,7 @@
 .bottom_exercice {
     display: flex;
     flex-direction: column;
+    margin: 50px;
 }
 
 .drop {
@@ -135,4 +136,7 @@
 .bottom_button {
     display: flex;
     flex-direction: row;
+}
+#contenu_new:hover{
+    color : red;
 }

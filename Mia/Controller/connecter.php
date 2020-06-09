@@ -1,6 +1,7 @@
 <?php 
+
     session_start();
-    require("connexion_sql.php");
+    require("Model/connexion_sql.php");
     if (isset($_POST["email"])) {
         $email = $_POST["email"];
         if (isset($_POST["password"])) {
@@ -16,7 +17,7 @@
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "eleve";
-                            header("Location: index.php?layout=home_student");
+                            header("Location: index.php?action=home_student.php");
                             exit();
                         }
                         else {
@@ -24,7 +25,7 @@
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "professeur";
-                            header("Location: index.php?layout=home_prof");
+                            header("Location: index.php?action=home_prof.php");
                             exit();
                         }
                     }

@@ -107,7 +107,7 @@
                     <h3 class="heading_red">
                     Créer un exercice</h3>
                     <div class="red_bouton">
-                        <a href="#" class="btn-red btn btn--green ">Exercices</a>
+                        <a href="index.php?action=add_exercice.php" class="btn-red btn btn--green ">Exercices</a>
                     </div>
                 </div>
                 <div class="red_prof">

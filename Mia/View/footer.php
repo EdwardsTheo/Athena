@@ -9,7 +9,7 @@
     <body>
     <footer class="footer">
     <div class="copyright">
-        &copy; Site crée par Mia Salerno, Alexandre Trillot, Baptiste Theobald pour les élèves de S1.
+        &copy; Site créé par Mia Salerno, Alexandre Trillot, Baptiste Theobald pour les élèves de S1.
     </div>
     <div class="title">
         <span class="footer-primary">Athéna</span>
