@@ -1,12 +1,17 @@
 <?php
     require_once("Model/request.php");
-    if ($_POST["btn"] == "Modifier consigne" || $_POST["btn"] == "Ajouter ressources") {
-        $btn = $_POST["btn"];
-        $name_ex = $_POST["name_ex"];
-        $resources = $_POST["resources"];
-        $instructions = $_POST["instructions"];
-        $rubrique = $_POST["rubrique_n"];
-        $index = $_POST["index"];
+    if(isset($_POST["btn"])){
+        if ($_POST["btn"] == "Modifier consigne" || $_POST["btn"] == "Ajouter ressources") {
+            $btn = $_POST["btn"];
+            $name_ex = $_POST["name_ex"];
+            $resources = $_POST["resources"];
+            $instructions = $_POST["instructions"];
+            $rubrique = $_POST["rubrique_n"];
+            $index = $_POST["index"];
+        }
+    }
+    else{
+        $btn = "";
     }
 ?>
 <!DOCTYPE html>
