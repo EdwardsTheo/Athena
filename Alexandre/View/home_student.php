@@ -31,7 +31,6 @@
                 </div>
                 <div class="box basic_box box-2 news">
                 <?php
-                
                     $i = 1;
                     while($data = $request2->fetch()){
                         if($i<=2){

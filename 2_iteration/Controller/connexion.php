@@ -7,11 +7,14 @@ function welcome() {
 }
 
 function startProf() {
+    $request2 = getAnnonce();
     require('View/home_prof.php');
 }
 
 function startStudent() {
     $request_student = selectLast();
+    $request = updatePasseWord();
+    $request2 = getAnnonce();
     require('View/home_student.php');
 }
 

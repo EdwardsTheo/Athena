@@ -22,8 +22,11 @@
                         $name_cours1 = $data['nom_cours'];
                     }
                     $request1->closeCursor();
-                    echo $name_cours1;
-                    $_POST['nom_cours'] = $name_cours1; 
+                    if(isset($name_cours1)) {
+                        echo $name_cours1;
+                        $_POST['nom_cours'] = $name_cours1; 
+                    }
+                    else echo $_POST['nom_cours'];
                     ?>
                 </p>
             </div>
@@ -92,8 +95,10 @@
                     <div class="box_btn">
                         <form action="index.php?action=class.php" class="form_index form_class" method="POST">
                             <?php
-                            if($_SESSION['status'] == "professeur") echo  "<input type='submit' class='btn_news btn_text btn_prof' value='Modifier' id='btn'>";
-                            
+                            if($_SESSION['status'] == "professeur") {
+                                echo  "<input type='submit' class='btn_news btn_text btn_prof' value='Modifier' id='btn'>";
+                                echo  "<input type='submit' class='btn_news btn_text btn_prof' name='Supprimer Chapitre' value='Supprimer chapitre' id='btn'>";
+                            }
                             else echo "<input type='submit' class='btn_news btn_text btn_prof btn_mark' name='Read' value='$_POST[status_cours]' id='btn'>";
                             hiddenBtn();
                             ?>

@@ -6,7 +6,7 @@ function showClasses() {
     $request1 = nameClass();
     $request = GetChapterClass();
     $request2 = getContenu();
-    readOrNot();
+    if($_SESSION['status'] == 'eleve') readOrNot();
     require('View/class.php');
 }
 
@@ -37,7 +37,6 @@ function maxChapter() {
 
 function nextChapter() {
     $max = maxChapter();
-    echo $max;
     $end = false;
     if($max == $_POST['index_cours']) {
         $end = true;
@@ -95,6 +94,10 @@ function changeRead() {
     }
 }
 
+function suppChap() {
+    $request =  reqDeleteChap();
+}
+
 function hiddenBtn() {
     $id_chap = knowID();
     //Boutons cachés pour l'affichage des cours
@@ -104,6 +107,7 @@ function hiddenBtn() {
     <input type="hidden" name="id_cours" value="<?php echo $_POST['id_cours']?>">
     <input type="hidden" name="id_rubrique" value="<?php echo $_POST['id_rubrique']?>">
     <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
+    <input type="hidden" name="nom_chapitre" value="<?php echo $_POST['Afficher_chap']?>">
     <?php
 }
 
@@ -118,6 +122,7 @@ function hiddenBtnNext() {
     <input type="hidden" name="id_rubrique" value="<?php echo $_POST['id_rubrique']?>">
     <input type="hidden" name="id_cours" value="<?php echo $_POST['id_cours']?>">
     <input type="hidden" name="nom_cours" value="<?php echo $_POST['nom_cours']?>">
+    <input type="hidden" name="nom_chapitre" value="<?php echo $_POST['Afficher_chap']?>">
     <?php
 }
 

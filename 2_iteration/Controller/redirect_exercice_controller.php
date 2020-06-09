@@ -1,7 +1,7 @@
 <?php 
-    session_start();
     require_once("Model/request.php");
-/*–––––––––––––––––––––––––––Verifie si un exercice suivant existe––––––––––––––––––––––––––––––––––––––––––*/
+
+    /*–––––––––––––––––––––––––––Verifie si un exercice suivant existe––––––––––––––––––––––––––––––––––––––––––*/
     $id_ru = intval($_POST["id_rub"]);
     $index = intval($_POST["index"])+1;
     $index_ex = intval($_POST["index"]);

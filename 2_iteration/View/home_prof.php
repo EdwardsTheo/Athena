@@ -34,40 +34,45 @@
                     </div>
                         
                     <div class="box_mdp">
-                        <form action="#" class="form_mdp">
+                    <form action="index.php?action=home_prof.php" class="form_mdp" method='POST'>
                             <h4 class="heading_news_prof heading_student">Modifiez votre mot de passe</h4>  
-                            <input type="password" class="form_input" placeholder="Nouveau Mot De Passe" id="mdp">
+                            <input type="password" class="form_input" placeholder="Nouveau Mot De Passe" id="mdp" name='mdp'>
                             <input type="submit" class="btn_mdp btn btn--green" value="Modifier votre mot de passe" id="btn">
                         </form>
+                        </br><center><?php ErrorMessages();  ?></center>
                     </div>
                 </div>
-                <div class="basic_box box info_box">
+                <?php 
+                $i = 1; 
+                    while($data = $request2->fetch()){
+                        if($i<2){
+                ?>
+                 <div class="basic_box box info_box">
                     <h3 class="heading_box">News</h3>
                     <div class="contenu_prof">
-                        <h4 class="heading_news_prof">Nouvelle du Lundi 29 avril</h4>
-                        <p class="contenu_new">
-                            Bonjour, n'oubliez pas votre évaluation de demain !
-                        </p>
-                        <form action="#" class="form_news">
-                            <input type="submit" class="btn-text btn_news" value="Modifier l'annonce" id="btn">
-                            <input type="submit" class="btn-text btn_news" value="Supprimer l'annonce" id="btn">
-                        </form>
+                        <h4 class="heading_news_prof">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
+                        <p class="contenu_new"><?php echo $data['contenu_annonce'] ?></p>
+                        <?php editAnnonce($data)?>
+                            <form action="index.php?action=home_prof.php" class="form_news" method='post'>
+                                <input type="submit" class="btn-text btn_news" value="Modifier l'annonce" id="btn" name='edit'>
+                                <input type="submit" class="btn-text btn_news" value="Supprimer l'annonce" id="btn" name = 'delete'>
+                                <?php refresh(); ?>
+                            </form>
                     </div>
-                    <div class="contenu_prof">
-                        <h4 class="heading_news_prof">Nouvelle du Lundi 13 avril</h4>
-                        <p class="contenu_new">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
-                        <form action="#" class="form_news">
-                            <input type="submit" class="btn-text btn_news" value="Modifier l'annonce" id="btn">
-                            <input type="submit" class="btn-text btn_news" value="Supprimer l'annonce" id="btn">
-                        </form>
-                    </div>
+                    <?php delAnnonce($data); ?>
+                    <?php 
+                    $i++;
+                        } 
+                    }  
+                        $request2->closeCursor();
+                    ?>
                     <div class="contenu_prof add_news">
                         <h4 class="heading_news_prof">Ajouter une annonce</h4>
-                        <form action="#" class="form_news_add">
-                            <textarea class="text_news" id="text_area">Écrivez votre nouvelle annonce !</textarea>
-                            <input type="submit" class="btn_add btn--green btn_news" value="Ajouter une annonce" id="btn">
+                        <form action="index.php?action=home_prof.php" class="form_news_add" method='POST'>
+                            <textarea class="text_news" id="text_area" name='titre_annonce' placeholder="Titre de votre annonce" required></textarea>
+                            <textarea class="text_news" id="text_area" name='annonce' placeholder="Écrivez votre nouvelle annonce !" required></textarea>
+                            <input type="submit" class="btn_add btn--green btn_news" value="Ajouter une annonce" id="btn" name='add'>
+                            <?php refresh(); ?>
                         </form>
                     </div>
                 </div>
@@ -128,4 +133,4 @@
 
     <?php require("footer.php"); ?>
     </body>
-</html>
+</html> 
