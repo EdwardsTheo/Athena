@@ -8,10 +8,12 @@
     <title>Exercices</title>
     <link rel="stylesheet" href="Public/styles/home_prof.css">
     <link rel="stylesheet" href="Public/styles/home_student.css">
+    <link rel="stylesheet" href="Public/styles/class.css">
     <link rel="stylesheet"  href="Public/styles/exercice.css">
-    <link rel="stylesheet"  href="Public/styles/header.css">
+    <link rel="stylesheet"  href="Public/styles/heading.css">
     <link rel="stylesheet"  href="Public/styles/button.css">
     <link rel="stylesheet"  href="Public/styles/font.css">
+    <link rel="stylesheet"  href="Public/styles/box.css">
 </head>
 <body>
 <?php 
@@ -27,7 +29,7 @@
     </div>
 <!--Affiche les ressources et la rubrique-->
     <div class="main_class">
-        <div class="box_class index">
+        <div class="basic_box box_class index">
             <div class="head_btn">
                 <a href="index.php?action=home_exercice.php" class="btn-text_index">&larr; Retour au choix des exercices</a>
             </div>
@@ -87,7 +89,7 @@
                 ?>
             </div>
         </div>
-        <div class="box_class zone_class">
+        <div class="box_class basic_box">
             <div class="heading_zone">    
                 <p class="heading_zone_class">
                     Consigne de l'exercice
