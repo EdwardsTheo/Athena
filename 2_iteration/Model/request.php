@@ -1,7 +1,7 @@
 <?php
 
-require("connect_db.php");
-
+//require("connect_db.php");
+require("connexion_sql.php");
 function getUser() {
     $db = connexion_db();
     $request = $db->query('SELECT * FROM users');

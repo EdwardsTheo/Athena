@@ -1,6 +1,6 @@
 <?php
 
-var_dump($_POST);
+//var_dump($_POST);
 
 function startExo() {
     require('View/home_exercice.php');

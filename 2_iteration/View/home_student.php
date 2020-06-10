@@ -139,14 +139,14 @@
                             }
                             if(isset($index_ex)){
                                 echo "<div class='red_contenu'>
-                                    <label for='chapitre' class='redirect_titre'>Chapitre : $nom_rubrique_ex ?>.</label>
-                                    <label for='exercice' class='redirect_titre'>Nom de l'exercice : $nom_ex ?>.</label>
+                                    <label for='chapitre' class='redirect_titre'>Chapitre : $nom_rubrique_ex .</label>
+                                    <label for='exercice' class='redirect_titre'>Nom de l'exercice : $nom_ex .</label>
                                 </div>
                                 <div class='red_bouton'>
                                     <form action='index.php?action=exercice.php' method='POST'>
                                         <input type='submit' name='btn' class='btn btn--green btn_section' name='Rediriger' value='Rediriger' id='btn'>
-                                        <input type='hidden' name='id_rub' value=' $id_rub; ?>'>
-                                        <input type='hidden' name='index' value=' $index_ex; ?>'>
+                                        <input type='hidden' name='id_rub' value=' $id_rub'>
+                                        <input type='hidden' name='index' value=' $index_ex'>
                                     </form>
                                 </div>";
                             }
