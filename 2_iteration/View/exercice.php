@@ -22,7 +22,7 @@
 <section class="class">
     <div class="heading">    
         <p class="heading_primary heading_class">
-            <? echo $name_ex ?>
+            <?php echo $name_ex ?>
         </p>
     </div>
 <!--Affiche les ressources et la rubrique-->
@@ -41,8 +41,8 @@
                     if (is_array($name_res)) {
                         if (array_key_last($name_res) == 0){ ?>
                             <form action="#" method="POST">
-                                <input type="submit" name="cours" value="<?echo $name_res[0]?>" class="btn_news">
-                                <input type="hidden" name="id_cours" value="<?echo $index_cours?>">
+                                <input type="submit" name="cours" value="<?php echo $name_res[0]?>" class="btn_news">
+                                <input type="hidden" name="id_cours" value="<?php echo $index_cours?>">
                             </form>
                 
                     <?php    }
@@ -50,8 +50,8 @@
                             for($i=0; $i<=array_key_last($name_res); $i++) {
                     ?>
                             <form action="#" method="POST">
-                                    <input type="submit" name="cours" value="<?echo $name_res[$i]?>" class="btn_news">
-                                    <input type="hidden" name="id_cours" value="<?echo $index_cours?>">
+                                    <input type="submit" name="cours" value="<?php echo $name_res[$i]?>" class="btn_news">
+                                    <input type="hidden" name="id_cours" value="<?php echo $index_cours?>">
                             </form>
                            <?php } 
                         }
@@ -96,7 +96,7 @@
         
         <div class="text_class">
             <p class="text">
-                <? echo $instructions ?>
+                <?php echo $instructions ?>
             </p>
         </div>
         <div class="box_btn">
