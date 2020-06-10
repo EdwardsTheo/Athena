@@ -7,7 +7,7 @@ function startExo() {
 }
 
 function startAddExo(){
-    if(!isset($_POST["btn"]) || $_POST["btn"] == "Ajouter ressources " || $_POST["btn"] == "Modifier consigne"){
+    if(!isset($_POST["btn"]) || $_POST["btn"] == "Ajouter ressources" || $_POST["btn"] == "Modifier consigne"){
         require('View/add_exercice.php');
     }
     elseif ($_POST["btn"] == "Ajouter Exercice" ){

@@ -68,6 +68,7 @@
                 /*––––––––––––––––––––––––––Ajouter des ressources––––––––––––––––––––––––––––––––––––––—*/
                 if($_SESSION["status"] == "professeur"){
                     echo '<form action="index.php?action=add_exercice.php" method="POST">';
+                        echo '<input type="submit" name="btn" class="btn_news" value="Ajouter ressources" id="btn">';
                         $i = 0;
                         if(is_array($name_res)){
                             while ($name_res[$i]){
@@ -83,7 +84,7 @@
                             echo "<input type='hidden' name='instructions' value='".$instructions."'>";
                             echo "<input type='hidden' name='rub' value='".$id_rubrique."'>";
                             echo "<input type='hidden' name='index' value='".$index_ex."'>";
-                        echo '<input type="submit" name="btn" class="btn_news" value="Ajouter ressources" id="btn">';
+                        
                     echo '</form>';
                 }
                 ?>
