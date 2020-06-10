@@ -78,7 +78,7 @@
                             $id = $data['id_rubrique'];
                             $svg = $data['svg'];
                     ?>
-                    <input type="submit" name="rubrique" class="btn_index btn_add_exo" value="<?echo $name_ru?>" id="btn"> 
+                    <input type="submit" name="rubrique" class="btn_index btn_add_exo" value="<?echo $name_ru; ?>" id="btn"> 
 
                     <?php            
                         }
