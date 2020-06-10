@@ -21,6 +21,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Public/styles/add_exercice.css">
         <link rel="stylesheet" href="Public/styles/home_student.css">
+        <link rel="stylesheet" href="Public/styles/heading.css">
         <link rel="stylesheet" href="Public/styles/exercice.css">
         <link rel="stylesheet" href="Public/styles/button.css">
         <link rel="stylesheet" href="Public/styles/font.css">
@@ -78,7 +79,7 @@
                             $id = $data['id_rubrique'];
                             $svg = $data['svg'];
                     ?>
-                    <input type="submit" name="rubrique" class="btn_index btn_add_exo" value="<?echo $name_ru; ?>" id="btn"> 
+                    <input type="submit" name="rubrique" class="btn_index btn_add_exo" value="<?php echo $name_ru; ?>" id="btn"> 
 
                     <?php            
                         }
@@ -144,7 +145,7 @@
                                         
                     ?>
                     <div class="check">
-                        <input type="checkbox" name="resources[]" value="<? echo $index ?>" class="btn_check" id="btn" <? echo $check?> ><label for="html" class="label_class"><? echo $name_cl?> </label>
+                        <input type="checkbox" name="resources[]" value="<?php echo $index ?>" class="btn_check" id="btn" <?php echo $check?> ><label for="html" class="label_class"><?php echo $name_cl?> </label>
                     </div>
                     <?php           
                                         
@@ -169,7 +170,7 @@
                         $consigne = "Consigne de l'exercice";
                     }
                 ?>
-                <input type="text" name="name" class="text_name" <? echo $value_ex ?> >
+                <input type="text" name="name" class="text_name" <?php echo $value_ex ?> >
                 <div class="heading_zone">  
                     <p class="heading_zone_class heading_ressource">
                     Consigne de l'exercice
@@ -190,7 +191,7 @@
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
                     </svg>
                 </div>
-                    <input type='hidden' name='index' value='<? echo $index?>'>
+                    <input type='hidden' name='index' value='<?php echo $index?>'>
                     <input type="submit" name="btn" class="btn btn--green btn_bottom2" value="Ajouter Exercice" id="btn">
                 </form>
             </div>
