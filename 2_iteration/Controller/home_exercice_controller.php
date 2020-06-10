@@ -15,7 +15,7 @@ function startAddExo(){
     }
 }
 
-function showEx(){
+function showExo(){
     if($_POST["btn"] == "Supprimer exercice"){
         require('Controller/delete_exercice_controller.php');
     }
