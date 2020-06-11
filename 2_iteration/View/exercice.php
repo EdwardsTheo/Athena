@@ -40,27 +40,24 @@
             </div>
             <div class="form_index">
                 <?php 
-                    if (is_array($name_res)) {
-                        if (array_key_last($name_res) == 0){ ?>
-                            <form action="#" method="POST">
-                                <input type="submit" name="cours" value="<?php echo $name_res[0]?>" class="btn_news">
-                                <input type="hidden" name="id_cours" value="<?php echo $index_cours?>">
-                            </form>
-                
-                    <?php    }
-                        else{
-                            for($i=0; $i<=array_key_last($name_res); $i++) {
+                if ($result) {
+                    $request->closeCursor();
+                    $request = getIdResources($id_ex, $id_ru);
+                    while($data = $request->fetch()) {
+                        $name_res = $data["nom_cours"];
+                        $index_cours = $data['index_cours'];
                     ?>
                             <form action="#" method="POST">
-                                    <input type="submit" name="cours" value="<?php echo $name_res[$i]?>" class="btn_news">
-                                    <input type="hidden" name="id_cours" value="<?php echo $index_cours?>">
+                                <input type="submit" name="cours" value="<?php echo $name_res ?>" class="btn_news">
+                                <input type="hidden" name="id_cours" value="<?php echo $index_cours ?>">
                             </form>
-                           <?php } 
-                        }
+                
+                 <?php
                     }
-                    else {
-                        echo $name_res;
-                    }
+                }
+                else{
+                    echo "Aucune ressource n'est attribuée à cet exercice.";
+                }
                 ?>
             </div>
             <div class="bottom_btn">

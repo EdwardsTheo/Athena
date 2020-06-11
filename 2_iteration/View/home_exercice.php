@@ -73,7 +73,6 @@
         <div class="box_row">
             <?php 
                 $r_ou_e = "rubrique";
-                $id_user = $_SESSION['id_user'];
 
                 $request = getExWanted($id_rub); 
                 

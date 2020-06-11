@@ -1,7 +1,7 @@
 <?php
 
-require("connect_db.php");
-//require("connexion_sql.php");
+//require("connect_db.php");
+require("connexion_sql.php");
 function getUser() {
     $db = connexion_db();
     $request = $db->query('SELECT * FROM users');
@@ -342,9 +342,9 @@ function getExWanted($rubrique){
 }
 
 /*Selectionne les id des ressources liées à un exercice demandé*/
-function getIdResources($id_exercice){
+function getIdResources($id_exercice, $id_rubrique){
     $db = connexion_db();
-    $request = $db->prepare('SELECT url_ressource FROM liens WHERE id_exercice = "'.$id_exercice.'"');
+    $request = $db->prepare('SELECT L.url_ressource, C.* FROM liens as L JOIN cours as C ON L.url_ressource=C.index_cours WHERE id_rubrique ="'.$id_rubrique.'"AND id_exercice = "'.$id_exercice.'"');
     $request->execute();
     return $request;
 }
@@ -391,7 +391,7 @@ function getIdResources($id_exercice){
     $db->exec("INSERT INTO rendus_exo VALUES (NULL,'$id_user','$id_ex',NULL,'en_cours')");
  }
 
- /*Verifie si un exercice supperieur existe*/
+ /*Verifie si un exercice superieur existe*/
  function verifyIssetExSup($index, $id_ru){
     $db = connexion_db();
     $request = $db->prepare("SELECT * FROM exercices WHERE index_exercice='$index' AND id_rubrique='$id_ru'");
