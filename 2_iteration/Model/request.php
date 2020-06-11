@@ -1,7 +1,7 @@
 <?php
 
-//require("connect_db.php");
-require("connexion_sql.php");
+require("connect_db.php");
+//require("connexion_sql.php");
 function getUser() {
     $db = connexion_db();
     $request = $db->query('SELECT * FROM users');
@@ -77,6 +77,7 @@ function checkReadRubrique($id_rubrique) {
         return $request;
     }
 }
+
 
 function updateRead() {
     $db = connexion_db();
@@ -183,24 +184,24 @@ function getStudent() {
 
     return $request;
 }
-
+var_dump($_SESSION);
 function updateHour(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $request = $db->query("UPDATE `users` SET `heure_connexion` = NOW() WHERE `users`.`id_user` = $id");
 
     return $request;
 }
 function getValideExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $request2 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'valide'");
 
     return $request2;
 }
 function getInProgressExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $request3 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'en_cours'");
 
     return $request3;
@@ -208,7 +209,7 @@ function getInProgressExercice(){
 
 function getReturnedExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'rendu'");
 
     return $request4;
@@ -228,12 +229,12 @@ function ajouterAnnonce(){
     $db = connexion_db();
     $annonce = $_POST['annonce'];
     $titre = $_POST['titre_annonce'];
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $date = date("Y-m-d");
     $date_id = date('d-m-Y H:i:s');
     $d = DateTime::createFromFormat('d-m-Y H:i:s', $date_id);
     $id_annonce = $d->getTimestamp();
-    $request = $db->query("INSERT INTO `annonces` (`id_annonce`, `id_user`, `nom_annonce`, `date_annonce`, `contenu_annonce`) VALUES ('$id_annonce', '$id', '$titre', '$date', '$annonce')");
+    $request = $db->query("INSERT INTO `annonces` (`id_annonce`, `id_user`, `nom_annonce`, `date_annonce`, `contenu_annonce`) VALUES('$id_annonce', '$id', '$titre', '$date', '$annonce')");
 
     return $request;
 }

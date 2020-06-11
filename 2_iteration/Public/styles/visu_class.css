@@ -14,6 +14,8 @@
 
 .box_visu {
     flex: 0 1 5% !important;
+    flex-direction: row ;
+    justify-content: space-between;
     margin-bottom: 2rem;
 }
 

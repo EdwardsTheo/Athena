@@ -16,6 +16,11 @@
     height: 40rem;
 }
 
+.box_exo {
+   flex: 0.80 !important;
+    height: 50rem !important;
+}
+
 
 .box_class {
     font-family: "Roboto-Regular";
@@ -45,6 +50,7 @@
 
 .index {
     display: flex;
+    margin: auto;
     justify-content: unset;
     flex: 0.30;
     background-image: linear-gradient(to left bottom, #7ed56f, #28b485);
