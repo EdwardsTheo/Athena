@@ -44,6 +44,7 @@ function checkStatus($id_rubrique, $id_cours) {
         if($id_cours == $p_id_cours) {
             if($status == 'lu') return 'icon-check';
             else return 'icon-circle-with-cross';
+            break;
         }
     }
 }
@@ -54,7 +55,6 @@ function checkSVG($svg) {
 }
 
 function classes($answer) {
-    echo 'c';
     $i = 0;
     while($data = $answer->fetch()) {
         $name_class = $data['nom_cours'];
