@@ -1,14 +1,13 @@
 <?php 
-//just a test
 
+session_start();
 require('Controller/connexion.php');
 require('Controller/home_class_controller.php');
+require('Controller/class_controller.php');
+require('Controller/home_exercice_controller.php');
+require('Controller/visu_class_controller.php');
 require('Controller/home_student_controller.php');
 require('Controller/home_prof_controller.php');
-require('Controller/home_exercice_controller.php');
-require('Controller/class_controller.php');
-require('Controller/add_class_controller.php');
-require('Controller/visu_class_controller.php');
 
 if(!isset($_GET['action'])) {
     welcome();

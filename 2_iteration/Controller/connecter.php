@@ -6,7 +6,7 @@
         $email = $_POST["email"];
         if (isset($_POST["password"])) {
             $password = $_POST["password"];
-            $request = "SELECT email, password, status_user, nom, prenom FROM users";
+            $request = "SELECT * FROM users";
             $find = false;
             foreach ($bdd->query($request) as $row) {
                 if ($row["email"] == $email){

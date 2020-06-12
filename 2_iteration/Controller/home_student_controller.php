@@ -25,10 +25,11 @@ function lastClass() {
     }
     return $p_id_cours;
 }
-lastClass();
+
 
 function selectLast() {
     $id_cours = lastClass();
+    echo $id_cours;
     $request = getLastClass($id_cours);
     return $request;
 }

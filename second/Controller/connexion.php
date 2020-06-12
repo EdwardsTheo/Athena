@@ -12,15 +12,9 @@ function startProf() {
 }
 
 function startStudent() {
-    $request_student = selectLast();
     $request = updatePasseWord();
     $request2 = getAnnonce();
     require('View/home_student.php');
-}
-
-function who() {
-    if($_SESSION['status'] == 'eleve') return $string = 'index.php?action=home_student.php'; 
-    else  return $string = "index.php?action=home_prof.php";
 }
 
 function connexion() {
@@ -40,7 +34,8 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "eleve";
-                            $_SESSION['id_user'] = $row['id_user'];
+                            $_SESSION['id_user'] = $row["id_user"];
+                            updateHour();
                             header("Location: index.php?action=home_student.php");
                             exit();
                         }
@@ -49,7 +44,7 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "professeur";
-                            $_SESSION['id_user'] = $row['id_user'];
+                            $_SESSION['id_user'] = $row["id_user"];
                             header("Location: index.php?action=home_prof.php");
                             exit();
                         }

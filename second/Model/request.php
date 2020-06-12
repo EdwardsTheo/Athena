@@ -1,7 +1,7 @@
 <?php
-
+var_dump($_POST);
 require("connect_db.php");
-//require("connexion_sql.php");
+
 function getUser() {
     $db = connexion_db();
     $request = $db->query('SELECT * FROM users');
@@ -77,7 +77,6 @@ function checkReadRubrique($id_rubrique) {
         return $request;
     }
 }
-
 
 function updateRead() {
     $db = connexion_db();
@@ -187,21 +186,21 @@ function getStudent() {
 
 function updateHour(){
     $db = connexion_db();
-    $id = $_SESSION['id_user'];
+    $id = $_SESSION['id'];
     $request = $db->query("UPDATE `users` SET `heure_connexion` = NOW() WHERE `users`.`id_user` = $id");
 
     return $request;
 }
 function getValideExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id_user'];
+    $id = $_SESSION['id'];
     $request2 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'valide'");
 
     return $request2;
 }
 function getInProgressExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id_user'];
+    $id = $_SESSION['id'];
     $request3 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'en_cours'");
 
     return $request3;
@@ -209,7 +208,7 @@ function getInProgressExercice(){
 
 function getReturnedExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id_user'];
+    $id = $_SESSION['id'];
     $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'rendu'");
 
     return $request4;
@@ -234,7 +233,7 @@ function ajouterAnnonce(){
     $date_id = date('d-m-Y H:i:s');
     $d = DateTime::createFromFormat('d-m-Y H:i:s', $date_id);
     $id_annonce = $d->getTimestamp();
-    $request = $db->query("INSERT INTO `annonces` (`id_annonce`, `id_user`, `nom_annonce`, `date_annonce`, `contenu_annonce`) VALUES('$id_annonce', '$id', '$titre', '$date', '$annonce')");
+    $request = $db->query("INSERT INTO `annonces` (`id_annonce`, `id_user`, `nom_annonce`, `date_annonce`, `contenu_annonce`) VALUES ('$id_annonce', '$id', '$titre', '$date', '$annonce')");
 
     return $request;
 }
@@ -269,6 +268,7 @@ function deleteAnnonce($data){
 /*Verifie si un exercice du même nom n'est pas déjà existant ou modifie juste l'exercice */
 function verifyEx($chapter, $instruction, $name, $resources, $btn, $o_name, $index) {
     $db = connexion_db();
+    //require("connexion_sql.php");
     if($o_name == ""){
         $o_name = $name;
     }
@@ -294,6 +294,7 @@ function verifyEx($chapter, $instruction, $name, $resources, $btn, $o_name, $ind
 /*Ajoute un exercice*/
 function addEx($chapter, $instruction, $name, $resources, $btn, $index){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $db->exec("INSERT INTO exercices VALUES (NULL,'$chapter','$index','$name','$instruction',NULL)");
     getEx($name, $resources, $btn);
 }
@@ -301,6 +302,7 @@ function addEx($chapter, $instruction, $name, $resources, $btn, $index){
 /*Recherche l'id de l'exercice que l'on vient d'ajouter*/
 function getEx($name, $resources, $btn){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $request = $db->prepare("SELECT id_exercice FROM exercices WHERE nom_exercice LIKE '$name'");
     $request->execute();
     $result = $request->fetchAll();
@@ -311,6 +313,7 @@ function getEx($name, $resources, $btn){
 /*ajoute les ressources*/
 function addResources($resources, $id, $btn){
     $db = connexion_db();
+    //require("connexion_sql.php");
     if($btn == "modif"){
         $db->exec("DELETE FROM liens WHERE id_exercice = '$id'");
         $db->exec("ALTER TABLE liens AUTO_INCREMENT = 0");
@@ -337,15 +340,17 @@ function addResources($resources, $id, $btn){
 /*Selectionne tous les exercices d'une rubrique*/
 function getExWanted($rubrique){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $answer = $db->prepare('SELECT * FROM exercices WHERE id_rubrique = '.$rubrique.'');
     $answer->execute();
     return $answer;
 }
 
 /*Selectionne les id des ressources liées à un exercice demandé*/
-function getIdResources($id_exercice, $id_rubrique){
+function getIdResources($id_exercice){
     $db = connexion_db();
-    $request = $db->prepare('SELECT L.url_ressource, C.* FROM liens as L JOIN cours as C ON L.url_ressource=C.index_cours WHERE id_rubrique ="'.$id_rubrique.'"AND id_exercice = "'.$id_exercice.'"');
+    //require("connexion_sql.php");
+    $request = $db->prepare('SELECT url_ressource FROM liens WHERE id_exercice = "'.$id_exercice.'"');
     $request->execute();
     return $request;
 }
@@ -353,6 +358,7 @@ function getIdResources($id_exercice, $id_rubrique){
 /*Selectionne les noms des ressources voulues*/
  function getResources($id_rubrique, $id_class){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $request = $db->prepare("SELECT * FROM cours WHERE id_rubrique = '$id_rubrique' AND index_cours = '$id_class'");
     $request->execute();
     return $request;
@@ -361,6 +367,7 @@ function getIdResources($id_exercice, $id_rubrique){
 /*Supprime un exercice*/
  function deleteEx($id_ex){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $db->exec("DELETE FROM exercices WHERE id_exercice = '$id_ex'");
     $db->exec("ALTER TABLE exercices AUTO_INCREMENT = 0");
  }
@@ -368,7 +375,7 @@ function getIdResources($id_exercice, $id_rubrique){
  /*Supprime les liens d'un exercice*/
  function deleteLiens($id_ex){
      $db = connexion_db();
-
+     //require("connexion_sql.php");
      $db->exec("DELETE FROM liens WHERE id_exercice = '$id_ex'");
      $db->exec("ALTER TABLE liens AUTO_INCREMENT = 0");
  }
@@ -376,6 +383,7 @@ function getIdResources($id_exercice, $id_rubrique){
 /*Verifie le statut des exercices pour voir s'il y en a un en cours*/
  function verifyStatusEx($id_user, $id_ex){
     $db = connexion_db();
+    //require("connexion_sql.php");
     if($_SESSION["status"] == "eleve"){
         $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user'");
         $request->execute();
@@ -389,12 +397,14 @@ function getIdResources($id_exercice, $id_rubrique){
  /*Passe le statut d'un exercice à en_cours*/
  function pasLuEnCours($id_user, $id_ex){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $db->exec("INSERT INTO rendus_exo VALUES (NULL,'$id_user','$id_ex',NULL,'en_cours')");
  }
 
- /*Verifie si un exercice superieur existe*/
+ /*Verifie si un exercice supperieur existe*/
  function verifyIssetExSup($index, $id_ru){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $request = $db->prepare("SELECT * FROM exercices WHERE index_exercice='$index' AND id_rubrique='$id_ru'");
     $request->execute();
     $result = $request->fetchAll();
@@ -407,6 +417,7 @@ function getIdResources($id_exercice, $id_rubrique){
 
 function verifyIssetExSupRub($id_ru){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $request = $db->prepare("SELECT * FROM exercices WHERE index_exercice = '1' AND id_rubrique = '$id_ru2'");
     $request->execute();
     $result = $request->fetchAll();
@@ -420,12 +431,14 @@ function verifyIssetExSupRub($id_ru){
 
 function findIndex($rubrique){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $request = $db->query("SELECT * FROM exercices WHERE id_rubrique = '$rubrique'");
     return $request;
 }
 
 function showCurrentEx($id_user){
     $db = connexion_db();
+    //require("connexion_sql.php");
     $request = $db->query("SELECT RE.id_exercice, E.index_exercice, E.id_rubrique, E.nom_exercice, RU.nom_rubrique FROM rendus_exo as RE JOIN exercices as E ON RE.id_exercice = E.id_exercice JOIN rubriques as RU on E.id_rubrique = RU.id_rubrique WHERE RE.id_user = '$id_user' AND RE.progress_exo = 'en_cours'");
     return $request;
 }
