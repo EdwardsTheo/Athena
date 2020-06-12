@@ -33,8 +33,6 @@ function selectLast() {
     return $request;
 }
 
-
-
 function startStudent2(){
         $request = updatePasseWord();
 }

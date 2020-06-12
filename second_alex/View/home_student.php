@@ -106,31 +106,63 @@
                 <div class="student redirect">
                     <div class="red red1">
                         <div class="red_title">
-                            <h3 class="heading_redirect">
-                            <?php titleLastCours(); ?>
-                            </h3>
+                            <h3 class="heading_redirect">Votre Prochain cours</h3>
                         </div>
                         <div class="red_contenu">
-                            <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
-                            <label for="cours" class="redirect_titre">Nom du Cours : Les Variables.</label>
+                        <?php
+                        $request_student = selectLast();
+                        while($data = $request_student->fetch()) {
+                            $nom_cours = $data['nom_cours'];
+                            $nom_rubrique = $data['nom_rubrique'];
+                            $id_rubrique = $data['id_rubrique'];
+                            $index_cours = $data['index_cours'];
+                            $id_cours = $data['id_cours'];
+                        }
+                        $request_student->closeCursor();
+                        ?>
+                            <label for="Cours" class="redirect_titre">Rubrique : <?php echo $nom_rubrique ?></label>
+                            <label for="Chapitre" class="redirect_titre">Cours :  <?php echo $nom_cours ?></label>
                         </div>
                         <div class="red_bouton">
-                            <a href="#" class="btn-red btn btn--green ">Rediriger</a>
+                            <form action="index.php?action=class.php" method="POST">
+                                <input type='submit' class='btn btn--green btn_section' name='Rediriger' value='Rediriger' id='btn'>
+                                <input type='hidden' name='nom_cours' value=' <?php echo $nom_cours ?>'>
+                                <input type='hidden' name='id_rubrique' value='<?php echo $id_rubrique; ?>'>
+                                <input type='hidden' name='index_cours' value='<?php echo $index_cours; ?>'>
+                                <input type='hidden' name='id_cours' value='<?php echo $id_cours; ?>'>
+                                <input type='hidden' name='Afficher' value='lire cours'>
+                            </form>
                         </div>
                     </div>
                     <div class="red red2">
                         <div class="red_title">
-                            <h3 class="heading_redirect">
-                            <?php titleLastExercice(); ?>
-                            </h3>
+                            <h3 class="heading_redirect">Votre Dernier exercice suivis</h3>
                         </div>
-                        <div class="red_contenu">
-                            <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
-                            <label for="exercice" class="redirect_titre">Nom de l'exercice : Bonbon.js.</label>
-                        </div>
-                        <div class="red_bouton">
-                            <a href="#" class="btn-red btn btn--green ">Rediriger</a>
-                        </div>
+                        <?php /*
+                            $request = selectLastEx();
+                            while($data = $request->fetch()) {
+                                $id_rub = $data['id_rubrique'];
+                                $index_ex = $data['index_exercice'];
+                                $nom_rubrique_ex = $data['nom_rubrique'];
+                                $nom_ex = $data['nom_exercice'];
+                            }
+                            if(isset($index_ex)){
+                                echo "<div class='red_contenu'>
+                                    <label for='chapitre' class='redirect_titre'>Chapitre : $nom_rubrique_ex .</label>
+                                    <label for='exercice' class='redirect_titre'>Nom de l'exercice : $nom_ex .</label>
+                                </div>
+                                <div class='red_bouton'>
+                                    <form action='index.php?action=exercice.php' method='POST'>
+                                        <input type='submit' name='btn' class='btn btn--green btn_section' name='Rediriger' value='Rediriger' id='btn'>
+                                        <input type='hidden' name='id_rub' value=' $id_rub'>
+                                        <input type='hidden' name='index' value=' $index_ex'>
+                                    </form>
+                                </div>";
+                            }
+                            else{
+                                echo "<center>Vous n'avez pas encore d'exercice en cours</center>";
+                            }
+                        */?>
                     </div> 
                 </div>
             </div>
