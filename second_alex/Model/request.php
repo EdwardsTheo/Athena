@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 require("connect_db.php");
 
 function getUser() {
@@ -191,16 +190,17 @@ function updateHour(){
 
     return $request;
 }
+
 function getValideExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $request2 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'valide'");
 
     return $request2;
 }
 function getInProgressExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $request3 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'en_cours'");
 
     return $request3;
@@ -208,7 +208,7 @@ function getInProgressExercice(){
 
 function getReturnedExercice(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE `id_user` = $id AND `progress_exo`= 'rendu'");
 
     return $request4;

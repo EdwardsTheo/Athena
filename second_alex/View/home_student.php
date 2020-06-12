@@ -15,7 +15,7 @@
         <section class="home_class">
             <div class="heading">
                 <p class=heading_primary>
-                    Bienvenue élève !
+                    <?php title() ?>
                 </p>
             </div>
             <div class="box_student">
@@ -30,24 +30,26 @@
                     </p>
                 </div>
                 <div class="box basic_box box-2 news">
-                    <?php
+                <?php
                     $i = 1;
                     while($data = $request2->fetch()){
                         if($i<=2){
-                    ?>
-                        <h3 class="heading_box">News</h3>
-                        <div class="contenu">
-                            <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
-                            <p class="contenu_new">
-                                <?php echo $data['contenu_annonce']; ?>;
-                            </p>
-                        </div>
-                    <?php 
-                                $i++;
+                            if($_SESSION['status'] == 'eleve'){
+                ?>
+                            <h3 class="heading_box">News</h3>
+                            <div class="contenu">
+                                <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
+                                <p class="contenu_new">
+                                    <?php echo $data['contenu_annonce']; ?>
+                                </p>
+                            </div>
+                        <?php 
+                                    $i++;
+                                }
                             }
                         }
                         $request2->closeCursor();
-                        if ($data['contenu_annonce'] == null) echo 'Silence Radio... Bip Boop';
+
                     ?>
                 </div>
                 <div class="box basic_box box-3">
@@ -74,87 +76,61 @@
             </div>
             <div class="main_student">
                 <div class="student info">
+                <?php if(!isset($_POST['Profil'])){ ?>
                    <div class="information_box">
                         <h3 class="heading_box heading_student">Informations profil</h3>
                         <div class ="box_info label_profil">
                         <?php 
-                            echo '<label for="prenom" class="profil_titre">Prénom : '.htmlspecialchars($_SESSION["prenom"]).'</label>
-                            <label for="nom" class="profil_titre">Nom : '.htmlspecialchars($_SESSION["nom"]).'</label>
-                            <label for="email" class="profil_titre">Email : '. htmlspecialchars($_SESSION["email"]).'</label>';
+                            echo '<label for="prenom" class="profil_titre">Prénom : '.$_SESSION["prenom"].'</label>
+                            <label for="nom" class="profil_titre">Nom : '.$_SESSION["nom"].'</label>
+                            <label for="email" class="profil_titre">Email : '. $_SESSION["email"].'</label>';
                         ?>                   
                         </div>
 
                         <div class="box_mdp">
-                        <form action="index.php?action=home_student.php" class="form_mdp" method='POST'>
+                            <form action="index.php?action=home_student.php" class="form_mdp" method='POST'>
                                 <h4 class="heading_news heading_student">Modifiez votre mot de passe</h4>  
                                 <input type="password" class="form_input" placeholder="Nouveau Mot De Passe" id="mdp" name='mdp'>
                                 <input type="submit" class="btn_mdp btn btn--green" value="Modifier votre mot de passe" id="btn">
-                                </br>
-                                <center><?php ErrorMessage();?></center>
+                                </BR>
+                                <center>
+                                    <?php 
+                                        ErrorMessage();
+                                    ?>
+                                </center>
                             </form>
                         </div>
                     </div>
                 </div>
+                <?php } ?>
                 <div class="student redirect">
                     <div class="red red1">
                         <div class="red_title">
-                            <h3 class="heading_redirect">Votre Prochain cours</h3>
+                            <h3 class="heading_redirect">
+                            <?php titleLastCours(); ?>
+                            </h3>
                         </div>
                         <div class="red_contenu">
-                        <?php
-                        $request_student = selectLast();
-                        while($data = $request_student->fetch()) {
-                            $nom_cours = $data['nom_cours'];
-                            $nom_rubrique = $data['nom_rubrique'];
-                            $id_rubrique = $data['id_rubrique'];
-                            $index_cours = $data['index_cours'];
-                            $id_cours = $data['id_cours'];
-                        }
-                        $request_student->closeCursor();
-                        ?>
-                            <label for="Cours" class="redirect_titre">Rubrique : <?php echo $nom_rubrique ?></label>
-                            <label for="Chapitre" class="redirect_titre">Cours :  <?php echo $nom_cours ?></label>
+                            <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
+                            <label for="cours" class="redirect_titre">Nom du Cours : Les Variables.</label>
                         </div>
                         <div class="red_bouton">
-                            <form action="index.php?action=class.php" method="POST">
-                                <input type='submit' class='btn btn--green btn_section' name='Rediriger' value='Rediriger' id='btn'>
-                                <input type='hidden' name='nom_cours' value=' <?php echo $nom_cours ?>'>
-                                <input type='hidden' name='id_rubrique' value='<?php echo $id_rubrique; ?>'>
-                                <input type='hidden' name='index_cours' value='<?php echo $index_cours; ?>'>
-                                <input type='hidden' name='id_cours' value='<?php echo $id_cours; ?>'>
-                                <input type='hidden' name='Afficher' value='lire cours'>
-                            </form>
+                            <a href="#" class="btn-red btn btn--green ">Rediriger</a>
                         </div>
                     </div>
                     <div class="red red2">
                         <div class="red_title">
-                            <h3 class="heading_redirect">Votre Dernier exercice suivis</h3>
+                            <h3 class="heading_redirect">
+                            <?php titleLastExercice(); ?>
+                            </h3>
                         </div>
-                        <?php /*
-                            $request = selectLastEx();
-                            while($data = $request->fetch()) {
-                                $id_rub = $data['id_rubrique'];
-                                $index_ex = $data['index_exercice'];
-                                $nom_rubrique_ex = $data['nom_rubrique'];
-                                $nom_ex = $data['nom_exercice'];
-                            }
-                            if(isset($index_ex)){
-                                echo "<div class='red_contenu'>
-                                    <label for='chapitre' class='redirect_titre'>Chapitre : $nom_rubrique_ex .</label>
-                                    <label for='exercice' class='redirect_titre'>Nom de l'exercice : $nom_ex .</label>
-                                </div>
-                                <div class='red_bouton'>
-                                    <form action='index.php?action=exercice.php' method='POST'>
-                                        <input type='submit' name='btn' class='btn btn--green btn_section' name='Rediriger' value='Rediriger' id='btn'>
-                                        <input type='hidden' name='id_rub' value=' $id_rub'>
-                                        <input type='hidden' name='index' value=' $index_ex'>
-                                    </form>
-                                </div>";
-                            }
-                            else{
-                                echo "<center>Vous n'avez pas encore d'exercice en cours</center>";
-                            }
-                        */?>
+                        <div class="red_contenu">
+                            <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
+                            <label for="exercice" class="redirect_titre">Nom de l'exercice : Bonbon.js.</label>
+                        </div>
+                        <div class="red_bouton">
+                            <a href="#" class="btn-red btn btn--green ">Rediriger</a>
+                        </div>
                     </div> 
                 </div>
             </div>
