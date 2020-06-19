@@ -14,6 +14,8 @@ function startProf() {
 function startStudent() {
     $request = updatePasseWord();
     $request2 = getAnnonce();
+    $request3 = countCours();
+    $request4 = countAll();
     require('View/home_student.php');
 }
 

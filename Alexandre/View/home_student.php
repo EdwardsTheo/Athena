@@ -11,11 +11,11 @@
     </head>
 
     <body>
-    <?php require("header.php"); ?>
+    <?php require("header.php");?>
         <section class="home_class">
             <div class="heading">
                 <p class=heading_primary>
-                    <?php title() ?>
+                    <?php title();?>
                 </p>
             </div>
             <div class="box_student">
@@ -26,7 +26,13 @@
                     <h3 class="heading-tertiary">
                         Avancement Cours</h3>
                     <p class="feature-percent">
-                        20%
+                        <?php 
+                            while($data = $request3->fetch()){
+                                $progress_cours = intval($data[0]);
+                                $total = $progress_cours * 100 / 20;
+                                echo $total.'%';
+                            }
+                        ?>
                     </p>
                 </div>
                 <div class="box basic_box box-2 news">
@@ -34,16 +40,18 @@
                     $i = 1;
                     while($data = $request2->fetch()){
                         if($i<=2){
+                            if($_SESSION['status'] == 'eleve'){
                 ?>
-                        <h3 class="heading_box">News</h3>
-                        <div class="contenu">
-                            <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
-                            <p class="contenu_new">
-                                <?php echo $data['contenu_annonce']; ?>;
-                            </p>
-                        </div>
-                    <?php 
-                                $i++;
+                            <h3 class="heading_box">News</h3>
+                            <div class="contenu">
+                                <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
+                                <p class="contenu_new">
+                                    <?php echo $data['contenu_annonce']; ?>
+                                </p>
+                            </div>
+                        <?php 
+                                    $i++;
+                                }
                             }
                         }
                         $request2->closeCursor();
@@ -55,10 +63,8 @@
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-area-graph"></use>
                     </svg>
                     <h3 class="heading-tertiary">
-                        Avancement Exercices</h3>
-                    <p class="feature-percent">
-                        10%
-                    </p>
+                        Avancement Exercices</h3></br>
+                        <iframe src="http://localhost/S2/Athena/Alexandre/View/test_graph.php" width="190" height="325"></iframe>
                 </div>  
                 
             </div>
@@ -69,7 +75,18 @@
                     </p>
                 </div> 
                 <div class="progress-bar">
-                    <span style="width: 15%">15%</span>
+                <?php 
+                    while($data = $request4->fetch()){
+                        $progress_exo = intval($data[0]);
+                        $progress_total = round($progress_cours + $progress_exo * 100 / 62);
+                    }
+                ?>
+                    <?php 
+                        echo 
+                            '<span style="width:'.$progress_total.'%">'.
+                                 $progress_total.'%
+                            </span>';
+                    ?>
                 </div>
             </div>
             <div class="main_student">
@@ -133,6 +150,6 @@
                 </div>
             </div>
         </section>  
-    <?php require("footer.php"); ?>
+    <?php require("footer.php");?>
     </body>
 </html>

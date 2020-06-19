@@ -57,7 +57,10 @@
                                 <div class="contenu_prof">
                                     <h4 class="heading_news_prof">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
                                     <p class="contenu_new">
-                                        <?php echo $data['contenu_annonce'] ?>
+                                        <?php 
+                                            echo '<b>'.$data['nom_annonce'].'</b></br>';
+                                            echo $data['contenu_annonce'];
+                                        ?>
                                     </p>
                                     <?php editAnnonce($data)?>
                                     <form action="index.php?action=home_prof.php" class="form_news" method='post'>
