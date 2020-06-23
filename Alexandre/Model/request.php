@@ -57,11 +57,11 @@ function updateHour(){
 // Récupère le nombre  d'exos Validés 
 function getValideExercice_chap1(){
     $db = connexion_db();
-    //var_dump($_SESSION['id_graph']);
+    $id_eleve = $_GET['id_eleve'];
     $request3 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 1
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'valide'");
 
     return $request3;
@@ -70,10 +70,11 @@ function getValideExercice_chap1(){
 // Récupère le nombre d'exos en progression
 function getInProgressExercice_chap1(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 1
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'en_cours'");
 
     return $request4;
@@ -82,10 +83,11 @@ function getInProgressExercice_chap1(){
 // Récupère le nomnbre d'exos rendu
 function getReturnedExercice_chap1(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request5 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 1
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'rendu'");
 
     return $request5;
@@ -96,10 +98,11 @@ function getReturnedExercice_chap1(){
 
 function getValideExercice_chap2(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request6 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 2
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'valide'");
 
     return $request6;
@@ -107,10 +110,11 @@ function getValideExercice_chap2(){
 
 function getInProgressExercice_chap2(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request7 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 2
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'en_cours'");
 
     return $request7;
@@ -118,10 +122,11 @@ function getInProgressExercice_chap2(){
 
 function getReturnedExercice_chap2(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request8 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 2
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'rendu'");
 
     return $request8;
@@ -131,10 +136,11 @@ function getReturnedExercice_chap2(){
 
 function getValideExercice_chap3(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request9 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 3
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'valide'");
 
     return $request9;
@@ -142,10 +148,11 @@ function getValideExercice_chap3(){
 
 function getInProgressExercice_chap3(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request10 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 3
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'en_cours'");
 
     return $request10;
@@ -153,10 +160,11 @@ function getInProgressExercice_chap3(){
 
 function getReturnedExercice_chap3(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request11 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 3
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'rendu'");
 
     return $request11;
@@ -165,10 +173,11 @@ function getReturnedExercice_chap3(){
 //---------------------------------------- Graphique Chapitre 4 ------------------------------------
 function getValideExercice_chap4(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request12 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 4
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'valide'");
 
     return $request12;
@@ -176,10 +185,11 @@ function getValideExercice_chap4(){
 
 function getInProgressExercice_chap4(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request13 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 4
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'en_cours'");
 
     return $request13;
@@ -187,10 +197,11 @@ function getInProgressExercice_chap4(){
 
 function getReturnedExercice_chap4(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request14 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 4
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'rendu'");
 
     return $request14;
@@ -200,10 +211,11 @@ function getReturnedExercice_chap4(){
 
 function getValideExercice_chap5(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request15 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 5
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'valide'");
 
     return $request15;
@@ -211,10 +223,11 @@ function getValideExercice_chap5(){
 
 function getInProgressExercice_chap5(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request16 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 5
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'en_cours'");
 
     return $request16;
@@ -222,10 +235,11 @@ function getInProgressExercice_chap5(){
 
 function getReturnedExercice_chap5(){
     $db = connexion_db();
+    $id_eleve = $_GET['id_eleve'];
     $request17 = $db->query("SELECT COUNT(*) FROM `rendus_exo`
     LEFT JOIN exercices ON rendus_exo.id_exercice = exercices.id_exercice
     WHERE id_rubrique = 5
-    AND id_user = 2
+    AND id_user = $id_eleve
     AND progress_exo = 'rendu'");
 
     return $request17;
@@ -291,8 +305,12 @@ function deleteAnnonce($data){
 // Progress Cours 
 function countCours(){
     $db = connexion_db();
-    //$id = intval($_POST['Profil_id']);
-    $request3 = $db->query("SELECT COUNT(*) FROM `progress_cours` WHERE status_cours = 'lu' AND id_user = 2");
+    if($_SESSION['status'] == 'professeur'){
+        $id_eleve = $_POST['id_eleve'];
+    }else{
+        $id_eleve = $_SESSION['id'];
+    }
+    $request3 = $db->query("SELECT COUNT(*) FROM `progress_cours` WHERE status_cours = 'lu' AND id_user = $id_eleve");
 
     return $request3;
 
@@ -301,9 +319,22 @@ function countCours(){
 // Progress total
 function countAll(){
     $db = connexion_db();
-    //$id = intval($_POST['Profil_id']);
-    $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE progress_exo = 'valide' OR progress_exo = 'rendu' AND id_user =2");
+    if($_SESSION['status'] == 'professeur'){
+        $id_eleve = $_POST['id_eleve'];
+    }else{
+        $id_eleve = $_SESSION['id'];
+    }
+    $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE id_user = $id_eleve AND progress_exo = 'valide' OR progress_exo = 'rendu'");
 
     return $request4;
+}
+
+function countAllExos(){
+    $db = connexion_db();
+    $request = $db->query("SELECT
+    (SELECT COUNT(*) FROM cours) as count1,
+    (SELECT COUNT(*) FROM exercices) as count2");
+
+    return $request;
 }
 ?>
