@@ -1,0 +1,223 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.home_class {
+    background-color: #f9f7f6;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+}
+
+
+
+/*-------------------CASE PROGRESS-------------*/
+
+.box_student {
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 0.5;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+
+.contenu {
+    display: flex;
+    flex-direction: column;
+    min-width: 10rem;
+    flex-basis: 50%;
+    text-overflow: clip;
+    overflow: hidden;
+}
+
+.contenu_new {
+    padding: 5px 5px;
+    font-family: "Roboto-light";
+}
+
+.box-2 {
+    height: 25rem;
+}
+
+.box-1, .box-3{
+    height: 25rem;
+}
+
+.feature-percent {
+    margin: 3rem;
+    font-size: 2rem;
+    color: #28b485;
+    letter-spacing: 0.5rem;
+}
+
+.box-nav__icon {
+    width: 20%;
+    flex: 0.5;
+    margin-top: 3rem;
+}
+
+.heading_box {
+    font-family: "Roboto-Regular";
+    font-size: 1.5rem;
+    color: #55c57a;
+    border-bottom: 1px solid #55c57a;
+    margin-bottom: 1rem;
+}
+
+
+/***---PROGRESS BAR-----***/
+
+.bar_progress {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.box_progressbar {
+    flex: 0 0 10em;
+    display: flex;
+    padding-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: "Roboto-Light";
+}
+
+
+/*-----------------------Infos-redirect-------------*/
+
+.main_student {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem;
+    margin-bottom: 20rem;
+}
+
+.student {
+    display: flex;
+    height: 30rem;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    font-size: 1.5rem;
+    border-radius: 3px;
+}
+
+.student:not(:last-child) {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.box_info {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.profil_titre {
+    margin: 5px;
+    font-family: "Roboto-Light";
+    color: #333;
+    font-size: 2rem;
+}
+
+.info {
+    display: flex;
+    height: 46rem;
+}
+
+.heading_student {
+    margin: 10px;
+    font-family: "Roboto-Light";
+    font-size: 2rem;
+    text-align: center;
+}
+
+.information_box {
+    display: flex;
+    margin: 20px;
+    margin-top: 5rem;
+    flex-direction: column;
+}
+
+.box_mdp {
+    margin-top: 4rem;
+}
+
+.mdp_text {
+    text-align: center;
+    margin: 2rem;
+}
+
+.form_input {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    border-radius: 2px;
+    background-color: #f7f7f7;
+    border: none;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s;
+}
+
+.btn_mdp {
+    margin: 30px;
+} 
+
+.redirect {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.25;
+    height: 46rem;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.red_title {
+    display: flex;
+    justify-content: center;
+}
+
+.red_contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+.redirect_titre {
+    margin: 1rem;
+    font-family: "Roboto-Light";
+    color: #333;
+    font-size: 2rem;
+}
+
+.red {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem;
+    padding: 2rem;
+    flex: 0 0 9.5em;
+    box-shadow: none;
+    background-color: #f7f7f7;
+}
+
+.red_bouton {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-red {
+    text-align: center;
+    flex: 0.25;
+}

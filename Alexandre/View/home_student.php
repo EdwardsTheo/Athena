@@ -72,7 +72,7 @@
                             if($_SESSION['status'] == 'professeur'){
                                 $id = $_POST['id_eleve'];
                             }else{
-                                $id = $_SESSION['id'];
+                                $id = $_SESSION['id_user'];
                             } 
                             while($data = $request4->fetch()){
                                 $progress_exo = intval($data[0]);
@@ -86,6 +86,9 @@
                             else{
                                 echo "Aucun exercices n'a été commencé";
                             }
+
+
+
                         ?>
                 </div>  
                 
@@ -165,7 +168,7 @@
                     </div> 
                 </div>
             </div>
-        </section>  
+        </section> 
     <?php require("footer.php");?>
     </body>
 </html>

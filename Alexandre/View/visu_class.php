@@ -36,7 +36,7 @@
                         <div class="activity">
                             <p class="text_activity">Dernière activité:<?php echo $date ?></p>
                         </div>
-                        <div class="form_mdp" >
+                        <div class="form_mdp">
                             <form action="index.php?action=home_class.php"  method="POST">
                                 <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
                             </form>
@@ -47,7 +47,6 @@
                                 <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
                                 <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
                                 <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
-
                             </form>
                         </div>
                         <?php 

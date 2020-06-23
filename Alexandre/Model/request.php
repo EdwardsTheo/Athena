@@ -250,7 +250,7 @@ function getReturnedExercice_chap5(){
 // Met a jour le mdp
 function updatePasseWord(){
     $db = connexion_db();
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     if (isset($_POST['mdp']) AND !empty($_POST['mdp'])){
         $mdp = $_POST['mdp'];
         $request = $db->query("UPDATE `users` SET `password`= '$mdp' WHERE id_user = $id");
@@ -303,12 +303,12 @@ function deleteAnnonce($data){
 }
 
 // Progress Cours 
-function countCours(){
+function  countCours(){
     $db = connexion_db();
     if($_SESSION['status'] == 'professeur'){
         $id_eleve = $_POST['id_eleve'];
     }else{
-        $id_eleve = $_SESSION['id'];
+        $id_eleve = $_SESSION['id_user'];
     }
     $request3 = $db->query("SELECT COUNT(*) FROM `progress_cours` WHERE status_cours = 'lu' AND id_user = $id_eleve");
 
@@ -322,7 +322,7 @@ function countAll(){
     if($_SESSION['status'] == 'professeur'){
         $id_eleve = $_POST['id_eleve'];
     }else{
-        $id_eleve = $_SESSION['id'];
+        $id_eleve = $_SESSION['id_user'];
     }
     $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE id_user = $id_eleve AND progress_exo = 'valide' OR progress_exo = 'rendu'");
 
@@ -336,5 +336,29 @@ function countAllExos(){
     (SELECT COUNT(*) FROM exercices) as count2");
 
     return $request;
+}
+
+function firstCo(){
+    $db = connexion_db();
+    //$id = $_SESSION['id_user'];
+    $request6 = $db->query("SELECT COUNT(*) FROM `progress_cours` WHERE id_user = 3");
+    
+
+    return $request6;
+}
+
+function insertFirstCo(){
+    $db = connexion_db();
+    $request7 = $db->query("SELECT COUNT(*) FROM `cours`");
+    $cours = $request7->fetch();
+    $cours = intval($cours[0]);
+    $i = 1;
+    $id = $_SESSION['id_user'];
+    while($i <= $cours){
+        $request8 = $db->query("INSERT INTO `progress_cours`(`id_cours`, `id_user`, `status_cours`) VALUES ($i, $id,'non_lu')");
+        $request8->fetch();
+        $i++;
+    }
+    return $request8;
 }
 ?>
