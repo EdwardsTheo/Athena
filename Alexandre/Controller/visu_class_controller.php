@@ -1,9 +1,6 @@
 <?php 
     function startVisu() {
         $request = getStudent();
-        $request2= getValideExercice();
-        $request3= getReturnedExercice();
-        $request4= getInProgressExercice();
         return_to_line();
         require('View/visu_class.php');
     }

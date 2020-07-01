@@ -64,9 +64,10 @@
        <div class="box_ressource ressource_add">
             <div class="choose_chapter">
                 <div class="heading_zone">    
+                <p class="heading_zone_class heading_ressource">
+                    Lier des ressources de cours à l'exercice.
+                    </p>
                     <p class="heading_zone_class heading_ressource">
-                    Lier des ressources de cours à l'exercice. <br/>
-                    <br/>
                     Choisir une rubrique 
                     </p>
                 </div>
@@ -120,9 +121,9 @@
                         $i=0;
                         while($data = $request->fetch()) {
                             $name_cl = $data['nom_cours'];
-                            $index = $data['index_cours'];
+                            $index_cours = $data['index_cours'];
                             if ($btn == "Modifier consigne" || $btn == "Ajouter ressources"){
-                                if ($resources != "Aucune ressource n'est attribuée"){
+                                if ($resources != "Aucune ressource n'est attribuée à cet exercice"){
                                     if(is_array($resources)){
                                         if ($name_cl == $resources[$i]){
                                             $i++;
@@ -145,7 +146,7 @@
                                         
                     ?>
                     <div class="check">
-                        <input type="checkbox" name="resources[]" value="<?php echo $index ?>" class="btn_check" id="btn" <?php echo $check?> ><label for="html" class="label_class"><?php echo $name_cl?> </label>
+                        <input type="checkbox" name="resources[]" value="<?php echo $index_cours ?>" class="btn_check" id="btn" <?php echo $check?> ><label for="html" class="label_class"><?php echo $name_cl?> </label>
                     </div>
                     <?php           
                                         
@@ -191,7 +192,11 @@
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
                     </svg>
                 </div>
-                    <input type='hidden' name='index' value='<?php echo $index?>'>
+                    <?php 
+                    if(isset($index)){
+                        echo "<input type='hidden' name='index' value='$index'>";
+                    }
+                    ?>
                     <input type="submit" name="btn" class="btn btn--green btn_bottom2" value="Ajouter Exercice" id="btn">
                 </form>
             </div>

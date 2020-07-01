@@ -33,7 +33,7 @@
             <div class="head_btn">
                 <a href="index.php?action=home_exercice.php" class="btn-text_index">&larr; Retour au choix des exercices</a>
             </div>
-            <div class="heading_zone">    
+            <div class="heading_zone heading_zone_ressources">    
                     <p class="heading_zone-rubrik">
                         Ressources necessaires
                     </p>
@@ -87,18 +87,22 @@
                 ?>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="box_class basic_box box_exo">
+=======
+        <div class="box_class basic_box zone_class">
+>>>>>>> 5e561227fa5f91b06cc648fb6bc557b5de9244ac
             <div class="heading_zone">    
                 <p class="heading_zone_class">
                     Consigne de l'exercice
                 </p>
-        </div>
+            </div>
         
-        <div class="text_class">
-            <p class="text">
-                <?php echo $instructions ?>
-            </p>
-        </div>
+            <div class="text_class">
+                <p class="text">
+                    <?php echo $instructions ?>
+                </p>
+            </div>
         <div class="box_btn">
         <?php
             /*–––––––––––––––––––––––Modifier la consigne––––––––––––––––––––––––––––*/
@@ -148,10 +152,12 @@
                     Déposer votre exercice ici !
                 </div>    
             </div>
-            
-            <svg class="box_drop_svg">
-                <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
-            </svg>
+            <div class="empty" id="empty">
+                <!--<svg class="box_drop_svg">
+                    <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
+                </svg>-->
+            </div>
+            <script src="Model/script.js"></script>
         </div>
     </div>
     
@@ -189,6 +195,6 @@
         </div>
     </div>
 </section>
-<script src="Modele/script.js"></script>
+
 <?php require('footer.php') ?>
 </body>

@@ -11,70 +11,53 @@
     </head>
 
     <body>
-    <?php require('header.php') ?>
+        <?php require('header.php') ?>
 
         <div class="heading">
             <p class="heading_primary">Votre Classe</p>
         </div>
         <section class="visu">
-        <div class="box basic_box box_visu">
-        <?php
+            <div class="box basic_box box_visu">
+                <?php
         
-        // Affichage des profils de toute la classe
-        $i = 2;
-            while($data = $request->fetch()) {
-                $first_name = $data['nom'];
-                $second_name = $data['prenom'];
-                $date = $data['heure_connexion'];
-                
-        ?>
-                <div class="red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
-                    </svg>
-                    <h3 class="heading_red"><?php echo $first_name.' '. $second_name?></h3>
-                    <div class="activity">
-                        <p class="text_activity">Dernière activité: <?php echo $date;?></p>
-                    </div>    
-                    <form action="index.php?action=home_student.php" class="form_mdp" method="POST">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
-                        <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
-                    </form>
-            <?php 
-                    $i++;
-                }
-                $request->closeCursor();
-                
-                // récupère le nombre d'exercice validé
-
-                while($data2 = $request2->fetch()){
-                    $valide = $data2;
-                }
-                $request2->closeCursor();
-
-                // récupère le nombre d'exercice en progression
-
-                while($data3 = $request3->fetch()){
-                    $in_progress = $data3;
-                }
-                $request3->closeCursor();
-
-                // récupère le nombre d'exercice rendu
-
-                while($data4 = $request4->fetch()){
-                    $returned = $data4;
-                }
-                $request4->closeCursor();
-
-                // Affichage du pgraphique d'exercice
-                require('test_graph.php');
-                graphExo($valide,$in_progress,$returned);
-            ?>
+                    // Affichage des profils de toute la classe
+                    $i = 2;
+                    while($data = $request->fetch()) {
+                        $first_name = $data['nom'];
+                        $second_name = $data['prenom'];
+                        $date = $data['heure_connexion'];
+                        $id_eleve = $data['id_user'];
+                ?>
+                    <div class="red_section">
+                        <svg class="box-nav_section">
+                            <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
+                        </svg>
+                        <h3 class="heading_red"><?php echo $first_name.' '. $second_name ?></h3>
+                        <div class="activity">
+                            <p class="text_activity">Dernière activité:<?php echo $date ?></p>
+                        </div>
+                        <div class="form_mdp">
+                            <form action="index.php?action=home_class.php"  method="POST">
+                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
+                            </form>
+                            <form action="index.php?action=home_exercice.php"  method="POST">
+                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
+                            </form>
+                            <form action="index.php?action=home_student.php"  method="POST">
+                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
+                                <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
+                                <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
+                            </form>
+                        </div>
+                        <?php 
+                            $i++;
+                    }
+                            $request->closeCursor();
+                        ?>
+                    
                 </div>
             </div>
         </section>
-    <?php require('footer.php'); ?>
+        <?php require('footer.php'); ?>  
     </body>
 </html>

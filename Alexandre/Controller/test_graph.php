@@ -1,6 +1,8 @@
 <?php // content="text/plain; charset=utf-8"
+require('visu_class.php');
 require('../Controller/connexion.php');
 require('../Model/request.php');
+var_dump($_POST['Profil_id']);
 connexion_db();
 getExerciceStudent();
 $request = $valide;
