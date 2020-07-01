@@ -80,6 +80,11 @@
                     $name_ex = $data['nom_exercice'];
                     $id = $data['id_exercice'];
                     $index_ex = $data['index_exercice'];
+                    if($index_ex%4 == 0) {
+                        echo "</div>";
+                        echo "<div class='box_row'>";
+                    }
+                    
             ?>
             <div class="basic_box red_section red_exo">
                 <svg class="box-nav_exo">
@@ -106,7 +111,7 @@
             </div>
     
             
-            <?php   
+            <?php
                 }
                 $request->closeCursor();
             ?>   

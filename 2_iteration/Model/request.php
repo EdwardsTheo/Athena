@@ -429,5 +429,13 @@ function showCurrentEx($id_user){
     return $request;
 }
 
-
+function fileToBddEleve($file){
+    $db = connexion_db();
+    $id_user = $_SESSION['id_user'];
+    echo "id_user = ",$id_user;
+    $req = "UPDATE rendus_exo SET contenu_rendu = 'addslashes($file)', progress_exo = 'rendu' WHERE id_exercice = '7' AND id_user = '2'";
+    print_r($req);
+    $request = $db->prepare($req);
+    $request->execute();
+}
 ?>

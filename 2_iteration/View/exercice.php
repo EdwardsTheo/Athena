@@ -2,6 +2,7 @@
     include("Controller/redirect_exercice_controller.php")
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,15 +149,70 @@
                     Déposer votre exercice ici !
                 </div>    
             </div>
-            <div class="empty" id="empty">
+            <div class="empty" id="dropzone" >
                 <!--<svg class="box_drop_svg">
                     <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
                 </svg>-->
             </div>
-            <script src="Model/script.js"></script>
+            <!--<script src="Model/script.js"></script>-->
+            <script>
+                (function() {
+                        console.log('blue');
+                        var dropzone = document.getElementById('dropzone');
+                        var displayUploads = function(data){
+                            var uploads = document.getElementById('contenu_new'),
+                                anchor,
+                                x;
+                            for (let x = 0; x < data.length; x++) {
+                                anchor = document.createElement('a');
+                                anchor.href = data[x].file;
+                                anchor.innerText = data[x].name;
+                                uploads.appendChild(anchor);
+                            }
+                        }
+                        var upload = function(files){
+                            var formData = new FormData(),
+                                xhr = new XMLHttpRequest(),
+                                x;
+                            for (let x=0; x<files.length; x++) {
+                                formData.append('file[]',files[x]);
+                            }
+                            
+                            /*xhr.onload = function(){
+                                var data= JSON.parse(this.responseText);
+                                console.log(data);
+                                displayUploads(data);
+                            }*/
+                            xhr.open('post', 'Model/upload.php');
+                            xhr.send(formData);
+                            
+                        }
+                        // Loop through empty boxes and add listeners
+                        dropzone.ondrop = function(e) {
+                                            e.preventDefault();
+                                            this.className = 'empty';
+                                            var data = event.dataTransfer.getData("Files");
+                                            console.log(e);
+                                            upload(e.dataTransfer.files);
+
+                                        };
+                                        
+                        dropzone.ondragover = function(e) {
+                                            e.preventDefault();
+                                            this.className = 'empty hovered';
+                                            return false;
+                                        };
+
+                        dropzone.ondragleave = function() {
+                                            this.className = 'empty';
+                                            return false;
+                                        };
+
+                        
+                    }());
+            </script>
         </div>
     </div>
-    
     <div class="bottom_button">
         <div class="form_bottom">
             <?php 
@@ -174,6 +230,7 @@
                 <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>"><br/>
                 <input type="hidden"  id="btn" name="exercice" value="<?php echo $id_ex?>"><br/>
                 <input type="hidden"  id="btn" name="index" value="<?php echo $index_ex?>"><br/>
+                <!--<input type="hidden"  id="btn" name="file" value="<?php //echo $_FILES['file']['tmp_name'][$position]?>"><br/>-->
             </form>
             <?php
             /*––––––––––––––––––––––––––Exercice suivant––––––––––––––––––––––––––––*/
@@ -194,3 +251,4 @@
 
 <?php require('footer.php') ?>
 </body>
+</html>
