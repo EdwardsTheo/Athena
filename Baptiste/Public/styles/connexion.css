@@ -47,6 +47,24 @@ body {
     margin: auto;
 }
 
+
+.form_input {
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: inherit;
+  border-radius: 2px;
+  background-color: #E8E8E8;
+  border: none;
+      border-bottom-color: currentcolor;
+      border-bottom-style: none;
+      border-bottom-width: medium;
+  border-bottom: 3px solid transparent;
+  height: 3rem;
+  width: 100%;
+  display: block;
+  transition: all .3s;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -57,23 +75,7 @@ body {
     display: flex;
     margin: 35px;
   }
-  
-  .form_input {
-    font-size: 1.5rem;
-    color: inherit;
-    border-radius: 2px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-        border-bottom-color: currentcolor;
-        border-bottom-style: none;
-        border-bottom-width: medium;
-    border-bottom: 3px solid transparent;
-    height: 3rem;
-    width: 120%;
-    display: block;
-    transition: all .3s;
-  }
-  
+ 
   .form_input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(black, .1);

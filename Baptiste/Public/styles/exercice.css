@@ -3,6 +3,12 @@
     margin: 0;
 }
 
+.all_exo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .class {
     display: flex;
     flex-direction: column;
@@ -14,6 +20,12 @@
     margin: 2rem;
     margin-bottom: -2rem;
     height: 40rem;
+}
+
+.box_exo {
+   flex: 0.80 !important;
+   overflow: scroll;
+    height: 50rem !important;
 }
 
 
@@ -45,6 +57,7 @@
 
 .index {
     display: flex;
+    margin: auto;
     justify-content: unset;
     flex: 0.30;
     background-image: linear-gradient(to left bottom, #7ed56f, #28b485);
@@ -101,6 +114,7 @@
 }
 
 .bottom_exercice {
+    margin-top: 20rem;
     display: flex;
     flex-direction: column;
 }

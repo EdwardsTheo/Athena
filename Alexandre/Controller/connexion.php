@@ -16,6 +16,14 @@ function startStudent() {
     $request2 = getAnnonce();
     $request3 = countCours();
     $request4 = countAll();
+    $request5 = countAllExos();
+
+    $request6 = firstCo();
+    while($data6 = $request6->fetch()){
+        if(intval($data6[0]) == 0){
+            insertFirstCo();
+        }
+    }
     require('View/home_student.php');
 }
 
@@ -36,7 +44,7 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "eleve";
-                            $_SESSION['id'] = $row["id_user"];
+                            $_SESSION['id_user'] = $row["id_user"];
                             updateHour();
                             header("Location: index.php?action=home_student.php");
                             exit();
@@ -46,7 +54,6 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "professeur";
-                            $_SESSION['id'] = $row["id_user"];
                             header("Location: index.php?action=home_prof.php");
                             exit();
                         }

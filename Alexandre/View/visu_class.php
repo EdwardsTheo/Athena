@@ -26,6 +26,7 @@
                         $first_name = $data['nom'];
                         $second_name = $data['prenom'];
                         $date = $data['heure_connexion'];
+                        $id_eleve = $data['id_user'];
                 ?>
                     <div class="red_section">
                         <svg class="box-nav_section">
@@ -34,13 +35,20 @@
                         <h3 class="heading_red"><?php echo $first_name.' '. $second_name ?></h3>
                         <div class="activity">
                             <p class="text_activity">Dernière activité:<?php echo $date ?></p>
-                        </div>    
-                        <form action="index.php?action=home_student.php" class="form_mdp" method="POST">
-                            <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
-                            <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
-                            <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
-                            <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
-                        </form>
+                        </div>
+                        <div class="form_mdp">
+                            <form action="index.php?action=home_class.php"  method="POST">
+                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
+                            </form>
+                            <form action="index.php?action=home_exercice.php"  method="POST">
+                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
+                            </form>
+                            <form action="index.php?action=home_student.php"  method="POST">
+                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
+                                <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
+                                <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
+                            </form>
+                        </div>
                         <?php 
                             $i++;
                     }

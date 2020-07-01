@@ -10,3 +10,24 @@
 .main_add_class {
     margin-bottom: 3rem;
 }
+
+.box_add {
+    width: 1000%;
+}
+
+.form_add_class {
+    margin: -10% !important;
+}
+
+.form_add_text {
+    margin: auto !important;
+}
+
+.heading_add {
+    align-items: unset !important;
+    width: 100% !important;
+}
+
+.val {
+    flex-direction: row !important;
+}

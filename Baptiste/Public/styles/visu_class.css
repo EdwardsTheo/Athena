@@ -13,8 +13,16 @@
 }
 
 .box_visu {
+    display: flex;
+    flex-direction: row;
+    margin: 5rem;
+    
     flex: 0 1 5% !important;
     margin-bottom: 2rem;
+}
+
+.red_section {
+    margin: 2Rem;
 }
 
 .box-nav_section {

@@ -26,10 +26,14 @@
                     <h3 class="heading-tertiary">
                         Avancement Cours</h3>
                     <p class="feature-percent">
-                        <?php 
+                        <?php
+                            while($data = $request5->fetch()){
+                                $countExos = intval($data[0]);
+                                $count = intval($data[0]) + intval($data[1]);
+                            }
                             while($data = $request3->fetch()){
                                 $progress_cours = intval($data[0]);
-                                $total = $progress_cours * 100 / 20;
+                                $total = round($progress_cours * 100 / $countExos);
                                 echo $total.'%';
                             }
                         ?>
@@ -64,7 +68,28 @@
                     </svg>
                     <h3 class="heading-tertiary">
                         Avancement Exercices</h3></br>
-                        <iframe src="http://localhost/S2/Athena/Alexandre/View/test_graph.php" width="190" height="325"></iframe>
+                        <?php 
+                            if($_SESSION['status'] == 'professeur'){
+                                $id = $_POST['id_eleve'];
+                            }else{
+                                $id = $_SESSION['id_user'];
+                            } 
+                            while($data = $request4->fetch()){
+                                $progress_exo = intval($data[0]);
+                                $progress_total = round($progress_cours + $progress_exo * 100 / $count);
+                            }
+                            if($progress_cours - 1 < 0){
+                        ?>  
+                                <iframe src="http://localhost/S2/Athena/Alexandre/View/test_graph.php?id_eleve=<?php echo $id ?>" width="190" height="325"></iframe>
+                        <?php 
+                            }
+                            else{
+                                echo "Aucun exercices n'a été commencé";
+                            }
+
+
+
+                        ?>
                 </div>  
                 
             </div>
@@ -75,12 +100,6 @@
                     </p>
                 </div> 
                 <div class="progress-bar">
-                <?php 
-                    while($data = $request4->fetch()){
-                        $progress_exo = intval($data[0]);
-                        $progress_total = round($progress_cours + $progress_exo * 100 / 62);
-                    }
-                ?>
                     <?php 
                         echo 
                             '<span style="width:'.$progress_total.'%">'.
@@ -149,7 +168,7 @@
                     </div> 
                 </div>
             </div>
-        </section>  
+        </section> 
     <?php require("footer.php");?>
     </body>
 </html>

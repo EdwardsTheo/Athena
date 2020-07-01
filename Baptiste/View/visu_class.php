@@ -16,57 +16,66 @@
         <div class="heading">
             <p class="heading_primary">Votre Classe</p>
         </div>
-
         <section class="visu">
-            <div class="box basic_box box_visu">
+        <div class="box basic_box box_visu">
+        <?php
+        
+        // Affichage des profils de toute la classe
+        $i = 2;
+            while($data = $request->fetch()) {
+                $first_name = $data['nom'];
+                $second_name = $data['prenom'];
+                $date = $data['heure_connexion'];
+                
+        ?>
                 <div class="red_section">
                     <svg class="box-nav_section">
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
                     </svg>
-                    <h3 class="heading_red">Theobald Baptiste</h3>
+                    <h3 class="heading_red"><?php echo $first_name.' '. $second_name?></h3>
                     <div class="activity">
-                        <p class="text_activity">Dernière activité: hier à 16 h 25</p>
+                        <p class="text_activity">Dernière activité: <?php echo $date;?></p>
                     </div>    
-                    <form action="#" class="form_mdp">
+                    <form action="index.php?action=home_student.php" class="form_mdp" method="POST">
                         <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
                         <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
                         <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
+                        <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
                     </form>
                 </div>
-            </div>
-            <div class="box basic_box box_visu">
-                <div class="red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
-                    </svg>
-                    <h3 class="heading_red">Alexandre Trillot</h3>
-                    <div class="activity">
-                        <p class="text_activity">Dernière activité: hier à 16 h 22</p>
-                    </div>    
-                    <form action="#" class="form_mdp">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
-                    </form>
-                </div>
-            </div>
-            <div class="box basic_box box_visu">
-                <div class="red_section">
-                    <svg class="box-nav_section">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-user1"></use>
-                    </svg>
-                    <h3 class="heading_red">Mia Salerno</h3>
-                    <div class="activity">
-                        <p class="text_activity">Dernière activité: hier à 16 h 24</p>
-                    </div>    
-                    <form action="#" class="form_mdp">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
-                        <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
-                    </form>
+            <?php 
+                    $i++;
+                }
+                $request->closeCursor();
+                
+                // récupère le nombre d'exercice validé
+
+                while($data2 = $request2->fetch()){
+                    $valide = $data2;
+                }
+                $request2->closeCursor();
+
+                // récupère le nombre d'exercice en progression
+
+                while($data3 = $request3->fetch()){
+                    $in_progress = $data3;
+                }
+                $request3->closeCursor();
+
+                // récupère le nombre d'exercice rendu
+
+                while($data4 = $request4->fetch()){
+                    $returned = $data4;
+                }
+                $request4->closeCursor();
+
+                // Affichage du pgraphique d'exercice
+                //require('test_graph.php');
+                //graphExo($valide,$in_progress,$returned);
+            ?>
                 </div>
             </div>
         </section>
-    <?php require('footer.php') ?>
+    <?php require('footer.php'); ?>
     </body>
 </html>
