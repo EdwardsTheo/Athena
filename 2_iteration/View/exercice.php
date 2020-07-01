@@ -87,7 +87,7 @@
                 ?>
             </div>
         </div>
-        <div class="box_class basic_box">
+        <div class="box_class basic_box box_exo">
             <div class="heading_zone">    
                 <p class="heading_zone_class">
                     Consigne de l'exercice
