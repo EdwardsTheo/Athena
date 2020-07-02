@@ -21,6 +21,30 @@
             <p class="heading_primary">
             INDEX DES RUBRIQUES
             </p>
+            <?php 
+                if($_SESSION['status'] != 'eleve'){ ?>
+                        <form method = "POST" action="">
+                            <select name='eleve'>
+                            <?php 
+                                while($data = $request5->fetch()){
+                                    $nom = $data['nom'].' '.$data['prenom'];
+                                    $id_eleve = $data['id_user'];
+                                    echo '<option value='.$id_eleve.'>'.$nom.'</option>';
+                                }
+                            ?>
+                            </select>
+                            <input type="submit" value="validé">
+                        </form>
+            <?php 
+                } 
+                while($data2 = $request2->fetch()){
+                    $countExos = intval($data2[0]);
+                }
+                while($data3 = $request4->fetch()){
+                    $progress_exo = intval($data[0]);
+                }
+                $progress = round($progress_exo * 100 / $countExos);
+            ?>
         </div>
         <div class="box_row">
 <?php
@@ -36,7 +60,11 @@ while($data = $request->fetch()) {
         <h3 class="heading_red">
         <?php echo $name_ru ?></h3>
         <div class="progress-bar progress_exo">
-            <span style="width: 15%">15%</span>
+        <?php
+                echo '<span style="width:'.$progress.'%">';
+                echo $progress.'%';
+        ?>
+            </span>
         </div>
         <form action="index.php?action=home_class.php" class="form_mdp" method="GET">
             <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='afficher'><br/>

@@ -49,6 +49,9 @@ if(isset($_GET['action'])) {
     }
     elseif($_GET['action'] == 'visu_class.php') {
         startVisu();
+        if(isset($_POST['deleteAll'])){
+            deleteall();
+        }
     }
     elseif($_GET['action'] == 'evaluation.php') {
         startEval();

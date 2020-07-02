@@ -17,6 +17,7 @@
             <p class="heading_primary">Votre Classe</p>
         </div>
         <section class="visu">
+            <?php return_to_line(); ?>
             <div class="box basic_box box_visu">
                 <?php
         
@@ -49,15 +50,17 @@
                                 <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
                             </form>
                         </div>
-                        <?php 
-                            $i++;
+                    </div>
+                    <?php 
+                        $i++;
                     }
-                            $request->closeCursor();
-                        ?>
-                    
-                </div>
+                        $request->closeCursor();
+                    ?>
             </div>
         </section>
+        <form method="post" action="">
+            <input type="submit" name="deleteAll" value="Supprimer la classe" class="btn_mdp btn btn--green">
+        </form>
         <?php require('footer.php'); ?>  
     </body>
 </html>

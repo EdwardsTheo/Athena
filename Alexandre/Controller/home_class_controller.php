@@ -2,6 +2,9 @@
 
 function showClass() {
     $request = getRub();
+    $request5 = getStudent();
+    $request4 = countCours();
+    $request2 = allCountCours();
     require('View/home_class.php');
 }
 

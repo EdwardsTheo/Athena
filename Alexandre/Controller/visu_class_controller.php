@@ -15,4 +15,8 @@
             echo "<dic class='box_row'>";
         }
     }
+
+    /*function deleteall(){
+        $request = deleteAll();
+    }*/
 ?>
