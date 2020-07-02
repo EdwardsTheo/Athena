@@ -30,7 +30,37 @@
 }
 
 
+.form_input {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: inherit;
+    border-radius: 2px;
+    background-color: #E8E8E8;
+    border: none;
+        border-bottom-color: currentcolor;
+        border-bottom-style: none;
+        border-bottom-width: medium;
+    border-bottom: 3px solid transparent;
+    height: 2rem;
+    width: 100%;
+    display: block;
+    transition: all .3s;
+}
+  
+
+
 /*-----------------------------*/
+
+.home_class_prof {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.form_prof {
+    margin: 2rem
+}
 
 .choose_exo {
     margin-top: 3rem;

@@ -87,7 +87,11 @@
                 ?>
             </div>
         </div>
+<<<<<<< HEAD
+        <div class="box_class basic_box box_exo">
+=======
         <div class="box_class basic_box zone_class">
+>>>>>>> 5e561227fa5f91b06cc648fb6bc557b5de9244ac
             <div class="heading_zone">    
                 <p class="heading_zone_class">
                     Consigne de l'exercice

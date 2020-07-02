@@ -349,8 +349,9 @@ function getExWanted($rubrique){
 /*Selectionne les id des ressources liées à un exercice demandé*/
 function getIdResources($id_exercice){
     $db = connexion_db();
+    echo $id_exercice;
     //require("connexion_sql.php");
-    $request = $db->prepare('SELECT url_ressource FROM liens WHERE id_exercice = "'.$id_exercice.'"');
+    $request = $db->prepare('SELECT url_ressource FROM liens WHERE id_exercice = \''.$id_exercice.'\'');
     $request->execute();
     return $request;
 }
@@ -404,6 +405,7 @@ function getIdResources($id_exercice){
  /*Verifie si un exercice supperieur existe*/
  function verifyIssetExSup($index, $id_ru){
     $db = connexion_db();
+    var_dump($_POST);
     //require("connexion_sql.php");
     $request = $db->prepare("SELECT * FROM exercices WHERE index_exercice='$index' AND id_rubrique='$id_ru'");
     $request->execute();
@@ -411,7 +413,7 @@ function getIdResources($id_exercice){
     if($result){
         $type_btn = "submit";
     }
-    
+    else $type_btn = "submit";
     return $type_btn;
  }
 

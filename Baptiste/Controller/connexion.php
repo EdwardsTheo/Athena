@@ -7,10 +7,13 @@ function welcome() {
 }
 
 function startProf() {
+    $request2 = getAnnonce();
     require('View/home_prof.php');
 }
 
 function startStudent() {
+    $request = updatePasseWord();
+    $request2 = getAnnonce();
     require('View/home_student.php');
 }
 
@@ -31,6 +34,8 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "eleve";
+                            $_SESSION['id_user'] = $row["id_user"];
+                            updateHour();
                             header("Location: index.php?action=home_student.php");
                             exit();
                         }

@@ -104,6 +104,7 @@
     display: flex;
     height: 30rem;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto-Light';
     font-size: 1.5rem;
     border-radius: 3px;
 }
