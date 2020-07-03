@@ -24,8 +24,10 @@
 <!--Affiche le nom de l'exercice-->
 <section class="class">
     <div class="heading">    
-        <p class="heading_primary heading_class">
-            <?php echo $name_ex ?>
+        <p class="heading_primary heading_class" id="name_ex">
+            <?php echo $name_ex; 
+            $_SESSION['ex'] = $name_ex;
+            ?>
         </p>
     </div>
 <!--Affiche les ressources et la rubrique-->
@@ -88,11 +90,7 @@
                 ?>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="box_class basic_box box_exo">
-=======
         <div class="box_class basic_box zone_class">
->>>>>>> 5e561227fa5f91b06cc648fb6bc557b5de9244ac
             <div class="heading_zone">    
                 <p class="heading_zone_class">
                     Consigne de l'exercice
@@ -161,7 +159,6 @@
             <!--<script src="Model/script.js"></script>-->
             <script>
                 (function() {
-                        console.log('blue');
                         var dropzone = document.getElementById('dropzone');
                         var displayUploads = function(data){
                             var uploads = document.getElementById('contenu_new'),
@@ -178,16 +175,17 @@
                             var formData = new FormData(),
                                 xhr = new XMLHttpRequest(),
                                 x;
+                                console.log("file = ",files[0]['name']);
                             for (let x=0; x<files.length; x++) {
                                 formData.append('file[]',files[x]);
                             }
                             
-                            /*xhr.onload = function(){
+                            xhr.onload = function(){
                                 var data= JSON.parse(this.responseText);
                                 console.log(data);
                                 displayUploads(data);
-                            }*/
-                            xhr.open('post', 'Model/upload.php');
+                            }
+                            xhr.open('POST', 'Model/upload.php');
                             xhr.send(formData);
                             
                         }

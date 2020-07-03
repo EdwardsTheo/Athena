@@ -9,8 +9,9 @@ require('Controller/home_prof_controller.php');
 require('Controller/home_exercice_controller.php');
 require('Controller/class_controller.php');
 require('Controller/add_class_controller.php');
-//require('Controller/visu_class_controller.php');
-
+require('Controller/eval_controller.php');
+require('Controller/visu_class_controller.php');
+require('Controller/chat_controller.php');
 if(!isset($_GET['action'])) {
     welcome();
 }
@@ -89,6 +90,30 @@ if(isset($_GET['action'])) {
     }
     elseif($_GET['action'] == 'exercice.php') {
        showExo();
+    }
+    elseif($_GET['action'] == 'home_evaluation.php') {
+        startHomeEval();
+    }
+    elseif($_GET['action'] == 'evaluation.php') {
+        startEval();
+    }
+    elseif($_GET['action'] == 'home_add_evaluation.php') {
+        startAddEval();
+    }
+    elseif($_GET['action'] == 'add_evaluation.php') {
+        if(isset($_POST['addExoEval'])) {
+            addExoEval();
+        }
+        elseif(isset($_POST['modifExoEval'])) {
+            modifExoEval();
+        }
+        elseif(isset($_POST['suppExoEval'])) {
+            suppExoEval();
+        }
+        elseif(isset($_POST['Valider_Eval'])) {
+            validerEval();
+        }
+        startSecondEval();
     }
 }
 

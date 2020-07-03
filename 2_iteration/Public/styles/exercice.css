@@ -144,13 +144,12 @@
 
 
 .empty{
-    background-color: red;
     height: 200px;
     width : auto;
 }
 
 .hovered{
-    background-color: blue;
+    border: thick double green;;
     height: 200px;
     width : auto;
 }

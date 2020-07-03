@@ -15,57 +15,14 @@
 
     <body>
     <?php require('header.php'); ?>
-    
-        <div class="heading">    
-            <p class="heading_primary heading_class">
-                Créer une évaluation
-            </p>
-        </div>
-            
-        <section class="main_add_exo main_add_class">
-            <div class="box_ressource ressource_add">
-                <div class="choose_chapter">
-                    <div class="heading_zone">    
-                        <p class="heading_zone_class heading_ressource">
-                        Exercices de l'évaluation
-                        </p>
-                    </div>
-                    <form action="#" class="form_index">
-                        <input type="submit" class="btn_index btn_add_exo" value="Bonbon.js" id="btn">
-                        <input type="submit" class="btn_index btn_add_exo" value="Exercice Facile" id="btn">
-                        </form>
-                    </div> 
-                </div>
-            </div>
-            <div class="box_text">
-                    <div class="box_ressource order">
-                        <div class="heading_zone">    
-                            <div class="input_text">
-                                <input type="text" class="form_input" placeholder="Titre de l'exercice" id="mdp">
-                            </div>
-                        </div>
-                        <div class="text_area_consigne">
-                            <textarea class="text_consigne" id="text_area">Consigne de l'exercice</textarea>
-                        </div>
-                    </div>
-                    <div class="validation box_add">
-                        <form action="#" class="form_bottom">
-                            <input type="submit" class="btn btn--green btn_bottom2" value="Ajouter l'exercice" id="btn">
-                        </form>
-                    </div>
-                </div>
-        </section> 
-
-        <section class="bottom_add_eval">
-            <div class="bottom_button">
-                <form action="#" class="form_bottom">
-                    <input type="text" class="form_input form_date" placeholder="Date et Heure de début" id="mdp">
-                    <input type="text" class="form_input form_date" placeholder="Date et Heure de fin" id="mdp">
-                    <input type="submit" class="btn btn--green btn_bottom3" value="Lancer le compte à rebours !" id="btn">
-                </form>
-            </div>
-        </section> 
-
+    <?php
+    if($_POST['status'] == 'finish') {
+        require('evaluation_correct.php');
+    }
+    else {
+        require('evaluation_create.php');
+    }
+    ?> 
     <?php require('footer.php'); //?>
     </body>
 </html>
