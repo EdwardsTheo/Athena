@@ -49,6 +49,7 @@ if($end == true) {
                             <input type="submit" class="btn_index btn_add_exo" name="showExo" value="<?php echo $data['nom_exo_eval']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="id_exo" value="<?php echo $data['id_exo_eval']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="status" value="<?php echo $_POST['status']; ?>" id="btn">
+                            <input type="hidden" class="btn_index btn_add_exo" name="id_eval" value="<?php echo $_POST['id_eval']; ?>" id="btn">
                             <?php hiddenEval(); ?>
                         </form>
                         <?php
@@ -72,6 +73,7 @@ if($end == true) {
                 $titre = "Choisir un exercice";
                 $input = "<input type='submit' class='btn btn--green btn_bottom2' name='addExoEval' value='Ajouter un exercice' id='btn'>";
             }
+            $_SESSION['ex'] = $titre;
             ?>
             <div class="box_text">
                 <div class="box_ressource order">
@@ -89,9 +91,9 @@ if($end == true) {
                 <div class="drop">
                     <div class="box_drop">
                         <div class="heading_zone">
-                            <p class="contenu_new">
+                            <div id="contenu_new">
                                 Déposer votre exercice ici !
-                            </p>    
+                            </div>    
                         </div>
                         <div class="empty" id="dropzone" >
                             <svg class="box_drop_svg">
@@ -126,7 +128,7 @@ if($end == true) {
                                 console.log(data);
                                 displayUploads(data);
                             }
-                            xhr.open('POST', 'Controller/upload.php');
+                            xhr.open('POST', 'Controller/upload_eval.php');
                             xhr.send(formData);
                             
                         }
@@ -159,8 +161,12 @@ if($end == true) {
                 
                 <div class="bottom_button">
                 
-                    <form action="index.php?action=evaluation.php" class="form_bottom">
-                        <input type="submit" class="btn btn--green btn_bottom2" value="Valider l'exercice" id="btn">
+                    <form action="index.php?action=evaluation.php" method="POST" class="form_bottom">
+                        <input type="submit" name="btn" class="btn btn--green btn_bottom2" value="Valider l'exercice" id="btn">
+                        <input type="hidden" name="id_ex" value="<?php echo $_POST['id_exo']?>"><br/>
+                        <input type="hidden" name="name" value="<?php echo $_POST['name']?> ">
+                        <input type="hidden" name="id_eval" value="<?php echo $_POST['id_eval']?> ">
+                        
                     </form>
                     
                 </div>

@@ -49,10 +49,14 @@
                     while($data = $request->fetch()) {
                         $name_res = $data["nom_cours"];
                         $index_cours = $data['index_cours'];
+                        $id_cours = $data['id_cours'];
                     ?>
-                            <form action="#" method="POST">
-                                <input type="submit" name="cours" value="<?php echo $name_res ?>" class="btn_news">
-                                <input type="hidden" name="id_cours" value="<?php echo $index_cours ?>">
+                            <form action="index.php?action=class.php" method="POST">
+                                <input type="submit" name="nom_cours" value="<?php echo $name_res ?>" class="btn_news">
+                                <input type="hidden" name="id_cours" value="<?php echo $id_cours ?>">
+                                <input type="hidden" name="index_cours" value="<?php echo $index_cours ?>">
+                                <input type="hidden" name="id_rubrique" value="<?php echo $id_ru ?>">
+                                
                             </form>
                 
                  <?php
@@ -106,7 +110,7 @@
         <?php
             /*–––––––––––––––––––––––Modifier la consigne––––––––––––––––––––––––––––*/
             if($_SESSION["status"] == "professeur"){
-                    
+
                     echo '<form action="index.php?action=add_exercice.php" method="POST">';
                     echo '<input type="submit" name="btn" class="btn_news btn_text btn_prof" value="Modifier consigne" id="btn">';
                     $i = 0;
@@ -119,12 +123,12 @@
                     else{
                         echo "<input type='hidden' name='resources[]' value='".$name_res."'>";
                     }
-                        echo '<input type="hidden" name="rubrique_n" value="'.$name_ru.'">';
-                        echo "<input type='hidden' name='name_ex' value='".$name_ex."'>";
-                        echo "<input type='hidden' name='instructions' value='".$instructions."'>";
-                        echo "<input type='hidden' name='rub' value='".$id_rubrique."'>";
-                        echo "<input type='hidden' name='index' value='".$index_ex."'>";
-                echo '</form>';
+                        echo "<input type='hidden' name='rubrique_n' value=''$name_ru''>
+                         <input type='hidden' name='name_ex' value='$name_ex'>
+                         <input type='hidden' name='instructions' value='$instructions'>
+                         <input type='hidden' name='rub' value='$id_rubrique'>
+                         <input type='hidden' name='index' value='$index_ex'>
+                 </form>";
             }
         ?>
             
@@ -143,20 +147,22 @@
     </div>
 </section>
 
-<section class="bottom_exercice">
-    <div class="drop">
-        <div class="box_drop">
-            <div class="heading_zone">
-                <div id="contenu_new">
+
+<section class='bottom_exercice'>
+<?php if($_SESSION["status"] == "eleve"){
+echo " <div class='drop'>
+        <div class='box_drop'>
+            <div class='heading_zone'>
+                <div id='contenu_new'>
                     Déposer votre exercice ici !
                 </div>    
             </div>
-            <div class="empty" id="dropzone" >
-                <svg class="box_drop_svg">
-                    <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
+            <div class='empty' id='dropzone' >
+                <svg class='box_drop_svg'>
+                    <use xlink:href='Public/svg/symbol-defs.svg#icon-install'></use>
                 </svg>
             </div>
-            <!--<script src="Model/script.js"></script>-->
+            <!--<script src='Model/script.js'></script>-->
             <script>
                 (function() {
                         var dropzone = document.getElementById('dropzone');
@@ -192,7 +198,7 @@
                         dropzone.ondrop = function(e) {
                                             e.preventDefault();
                                             this.className = 'empty';
-                                            var data = event.dataTransfer.getData("Files");
+                                            var data = event.dataTransfer.getData('Files');
                                             console.log(e);
                                             upload(e.dataTransfer.files);
 
@@ -213,7 +219,9 @@
                     }());
             </script>
         </div>
-    </div>
+    </div>";
+    }
+    ?>
     <div class="bottom_button">
         <div class="form_bottom">
             <?php 
@@ -225,14 +233,17 @@
                 }
             ?>
             <!--–––––––––––––––––––––Valider un exercice–––––––––––––––––––––––––––-->
-            <form action="" method="POST">
-                <input type="submit"  name="btn" class="btn btn--green btn_bottom2" value="Valider exercice" id="btn">
+           <?php if($_SESSION["status"] == "eleve"){
+            echo "<form action='index.php?action=home_exercice.php' method='POST'>
+                <input type='submit'  name='btn' class='btn btn--green btn_bottom2' value='Valider exercice' id='btn'>
                 <input type='hidden'  id='btn' name='id_rub' value='<?php $id_ru ?>'><br/>
-                <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>"><br/>
-                <input type="hidden"  id="btn" name="exercice" value="<?php echo $id_ex?>"><br/>
-                <input type="hidden"  id="btn" name="index" value="<?php echo $index_ex?>"><br/>
+                <input type='hidden'  id='btn' name='rubrique_n' value='<?php echo $name_ru?>'><br/>
+                <input type='hidden'  id='btn' name='exercice' value='<?php echo $id_ex?>'><br/>
+                <input type='hidden'  id='btn' name='index' value='<?php echo $index_ex?>'><br/>
                 
-            </form>
+            </form>";
+            }
+            ?>
             <?php
             /*––––––––––––––––––––––––––Exercice suivant––––––––––––––––––––––––––––*/
             if($type_btn == "submit" || $type_btn == "submit2"){

@@ -136,7 +136,7 @@
                     <h3 class="heading_red">
                     Créer une evalutation </h3>
                     <div class="red_bouton">
-                        <a href="index.php?action=add_evaluation.php" class="btn-red btn btn--green ">Evaluation</a>
+                        <a href="index.php?action=home_add_evaluation.php" class="btn-red btn btn--green ">Evaluation</a>
                     </div>
                 </div>
             </div>

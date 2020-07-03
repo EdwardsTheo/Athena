@@ -84,6 +84,15 @@
                         echo "</div>";
                         echo "<div class='box_row'>";
                     }
+                    $id_user = $_SESSION["id_user"];
+                    $answer = verify($id_user);
+                    while($datas = $answer->fetch()){
+                        $exe = $datas[$id_exercice];
+                        if($id == $exe){
+                            $trouve = true;
+                        }  
+                    }
+                    $answer->closeCursor();
                     
             ?>
             <div class="basic_box red_section red_exo">
@@ -97,9 +106,13 @@
                     <p class="message">
                             Exercice non lu
                     </p>
-                    <svg class="box-nav_exo">
-                        <use xlink:href="Public/svg/symbol-defs.svg#icon-check"></use>
-                    </svg>
+                    <?php 
+                    if($trouve == true){
+                        echo "<svg class='box-nav_exo'>
+                            <use xlink:href='Public/svg/symbol-defs.svg#icon-check'></use>
+                        </svg>";
+                    };
+                    ?>
                 </div>  
                 <form action="index.php?action=exercice.php" class="form_mdp" method="POST">
                     <input type="submit" name="btn" class="btn btn--green btn_section " value="Afficher" id="btn">

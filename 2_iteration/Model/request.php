@@ -503,14 +503,18 @@ function showCurrentEx($id_user){
     return $request;
 }
 
-function fileToBddEleve($file){
+function fileToBddExo($file, $id_ex){
     $db = connexion_db();
     $id_user = $_SESSION['id_user'];
-    $id_ex = $_SESSION['ex'];
-    echo "id_user = ",$id_user;
-    echo "id_ex = ",$id_ex;
     $req = "UPDATE rendus_exo SET contenu_rendu = '$file', progress_exo = 'rendu' WHERE id_exercice = '$id_ex' AND id_user = '$id_user'";
-    print_r($req);
+    $request = $db->prepare($req);
+    $request->execute();
+}
+
+function fileToBddEval($file, $id_ex){
+    $db = connexion_db();
+    $id_user = $_SESSION['id_user'];
+    $req = "INSERT INTO rendus_eval VALUES (NULL, '$id_user', '$id_ex', '$file')";
     $request = $db->prepare($req);
     $request->execute();
 }

@@ -1,8 +1,7 @@
 <?php 
 
-var_dump($_POST);
-
 session_start();
+
 require('Controller/connexion.php');
 require('Controller/home_class_controller.php');
 require('Controller/eval_controller.php');
@@ -36,6 +35,7 @@ if(isset($_GET['action'])) {
     elseif($_GET['action'] == 'home_student.php') {
         startStudent();
     }
+
     elseif($_GET['action'] == 'home_class.php') {
         showClass();
         if (isset($_POST['afficher'])) {
@@ -71,6 +71,9 @@ if(isset($_GET['action'])) {
     } 
     elseif($_GET['action'] == 'visu_class.php') {
         startVisu();
+        if(isset($_POST['deleteAll'])){
+            deleteall();
+        }
     }
     elseif($_GET['action'] == 'home_evaluation.php') {
         startHomeEval();

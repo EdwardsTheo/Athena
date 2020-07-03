@@ -1,15 +1,14 @@
 <?php
 
+//var_dump($_POST);
+
 function startExo() {
-    $request = getRub();
-    if(isset($_POST['id_eleve'])){
-        $request5 = getStudent2();
+    if(isset($_POST["btn"])&&$_POST['btn']=="Valider exercice"){
+        validExo();
     }
-    $request5 = getStudent();
-    $request4 = countAll();
-    $request2 = countExos();
     require('View/home_exercice.php');
-}           
+}
+
 function startAddExo(){
     if(!isset($_POST["btn"]) || $_POST["btn"] == "Ajouter ressources" || $_POST["btn"] == "Modifier consigne"){
         require('View/add_exercice.php');
@@ -28,5 +27,26 @@ function showExo(){
     }
 }
 
-
+function validExo(){
+    
+        $user = $_SESSION["nom"];
+        $ex = $_SESSION["ex"];
+        $id_ex = $_POST['exercice'];
+        $d = dir("Public/upload/exercices/");
+        $test = $user."_".$ex;
+        while($entry = $d->read()) { 
+            preg_match("($test?)", $entry, $new);
+            $data = trim($new[0]);
+            var_dump($entry);
+            var_dump($data);
+            if (!empty($data)){ 
+                $file = $entry;
+            }
+        } 
+    $d->close();
+    
+        
+    $request = fileToBddExo($file, $id_ex);
+}
+          
 ?>

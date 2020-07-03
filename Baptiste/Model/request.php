@@ -8,7 +8,7 @@ function getUser() {
     return $request;
 }
 
-function getinfoStudent() {
+function getInfoStudent() {
     $db = connexion_db();
     $request = $db->query('SELECT * FROM users
     WHERE status_user = "eleve"');

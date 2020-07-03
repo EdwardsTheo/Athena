@@ -12,15 +12,19 @@ function startProf() {
 }
 
 function startStudent() {
-    $request_student = selectLast();
     $request = updatePasseWord();
     $request2 = getAnnonce();
-    require('View/home_student.php');
-}
+    $request3 = countCours();
+    $request4 = countAll();
+    $request5 = countAllExos();
 
-function who() {
-    if($_SESSION['status'] == 'eleve') return $string = 'index.php?action=home_student.php'; 
-    else  return $string = "index.php?action=home_prof.php";
+    $request6 = firstCo();
+    while($data6 = $request6->fetch()){
+        if(intval($data6[0]) == 0){
+            insertFirstCo();
+        }
+    }
+    require('View/home_student.php');
 }
 
 function connexion() {
@@ -40,7 +44,8 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "eleve";
-                            $_SESSION['id_user'] = $row['id_user'];
+                            $_SESSION['id_user'] = $row["id_user"];
+                            updateHour();
                             header("Location: index.php?action=home_student.php");
                             exit();
                         }

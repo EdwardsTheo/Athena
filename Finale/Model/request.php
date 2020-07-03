@@ -1,15 +1,21 @@
 <?php
 
-require("connect_db.php");
-//require("connexion_sql.php");
-// Récupère le sinfos du user 
+//require("connect_db.php");
+require("connexion_sql.php");
+// Récupère les infos du user 
 function getUser() {
     $db = connexion_db();
     $request = $db->query('SELECT * FROM users');
 
     return $request;
 }
+function getInfoStudent() {
+    $db = connexion_db();
+    $request = $db->query('SELECT * FROM users
+    WHERE status_user = "eleve"');
 
+    return $request;
+}
 // Récupère les cours 
 function getClass() {
     $db = connexion_db();
@@ -796,4 +802,26 @@ function showCurrentEx($id_user){
     return $request;
 }
 
+function fileToBddExo($file, $id_ex){
+    $db = connexion_db();
+    $id_user = $_SESSION['id_user'];
+    $req = "UPDATE rendus_exo SET contenu_rendu = '$file', progress_exo = 'rendu' WHERE id_exercice = '$id_ex' AND id_user = '$id_user'";
+    $request = $db->prepare($req);
+    $request->execute();
+}
+
+function fileToBddEval($file, $id_ex){
+    $db = connexion_db();
+    $id_user = $_SESSION['id_user'];
+    $req = "INSERT INTO rendus_eval VALUES (NULL, '$id_user', '$id_ex', '$file')";
+    $request = $db->prepare($req);
+    $request->execute();
+}
+
+function verify($id_user){
+    $db = connexion_db();
+    $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user' AND progress_exo = 'rendu' OR progress_exo = 'valide' OR progress_exo = 'en_cours'");
+    $request->execute();
+    return $request;
+}
 ?>

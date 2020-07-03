@@ -13,7 +13,7 @@
                 <a href="index.php?action=home_class.php" class="btn-text">Cours </a>
                 <a href="index.php?action=home_exercice.php" class="btn-text">Exercices </a>
                 <?php require('Controller/header_controller.php');?>
-                <a href="index.php?action=evaluation.php" class="btn-text">Evaluation </a>
+                <a href="index.php?action=home_evaluation.php" class="btn-text">Evaluation </a>
                 <input type="submit" name="deco" value="Déconnexion" class="btn_mdp btn btn--green">
             </form>
         </header>

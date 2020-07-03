@@ -49,10 +49,14 @@
                     while($data = $request->fetch()) {
                         $name_res = $data["nom_cours"];
                         $index_cours = $data['index_cours'];
+                        $id_cours = $data['id_cours'];
                     ?>
-                            <form action="#" method="POST">
-                                <input type="submit" name="cours" value="<?php echo $name_res ?>" class="btn_news">
-                                <input type="hidden" name="id_cours" value="<?php echo $index_cours ?>">
+                            <form action="index.php?action=class.php" method="POST">
+                                <input type="submit" name="nom_cours" value="<?php echo $name_res ?>" class="btn_news">
+                                <input type="hidden" name="id_cours" value="<?php echo $id_cours ?>">
+                                <input type="hidden" name="index_cours" value="<?php echo $index_cours ?>">
+                                <input type="hidden" name="id_rubrique" value="<?php echo $id_ru ?>">
+                                
                             </form>
                 
                  <?php
@@ -225,7 +229,7 @@
                 }
             ?>
             <!--–––––––––––––––––––––Valider un exercice–––––––––––––––––––––––––––-->
-            <form action="" method="POST">
+            <form action="index.php?action=home_exercice.php" method="POST">
                 <input type="submit"  name="btn" class="btn btn--green btn_bottom2" value="Valider exercice" id="btn">
                 <input type='hidden'  id='btn' name='id_rub' value='<?php $id_ru ?>'><br/>
                 <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>"><br/>

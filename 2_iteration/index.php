@@ -1,5 +1,5 @@
 <?php 
-//just a test
+
 session_start();
 
 require('Controller/connexion.php');
@@ -34,6 +34,9 @@ if(isset($_GET['action'])) {
     }
     elseif($_GET['action'] == 'home_student.php') {
         startStudent();
+        if(isset($_POST['mdp'])){
+            startStudent2();
+        }
     }
     
     elseif($_GET['action'] == 'home_class.php') {
@@ -71,6 +74,12 @@ if(isset($_GET['action'])) {
     } 
     elseif($_GET['action'] == 'visu_class.php') {
         startVisu();
+        if(isset($_POST['deleteAll'])){
+            deleteall();
+        }
+    }
+    elseif($_GET['action'] == 'home_evaluation.php') {
+        startHomeEval();
     }
     elseif($_GET['action'] == 'evaluation.php') {
         startEval();
@@ -83,21 +92,6 @@ if(isset($_GET['action'])) {
             addNewChapter();
         }
         startAddClass();
-    }
-    elseif($_GET['action'] == 'add_evaluation.php') {
-        startAddEval();
-    }
-    elseif($_GET['action'] == 'add_exercice.php') {
-        startAddExo();
-    }
-    elseif($_GET['action'] == 'exercice.php') {
-       showExo();
-    }
-    elseif($_GET['action'] == 'home_evaluation.php') {
-        startHomeEval();
-    }
-    elseif($_GET['action'] == 'evaluation.php') {
-        startEval();
     }
     elseif($_GET['action'] == 'home_add_evaluation.php') {
         startAddEval();
@@ -117,6 +111,13 @@ if(isset($_GET['action'])) {
         }
         startSecondEval();
     }
-}
-
+    elseif($_GET['action'] == 'add_exercice.php') {
+        startAddExo();
+    }
+    elseif($_GET['action'] == 'exercice.php') {
+       showExo();
+    }
+    elseif($_GET['action'] == 'chat.php') {
+        startChat();
+    }
 ?>
