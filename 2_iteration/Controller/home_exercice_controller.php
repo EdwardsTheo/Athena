@@ -23,5 +23,24 @@ function showExo(){
         require('View/exercice.php');
     }
 }
+
+function validExo(){
+    if($_POST["btn"] == "Valider exercice"){
+        $user = $_SESSION[$id_user];
+        
+        require('Model/request');
+        $d = dir("../Public/upload/");
+    while($entry = $d->read()) { 
+        preg_match("#($+?)#s", $entry, $new);
+        $data = trim($new[1]);
+        if (!empty($data)) echo '<a href="'.$entry.'">'.$data.'</a><br />';
+    } 
+    $d->close();
+    }
+        $file = ;
+        $id_ex = $_POST['exercice'];
+        $request = fileToBddEleve($file);
+    }
+}
           
 ?>

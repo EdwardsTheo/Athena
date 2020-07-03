@@ -65,6 +65,9 @@ if(isset($_GET['action'])) {
     elseif($_GET['action'] == 'add_exercice.php') {
         startAddExo();
     }
+    elseif($_GET['action'] == 'exercice.php') {
+        showExo();
+     }
 }
 
 ?>
