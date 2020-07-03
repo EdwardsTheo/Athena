@@ -4,14 +4,16 @@ session_start();
 
 require('Controller/connexion.php');
 require('Controller/home_class_controller.php');
+require('Controller/eval_controller.php');
+require('Controller/add_class_controller.php');
+require('Controller/class_controller.php');
+require('Controller/home_exercice_controller.php');
+require('Controller/visu_class_controller.php');
 require('Controller/home_student_controller.php');
 require('Controller/home_prof_controller.php');
-require('Controller/home_exercice_controller.php');
-require('Controller/class_controller.php');
-require('Controller/add_class_controller.php');
-require('Controller/eval_controller.php');
-require('Controller/visu_class_controller.php');
 require('Controller/chat_controller.php');
+require('Controller/add_eval_controller.php');
+
 if(!isset($_GET['action'])) {
     welcome();
 }
@@ -67,9 +69,9 @@ if(isset($_GET['action'])) {
         
         showClasses();
     } 
-    //elseif($_GET['action'] == 'visu_class.php') {
-        //startVisu();
-    //}
+    elseif($_GET['action'] == 'visu_class.php') {
+        startVisu();
+    }
     elseif($_GET['action'] == 'evaluation.php') {
         startEval();
     }

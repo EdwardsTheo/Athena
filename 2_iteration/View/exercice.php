@@ -152,9 +152,9 @@
                 </div>    
             </div>
             <div class="empty" id="dropzone" >
-                <!--<svg class="box_drop_svg">
+                <svg class="box_drop_svg">
                     <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
-                </svg>-->
+                </svg>
             </div>
             <!--<script src="Model/script.js"></script>-->
             <script>
@@ -175,7 +175,6 @@
                             var formData = new FormData(),
                                 xhr = new XMLHttpRequest(),
                                 x;
-                                console.log("file = ",files[0]['name']);
                             for (let x=0; x<files.length; x++) {
                                 formData.append('file[]',files[x]);
                             }
@@ -185,7 +184,7 @@
                                 console.log(data);
                                 displayUploads(data);
                             }
-                            xhr.open('POST', 'Model/upload.php');
+                            xhr.open('POST', 'Controller/upload.php');
                             xhr.send(formData);
                             
                         }

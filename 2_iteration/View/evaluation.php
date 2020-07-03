@@ -126,7 +126,7 @@ if($end == true) {
                                 console.log(data);
                                 displayUploads(data);
                             }
-                            xhr.open('POST', 'Model/upload.php');
+                            xhr.open('POST', 'Controller/upload.php');
                             xhr.send(formData);
                             
                         }
