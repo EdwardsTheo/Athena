@@ -28,7 +28,11 @@
                                 while($data = $request5->fetch()){
                                     $nom = $data['nom'].' '.$data['prenom'];
                                     $id_eleve = $data['id_user'];
-                                    echo '<option value='.$id_eleve.'>'.$nom.'</option>';
+                                    if(isset($_POST['id_eleve']) AND isset($_POST['Profil'])){
+                                        echo '<option selected="selected "value='.$_POST['id_eleve'].'>'.$_POST['Profil'].'</option>';
+                                        var_dump($_POST['id_eleve']);
+                                    }
+                                        echo '<option value='.$id_eleve.'>'.$nom.'</option>';
                                 }
                             ?>
                             </select>
@@ -162,8 +166,6 @@ $request->closeCursor();
                 </div>
             </div>
         </section>
-
-
         <?php require('footer.php') ?>
     </body>
 </html>

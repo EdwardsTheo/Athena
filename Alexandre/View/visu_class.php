@@ -40,9 +40,13 @@
                         <div class="form_mdp">
                             <form action="index.php?action=home_class.php"  method="POST">
                                 <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
+                                <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
+                                <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
                             </form>
                             <form action="index.php?action=home_exercice.php"  method="POST">
                                 <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
+                                <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
+                                <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
                             </form>
                             <form action="index.php?action=home_student.php"  method="POST">
                                 <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
@@ -56,11 +60,14 @@
                     }
                         $request->closeCursor();
                     ?>
+                </div>
             </div>
         </section>
+        <?php /*
         <form method="post" action="">
             <input type="submit" name="deleteAll" value="Supprimer la classe" class="btn_mdp btn btn--green">
         </form>
+        */?>
         <?php require('footer.php'); ?>  
     </body>
 </html>

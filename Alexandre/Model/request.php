@@ -41,6 +41,12 @@ function getStudent() {
 
     return $request;
 }
+function getStudent2() {
+    $db = connexion_db();
+    $request = $db->query('SELECT nom, prenom, heure_connexion, id_user FROM users WHERE status_user = "eleve" AND WHERE id_user <> '.$_POST['id_eleve'].'');
+
+    return $request;
+}
 
 // Met a jour la dernière heure de connexion d'un élève 
 function updateHour(){

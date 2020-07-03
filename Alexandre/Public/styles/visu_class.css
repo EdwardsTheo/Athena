@@ -6,7 +6,6 @@
 .visu {
     display: flex;
     justify-content: space-evenly;
-    flex-direction: row;
 }
 
 .main_stu {
@@ -14,8 +13,16 @@
 }
 
 .box_visu {
+    display: flex;
+    flex-direction: row;
+    margin: 5rem;
+    
     flex: 0 1 5% !important;
     margin-bottom: 2rem;
+}
+
+.red_section {
+    margin: 2Rem;
 }
 
 .box-nav_section {
@@ -43,10 +50,5 @@
 .form_mdp {
     display: flex;
     margin: 1rem;
-}
-
-.box_row{
-    display: flex;
-    flex-direction: row;
 }
 
