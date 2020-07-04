@@ -64,13 +64,14 @@
                                     <?php editAnnonce($data)?>
                                     <form action="index.php?action=home_prof.php" class="form_news" method='post'>
                                         <input type="submit" class="btn-text btn_news" value="Modifier l'annonce" id="btn" name='edit'>
+                                        <input type="hidden" name="id_annonce" value="<?php echo $data['id_annonce']?>">
                                         <input type="submit" class="btn-text btn_news" value="Supprimer l'annonce" id="btn" name = 'delete'>
                                         <?php     
                                             //refresh();
                                         ?>
                                     </form>
                                 </div>
-                                <?php delAnnonce($data); ?>
+                                <?php delAnnonce(); ?>
                     <?php 
                             $i++;
                             } 

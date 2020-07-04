@@ -31,16 +31,17 @@ function editAnnonce($data){
 function endEditAnnonce(){
     if(isset($_POST['nouvelle_annonce'])){
         echo '<form action="index.php?action=home_prof.php" method="post">';
-        $request3 = getEditAnnonce($data);
+        $request3 = getEditAnnonce();
         echo '</form>';
     }
 }
 function addAnnonce(){
     $request = ajouterAnnonce();
 }
-function delAnnonce($data){
+
+function delAnnonce(){
     if(isset($_POST['delete'])){
-        $request4 = deleteAnnonce($data);
+        $request4 = deleteAnnonce();
     }
 }
 

@@ -512,21 +512,21 @@ function getAnnonce(){
 }
 
 // Modifie une annonce 
-function getEditAnnonce($data){
+function getEditAnnonce(){
     $db = connexion_db();
     $contenue = $_POST['nouvelle_annonce'];
     $id_annonce = $_POST['id_annonce'];
-    $request3 = $db->query("UPDATE annonces SET contenu_annonce = '$contenue' WHERE id_annonce = $id_annonce");
+    $request3 = $db->query("UPDATE annonces SET contenu_annonce = '$contenue' WHERE id_annonce = '$id_annonce'");
     //$data2 = $request3->fetch();
 
     return $request3;
 }
 
 // Supprime une annonce
-function deleteAnnonce($data){
+function deleteAnnonce(){
     $db = connexion_db();
-    $id_annonce = $data['id_annonce'];
-    $request4 = $db->query("DELETE FROM `annonces` WHERE id_annonce = $id_annonce");
+    $id_annonce = $_POST['id_annonce'];
+    $request4 = $db->query("DELETE FROM `annonces` WHERE id_annonce = '$id_annonce'");
     //$data3 = $request4->fetch();
 
     return $request4;
