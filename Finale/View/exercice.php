@@ -236,10 +236,10 @@ echo " <div class='drop'>
            <?php if($_SESSION["status"] == "eleve"){
             echo "<form action='index.php?action=home_exercice.php' method='POST'>
                 <input type='submit'  name='btn' class='btn btn--green btn_bottom2' value='Valider exercice' id='btn'>
-                <input type='hidden'  id='btn' name='id_rub' value='<?php $id_ru ?>'><br/>
-                <input type='hidden'  id='btn' name='rubrique_n' value='<?php echo $name_ru?>'><br/>
-                <input type='hidden'  id='btn' name='exercice' value='<?php echo $id_ex?>'><br/>
-                <input type='hidden'  id='btn' name='index' value='<?php echo $index_ex?>'><br/>
+                <input type='hidden'  id='btn' name='id_rub' value='$id_ru'><br/>
+                <input type='hidden'  id='btn' name='rubrique_n' value='$name_ru'><br/>
+                <input type='hidden'  id='btn' name='exercice' value='$id_ex'><br/>
+                <input type='hidden'  id='btn' name='index' value='$index_ex'><br/>
                 
             </form>";
             }

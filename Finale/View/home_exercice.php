@@ -77,6 +77,10 @@
                 $request = getExWanted($id_rub); 
                 
                 while($data = $request->fetch()) {
+                    $trouve1 = false;
+                    $trouve2 = false;
+                    $trouve3 = false;
+
                     $name_ex = $data['nom_exercice'];
                     $id = $data['id_exercice'];
                     $index_ex = $data['index_exercice'];
@@ -85,11 +89,30 @@
                         echo "<div class='box_row'>";
                     }
                     $id_user = $_SESSION["id_user"];
-                    $answer = verify($id_user);
+                    $answer = verify1($id_user);
                     while($datas = $answer->fetch()){
-                        $exe = $datas[$id_exercice];
+
+                        $exe = intval($datas["id_exercice"]);
+
                         if($id == $exe){
-                            $trouve = true;
+
+                            $trouve1 = true;
+                        }else{
+                            $answer2 = verify2($id_user);
+                            while($datas2 = $answer2->fetch()){
+                                $exe2 = intval($datas2["id_exercice"]);
+                                if($id == $exe2){
+                                    $trouve2 = true;
+                                }else{
+                                    $answer3 = verify3($id_user);
+                                    while($datas3 = $answer3->fetch()){
+                                        $exe3 = intval($datas3["id_exercice"]);
+                                        if($id == $exe3){
+                                            $trouve3 = true;
+                                        }
+                                    }
+                                }
+                            } 
                         }  
                     }
                     $answer->closeCursor();
@@ -104,10 +127,23 @@
                 </h3>
                 <div class="status">
                     <p class="message">
-                            Exercice non lu
+                    <?php
+                        if($trouve2 == true){
+                            echo "Exercice rendu";
+                        }
+                        elseif($trouve3 == true){
+                            echo "Exercice valide";
+                        }
+                        elseif($trouve1 == true){
+                            echo "Exercice en cours";
+                        }
+                        else{
+                            echo "Exercice non lu";
+                        }
+                    ?>
                     </p>
                     <?php 
-                    if($trouve == true){
+                    if($trouve2 == true || $trouve3 == true){
                         echo "<svg class='box-nav_exo'>
                             <use xlink:href='Public/svg/symbol-defs.svg#icon-check'></use>
                         </svg>";

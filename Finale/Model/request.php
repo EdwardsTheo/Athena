@@ -752,7 +752,7 @@ function getIdResources($id_exercice, $id_rubrique){
  function verifyStatusEx($id_user, $id_ex){
     $db = connexion_db();
     if($_SESSION["status"] == "eleve"){
-        $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user'");
+        $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user' AND progress_exo LIKE 'en_cours'");
         $request->execute();
         $result = $request->fetchAll();
         if(empty($result)){
@@ -808,7 +808,10 @@ function showCurrentEx($id_user){
 function fileToBddExo($file, $id_ex){
     $db = connexion_db();
     $id_user = $_SESSION['id_user'];
+    echo $id_user;
+    echo "id_ex = ",$id_ex;
     $req = "UPDATE rendus_exo SET contenu_rendu = '$file', progress_exo = 'rendu' WHERE id_exercice = '$id_ex' AND id_user = '$id_user'";
+    echo "<br/>",$req;
     $request = $db->prepare($req);
     $request->execute();
 }
@@ -821,9 +824,22 @@ function fileToBddEval($file, $id_ex){
     $request->execute();
 }
 
-function verify($id_user){
+function verify1($id_user){
     $db = connexion_db();
-    $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user' AND progress_exo = 'rendu' OR progress_exo = 'valide' OR progress_exo = 'en_cours'");
+    $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user' AND progress_exo = 'en_cours'");
+    $request->execute();
+    return $request;
+}
+
+function verify2($id_user){
+    $db = connexion_db();
+    $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user' AND progress_exo = 'rendu'");
+    $request->execute();
+    return $request;
+}
+function verify3($id_user){
+    $db = connexion_db();
+    $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user' AND progress_exo = 'valide'");
     $request->execute();
     return $request;
 }
