@@ -88,35 +88,36 @@
                         echo "</div>";
                         echo "<div class='box_row'>";
                     }
-                    $id_user = $_SESSION["id_user"];
-                    $answer = verify1($id_user);
-                    while($datas = $answer->fetch()){
+                    if ($_SESSION["status"] == 'eleve'){
+                        $id_user = $_SESSION["id_user"];
+                        $answer = verify1($id_user);
+                        while($datas = $answer->fetch()){
 
-                        $exe = intval($datas["id_exercice"]);
+                            $exe = intval($datas["id_exercice"]);
 
-                        if($id == $exe){
+                            if($id == $exe){
 
-                            $trouve1 = true;
-                        }else{
-                            $answer2 = verify2($id_user);
-                            while($datas2 = $answer2->fetch()){
-                                $exe2 = intval($datas2["id_exercice"]);
-                                if($id == $exe2){
-                                    $trouve2 = true;
-                                }else{
-                                    $answer3 = verify3($id_user);
-                                    while($datas3 = $answer3->fetch()){
-                                        $exe3 = intval($datas3["id_exercice"]);
-                                        if($id == $exe3){
-                                            $trouve3 = true;
+                                $trouve1 = true;
+                            }else{
+                                $answer2 = verify2($id_user);
+                                while($datas2 = $answer2->fetch()){
+                                    $exe2 = intval($datas2["id_exercice"]);
+                                    if($id == $exe2){
+                                        $trouve2 = true;
+                                    }else{
+                                        $answer3 = verify3($id_user);
+                                        while($datas3 = $answer3->fetch()){
+                                            $exe3 = intval($datas3["id_exercice"]);
+                                            if($id == $exe3){
+                                                $trouve3 = true;
+                                            }
                                         }
                                     }
-                                }
-                            } 
-                        }  
+                                } 
+                            }  
+                        }
+                        $answer->closeCursor();
                     }
-                    $answer->closeCursor();
-                    
             ?>
             <div class="basic_box red_section red_exo">
                 <svg class="box-nav_exo">
