@@ -2,6 +2,7 @@
     include("Controller/redirect_exercice_controller.php")
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,8 +24,10 @@
 <!--Affiche le nom de l'exercice-->
 <section class="class">
     <div class="heading">    
-        <p class="heading_primary heading_class">
-            <?php echo $name_ex ?>
+        <p class="heading_primary heading_class" id="name_ex">
+            <?php echo $name_ex; 
+            $_SESSION['ex'] = $name_ex;
+            ?>
         </p>
     </div>
 <!--Affiche les ressources et la rubrique-->
@@ -46,10 +49,14 @@
                     while($data = $request->fetch()) {
                         $name_res = $data["nom_cours"];
                         $index_cours = $data['index_cours'];
+                        $id_cours = $data['id_cours'];
                     ?>
-                            <form action="#" method="POST">
-                                <input type="submit" name="cours" value="<?php echo $name_res ?>" class="btn_news">
-                                <input type="hidden" name="id_cours" value="<?php echo $index_cours ?>">
+                            <form action="index.php?action=class.php" method="POST">
+                                <input type="submit" name="nom_cours" value="<?php echo $name_res ?>" class="btn_news">
+                                <input type="hidden" name="id_cours" value="<?php echo $id_cours ?>">
+                                <input type="hidden" name="index_cours" value="<?php echo $index_cours ?>">
+                                <input type="hidden" name="id_rubrique" value="<?php echo $id_ru ?>">
+                                
                             </form>
                 
                  <?php
@@ -87,11 +94,7 @@
                 ?>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="box_class basic_box box_exo">
-=======
         <div class="box_class basic_box zone_class">
->>>>>>> 5e561227fa5f91b06cc648fb6bc557b5de9244ac
             <div class="heading_zone">    
                 <p class="heading_zone_class">
                     Consigne de l'exercice
@@ -152,15 +155,69 @@
                     Déposer votre exercice ici !
                 </div>    
             </div>
-            <div class="empty" id="empty">
-                <!--<svg class="box_drop_svg">
+            <div class="empty" id="dropzone" >
+                <svg class="box_drop_svg">
                     <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
-                </svg>-->
+                </svg>
             </div>
-            <script src="Model/script.js"></script>
+            <!--<script src="Model/script.js"></script>-->
+            <script>
+                (function() {
+                        var dropzone = document.getElementById('dropzone');
+                        var displayUploads = function(data){
+                            var uploads = document.getElementById('contenu_new'),
+                                anchor,
+                                x;
+                            for (let x = 0; x < data.length; x++) {
+                                anchor = document.createElement('a');
+                                anchor.href = data[x].file;
+                                anchor.innerText = data[x].name;
+                                uploads.appendChild(anchor);
+                            }
+                        }
+                        var upload = function(files){
+                            var formData = new FormData(),
+                                xhr = new XMLHttpRequest(),
+                                x;
+                            for (let x=0; x<files.length; x++) {
+                                formData.append('file[]',files[x]);
+                            }
+                            
+                            xhr.onload = function(){
+                                var data= JSON.parse(this.responseText);
+                                console.log(data);
+                                displayUploads(data);
+                            }
+                            xhr.open('POST', 'Controller/upload.php');
+                            xhr.send(formData);
+                            
+                        }
+                        // Loop through empty boxes and add listeners
+                        dropzone.ondrop = function(e) {
+                                            e.preventDefault();
+                                            this.className = 'empty';
+                                            var data = event.dataTransfer.getData("Files");
+                                            console.log(e);
+                                            upload(e.dataTransfer.files);
+
+                                        };
+                                        
+                        dropzone.ondragover = function(e) {
+                                            e.preventDefault();
+                                            this.className = 'empty hovered';
+                                            return false;
+                                        };
+
+                        dropzone.ondragleave = function() {
+                                            this.className = 'empty';
+                                            return false;
+                                        };
+
+                        
+                    }());
+            </script>
         </div>
     </div>
-    
     <div class="bottom_button">
         <div class="form_bottom">
             <?php 
@@ -172,12 +229,13 @@
                 }
             ?>
             <!--–––––––––––––––––––––Valider un exercice–––––––––––––––––––––––––––-->
-            <form action="" method="POST">
+            <form action="index.php?action=home_exercice.php" method="POST">
                 <input type="submit"  name="btn" class="btn btn--green btn_bottom2" value="Valider exercice" id="btn">
                 <input type='hidden'  id='btn' name='id_rub' value='<?php $id_ru ?>'><br/>
                 <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>"><br/>
                 <input type="hidden"  id="btn" name="exercice" value="<?php echo $id_ex?>"><br/>
                 <input type="hidden"  id="btn" name="index" value="<?php echo $index_ex?>"><br/>
+                <!--<input type="hidden"  id="btn" name="file" value="<?php //echo $_FILES['file']['tmp_name'][$position]?>"><br/>-->
             </form>
             <?php
             /*––––––––––––––––––––––––––Exercice suivant––––––––––––––––––––––––––––*/
@@ -198,3 +256,4 @@
 
 <?php require('footer.php') ?>
 </body>
+</html>

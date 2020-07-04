@@ -3,6 +3,9 @@
 //var_dump($_POST);
 
 function startExo() {
+    if(isset($_POST["btn"])&&$_POST['btn']=="Valider exercice"){
+        validExo();
+    }
     require('View/home_exercice.php');
 }
 
@@ -22,6 +25,25 @@ function showExo(){
     else{
         require('View/exercice.php');
     }
+}
+
+function validExo(){
+    if($_POST["btn"] == "Valider exercice"){
+        $user = $_SESSION["nom"];
+        $ex = $_SESSION["ex"];
+        $id_ex = $_POST['exercice'];
+        $d = dir("Public/upload/exercices/");
+        $test = $user."_".$ex;
+        while($entry = $d->read()) { 
+            preg_match("($test?)", $entry, $new);
+            $data = trim($new[0]);
+            if (!empty($data)) 
+                $file = $entry;
+        } 
+    $d->close();
+    }
+        
+    $request = fileToBddEleve($file, $id_ex);
 }
           
 ?>

@@ -174,6 +174,80 @@ function reqAddNewChapter() {
     return $req;
 }
 
+/***************--------------ADD NEW EVAL---------------********/
+
+function reqPrintEval() {
+    $db = connexion_db();
+    $request = $db->query('SELECT * FROM evaluations');
+
+    return $request;
+}
+
+function reqExoEval() {
+    $db = connexion_db();
+    $request = $db->query('SELECT * FROM exos_eval
+    WHERE id_evaluation = \''.$_POST['id_eval'].'\'');
+    return $request;
+}
+
+function reqAddExoEval() {
+    $db = connexion_db();
+
+    $req = $db->prepare('INSERT INTO exos_eval(id_evaluation, nom_exo_eval, contenu_exo_eval)
+    VALUES(:id_evaluation, :nom_exo_eval, :contenu_exo_eval)');
+    return $req;
+}
+
+function reqShowExo() {
+    $db = connexion_db();
+    $request = $db->query('SELECT * FROM exos_eval
+    WHERE id_exo_eval = \''.$_POST['id_exo'].'\'');
+    return $request;
+}
+
+function reqModifExoEval() {
+    $db = connexion_db(); 
+    $req = $db->prepare('UPDATE exos_eval
+    SET nom_exo_eval = :nv_nom, contenu_exo_eval = :nv_contenu
+    WHERE id_exo_eval = \''.$_POST['id_exo'].'\'');
+
+    return $req;
+}
+
+function reqSuppExoEval() {
+    $db = connexion_db();
+    $request = $db->exec('DELETE FROM exos_eval
+    WHERE id_exo_eval = \''.$_POST['id_exo'].'\'');
+}
+
+function reqModifEval() {
+    $db = connexion_db(); 
+    $req = $db->prepare('UPDATE evaluations
+    SET status = :nv_status, heure_debut = :hD, heure_fin = :hF, date = :setDate
+    WHERE id_evaluation = \''.$_POST['id_eval'].'\'');
+
+    return $req;
+}
+
+function reqModifProgress($id_eval) {
+    $db = connexion_db(); 
+    $req = $db->prepare('UPDATE evaluations
+    SET status = :nv_status
+    WHERE id_evaluation = \''.$id_eval.'\'');
+
+    return $req;
+}
+
+function requestCorr() {
+    $db = connexion_db();
+    $id_student = GetIdStudent(); 
+    echo $id_student;
+    $request = $db->query('SELECT *
+    FROM rendus_eval 
+    WHERE id_user = \''.$id_student.'\'
+    AND id_exo_eval = \''.$_POST['id_exo'].'\'');
+    return $request;
+}
 
 /**********--------REQUEST ALEX---------******************/
 
@@ -429,5 +503,19 @@ function showCurrentEx($id_user){
     return $request;
 }
 
+function fileToBddExo($file, $id_ex){
+    $db = connexion_db();
+    $id_user = $_SESSION['id_user'];
+    $req = "UPDATE rendus_exo SET contenu_rendu = '$file', progress_exo = 'rendu' WHERE id_exercice = '$id_ex' AND id_user = '$id_user'";
+    $request = $db->prepare($req);
+    $request->execute();
+}
 
+function fileToBddEval($file, $id_ex){
+    $db = connexion_db();
+    $id_user = $_SESSION['id_user'];
+    $req = "INSERT INTO rendus_eval VALUES (NULL, '$id_user', '$id_ex', '$file')";
+    $request = $db->prepare($req);
+    $request->execute();
+}
 ?>

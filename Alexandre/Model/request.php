@@ -41,6 +41,12 @@ function getStudent() {
 
     return $request;
 }
+function getStudent2() {
+    $db = connexion_db();
+    $request = $db->query('SELECT nom, prenom, heure_connexion, id_user FROM users WHERE status_user = "eleve" AND WHERE id_user <> '.$_POST['id_eleve'].'');
+
+    return $request;
+}
 
 // Met a jour la dernière heure de connexion d'un élève 
 function updateHour(){
@@ -250,8 +256,8 @@ function getReturnedExercice_chap5(){
 // Met a jour le mdp
 function updatePasseWord(){
     $db = connexion_db();
-    $id = $_SESSION['id_user'];
     if (isset($_POST['mdp']) AND !empty($_POST['mdp'])){
+        $id = $_SESSION['id_user'];
         $mdp = $_POST['mdp'];
         $request = $db->query("UPDATE `users` SET `password`= '$mdp' WHERE id_user = $id");
         return $request;
@@ -302,11 +308,26 @@ function deleteAnnonce($data){
     return $request4;
 }
 
+function allCountCours(){
+    $db = connexion_db();
+    $request = $db->query("SELECT COUNT(*) FROM `cours`");
+
+    return $request;
+}
+
 // Progress Cours 
 function  countCours(){
     $db = connexion_db();
     if($_SESSION['status'] == 'professeur'){
-        $id_eleve = $_POST['id_eleve'];
+        if(isset($_POST['id_eleve'])){
+            $id_eleve = $_POST['id_eleve'];
+        }
+        elseif(isset($_POST['eleve'])){
+            $id_eleve = $_POST['eleve'];
+        }
+        else{
+            $id_eleve = 1;
+        }
     }else{
         $id_eleve = $_SESSION['id_user'];
     }
@@ -320,13 +341,28 @@ function  countCours(){
 function countAll(){
     $db = connexion_db();
     if($_SESSION['status'] == 'professeur'){
-        $id_eleve = $_POST['id_eleve'];
+        if(isset($_POST['id_eleve'])){
+            $id_eleve = $_POST['id_eleve'];
+        }
+        elseif(isset($_POST['eleve'])){
+            $id_eleve = $_POST['eleve'];
+        }
+        else{
+            $id_eleve = 1;
+        }
     }else{
         $id_eleve = $_SESSION['id_user'];
     }
     $request4 = $db->query("SELECT COUNT(*) FROM `rendus_exo` WHERE id_user = $id_eleve AND progress_exo = 'valide' OR progress_exo = 'rendu'");
 
     return $request4;
+}
+
+function countExos(){
+    $db = connexion_db();
+    $request = $db->query("SELECT COUNT(*) FROM `exercices`");
+
+    return $request;
 }
 
 function countAllExos(){
@@ -353,12 +389,29 @@ function insertFirstCo(){
     $cours = $request7->fetch();
     $cours = intval($cours[0]);
     $i = 1;
-    $id = $_SESSION['id_user'];
+    if($_SESSION['status'] == 'eleve'){
+        $id = $_SESSION['id_user'];
+    }else{
+        $id = $_POST['id_eleve'];
+    }
     while($i <= $cours){
         $request8 = $db->query("INSERT INTO `progress_cours`(`id_cours`, `id_user`, `status_cours`) VALUES ($i, $id,'non_lu')");
         $request8->fetch();
         $i++;
     }
     return $request8;
+}
+
+function deleteAll(){
+    $db = connexion_db();
+    $request = $db->query("DELETE FROM annonce;
+    DELETE FROM progress_   cours;
+    DELETE FROM rendus_evals;
+    DELETE FROM rendus_exos;
+    DELETE FROM user WHERE status_user = 'eleve'; 
+    ");
+    $request->fetch();
+
+    return $request;
 }
 ?>

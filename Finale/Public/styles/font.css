@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Roboto-Black";
+    src:url("../Font/Roboto-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-BlackItalica";
+    src:url("../Font/Roboto-BlackItalic.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src:url("../Font/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-BoldItalic";
+    src:url("../Font/Roboto-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Light";
+    src:url("../Font/Roboto-Light.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family: "Roboto-LightItalic";
+    src:url("../Font/Roboto-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    src:url("../Font/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-MediumItalic";
+    src:url("../Font/Roboto-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src:url("../Font/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-RegularItalic";
+    src:url("../Font/Roboto-RegularItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Thin";
+    src:url("../Font/Roboto-Thin.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family: "Roboto-ThinItalic";
+    src:url("../Font/Roboto-ThinItalic.ttf") format("truetype");
+}

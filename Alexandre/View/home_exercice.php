@@ -21,6 +21,24 @@
                 <p class="heading_primary">
                 INDEX DES EXERCICES
                 </p>
+                <?php if($_SESSION['status'] != 'eleve'){ ?>
+                        <form method = "POST" action="">
+                            <select name='eleve'>
+                            <?php 
+                                while($data = $request5->fetch()){
+                                    $nom = $data['nom'].' '.$data['prenom'];
+                                    $id_eleve = $data['id_user'];
+                                    if(isset($_POST['id_eleve']) AND isset($_POST['Profil'])){
+                                        echo '<option selected="selected "value='.$_POST['id_eleve'].'>'.$_POST['Profil'].'</option>';
+                                        var_dump($_POST['id_eleve']);
+                                    }
+                                        echo '<option value='.$id_eleve.'>'.$nom.'</option>';
+                                }
+                            ?>
+                            </select>
+                            <input type="submit" value="validé">
+                        </form>
+                 <?php } ?>
             </div>
             <div class="box_row">
 <?php
@@ -33,9 +51,24 @@ while($data = $request->fetch()) {
          <use xlink:href="Public/svg/symbol-defs.svg#<?php echo $svg?>"></use>
         </svg>
         <h3 class="heading_red">
-        <?php echo $name_ru ?></h3>
+        <?php 
+            echo $name_ru;
+            while($data = $request4->fetch()){
+                $progress_exo = intval($data[0]);
+            }
+            while($data2 = $request2->fetch()){
+                $countExos = intval($data2[0]);
+            }
+            $progress = round($progress_exo * 100 / $countExos);
+        
+        ?>
+        </h3>
         <div class="progress-bar progress_exo">
-            <span style="width: 15%">15%</span>
+                <?php
+                    echo '<span style="width:'.$progress.'%">';
+                    echo $progress.'%';
+                ?>
+            </span>
         </div>
         <form action="#" class="form_mdp">
             <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn">
@@ -133,8 +166,6 @@ $request->closeCursor();
                 </div>
             </div>
         </section>
-
-
         <?php require('footer.php') ?>
     </body>
 </html>
