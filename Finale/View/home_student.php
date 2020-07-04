@@ -78,9 +78,9 @@
                                 $progress_exo = intval($data[0]);
                                 $progress_total = round($progress_cours + $progress_exo * 100 / $count);
                             }
-                            if($progress_cours - 1 < 0){
+                            if($progress_exo - 1 > 0){
                         ?>  
-                                <iframe src="http://localhost/S2/Athena/Alexandre/View/test_graph.php?id_eleve=<?php echo $id ?>" width="190" height="325"></iframe>
+                                <iframe src="View/test_graph.php?id_eleve=<?php echo $id ?>" width="190" height="325"></iframe>
                         <?php 
                             }
                             else{

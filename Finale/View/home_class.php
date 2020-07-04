@@ -37,13 +37,7 @@
                         </form>
             <?php 
                 } 
-                while($data2 = $request2->fetch()){
-                    $countExos = intval($data2[0]);
-                }
-                while($data3 = $request4->fetch()){
-                    $progress_exo = intval($data[0]);
-                }
-                $progress = round($progress_exo * 100 / $countExos);
+                
             ?>
         </div>
         <div class="box_row">
@@ -52,6 +46,24 @@ while($data = $request->fetch()) {
     $name_ru = $data['nom_rubrique'];
     $id = $data['id_rubrique'];
     $svg = $data['svg'];
+    $request4 = howProgressCours($id);
+    $request2 = howMuchCours($id);
+    $countExos =0;
+    $progress_exo = 0;
+    while($data2 = $request2->fetch()){
+        $countExos = intval($data2[0]);
+        
+    }
+    while($data3 = $request4->fetch()){
+        $progress_exo = intval($data3[0]);
+        
+    }
+    if($progress_exo != 0){
+        $progress = round(($progress_exo*100)/$countExos);
+    }else{
+        $progress = 0;
+    }
+    
 ?>
     <div class="basic_box red_section">
         <svg class="box-nav_section">

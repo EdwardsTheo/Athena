@@ -539,6 +539,13 @@ function allCountCours(){
     return $request;
 }
 
+function howMuchCours($id_rubrique){
+    $db = connexion_db();
+    $request = $db->query("SELECT COUNT(*) FROM `cours` WHERE id_rubrique = '$id_rubrique'");
+
+    return $request;
+}
+
 // Progress Cours 
 function  countCours(){
     $db = connexion_db();
@@ -561,6 +568,32 @@ function  countCours(){
 
 }
 
+function howProgressCours($id_rubrique){
+    $db = connexion_db();
+    if($_SESSION['status'] == 'professeur'){
+        if(isset($_POST['id_eleve'])){
+            $id_eleve = $_POST['id_eleve'];
+        }
+        elseif(isset($_POST['eleve'])){
+            $id_eleve = $_POST['eleve'];
+        }
+        else{
+            $id_eleve = 1;
+        }
+    }else{
+        $id_eleve = $_SESSION['id_user'];
+    }
+    $request3 = $db->query("SELECT COUNT(*), c.id_rubrique 
+                            FROM `progress_cours` AS pc JOIN cours as c ON pc.id_cours = c.id_cours 
+                            WHERE pc.id_user = '$id_eleve'  AND pc.status_cours = 'lu' 
+                            GROUP BY c.id_rubrique
+                            HAVING c.id_rubrique LIKE '$id_rubrique'");
+
+    return $request3;
+
+}
+
+
 // Progress total
 function countAll(){
     $db = connexion_db();
@@ -581,6 +614,28 @@ function countAll(){
 
     return $request4;
 }
+function howProgressExos($id_rubrique){
+    $db = connexion_db();
+    if($_SESSION['status'] == 'professeur'){
+        if(isset($_POST['id_eleve'])){
+            $id_eleve = $_POST['id_eleve'];
+        }
+        elseif(isset($_POST['eleve'])){
+            $id_eleve = $_POST['eleve'];
+        }
+        else{
+            $id_eleve = 1;
+        }
+    }else{
+        $id_eleve = $_SESSION['id_user'];
+    }
+    $request4 = $db->query("SELECT COUNT(*), e.id_rubrique 
+                            FROM `rendus_exo` AS re JOIN exercices as e ON re.id_exercice = e.id_exercice 
+                            WHERE re.id_user = '$id_eleve'  AND re.progress_exo = 'valide' OR re.progress_exo = 'rendu' 
+                            GROUP BY e.id_rubrique
+                            HAVING e.id_rubrique LIKE '$id_rubrique'");
+    return $request4;
+}
 
 function countExos(){
     $db = connexion_db();
@@ -588,6 +643,14 @@ function countExos(){
 
     return $request;
 }
+
+function howMuchExos($id_rubrique){
+    $db = connexion_db();
+    $request = $db->query("SELECT COUNT(*) FROM `exercices` WHERE id_rubrique = '$id_rubrique'");
+
+    return $request;
+}
+
 
 function countAllExos(){
     $db = connexion_db();
