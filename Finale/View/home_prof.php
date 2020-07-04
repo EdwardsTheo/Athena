@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +66,7 @@
                                         <input type="submit" class="btn-text btn_news" value="Modifier l'annonce" id="btn" name='edit'>
                                         <input type="submit" class="btn-text btn_news" value="Supprimer l'annonce" id="btn" name = 'delete'>
                                         <?php     
-                                            refresh();
+                                            //refresh();
                                         ?>
                                     </form>
                                 </div>
@@ -85,7 +84,7 @@
                             <textarea class="text_news" id="text_area" name='annonce' placeholder="Écrivez votre nouvelle annonce !"></textarea>
                             <input type="submit" class="btn_add btn--green btn_news" value="Ajouter une annonce" id="btn" name='add'>
                             <?php     
-                                refresh();
+                                //refresh();
                             ?>
                         </form>
                     </div>

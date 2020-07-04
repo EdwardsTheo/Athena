@@ -54,6 +54,7 @@ function connexion() {
                             $_SESSION['nom'] = $row["nom"];
                             $_SESSION['prenom'] =  $row["prenom"];
                             $_SESSION['status'] = "professeur";
+                            $_SESSION['id_user'] = $row["id_user"];
                             header("Location: index.php?action=home_prof.php");
                             exit();
                         }

@@ -483,7 +483,7 @@ function updatePasseWord(){
     if (isset($_POST['mdp']) AND !empty($_POST['mdp'])){
         $id = $_SESSION['id_user'];
         $mdp = $_POST['mdp'];
-        $request = $db->query("UPDATE `users` SET `password`= '$mdp' WHERE id_user = $id");
+        $request = $db->query("UPDATE `users` SET `password`= '$mdp' WHERE id_user = '$id'");
         return $request;
     }
 }
@@ -493,7 +493,7 @@ function ajouterAnnonce(){
     $db = connexion_db();
     $annonce = $_POST['annonce'];
     $titre = $_POST['titre_annonce'];
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $date = date("Y-m-d");
     $date_id = date('d-m-Y H:i:s');
     $d = DateTime::createFromFormat('d-m-Y H:i:s', $date_id);
@@ -515,9 +515,9 @@ function getAnnonce(){
 function getEditAnnonce($data){
     $db = connexion_db();
     $contenue = $_POST['nouvelle_annonce'];
-    $id_annonce = $data['id_annonce'];
+    $id_annonce = $_POST['id_annonce'];
     $request3 = $db->query("UPDATE annonces SET contenu_annonce = '$contenue' WHERE id_annonce = $id_annonce");
-    $data2 = $request3->fetch();
+    //$data2 = $request3->fetch();
 
     return $request3;
 }
@@ -527,7 +527,7 @@ function deleteAnnonce($data){
     $db = connexion_db();
     $id_annonce = $data['id_annonce'];
     $request4 = $db->query("DELETE FROM `annonces` WHERE id_annonce = $id_annonce");
-    $data3 = $request4->fetch();
+    //$data3 = $request4->fetch();
 
     return $request4;
 }
