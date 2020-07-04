@@ -98,9 +98,12 @@ function updateRead() {
 
 // Récupère les chapitres de cours
 function getChapterClass() {
-    $db = connexion_db(); 
-    $request = $db->query('SELECT nom_chapitre, svg, id_chapitre FROM chapitres');
-
+    $db = connexion_db();
+    
+    $request = $db->query('SELECT c.nom_chapitre, c.id_rubrique, c.id_chapitre
+    FROM chapitres AS c
+    WHERE c.index_cours = \''.htmlspecialchars($_POST['index_cours']).'\'
+    AND c.id_rubrique = \''.htmlspecialchars($_POST['id_rubrique']).'\'');
     return $request;
 }
 

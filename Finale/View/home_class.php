@@ -11,7 +11,7 @@
     <link rel="stylesheet"  href="Public/styles/progress_bar.css">
     <link rel="stylesheet"  href="Public/styles/button.css">
     <link rel="stylesheet"  href="Public/styles/font.css">
-    <link rel="stylesheet"  href="Public/styles/test.css">
+    <!--<link rel="stylesheet"  href="Public/styles/test.css">-->
 </head>
 <body>
 <?php require('header.php') ?>
@@ -84,7 +84,7 @@ $request->closeCursor();
     <section class="choose_exo">
         <div class="heading">
             <p class="heading_primary">
-            RUBRIQUES
+            COURS
             </p>
         </div>
     </section>
