@@ -3,12 +3,14 @@
                 Corrigez l'éval de <?php echo htmlspecialchars($_POST['name']); ?>
             </p>
         </div>
-        <form action="index.php?action=add_evaluation.php" method="POST" class="form_index">
-            <?php formStudent();?>
-            <input type="submit" class="btn_index btn_add_exo" name="showStudent" value="Monter l'évaluation de l'élève" id="btn">
-            <input type='hidden'  name='status' value='<?php echo $_POST['status']; ?>'>
-            <?php hiddenEval(); ?>
-        </form>
+        <div class="form_button">
+            <form action="index.php?action=add_evaluation.php" method="POST" class="form_index form_main">
+                <?php formStudent();?>
+                <input type="submit" class="btn_news" name="showStudent" value="Montrer l'évaluation" id="btn">
+                <input type='hidden'  name='status' value='<?php echo $_POST['status']; ?>'>
+                <?php hiddenEval(); ?>
+            </form>
+        </div>
         <?php 
         if(isset($_POST['student'])) {
             ?>
