@@ -21,16 +21,20 @@ if(!isset($_GET['action'])) {
 if(isset($_GET['action'])) {
     if($_GET['action'] == 'connecter.php') connexion();
     elseif($_GET['action'] == 'home_prof.php'){
-        startProf();
         if(isset($_POST['mdp'])){
             startProf2();
         }
-        if(isset($_POST['annonce'])){
+        if(isset($_POST['add'])){
+            //var_dump(addAnnonce());
             addAnnonce();
         }
         if(isset($_POST['delete'])){
             delAnnonce();
         }
+        if(isset($_POST['nouvelle_annonce'])){
+            endEditAnnonce();
+        }
+        startProf();
     }
     elseif($_GET['action'] == 'home_student.php') {
         startStudent();

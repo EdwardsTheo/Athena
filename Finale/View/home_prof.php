@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,13 +64,14 @@
                                     <?php editAnnonce($data)?>
                                     <form action="index.php?action=home_prof.php" class="form_news" method='post'>
                                         <input type="submit" class="btn-text btn_news" value="Modifier l'annonce" id="btn" name='edit'>
+                                        <input type="hidden" name="id_annonce" value="<?php echo $data['id_annonce']?>">
                                         <input type="submit" class="btn-text btn_news" value="Supprimer l'annonce" id="btn" name = 'delete'>
                                         <?php     
-                                            refresh();
+                                            //refresh();
                                         ?>
                                     </form>
                                 </div>
-                                <?php delAnnonce($data); ?>
+                                <?php delAnnonce(); ?>
                     <?php 
                             $i++;
                             } 
@@ -85,7 +85,7 @@
                             <textarea class="text_news" id="text_area" name='annonce' placeholder="Écrivez votre nouvelle annonce !"></textarea>
                             <input type="submit" class="btn_add btn--green btn_news" value="Ajouter une annonce" id="btn" name='add'>
                             <?php     
-                                refresh();
+                                //refresh();
                             ?>
                         </form>
                     </div>

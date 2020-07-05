@@ -30,7 +30,21 @@
                 $name_ru = $data['nom_rubrique'];
                 $id_ru = $data['id_rubrique'];
                 $svg = $data['svg'];
-            
+                $request4 = howProgressExos($id_ru);
+                $request2 = howMuchExos($id_ru);
+                $countExos = 0;
+                $progress_exo = 0;
+                while($data2 = $request2->fetch()){
+                    $countExos = intval($data2[0]);
+                }
+                while($data3 = $request4->fetch()){
+                    $progress_exo = intval($data3[0]);
+                }
+                if($progress_exo != 0){
+                    $progress = round($progress_exo*100/$countExos);
+                }else{
+                    $progress = 0;
+                }
         ?>
             <div class="basic_box box red_section">
                 <svg class="box-nav_section">
@@ -40,7 +54,9 @@
                 <?php echo $name_ru; ?>
                 </h3>
                 <div class="progress-bar progress_exo">
-                    <span style="width: 15%">15%</span>
+                <?php echo '<span style="width:'.$progress.'%">';
+                    echo $progress.'%';
+                ?>
                 </div>
                 <form action="index.php?action=home_exercice.php" class="form_mdp" method="POST">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='afficher'><br/>
@@ -49,7 +65,9 @@
                     <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>">
                 </form>
             </div>
-            <?php            
+            <?php
+                $request2->closeCursor();
+                $request4->closeCursor();         
                 }
                 $request->closeCursor();
             ?>   

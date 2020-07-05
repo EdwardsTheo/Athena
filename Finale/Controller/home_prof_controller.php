@@ -9,7 +9,7 @@ function ErrorMessages(){
         $message = 'Vous devez remplir le champs avant de valider';
     }
     elseif (isset($_POST['mdp']) AND !empty($_POST['mdp'])){
-        $message = 'Votre mot de passe à été modifié';
+        $message = 'Votre mot de passe a été modifié';
     }
     else {
         $message = ' ';
@@ -21,29 +21,34 @@ function editAnnonce($data){
     if(isset($_POST['edit'])){
         echo '<form action="index.php?action=home_prof.php "method="post">
         <textarea class="text_news" id="text_area" name="nouvelle_annonce" placeholder="Titre de votre annonce">'.$data['contenu_annonce'].'</textarea>
-        <input type="submit" class="btn-text btn_news" value="valdier" id="btn" name="valider">
+        <input type="hidden" name="id_annonce" value="'.$data['id_annonce'].'">
+        <input type="submit" class="btn-text btn_news" value="valider" id="btn" name="valider">
         </form>';
     }
-    elseif(isset($_POST['nouvelle_annonce'])){
+    
+}
+
+function endEditAnnonce(){
+    if(isset($_POST['nouvelle_annonce'])){
         echo '<form action="index.php?action=home_prof.php" method="post">';
-        $request3 = getEditAnnonce($data);
+        $request3 = getEditAnnonce();
         echo '</form>';
     }
 }
-
 function addAnnonce(){
     $request = ajouterAnnonce();
 }
-function delAnnonce($data){
+
+function delAnnonce(){
     if(isset($_POST['delete'])){
-        $request4 = deleteAnnonce($data);
+        $request4 = deleteAnnonce();
     }
 }
 
 function refresh(){
     if(isset($_POST['nouvelle_annonce']) OR isset($_POST['add']) OR isset($_POST['valider']) OR isset($_POST['delete'])){
         $delai=1; 
-        $url='http://localhost/S2/Athena/Alexandre/index.php?action=home_prof.php';
+        $url='index.php?action=home_prof.php';
         header("Refresh: $delai;url=$url");
     }
 }

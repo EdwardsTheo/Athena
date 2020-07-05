@@ -483,7 +483,7 @@ function updatePasseWord(){
     if (isset($_POST['mdp']) AND !empty($_POST['mdp'])){
         $id = $_SESSION['id_user'];
         $mdp = $_POST['mdp'];
-        $request = $db->query("UPDATE `users` SET `password`= '$mdp' WHERE id_user = $id");
+        $request = $db->query("UPDATE `users` SET `password`= '$mdp' WHERE id_user = '$id'");
         return $request;
     }
 }
@@ -493,7 +493,7 @@ function ajouterAnnonce(){
     $db = connexion_db();
     $annonce = $_POST['annonce'];
     $titre = $_POST['titre_annonce'];
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id_user'];
     $date = date("Y-m-d");
     $date_id = date('d-m-Y H:i:s');
     $d = DateTime::createFromFormat('d-m-Y H:i:s', $date_id);
@@ -512,22 +512,22 @@ function getAnnonce(){
 }
 
 // Modifie une annonce 
-function getEditAnnonce($data){
+function getEditAnnonce(){
     $db = connexion_db();
     $contenue = $_POST['nouvelle_annonce'];
-    $id_annonce = $data['id_annonce'];
-    $request3 = $db->query("UPDATE annonces SET contenu_annonce = '$contenue' WHERE id_annonce = $id_annonce");
-    $data2 = $request3->fetch();
+    $id_annonce = $_POST['id_annonce'];
+    $request3 = $db->query("UPDATE annonces SET contenu_annonce = '$contenue' WHERE id_annonce = '$id_annonce'");
+    //$data2 = $request3->fetch();
 
     return $request3;
 }
 
 // Supprime une annonce
-function deleteAnnonce($data){
+function deleteAnnonce(){
     $db = connexion_db();
-    $id_annonce = $data['id_annonce'];
-    $request4 = $db->query("DELETE FROM `annonces` WHERE id_annonce = $id_annonce");
-    $data3 = $request4->fetch();
+    $id_annonce = $_POST['id_annonce'];
+    $request4 = $db->query("DELETE FROM `annonces` WHERE id_annonce = '$id_annonce'");
+    //$data3 = $request4->fetch();
 
     return $request4;
 }
@@ -535,6 +535,13 @@ function deleteAnnonce($data){
 function allCountCours(){
     $db = connexion_db();
     $request = $db->query("SELECT COUNT(*) FROM `cours`");
+
+    return $request;
+}
+
+function howMuchCours($id_rubrique){
+    $db = connexion_db();
+    $request = $db->query("SELECT COUNT(*) FROM `cours` WHERE id_rubrique = '$id_rubrique'");
 
     return $request;
 }
@@ -561,6 +568,32 @@ function  countCours(){
 
 }
 
+function howProgressCours($id_rubrique){
+    $db = connexion_db();
+    if($_SESSION['status'] == 'professeur'){
+        if(isset($_POST['id_eleve'])){
+            $id_eleve = $_POST['id_eleve'];
+        }
+        elseif(isset($_POST['eleve'])){
+            $id_eleve = $_POST['eleve'];
+        }
+        else{
+            $id_eleve = 1;
+        }
+    }else{
+        $id_eleve = $_SESSION['id_user'];
+    }
+    $request3 = $db->query("SELECT COUNT(*), c.id_rubrique 
+                            FROM `progress_cours` AS pc JOIN cours as c ON pc.id_cours = c.id_cours 
+                            WHERE pc.id_user = '$id_eleve'  AND pc.status_cours = 'lu' 
+                            GROUP BY c.id_rubrique
+                            HAVING c.id_rubrique LIKE '$id_rubrique'");
+
+    return $request3;
+
+}
+
+
 // Progress total
 function countAll(){
     $db = connexion_db();
@@ -581,6 +614,28 @@ function countAll(){
 
     return $request4;
 }
+function howProgressExos($id_rubrique){
+    $db = connexion_db();
+    if($_SESSION['status'] == 'professeur'){
+        if(isset($_POST['id_eleve'])){
+            $id_eleve = $_POST['id_eleve'];
+        }
+        elseif(isset($_POST['eleve'])){
+            $id_eleve = $_POST['eleve'];
+        }
+        else{
+            $id_eleve = 1;
+        }
+    }else{
+        $id_eleve = $_SESSION['id_user'];
+    }
+    $request4 = $db->query("SELECT COUNT(*), e.id_rubrique 
+                            FROM `rendus_exo` AS re JOIN exercices as e ON re.id_exercice = e.id_exercice 
+                            WHERE re.id_user = '$id_eleve'  AND re.progress_exo = 'valide' OR re.progress_exo = 'rendu' 
+                            GROUP BY e.id_rubrique
+                            HAVING e.id_rubrique LIKE '$id_rubrique'");
+    return $request4;
+}
 
 function countExos(){
     $db = connexion_db();
@@ -588,6 +643,14 @@ function countExos(){
 
     return $request;
 }
+
+function howMuchExos($id_rubrique){
+    $db = connexion_db();
+    $request = $db->query("SELECT COUNT(*) FROM `exercices` WHERE id_rubrique = '$id_rubrique'");
+
+    return $request;
+}
+
 
 function countAllExos(){
     $db = connexion_db();
