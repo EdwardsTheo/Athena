@@ -45,7 +45,7 @@ if(isset($_GET['action'])) {
     }
     elseif($_GET['action'] == 'home_class.php') {
         showClass();
-        if (isset($_GET['afficher'])) {
+        if (isset($_POST['afficher'])) {
             $answer = getClass();
             showSection($answer);
         }

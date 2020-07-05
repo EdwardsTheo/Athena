@@ -79,7 +79,7 @@ while($data = $request->fetch()) {
         ?>
             </span>
         </div>
-        <form action="index.php?action=home_class.php" class="form_mdp" method="GET">
+        <form action="index.php?action=home_class.php" class="form_mdp" method="POST">
             <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='afficher'><br/>
             <input type="hidden"  id="btn" name="SVG" value="Public/svg/symbol-defs.svg#<?php echo $svg?>"><br/>
             <input type="hidden"  id="btn" name="rubrique" value="<?php echo $id?>"><br/>

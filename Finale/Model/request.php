@@ -19,7 +19,7 @@ function getInfoStudent() {
 // Récupère les cours 
 function getClass() {
     $db = connexion_db();
-    $answer = $db->query('SELECT * FROM cours WHERE id_rubrique = "'.$_GET['rubrique'].'"');
+    $answer = $db->query('SELECT * FROM cours WHERE id_rubrique = "'.$_POST['rubrique'].'"');
 
     return $answer;
 }
