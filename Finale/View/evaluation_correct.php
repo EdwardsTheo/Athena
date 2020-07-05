@@ -3,9 +3,9 @@
                 Corrigez l'éval de <?php echo htmlspecialchars($_POST['name']); ?>
             </p>
         </div>
-        <form action="index.php?action=add_evaluation.php" method="POST" class="form_index">
+        <form action="index.php?action=add_evaluation.php" method="POST" class="form_index form_choose">
             <?php formStudent();?>
-            <input type="submit" class="btn_index btn_add_exo" name="showStudent" value="Monter l'évaluation de l'élève" id="btn">
+            <input type="submit" class="btn_news btn-space" name="showStudent" value="Montrer l'évaluation de l'élève" id="btn">
             <input type='hidden'  name='status' value='<?php echo $_POST['status']; ?>'>
             <?php hiddenEval(); ?>
         </form>
@@ -48,22 +48,22 @@
                 $input = "<input type='submit' class='btn btn--green btn_bottom2' name='modifExoEval' value='Modifier cet exercice' id='btn'>";
             }
             else {
-                $consigne = "Consigne de l'exercice";
-                $titre = "Titre de l'exercice";
+                $consigne = "";
+                $titre = "Choisir dans le menu";
                 $input = "<input type='submit' class='btn btn--green btn_bottom2' name='addExoEval' value='Ajouter un exercice' id='btn'>";
             }
             ?>
             <div class="box_text">
-                    <div class="box_ressource order">
-                        <div class="heading_zone">
-                         <div class="input_text">
-                         <form action="index.php?action=add_evaluation.php" method="POST" class="form_bottom">  
-                                <p><?php echo $titre; ?></p>
-                            </div>
+                    <div class="box_ressource order box_eval">
+                    <div class="heading_zone">
+                        <div class="input_text"> 
+                            <p class="heading_zone_class heading_ressource">Exercice : <?php echo $titre; ?></p>
                         </div>
-                        <div class="text_area_consigne">
-                            <p><?php echo $consigne; ?></p>
+                    </div>
+                        <div class="text_area_consigne text_eval">
+                           <p class="contenu_new"><?php echo $consigne; ?></p>
                         </div>
+                    </div>
                     </div>
                     <?php
                     if(isset($_POST['id_exo'])) {
@@ -71,6 +71,8 @@
                         while($data = $requestCorr->fetch()) {
                             $contenu = $data['contenu_rendu__eval'];
                         ?>
+                    </section>
+                    <section class="bottom_exercice">
                     <div class="drop">
                     <div class="box_drop">
                         <div class="heading_zone">
@@ -85,7 +87,6 @@
                                     $direct = "Public/upload/eval/";
                                     $d = dir("Public/upload/eval/");
                                     $test = $user."_".$ex;
-                                    //echo $test;
                                     while($entry = $d->read()) { 
                                         preg_match("($test?)", $entry, $new);
                                         $data = trim($new[0]);
@@ -105,16 +106,26 @@
                         </div>
                     </div>
                     </div>
+                    </section>
                     <?php
                             
                         } 
                         if($i == 0) {
-                            echo "L'élève n'a pas rendu d'exercice !";
+                            ?>  
+                            </section>
+                            <div class="drop">
+                                <div class="box_drop">
+                                    <div class="heading_zone">
+                                        <p class="contenu_new">
+                                            L'élève n'as rien rendu
+                                        </p>    
+                                     </div>
+                                </div>
+                            </div>
+                            <?php
                         }
                     } ?>
                 
-                    <div class="validation val">
-                    </div> 
                     </form>
                 </div>
         </section> 

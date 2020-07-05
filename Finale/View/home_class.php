@@ -11,20 +11,21 @@
     <link rel="stylesheet"  href="Public/styles/progress_bar.css">
     <link rel="stylesheet"  href="Public/styles/button.css">
     <link rel="stylesheet"  href="Public/styles/font.css">
+    <link rel="stylesheet"  href="Public/styles/add_evaluation.css">
     <!--<link rel="stylesheet"  href="Public/styles/test.css">-->
 </head>
 <body>
 <?php require('header.php') ?>
 
 <section class="choose_sec">
-        <div class="heading">
+        <div class="heading heading_main_class">
             <p class="heading_primary">
             INDEX DES RUBRIQUES
             </p>
             <?php 
                 if($_SESSION['status'] != 'eleve'){ ?>
-                        <form method = "POST" action="">
-                            <select name='eleve'>
+                        <form method="POST" action="" class="form_index form_choose">
+                            <select name='eleve' class="custom-select">
                             <?php 
                                 while($data = $request5->fetch()){
                                     $nom = $data['nom'].' '.$data['prenom'];
@@ -33,7 +34,7 @@
                                 }
                             ?>
                             </select>
-                            <input type="submit" value="validé">
+                            <input type="submit" value="Voir le progrès de l'élève" class="btn_news btn-space">
                         </form>
             <?php 
                 } 

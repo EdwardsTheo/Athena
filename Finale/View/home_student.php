@@ -39,29 +39,34 @@
                         ?>
                     </p>
                 </div>
+                <?php 
+                 $i = 1;
+                 $test = isAnnonce();
+                 if($test !== false) {
+                     ?>
                 <div class="box basic_box box-2 news">
                 <?php
-                    $i = 1;
-                    while($data = $request2->fetch()){
-                        if($i<=2){
-                            if($_SESSION['status'] == 'eleve'){
-                ?>
-                            <h3 class="heading_box">News</h3>
-                            <div class="contenu">
-                                <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
-                                <p class="contenu_new">
-                                    <?php echo $data['contenu_annonce']; ?>
-                                </p>
-                            </div>
-                        <?php 
-                                    $i++;
+                        while($data = $request2->fetch()){
+                            if($i<=2){
+                                if($_SESSION['status'] == 'eleve'){
+                    ?>
+                                <h3 class="heading_box">News</h3>
+                                <div class="contenu">
+                                    <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
+                                    <p class="contenu_new">
+                                        <?php echo $data['contenu_annonce']; ?>
+                                    </p>
+                                </div>
+                            <?php 
+                                        $i++;
+                                    }
                                 }
                             }
-                        }
-                        $request2->closeCursor();
-
+                            $request2->closeCursor();
+                    
                     ?>
                 </div>
+                        <?php } ?>
                 <div class="box basic_box box-3">
                     <svg class="box-nav__icon">
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-area-graph"></use>
@@ -84,7 +89,7 @@
                         <?php 
                             }
                             else{
-                                echo "Aucun exercices n'a été commencé";
+                                echo "<p class='redirect_titre'>Aucun exercices n'a été commencé</p>";
                             }
 
 

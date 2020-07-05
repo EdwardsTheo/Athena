@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="Public/styles/home_prof.css">
+        <link rel="stylesheet" href="Public/styles/home_student.css">
         <link rel="stylesheet" href="Public/styles/button.css">
         <link rel="stylesheet" href="Public/styles/add_evaluation.css"/>
         <link rel="stylesheet" href="Public/styles/add_exercice.css">

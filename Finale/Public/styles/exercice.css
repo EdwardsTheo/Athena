@@ -159,3 +159,34 @@ b{
 i{
     color: rgb(21, 184, 21);
 }
+
+.text_eval {
+    overflow: scroll;
+}
+
+.box_eval {
+    flex: 0.60;
+}
+
+.section_drop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box_drop_svg {
+    flex: auto;
+}
+
+#dropzone {
+    display: flex;
+    height: auto !important;
+}
+
+.drop_test {
+    width: 10%;
+}
+
+.box_drop_svg {
+    display: flex;
+}

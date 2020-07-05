@@ -23,7 +23,7 @@ function printForStudent($status, $hD, $hF, $date) {
     switch($status) {
         case 'null': return $string = "La date n'a pas encore été fixé";
         break;
-        case 'set' : return $string = "L'évaluation se déroulera le " .$date. " de " .$hD. " a " .$hF;
+        case 'set' : return $string = "set";
         break;
         case 'progress' : return $string = "L'évaluation est en cours";
         break;
@@ -97,11 +97,59 @@ function validerEval() {
 
 function formStudent() {
     $request = getInfoStudent();
-    echo "<SELECT name='student' size='1'>";
+    echo "<select name='student' class='custom-select' size='1'>";
     while ($data = $request->fetch()){
-        echo "<OPTION>".$data['nom'];
+        echo "<option class='option_class'>".$data['nom']."</option>";
     }
-    echo "</SELECT><br>";
+    echo "</select><br>";
+}
+
+function monthFrench($month) {
+    switch($month) {
+        case 'December' : return $string = 'Décembre';
+        break;
+        case 'January' : return $string = 'Janvier';
+        break;
+        case 'February' : return $string = 'Fevrier';
+        break;
+        case 'March' : return $string = 'Mars';
+        break;
+        case 'April' : return $string = 'Avril';
+        break;
+        case 'May' : return $string = 'Mai';
+        break;
+        case 'June' : return $string = 'Juin';
+        break;
+        case 'July' : return $string = 'Juillet';
+        break;
+        case 'August' : return $string = 'Aout';
+        break;
+        case 'September' : return $string = 'Septembre';
+        break;
+        case 'October' : return $string = 'Octobre';
+        break;
+        case 'November' : return $string = 'Novembre';
+        break;
+    }
+}
+
+function dayFrench($day) {
+    switch($day) {
+        case 'Sunday' : return $string = 'Dimanche';
+        break;
+        case 'Monday' : return $string = 'Lundi';
+        break;
+        case 'Tuesday' : return $string = 'Mardi';
+        break;
+        case 'Thursday' : return $string = 'Jeudi';
+        break;
+        case 'Wednesday' : return $string = 'Mercredi';
+        break;
+        case 'Friday' : return $string = 'Vendredi';
+        break;
+        case 'Saturday' : return $string = 'Samedi';
+        break;
+    }
 }
 
 

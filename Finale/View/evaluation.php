@@ -20,6 +20,7 @@ if($end == true) {
         <link rel="stylesheet" href="Public/styles/class.css"> 
         <link rel="stylesheet" href="Public/styles/exercice.css">
         <link rel="stylesheet" href="Public/styles/header.css">
+        <link rel="stylesheet" href="Public/styles/heading.css">
         <link rel="stylesheet" href="Public/styles/button.css">
         <link rel="stylesheet" href="Public/styles/font.css">
         
@@ -75,29 +76,33 @@ if($end == true) {
             }
             $_SESSION['ex'] = $titre;
             ?>
-            <div class="box_text">
-                <div class="box_ressource order">
+                <div class="box_ressource order box_eval">
                     <div class="heading_zone">
                         <div class="input_text"> 
-                            <p>Exercice : <?php echo $titre; ?></p>
-                        </div>
-                        <div class="text_area_consigne">
-                           <p><?php echo $consigne; ?></p>
+                            <p class="heading_zone_class heading_ressource">Exercice : <?php echo $titre; ?></p>
                         </div>
                     </div>
+                        <div class="text_area_consigne text_eval">
+                           <p class="contenu_new"><?php echo $consigne; ?></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
                 <?php 
                 if(isset($_POST['showExo'])) {
                     ?>
-                <div class="drop">
-                    <div class="box_drop">
+                <section class="bottom_exercice">
+                    <div class="drop">
+                        <div class="box_drop">
                         <div class="heading_zone">
                             <div id="contenu_new">
-                                Déposer votre exercice ici !
+                            <p class="heading_zone_class heading_ressource">Déposer votre exercice ici !</p>
                             </div>    
                         </div>
                         <div class="empty" id="dropzone" >
                             <svg class="box_drop_svg">
-                                <use xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
+                                <use class="drop_test" xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>
                             </svg>
                         </div>
                         <script>
@@ -157,31 +162,26 @@ if($end == true) {
                     }());
             </script>
                     </div>
-                </div>
-                
-                <div class="bottom_button">
-                
-                    <form action="index.php?action=evaluation.php" method="POST" class="form_bottom">
-                        <input type="submit" name="btn" class="btn btn--green btn_bottom2" value="Valider l'exercice" id="btn">
-                        <input type="hidden" name="id_ex" value="<?php echo $_POST['id_exo']?>"><br/>
-                        <input type="hidden" name="name" value="<?php echo $_POST['name']?> ">
-                        <input type="hidden" name="id_eval" value="<?php echo $_POST['id_eval']?> ">
-                        
-                    </form>
+                    </div>
+                    <div class="bottom_button">
+                    <div class="form_bottom">
+                <form action="index.php?action=evaluation.php" method="POST">
+                    <input type="submit" name="btn" class="btn btn--green btn_bottom2" value="Valider l'exercice" id="btn">
+                    <input type="hidden" name="id_ex" value="<?php echo $_POST['id_exo']?>"><br/>
+                    <input type="hidden" name="name" value="<?php echo $_POST['name']?> ">
+                    <input type="hidden" name="id_eval" value="<?php echo $_POST['id_eval']?> ">
                     
+                </form>
                 </div>
-                <?php } ?>
+                
             </div>
-        </section> 
-
-
-    <div class="bottom_button">
-        <form action="index.php?action=evaluation.php" class="form_bottom">
-            <input type="submit" class="btn btn--green btn_bottom2" value="Valider Evaluation" id="btn">
-        </form>
-    </div>
-
-      
+                
+            <?php } ?>
+               
+                </section>
+                
+             
+        
     <?php require("footer.php"); ?>
     </body>
 </html>

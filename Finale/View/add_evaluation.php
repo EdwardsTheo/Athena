@@ -16,12 +16,12 @@
     <body>
     <?php require('header.php'); ?>
     <?php
-    if($_POST['status'] == 'finish') {
-        require('evaluation_correct.php');
+    if(isset($_POST['status'])) {
+        if($_POST['status'] == 'finish') require('evaluation_correct.php');
+        else  require('evaluation_create.php');
+        
     }
-    else {
-        require('evaluation_create.php');
-    }
+    else  require('evaluation_create.php');
     ?> 
     <?php require('footer.php'); //?>
     </body>

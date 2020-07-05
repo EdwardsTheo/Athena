@@ -48,6 +48,7 @@
 
 .box-1, .box-3{
     height: 25rem;
+    justify-content: space-evenly;
 }
 
 .feature-percent {

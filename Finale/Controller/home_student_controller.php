@@ -3,6 +3,16 @@
         $request = updatePasseWord();
 }
 
+function isAnnonce() {
+    $request =  getAnnonce();
+    $i = 0;
+    while($data = $request->fetch()) {
+        $i++;
+    }
+    if($i == 0) return $test = false;
+    else return $test = true;
+}
+
 function ErrorMessage(){
     if (isset($_POST['mdp']) AND empty($_POST['mdp'])){
         $message = 'Vous devez remplir le champs avant de valider';

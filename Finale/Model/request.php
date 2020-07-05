@@ -1,7 +1,7 @@
 <?php
 
-//require("connect_db.php");
-require("connexion_sql.php");
+require("connect_db.php");
+//require("connexion_sql.php");
 // Récupère les infos du user 
 function getUser() {
     $db = connexion_db();
@@ -249,7 +249,6 @@ function reqModifProgress($id_eval) {
 function requestCorr() {
     $db = connexion_db();
     $id_student = GetIdStudent(); 
-    echo $id_student;
     $request = $db->query('SELECT *
     FROM rendus_eval 
     WHERE id_user = \''.$id_student.'\'
@@ -871,7 +870,6 @@ function showCurrentEx($id_user){
 function fileToBddExo($file, $id_ex){
     $db = connexion_db();
     $id_user = $_SESSION['id_user'];
-    echo $id_user;
     echo "id_ex = ",$id_ex;
     $req = "UPDATE rendus_exo SET contenu_rendu = '$file', progress_exo = 'rendu' WHERE id_exercice = '$id_ex' AND id_user = '$id_user'";
     echo "<br/>",$req;
