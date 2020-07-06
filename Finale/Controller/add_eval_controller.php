@@ -85,7 +85,6 @@ function validerEval() {
     $sTime = $_POST['startTime']. ":00";
     $eTime = $_POST['endTime']. ":00";
     $req = reqModifEval();
-    var_dump($req);
     $req->execute(array(
         'nv_status' => 'set', 
         'hD' => $sTime, 

@@ -34,13 +34,14 @@
                                 }
                             ?>
                             </select>
-                            <input type="submit" value="Voir le progrès de l'élève" class="btn_news btn-space">
+                            <input type="submit" value="Voir les progrès de l élève" class="btn_news btn-space">
                         </form>
             <?php 
                 } 
                 
             ?>
         </div>
+
         <div class="box_row">
 <?php
 while($data = $request->fetch()) {

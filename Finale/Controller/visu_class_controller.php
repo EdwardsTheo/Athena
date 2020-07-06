@@ -16,7 +16,5 @@
         }
     }
 
-    /*function deleteall(){
-        $request = deleteAll();
-    }*/
+    
 ?>

@@ -1,6 +1,5 @@
 <?php
 
-
 function showClasses() {
     if(!isset($_POST['Afficher_chap']) | isset($_POST['Next'])) $_POST['Afficher_chap'] = 'Selectionner un chapitre';
     $request1 = nameClass();

@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="Public/styles/font.css">
         <link rel="stylesheet" href="Public/styles/button.css">
         <link rel="stylesheet" href="Public/styles/heading.css">
+        <link rel="stylesheet" href="Public/styles/add_evaluation.css">
         <title>Home Exercice</title>
 
     </head>
@@ -17,10 +18,32 @@
     <?php require('header.php') ?>
     
     <section class="choose_sec">
-        <div class="heading">
+        <div class="heading heading_main_class">
             <p class="heading_primary">
             INDEX DES EXERCICES
             </p>
+            <?php if($_SESSION['status'] != 'eleve'){ ?>
+                        <form method = "POST" action="" class="form_index form_choose">
+                            <select name='eleve' class="custom-select">
+                            <?php 
+                                $request5 = getStudent();
+                                while($data = $request5->fetch()){
+                                    $nom = $data['nom'].' '.$data['prenom'];
+                                    $id_eleve = $data['id_user'];
+                                    if(isset($_POST['id_eleve']) AND isset($_POST['Profil'])){
+                                        echo '<option selected="selected "value='.$_POST['id_eleve'].'>'.$_POST['Profil'].'</option>';
+                                    }
+                                        echo '<option value='.$id_eleve.'>'.$nom.'</option>';
+                                }
+                            ?>
+                            </select>
+                            <input type="submit" class="btn_news btn-space" value="Voir les progrès de l élève">
+                            <br/>
+                        </form>
+                 <?php 
+                 } 
+                 
+                 ?>
         </div>
 
         <div class="box_row">
@@ -46,7 +69,7 @@
                     $progress = 0;
                 }
         ?>
-            <div class="basic_box box red_section">
+            <div class="basic_box red_section">
                 <svg class="box-nav_section">
                     <use xlink:href="Public/svg/symbol-defs.svg#<?php echo $svg?>"></use>
                 </svg>

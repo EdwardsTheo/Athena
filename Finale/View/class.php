@@ -23,7 +23,6 @@
                     }
                     $request1->closeCursor();
                     if(isset($name_cours1)) {
-                        echo $name_cours1;
                         $_POST['nom_cours'] = $name_cours1; 
                     }
                     else echo $_POST['nom_cours'];

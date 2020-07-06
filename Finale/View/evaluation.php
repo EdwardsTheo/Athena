@@ -66,6 +66,7 @@ if($end == true) {
                 while($data = $request_exo->fetch()) {
                     $consigne = $data['contenu_exo_eval'];
                     $titre = $data['nom_exo_eval'];
+                    $id_exercice = $data['id_exo_eval'];
                 }
                 $input = "<input type='submit' class='btn btn--green btn_bottom2' name='modifExoEval' value='Modifier cet exercice' id='btn'>";
             }
@@ -100,6 +101,28 @@ if($end == true) {
                             <p class="heading_zone_class heading_ressource">Déposer votre exercice ici !</p>
                             </div>    
                         </div>
+                        <?php 
+                        $request2 = correctExosEval($id_exercice);
+                        while($data2 = $request2->fetch()){
+                            $contenu = $data2["contenu_rendu__eval"];
+                        }
+                        $user = $_SESSION["nom"];
+                                    $ex = $titre;
+                                    $direct = "Public/upload/eval/";
+                                    $d = dir("Public/upload/eval/");
+                                    $test = $user."_".$ex;
+                                    while($entry = $d->read()) { 
+                                        preg_match("($test?)", $entry, $new);
+                                        $data = trim($new[0]);
+                                        if (!empty($data)) {
+                                            if($entry == $contenu){
+                                                echo '<a href="'.$direct.$entry.'">'.$entry.'</a><br />';
+                                                $i++; 
+                                            }
+                                        }
+                                    } 
+                                    $d->close();
+                        ?>
                         <div class="empty" id="dropzone" >
                             <svg class="box_drop_svg">
                                 <use class="drop_test" xlink:href="Public/svg/symbol-defs.svg#icon-install"></use>

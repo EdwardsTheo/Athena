@@ -1,6 +1,5 @@
 <?php
 
-//var_dump($_POST);
 
 function startExo() {
     if(isset($_POST["btn"])&&$_POST['btn']=="Valider exercice"){
@@ -37,8 +36,6 @@ function validExo(){
         while($entry = $d->read()) { 
             preg_match("($test?)", $entry, $new);
             $data = trim($new[0]);
-            var_dump($entry);
-            var_dump($data);
             if (!empty($data)){ 
                 $file = $entry;
             }

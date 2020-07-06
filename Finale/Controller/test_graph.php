@@ -2,7 +2,7 @@
 require('View/visu_class.php');
 require('../Controller/connexion.php');
 require('../Model/request.php');
-var_dump($_POST['Profil_id']);
+
 connexion_db();
 getExerciceStudent();
 $request = $valide;

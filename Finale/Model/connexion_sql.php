@@ -16,6 +16,5 @@ function connexion_db() {
                 {
                         echo "Connection failed: " . $e->getMessage();
                 }
-        //var_dump($bdd);
 }
 ?>

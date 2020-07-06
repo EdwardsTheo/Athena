@@ -156,8 +156,28 @@ echo " <div class='drop'>
                 <div id='contenu_new'>
                     Déposer votre exercice ici !
                 </div>    
-            </div>
-            <div class='empty' id='dropzone' >
+            </div>";
+            $request2 = correctExos($id_ex);
+            while($data2 = $request2->fetch()){
+                $contenu = $data2["contenu_rendu"];
+            }
+            $user = $_SESSION["nom"];
+            $ex = $name_ex;
+            $direct = "Public/upload/exercices/";
+            $d = dir("Public/upload/exercices/");
+            $test = $user."_".$ex;
+            while($entry = $d->read()) { 
+                preg_match("($test?)", $entry, $new);
+                $data = trim($new[0]);
+                if (!empty($data)) {
+                    if($entry == $contenu){
+                        echo '<a href="'.$direct.$entry.'">'.$entry.'</a><br />';
+                        $i++; 
+                    }
+                }
+            } 
+            $d->close();
+            echo "<div class='empty' id='dropzone' >
                 <svg class='box_drop_svg'>
                     <use xlink:href='Public/svg/symbol-defs.svg#icon-install'></use>
                 </svg>

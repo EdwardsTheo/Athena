@@ -1,7 +1,6 @@
 <?php
-
-require("connect_db.php");
-//require("connexion_sql.php");
+//require("connect_db.php");
+require("connexion_sql.php");
 // Récupère les infos du user 
 function getUser() {
     $db = connexion_db();
@@ -902,6 +901,26 @@ function verify3($id_user){
     $db = connexion_db();
     $request = $db->prepare("SELECT * FROM rendus_exo WHERE id_user = '$id_user' AND progress_exo = 'valide'");
     $request->execute();
+    return $request;
+}
+
+function correctExos($id_exo) {
+    $db = connexion_db();
+    $id_student = $_SESSION["id_user"]; 
+    $request = $db->query("SELECT *
+    FROM rendus_exo 
+    WHERE id_user = '$id_student'
+    AND id_exercice = '$id_exo'");
+    return $request;
+}
+
+function correctExosEval($id_exo) {
+    $db = connexion_db();
+    $id_student = $_SESSION["id_user"]; 
+    $request = $db->query("SELECT *
+    FROM rendus_eval 
+    WHERE id_user = '$id_student'
+    AND id_exo_eval = '$id_exo'");
     return $request;
 }
 ?>
