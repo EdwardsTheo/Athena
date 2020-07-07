@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page des chapitres</title>
     <link rel="stylesheet"  href="Public/styles/home_exercice.css">
+    <link rel="stylesheet" href="Public/styles/home_prof.css">
+    
     <link rel="stylesheet"  href="Public/styles/header.css">
     <link rel="stylesheet"  href="Public/styles/heading.css">
     <link rel="stylesheet"  href="Public/styles/box.css">
@@ -34,7 +36,7 @@
                                 }
                             ?>
                             </select>
-                            <input type="submit" value="Voir les progrès de l élève" class="btn_news btn-space">
+                            <input type="submit" value="Voir les progrès de l'élève" class="btn_news btn-space">
                         </form>
             <?php 
                 } 

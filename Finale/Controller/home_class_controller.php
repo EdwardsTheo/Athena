@@ -112,7 +112,7 @@ function classes($answer) {
                 <?php HiddenClassButton($name_class, $id_rubrique, $id_cours, $id); ?>
              </form>
              <form action='index.php?action=home_class.php' class='form_prof' method='POST'>
-                <input type='text' class='form_input' placeholder='Nouveau nom de cours' id='name' name='NewClassName' required>
+                <input type='text' class='form_input form_text' placeholder='Nouveau nom de cours' id='name' name='NewClassName' required>
                 <input type='submit' class='btn_news' name='ModifNameClass' value='Modifier nom cours' id='btn'>
                 <?php HiddenClassButton($name_class, $id_rubrique, $id_cours, $id); ?>
             </form>

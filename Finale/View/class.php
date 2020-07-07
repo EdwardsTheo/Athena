@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="Public/styles/heading.css">
+        <link rel="stylesheet" href="Public/styles/home_exercice.css">
         <link rel="stylesheet" href="Public/styles/box.css">
         <link rel="stylesheet" href="Public/styles/font.css">
         <link rel="stylesheet" href="Public/styles/button.css">

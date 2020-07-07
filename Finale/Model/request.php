@@ -1,6 +1,6 @@
 <?php
-//require("connect_db.php");
-require("connexion_sql.php");
+require("connect_db.php");
+//require("connexion_sql.php");
 // Récupère les infos du user 
 function getUser() {
     $db = connexion_db();
