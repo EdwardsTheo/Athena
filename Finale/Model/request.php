@@ -869,9 +869,7 @@ function showCurrentEx($id_user){
 function fileToBddExo($file, $id_ex){
     $db = connexion_db();
     $id_user = $_SESSION['id_user'];
-    echo "id_ex = ",$id_ex;
     $req = "UPDATE rendus_exo SET contenu_rendu = '$file', progress_exo = 'rendu' WHERE id_exercice = '$id_ex' AND id_user = '$id_user'";
-    echo "<br/>",$req;
     $request = $db->prepare($req);
     $request->execute();
 }
@@ -906,7 +904,12 @@ function verify3($id_user){
 
 function correctExos($id_exo) {
     $db = connexion_db();
-    $id_student = $_SESSION["id_user"]; 
+    if($_SESSION["status"] == "eleve"){
+        $id_student = $_SESSION["id_user"]; 
+    }
+    else{
+        $id_student = $_POST['id_eleve'];
+    }
     $request = $db->query("SELECT *
     FROM rendus_exo 
     WHERE id_user = '$id_student'
@@ -922,5 +925,13 @@ function correctExosEval($id_exo) {
     WHERE id_user = '$id_student'
     AND id_exo_eval = '$id_exo'");
     return $request;
+}
+
+function exoValide() {
+    $db = connexion_db();
+    $id_eleve = $_POST['id_eleve']; 
+    $id_ex = $_POST['id_ex'];
+    $li = "UPDATE `rendus_exo` SET progress_exo = 'valide' WHERE id_user='$id_eleve' AND id_exercice='$id_ex'";
+    $request = $db->exec($li);
 }
 ?>

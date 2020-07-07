@@ -122,6 +122,8 @@ if(isset($_GET['action'])) {
         showExo();
     }elseif($_GET['action'] == 'chat.php') {
         startChat();
+    }elseif($_GET['action'] == 'correct_exercice.php'){
+        startCorrect();
     }
 }
 ?>

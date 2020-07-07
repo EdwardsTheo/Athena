@@ -4,6 +4,8 @@
 function startExo() {
     if(isset($_POST["btn"])&&$_POST['btn']=="Valider exercice"){
         validExo();
+    }elseif(isset($_POST["btn"])&&$_POST['btn']=="Cet exercice est valide"){
+        exoValide();
     }
     require('View/home_exercice.php');
 }
@@ -44,6 +46,13 @@ function validExo(){
     
         
     $request = fileToBddExo($file, $id_ex);
+}
+
+function startCorrect(){
+    $id_eleve = $_POST['id_eleve'];
+    $name_ex = $_POST['name_ex'];
+    $instructions = $_POST['instructions'];
+    require('View/correct_exercice.php');
 }
           
 ?>
