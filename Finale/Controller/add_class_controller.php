@@ -26,7 +26,6 @@ function addNewClass() {
         'index_cours' => $new_id_cours,
         'nom_cours' => $_POST['new_name_class']
     ));
-    echo 'ca';
     unset($_POST);
 }
 

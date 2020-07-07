@@ -31,9 +31,9 @@
                                     $nom = $data['nom'].' '.$data['prenom'];
                                     $id_eleve = $data['id_user'];
                                     if(isset($_POST['id_eleve']) AND isset($_POST['Profil'])){
-                                        echo '<option selected="selected "value='.$_POST['id_eleve'].'>'.$_POST['Profil'].'</option>';
+                                        echo '<option selected="selected"  value="'.$_POST['id_eleve'].'">'.$_POST['Profil'].'</option>';
                                     }
-                                        echo '<option value='.$id_eleve.'>'.$nom.'</option>';
+                                        echo '<option  value="'.$id_eleve.'">'.$nom.'</option>';
                                 }
                             ?>
                             </select>
@@ -86,6 +86,12 @@
                     <input type="hidden"  id="btn" name="SVG" value="Public/svg/symbol-defs.svg#<?php echo $svg?>"><br/>
                     <input type="hidden"  id="btn" name="rubrique" value="<?php echo $id_ru?>"><br/>
                     <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>">
+                    <?php 
+                        if(isset($_POST['eleve'])&& !empty($_POST['eleve'])){
+                            $id_eleve=$_POST['eleve'];
+                            echo "<input type='hidden' name='id_eleve' value='$id_eleve'>";
+                        }
+                    ?>
                 </form>
             </div>
             <?php
@@ -131,34 +137,42 @@
                     }
                     if ($_SESSION["status"] == 'eleve'){
                         $id_user = $_SESSION["id_user"];
+                    }
+                    else{
+                        $id_user = $_POST['id_eleve'];
+                    }
                         $answer = verify1($id_user);
                         while($datas = $answer->fetch()){
-
                             $exe = intval($datas["id_exercice"]);
-
                             if($id == $exe){
-
                                 $trouve1 = true;
                             }else{
                                 $answer2 = verify2($id_user);
+
                                 while($datas2 = $answer2->fetch()){
                                     $exe2 = intval($datas2["id_exercice"]);
                                     if($id == $exe2){
                                         $trouve2 = true;
+                                        
                                     }else{
                                         $answer3 = verify3($id_user);
                                         while($datas3 = $answer3->fetch()){
                                             $exe3 = intval($datas3["id_exercice"]);
                                             if($id == $exe3){
                                                 $trouve3 = true;
+                                                
                                             }
                                         }
+                                        $answer3->closeCursor();
                                     }
-                                } 
+                                }
+                                $answer2->closeCursor(); 
                             }  
-                        }
-                        $answer->closeCursor();
-                    }
+                        }$answer->closeCursor();
+                        
+                
+            
+                    
             ?>
             <div class="basic_box red_section red_exo">
                 <svg class="box-nav_exo">
@@ -198,21 +212,28 @@
                     <input type="hidden"  id="btn" name="exercice" value="<?php echo $id?>"><br/>
                     <input type="hidden"  id="btn" name="id_rub" value="<?php echo $id_rub?>"><br/>
                     <input type="hidden"  id="btn" name="index" value="<?php echo $index_ex?>"><br/>
+                    <?php 
+                        if(isset($_POST['id_eleve'])&& !empty($_POST['id_eleve'])){
+                            echo "<input type='hidden' name='id_eleve' value='$id_user'>";
+                        }
+                    ?>
+
                 </form>
             </div>
     
             
             <?php
-                }
+            }
                 $request->closeCursor();
             ?>   
         </div>
     </section>
     <?php
-        } 
-        else{
-            echo "";
-        }
+                
+    } 
+    else{
+        echo "";
+    }
     ?>
 
     <?php require('footer.php') ?>

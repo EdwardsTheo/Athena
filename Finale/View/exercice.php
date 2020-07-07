@@ -247,9 +247,14 @@ echo " <div class='drop'>
             <?php 
             /*––––––––––––––––––––––––Corriger un exercice––––––––––––––––––––––––––*/
                 if($_SESSION["status"] == "professeur"){
-                    echo '<form action="#" method="POST">
-                    <input type="submit" class="btn btn--green btn_bottom1" value="Correction" id="btn">
-                    </form>';
+                    $id_eleve = $_POST['id_eleve'];
+                    echo "<form action='index.php?action=correct_exercice.php' method='POST'>
+                    <input type='hidden' name='name_ex' value='$name_ex'>
+                    <input type='hidden' name='id_eleve' value='$id_eleve'>
+                    <input type='hidden' name='instructions' value='$instructions'>
+                    <input type='hidden'  id='btn' name='id_ex' value='$id_ex'><br/>
+                    <input type='submit' name='btn' class='btn btn--green btn_bottom1' value='Correction' id='btn'>
+                    </form>";
                 }
             ?>
             <!--–––––––––––––––––––––Valider un exercice–––––––––––––––––––––––––––-->

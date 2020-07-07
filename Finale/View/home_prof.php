@@ -134,7 +134,7 @@
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-hour-glass"></use>
                     </svg>
                     <h3 class="heading_red">
-                    Créer une evalutation </h3>
+                    Créer une evaluation </h3>
                     <div class="red_bouton">
                         <a href="index.php?action=home_add_evaluation.php" class="btn-red btn btn--green ">Evaluation</a>
                     </div>
