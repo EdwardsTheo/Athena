@@ -4,4 +4,4 @@
 
 # Réalisé par SALERNO Mia - TRILLOT Alexandre - THEOBALD Baptiste 
 
-[!image](Finale/Public/intechlogo/Athena.png)
+![image](Finale/Public/intechlogo/Athena.png)
