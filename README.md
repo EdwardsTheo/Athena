@@ -15,17 +15,17 @@ This project was the occasion for us to learn and practice PHP/MYSQL and deepen 
 ## Some quick view of the pages : 
 
 ### Start : 
-![main](Main\Public\img\main.png)
+![main](Main/Public/img/main.png)
 
 _The landing page_
 
 ### Profil pages : 
 
-![main](Main\Public\img\profil.png)
-![main](Main\Public\img\profil2.png)
+![main](Main/Public/img/profil.png)
+![main](Main/Public/img/profil2.png)
 
 _Profil Page for a student_
 
 ### Main page for the class : 
 
-![main](Main\Public\img\main_cours.png)
+![main](Main/Public/img/main_cours.png)
