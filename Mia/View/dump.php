@@ -1,1 +1,0 @@
-UPDATE `chapitres` SET `id_rubrique` = '1' WHERE `chapitres`.`id_chapitre` = 1;

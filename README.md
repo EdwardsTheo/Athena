@@ -1,7 +1,5 @@
-## Projet de Semestre 2 à INTECH - De mars 2020 à Juillet 2020 
+# Projet Athena, semester 2 at INTECH 
 
-# Projet visant à améliorer l'interface de cours pour les élèves de semestre 1.
-
-# Réalisé par SALERNO Mia - TRILLOT Alexandre - THEOBALD Baptiste 
+### Main goal of the projet was to improve the web interface for the semester 1 and give to the teacher a plateform to follow his class.
 
 ![image](Finale/Public/intechlogo/Athena.png)
