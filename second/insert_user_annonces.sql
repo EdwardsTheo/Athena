@@ -1,2 +1,0 @@
-INSERT INTO `annonces` (`id_annonce`, `id_user`, `nom_annonce`, `date_annonce`, `contenu_annonce`) VALUES ('1', '1', 'Test', '2020-06-05', 'Ceci est un test ');
-ALTER TABLE `users` ADD `heure_connexion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `password`;
