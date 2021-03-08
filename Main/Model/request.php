@@ -503,7 +503,7 @@ function getIdResources($id_exercice, $id_rubrics){
 
 function verifyIssetExSupRub($id_ru){
     $db = connect_start();
-    $request = $db->prepare("SELECT * FROM exercices WHERE index_exercice = '1' AND id_rubrics = '$id_ru2'");
+    $request = $db->prepare("SELECT * FROM exercices WHERE index_exercice = '1' AND id_rubrics = '$id_ru'");
     $request->execute();
     $result = $request->fetchAll();
     if($result){
