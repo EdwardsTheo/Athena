@@ -3,3 +3,5 @@
 # Projet visant à améliorer l'interface de cours pour les élèves de semestre 1.
 
 # Réalisé par SALERNO Mia - TRILLOT Alexandre - THEOBALD Baptiste 
+
+[!image](Finale/Public/intechlogo/Athena.png)

@@ -14,6 +14,8 @@ require('Controller/home_prof_controller.php');
 require('Controller/chat_controller.php');
 require('Controller/add_eval_controller.php');
 
+// Main controller 
+
 if(!isset($_GET['action'])) {
     welcome();
 }
