@@ -1,4 +1,5 @@
 <?php 
+
     if($_SESSION['status'] == 'student'){
         echo '<a href="index.php?action=home_student.php" class="btn-text">Profil</a>';
     }

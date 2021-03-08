@@ -1,6 +1,7 @@
 <?php 
-    function startStudent2(){
-        $request = updatePasseWord();
+
+function startStudent2(){
+    $request = updatePasseWord();
 }
 
 function isnews() {

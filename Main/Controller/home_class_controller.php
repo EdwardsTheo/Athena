@@ -1,4 +1,5 @@
 <?php
+
 require_once("Model/request.php");
 
 function showClass() {
@@ -6,7 +7,6 @@ function showClass() {
     $request5 = getStudent();
     require('View/home_class.php');
 }
-
 
 function suppClass() {
     deleteProgressClass();
@@ -126,8 +126,6 @@ function classes($answer) {
     echo "</div></section>";
     require('View/footer.php');
 }
-
-
 
 function HiddenClassButton($name_class, $id_rubrics, $id_class, $id) {
     ?>

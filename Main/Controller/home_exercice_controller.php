@@ -1,6 +1,5 @@
 <?php
 
-
 function startExo() {
     if(isset($_POST["btn"])&&$_POST['btn']=="Valider exercice"){
         validExo();
