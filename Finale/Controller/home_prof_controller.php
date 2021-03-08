@@ -17,36 +17,36 @@ function ErrorMessages(){
     echo $message;
 }
 
-function editAnnonce($data){
+function editnews($data){
     if(isset($_POST['edit'])){
         echo '<form action="index.php?action=home_prof.php "method="post">
-        <textarea class="text_news" id="text_area" name="nouvelle_annonce" placeholder="Titre de votre annonce">'.$data['contenu_annonce'].'</textarea>
-        <input type="hidden" name="id_annonce" value="'.$data['id_annonce'].'">
+        <textarea class="text_news" id="text_area" name="nouvelle_news" placeholder="Titre de votre news">'.$data['contents_news'].'</textarea>
+        <input type="hidden" name="id_news" value="'.$data['id_news'].'">
         <input type="submit" class="btn-text btn_news" value="valider" id="btn" name="valider">
         </form>';
     }
     
 }
 
-function endEditAnnonce(){
-    if(isset($_POST['nouvelle_annonce'])){
+function endEditnews(){
+    if(isset($_POST['nouvelle_news'])){
         echo '<form action="index.php?action=home_prof.php" method="post">';
-        $request3 = getEditAnnonce();
+        $request3 = getEditnews();
         echo '</form>';
     }
 }
-function addAnnonce(){
-    $request = ajouterAnnonce();
+function addnews(){
+    $request = ajouternews();
 }
 
-function delAnnonce(){
+function delnews(){
     if(isset($_POST['delete'])){
-        $request4 = deleteAnnonce();
+        $request4 = deletenews();
     }
 }
 
 function refresh(){
-    if(isset($_POST['nouvelle_annonce']) OR isset($_POST['add']) OR isset($_POST['valider']) OR isset($_POST['delete'])){
+    if(isset($_POST['nouvelle_news']) OR isset($_POST['add']) OR isset($_POST['valider']) OR isset($_POST['delete'])){
         $delai=1; 
         $url='index.php?action=home_prof.php';
         header("Refresh: $delai;url=$url");

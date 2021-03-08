@@ -1,12 +1,12 @@
 <?php 
-//------------ Chapitre 1 ------------------
+//------------ chapter 1 ------------------
         while($data3 = $request3->fetch()){
             $valide_chap1 = $data3;
             $valide_chap1 = intval($valide_chap1[0]);
         }
         $request3->closeCursor();
     
-        // récupère le nombre d'exercice en progression
+        // récupère le namebre d'exercice en progression
     
         while($data4 = $request4->fetch()){
             $in_progress_chap1 = $data4;
@@ -14,7 +14,7 @@
         }
         $request4->closeCursor();
     
-        // récupère le nombre d'exercice rendu
+        // récupère le namebre d'exercice return
     
         while($data5 = $request5->fetch()){
             $returned_chap1 = $data5;
@@ -23,7 +23,7 @@
         }
         $request5->closeCursor();
 
-//------------ Chapitre 2 ------------------
+//------------ chapter 2 ------------------
 
 while($data6 = $request6->fetch()){
     $valide_chap2 = $data6;
@@ -31,7 +31,7 @@ while($data6 = $request6->fetch()){
 }
 $request6->closeCursor();
 
-// récupère le nombre d'exercice en progression
+// récupère le namebre d'exercice en progression
 
 while($data7 = $request7->fetch()){
     $in_progress_chap2 = $data7;
@@ -39,7 +39,7 @@ while($data7 = $request7->fetch()){
 }
 $request7->closeCursor();
 
-// récupère le nombre d'exercice rendu
+// récupère le namebre d'exercice return
 
 while($data8 = $request8->fetch()){
     $returned_chap2 = $data8;
@@ -48,7 +48,7 @@ while($data8 = $request8->fetch()){
 }
 $request8->closeCursor();
 
-//------------ Chapitre 3 ------------------
+//------------ chapter 3 ------------------
 
 while($data9 = $request9->fetch()){
     $valide_chap3 = $data9;
@@ -56,7 +56,7 @@ while($data9 = $request9->fetch()){
 }
 $request9->closeCursor();
 
-// récupère le nombre d'exercice en progression
+// récupère le namebre d'exercice en progression
 
 while($data10 = $request10->fetch()){
     $in_progress_chap3 = $data10;
@@ -64,7 +64,7 @@ while($data10 = $request10->fetch()){
 }
 $request10->closeCursor();
 
-// récupère le nombre d'exercice rendu
+// récupère le namebre d'exercice return
 
 while($data11 = $request11->fetch()){
     $returned_chap3 = $data11;
@@ -74,7 +74,7 @@ while($data11 = $request11->fetch()){
 $request11->closeCursor();
 
 
-//------------ Chapitre 4------------------
+//------------ chapter 4------------------
 
 
 while($data12 = $request12->fetch()){
@@ -83,7 +83,7 @@ while($data12 = $request12->fetch()){
 }
 $request12->closeCursor();
 
-// récupère le nombre d'exercice en progression
+// récupère le namebre d'exercice en progression
 
 while($data13 = $request13->fetch()){
     $in_progress_chap4 = $data13;
@@ -91,7 +91,7 @@ while($data13 = $request13->fetch()){
 }
 $request13->closeCursor();
 
-// récupère le nombre d'exercice rendu
+// récupère le namebre d'exercice return
 
 while($data14 = $request14->fetch()){
     $returned_chap4 = $data14;
@@ -101,7 +101,7 @@ while($data14 = $request14->fetch()){
 $request14->closeCursor();
 
 
-//------------ Chapitre 5 ------------------
+//------------ chapter 5 ------------------
 
 while($data15 = $request15->fetch()){
     $valide_chap5 = $data15;
@@ -109,7 +109,7 @@ while($data15 = $request15->fetch()){
 }
 $request15->closeCursor();
 
-// récupère le nombre d'exercice en progression
+// récupère le namebre d'exercice en progression
 
 while($data16 = $request16->fetch()){
     $in_progress_chap5 = $data16;
@@ -117,7 +117,7 @@ while($data16 = $request16->fetch()){
 }
 $request16->closeCursor();
 
-// récupère le nombre d'exercice rendu
+// récupère le namebre d'exercice return
 
 while($data17 = $request17->fetch()){
     $returned_chap5 = $data17;

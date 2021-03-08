@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="Public/styles/font.css">
         <link rel="stylesheet" href="Public/styles/button.css">
         <link rel="stylesheet" href="Public/styles/box.css">
@@ -24,10 +24,10 @@
                     // Affichage des profils de toute la classe
                     $i = 2;
                     while($data = $request->fetch()) {
-                        $first_name = $data['nom'];
-                        $second_name = $data['prenom'];
+                        $first_name = $data['name'];
+                        $second_name = $data['firstname'];
                         $date = $data['heure_connexion'];
-                        $id_eleve = $data['id_user'];
+                        $id_student = $data['id_user'];
                 ?>
                     <div class="red_section">
                         <svg class="box-nav_section">
@@ -39,19 +39,19 @@
                         </div>
                         <div class="form_mdp">
                             <form action="index.php?action=home_class.php"  method="POST">
-                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="Cours" id="btn">
+                                <input type="submit" class="btn_index btn_add_exo btn_visu" value="class" id="btn">
                                 <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
-                                <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
+                                <input type='hidden' name='id_student' value=<?php echo $id_student; ?>>
                             </form>
                             <form action="index.php?action=home_exercice.php"  method="POST">
                                 <input type="submit" class="btn_index btn_add_exo btn_visu" value="Exercices" id="btn">
                                 <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
-                                <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
+                                <input type='hidden' name='id_student' value=<?php echo $id_student; ?>>
                             </form>
                             <form action="index.php?action=home_student.php"  method="POST">
                                 <input type="submit" class="btn_index btn_add_exo btn_visu" value="Profil" id="btn">
                                 <input type='hidden' name='Profil' value=<?php echo $second_name.$first_name; ?>>
-                                <input type='hidden' name='id_eleve' value=<?php echo $id_eleve; ?>>
+                                <input type='hidden' name='id_student' value=<?php echo $id_student; ?>>
                             </form>
                         </div>
                     </div>

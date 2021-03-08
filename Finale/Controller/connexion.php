@@ -7,14 +7,14 @@ function welcome() {
 }
 
 function startProf() {
-    $request2 = getAnnonce();
+    $request2 = getnews();
     require('View/home_prof.php');
 }
 
 function startStudent() {
     $request = updatePasseWord();
-    $request2 = getAnnonce();
-    $request3 = countCours();
+    $request2 = getnews();
+    $request3 = countclass();
     $request4 = countAll();
     $request5 = countAllExos();
 
@@ -41,9 +41,9 @@ function connexion() {
                         $find = true;
                         if ($row["status_user"] == "eleve"){
                             $_SESSION['email'] = $email;
-                            $_SESSION['nom'] = $row["nom"];
-                            $_SESSION['prenom'] =  $row["prenom"];
-                            $_SESSION['status'] = "eleve";
+                            $_SESSION['name'] = $row["name"];
+                            $_SESSION['firstname'] =  $row["firstname"];
+                            $_SESSION['status'] = "student";
                             $_SESSION['id_user'] = $row["id_user"];
                             updateHour();
                             header("Location: index.php?action=home_student.php");
@@ -51,9 +51,9 @@ function connexion() {
                         }
                         else {
                             $_SESSION['email'] = $email;
-                            $_SESSION['nom'] = $row["nom"];
-                            $_SESSION['prenom'] =  $row["prenom"];
-                            $_SESSION['status'] = "professeur";
+                            $_SESSION['name'] = $row["name"];
+                            $_SESSION['firstname'] =  $row["firstname"];
+                            $_SESSION['status'] = "teacher";
                             $_SESSION['id_user'] = $row["id_user"];
                             header("Location: index.php?action=home_prof.php");
                             exit();

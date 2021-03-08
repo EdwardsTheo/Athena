@@ -13,7 +13,7 @@
     <link rel="stylesheet"  href="Public/styles/progress_bar.css">
     <link rel="stylesheet"  href="Public/styles/button.css">
     <link rel="stylesheet"  href="Public/styles/font.css">
-    <link rel="stylesheet"  href="Public/styles/add_evaluation.css">
+    <link rel="stylesheet"  href="Public/styles/add_test.css">
     <!--<link rel="stylesheet"  href="Public/styles/test.css">-->
 </head>
 <body>
@@ -25,14 +25,14 @@
             INDEX DES RUBRIQUES
             </p>
             <?php 
-                if($_SESSION['status'] != 'eleve'){ ?>
+                if($_SESSION['status'] != 'student'){ ?>
                         <form method="POST" action="" class="form_index form_choose">
-                            <select name='eleve' class="custom-select">
+                            <select name='student' class="custom-select">
                             <?php 
                                 while($data = $request5->fetch()){
-                                    $nom = $data['nom'].' '.$data['prenom'];
-                                    $id_eleve = $data['id_user'];
-                                    echo '<option value='.$id_eleve.'>'.$nom.'</option>';
+                                    $name = $data['name'].' '.$data['firstname'];
+                                    $id_student = $data['id_user'];
+                                    echo '<option value='.$id_student.'>'.$name.'</option>';
                                 }
                             ?>
                             </select>
@@ -47,11 +47,11 @@
         <div class="box_row">
 <?php
 while($data = $request->fetch()) {
-    $name_ru = $data['nom_rubrique'];
-    $id = $data['id_rubrique'];
+    $name_ru = $data['name_rubric'];
+    $id = $data['id_rubrics'];
     $svg = $data['svg'];
-    $request4 = howProgressCours($id);
-    $request2 = howMuchCours($id);
+    $request4 = howProgressclass($id);
+    $request2 = howMuchclass($id);
     $countExos =0;
     $progress_exo = 0;
     while($data2 = $request2->fetch()){
@@ -85,7 +85,7 @@ while($data = $request->fetch()) {
         <form action="index.php?action=home_class.php" class="form_mdp" method="POST">
             <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='afficher'><br/>
             <input type="hidden"  id="btn" name="SVG" value="Public/svg/symbol-defs.svg#<?php echo $svg?>"><br/>
-            <input type="hidden"  id="btn" name="rubrique" value="<?php echo $id?>"><br/>
+            <input type="hidden"  id="btn" name="rubric" value="<?php echo $id?>"><br/>
             <input type="hidden"  id="btn" name="action" value="home_class.php"><br/>
         </form>
     </div>
@@ -100,7 +100,7 @@ $request->closeCursor();
     <section class="choose_exo">
         <div class="heading">
             <p class="heading_primary">
-            COURS
+            class
             </p>
         </div>
     </section>

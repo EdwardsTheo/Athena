@@ -24,10 +24,10 @@ function deleteChapterClass() {
 
 function changeNameChap() {
     $req = reqChangeNameChap();
-    $nv_nom = $_POST['NewClassName'];
-    echo $nv_nom;
+    $nv_name = $_POST['NewClassName'];
+    echo $nv_name;
         $req->execute(array(
-            'nv_nom' => $nv_nom
+            'nv_name' => $nv_name
         ));
         $req->closeCursor();
     
@@ -37,12 +37,12 @@ function showSection($answer) {
     classes($answer);
 }
 
-function checkStatus($id_rubrique, $id_cours) {
-    $request = checkReadRubrique($id_rubrique); 
+function checkStatus($id_rubrics, $id_class) {
+    $request = checkReadrubric($id_rubrics); 
     while($data = $request->fetch()) {
-        $status = $data['status_cours'];
-        $p_id_cours = $data['id_cours'];
-        if($id_cours == $p_id_cours) {
+        $status = $data['status_class'];
+        $p_id_class = $data['id_class'];
+        if($id_class == $p_id_class) {
             if($status == 'lu') return 'icon-check';
             else return 'icon-circle-with-cross';
             break;
@@ -51,23 +51,23 @@ function checkStatus($id_rubrique, $id_cours) {
 }
 
 function checkSVG($svg) {
-    if($svg == 'icon-check') return $phrase = 'Cours lu';
-    else return $phrase = 'Cours non lu';
+    if($svg == 'icon-check') return $phrase = 'class lu';
+    else return $phrase = 'class non lu';
 }
 
 function classes($answer) {
     $i = 0;
     while($data = $answer->fetch()) {
-        $name_class = $data['nom_cours'];
-        $id = $data['index_cours'];
-        $id_cours = $data['id_cours'];
-        $id_rubrique = $data['id_rubrique'];
-        if($_SESSION['status'] == 'professeur') {
+        $name_class = $data['name_class'];
+        $id = $data['index_class'];
+        $id_class = $data['id_class'];
+        $id_rubrics = $data['id_rubrics'];
+        if($_SESSION['status'] == 'teacher') {
             $svg = '';
             $phrase ='';
         }
         else {
-            $svg = checkStatus($id_rubrique, $id_cours);
+            $svg = checkStatus($id_rubrics, $id_class);
             $phrase = checkSVG($svg); 
         }
         if($i == 0) {
@@ -98,23 +98,23 @@ function classes($answer) {
             </svg>
         </div>  
         <form action='index.php?action=class.php' class='form_mdp' method='POST'>
-            <input type='hidden' name='nom_cours' value='$name_class' id='btn'>
-            <input type='hidden' name='id_rubrique' value='$id_rubrique' id='btn'>
-            <input type='hidden' name='id_cours' value='$id_cours' id='btn'>
-            <input type='hidden' name='index_cours' value='$id' id='btn'>
+            <input type='hidden' name='name_class' value='$name_class' id='btn'>
+            <input type='hidden' name='id_rubrics' value='$id_rubrics' id='btn'>
+            <input type='hidden' name='id_class' value='$id_class' id='btn'>
+            <input type='hidden' name='index_class' value='$id' id='btn'>
             <input type='submit' class='btn btn--green btn_section' name='Afficher' value='Lire cours' id='btn'>
         </form>";
-        if($_SESSION['status'] == 'professeur') {
+        if($_SESSION['status'] == 'teacher') {
             ?>
             <div class="home_class_prof">
               <form action='index.php?action=home_class.php' class='form_prof' method='POST'>
                 <input type='submit' class='btn_news' name='SuppClass' value='Supprimer cours' id='btn'>
-                <?php HiddenClassButton($name_class, $id_rubrique, $id_cours, $id); ?>
+                <?php HiddenClassButton($name_class, $id_rubrics, $id_class, $id); ?>
              </form>
              <form action='index.php?action=home_class.php' class='form_prof' method='POST'>
                 <input type='text' class='form_input form_text' placeholder='Nouveau nom de cours' id='name' name='NewClassName' required>
-                <input type='submit' class='btn_news' name='ModifNameClass' value='Modifier nom cours' id='btn'>
-                <?php HiddenClassButton($name_class, $id_rubrique, $id_cours, $id); ?>
+                <input type='submit' class='btn_news' name='ModifNameClass' value='Modifier nom de cours' id='btn'>
+                <?php HiddenClassButton($name_class, $id_rubrics, $id_class, $id); ?>
             </form>
             </div>
             <?php
@@ -129,12 +129,12 @@ function classes($answer) {
 
 
 
-function HiddenClassButton($name_class, $id_rubrique, $id_cours, $id) {
+function HiddenClassButton($name_class, $id_rubrics, $id_class, $id) {
     ?>
-    <input type='hidden' name='nom_cours' value="<?php echo $name_class; ?>"" id='btn'>
-    <input type='hidden' name='id_rubrique' value="<?php echo $id_rubrique; ?>"" id='btn'>
-    <input type='hidden' name='id_cours' value="<?php echo $id_cours; ?>"" id='btn'>
-    <input type='hidden' name='index_cours' value="<?php echo $id; ?>"" id='btn'>
+    <input type='hidden' name='name_class' value="<?php echo $name_class; ?>"" id='btn'>
+    <input type='hidden' name='id_rubrics' value="<?php echo $id_rubrics; ?>"" id='btn'>
+    <input type='hidden' name='id_class' value="<?php echo $id_class; ?>"" id='btn'>
+    <input type='hidden' name='index_class' value="<?php echo $id; ?>"" id='btn'>
     <?php
 }
 

@@ -1,9 +1,9 @@
 <?php 
 $end = ending($_POST['id_eval']);
 if($end == true) {
-    modifProgress('finish', $data['id_evaluation']);
+    modifProgress('finish', $data['id_test']);
     $data['status'] = 'finish';
-    header("Location: index.php?action=home_evaluation.php");
+    header("Location: index.php?action=home_test.php");
     exit(); 
 }
 ?>
@@ -11,10 +11,10 @@ if($end == true) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Evaluation</title>
+        <title>test</title>
         <link rel="stylesheet" href="Public/styles/home_prof.css">
         <link rel="stylesheet" href="Public/styles/home_student.css">
-        <link rel="stylesheet" href="Public/styles/add_evaluation.css"/>
+        <link rel="stylesheet" href="Public/styles/add_test.css"/>
         <link rel="stylesheet" href="Public/styles/add_exercice.css">
         <link rel="stylesheet" href="Public/styles/add_class.css"> 
         <link rel="stylesheet" href="Public/styles/class.css"> 
@@ -29,7 +29,7 @@ if($end == true) {
     <?php require("header.php"); ?>
     <div class="heading">    
             <p class="heading_primary heading_class">
-                Evaluation de <?php echo htmlspecialchars($_POST['name']); ?>
+                test de <?php echo htmlspecialchars($_POST['name']); ?>
             </p>
         </div>
             
@@ -46,8 +46,8 @@ if($end == true) {
                     <?php
                     while($data = $request->fetch()) {
                         ?>
-                        <form action="index.php?action=evaluation.php" method="POST" class="form_index">
-                            <input type="submit" class="btn_index btn_add_exo" name="showExo" value="<?php echo $data['nom_exo_eval']; ?>" id="btn">
+                        <form action="index.php?action=test.php" method="POST" class="form_index">
+                            <input type="submit" class="btn_index btn_add_exo" name="showExo" value="<?php echo $data['name_exo_eval']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="id_exo" value="<?php echo $data['id_exo_eval']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="status" value="<?php echo $_POST['status']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="id_eval" value="<?php echo $_POST['id_eval']; ?>" id="btn">
@@ -64,8 +64,8 @@ if($end == true) {
             <?php
             if(isset($_POST['showExo'])) {
                 while($data = $request_exo->fetch()) {
-                    $consigne = $data['contenu_exo_eval'];
-                    $titre = $data['nom_exo_eval'];
+                    $consigne = $data['contents_exo_eval'];
+                    $titre = $data['name_exo_eval'];
                     $id_exercice = $data['id_exo_eval'];
                 }
                 $input = "<input type='submit' class='btn btn--green btn_bottom2' name='modifExoEval' value='Modifier cet exercice' id='btn'>";
@@ -84,7 +84,7 @@ if($end == true) {
                         </div>
                     </div>
                         <div class="text_area_consigne text_eval">
-                           <p class="contenu_new"><?php echo $consigne; ?></p>
+                           <p class="contents_new"><?php echo $consigne; ?></p>
                         </div>
                     </div>
                 </div>
@@ -97,16 +97,16 @@ if($end == true) {
                     <div class="drop">
                         <div class="box_drop">
                         <div class="heading_zone">
-                            <div id="contenu_new">
+                            <div id="contents_new">
                             <p class="heading_zone_class heading_ressource">Déposer votre exercice ici !</p>
                             </div>    
                         </div>
                         <?php 
                         $request2 = correctExosEval($id_exercice);
                         while($data2 = $request2->fetch()){
-                            $contenu = $data2["contenu_rendu__eval"];
+                            $contents = $data2["contents_return__eval"];
                         }
-                        $user = $_SESSION["nom"];
+                        $user = $_SESSION["name"];
                                     $ex = $titre;
                                     $direct = "Public/upload/eval/";
                                     $d = dir("Public/upload/eval/");
@@ -115,7 +115,7 @@ if($end == true) {
                                         preg_match("($test?)", $entry, $new);
                                         $data = trim($new[0]);
                                         if (!empty($data)) {
-                                            if($entry == $contenu){
+                                            if($entry == $contents){
                                                 echo '<a href="'.$direct.$entry.'">'.$entry.'</a><br />';
                                                 $i++; 
                                             }
@@ -132,7 +132,7 @@ if($end == true) {
                         (function() {
                         var dropzone = document.getElementById('dropzone');
                         var displayUploads = function(data){
-                            var uploads = document.getElementById('contenu_new'),
+                            var uploads = document.getElementById('contents_new'),
                                 anchor,
                                 x;
                             for (let x = 0; x < data.length; x++) {
@@ -188,7 +188,7 @@ if($end == true) {
                     </div>
                     <div class="bottom_button">
                     <div class="form_bottom">
-                <form action="index.php?action=evaluation.php" method="POST">
+                <form action="index.php?action=test.php" method="POST">
                     <input type="submit" name="btn" class="btn btn--green btn_bottom2" value="Valider l'exercice" id="btn">
                     <input type="hidden" name="id_ex" value="<?php echo $_POST['id_exo']?>"><br/>
                     <input type="hidden" name="name" value="<?php echo $_POST['name']?> ">

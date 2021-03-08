@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="Public/styles/home_student.css">
         <link rel="stylesheet" href="Public/styles/box.css">
         <link rel="stylesheet" href="Public/styles/heading.css">
-        <title>Page d'accueil du Professeur</title>
+        <title>Page d'accueil du teacher</title>
     </head>
     <body>
     <?php require("header.php"); ?>
@@ -26,8 +26,8 @@
                     <h3 class="heading_box heading_student">Informations profil</h3>
                     <div class ="box_info label_profil">
                     <?php 
-                        echo '<label for="prenom" class="profil_titre">Prénom : '.$_SESSION["prenom"].'</label>
-                        <label for="nom" class="profil_titre">Nom : '.$_SESSION["nom"].'</label>
+                        echo '<label for="firstname" class="profil_titre">Prénom : '.$_SESSION["firstname"].'</label>
+                        <label for="name" class="profil_titre">Nom : '.$_SESSION["name"].'</label>
                         <label for="email" class="profil_titre">Email : '. $_SESSION["email"].'</label>';
                     ?>
                     </div>
@@ -53,36 +53,36 @@
                 ?>
                             <div class="basic_box box info_box">
                                 <h3 class="heading_box">News</h3>
-                                <div class="contenu_prof">
-                                    <h4 class="heading_news_prof">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
-                                    <p class="contenu_new">
+                                <div class="contents_prof">
+                                    <h4 class="heading_news_prof">Nouvelle du <?php echo $data['date_news'] ?></h4>
+                                    <p class="contents_new">
                                         <?php 
-                                            echo '<b>'.$data['nom_annonce'].'</b></br>';
-                                            echo $data['contenu_annonce'];
+                                            echo '<b>'.$data['name_news'].'</b></br>';
+                                            echo $data['contents_news'];
                                         ?>
                                     </p>
-                                    <?php editAnnonce($data)?>
+                                    <?php editnews($data)?>
                                     <form action="index.php?action=home_prof.php" class="form_news" method='post'>
                                         <input type="submit" class="btn-text btn_news" value="Modifier l'annonce" id="btn" name='edit'>
-                                        <input type="hidden" name="id_annonce" value="<?php echo $data['id_annonce']?>">
+                                        <input type="hidden" name="id_news" value="<?php echo $data['id_news']?>">
                                         <input type="submit" class="btn-text btn_news" value="Supprimer l'annonce" id="btn" name = 'delete'>
                                         <?php     
                                             //refresh();
                                         ?>
                                     </form>
                                 </div>
-                                <?php delAnnonce(); ?>
+                                <?php delnews(); ?>
                     <?php 
                             $i++;
                             } 
                         }  
                         $request2->closeCursor();
                     ?>
-                    <div class="contenu_prof add_news">
-                        <h4 class="heading_news_prof">Ajouter une annonce</h4>
+                    <div class="contents_prof add_news">
+                        <h4 class="heading_news_prof">Ajouter une news</h4>
                         <form action="index.php?action=home_prof.php" class="form_news_add" method='POST'>
-                            <textarea class="text_news" id="text_area" name='titre_annonce' placeholder="Titre de votre annonce"></textarea>
-                            <textarea class="text_news" id="text_area" name='annonce' placeholder="Écrivez votre nouvelle annonce !"></textarea>
+                            <textarea class="text_news" id="text_area" name='titre_news' placeholder="Titre de votre annonce"></textarea>
+                            <textarea class="text_news" id="text_area" name='news' placeholder="Écrivez votre nouvelle annonce !"></textarea>
                             <input type="submit" class="btn_add btn--green btn_news" value="Ajouter une annonce" id="btn" name='add'>
                             <?php     
                                 //refresh();
@@ -116,7 +116,7 @@
                     <h3 class="heading_red">
                         Créer un cours</h3>
                     <div class="red_bouton">
-                        <a href="index.php?action=add_class.php" class="btn-red btn btn--green ">Cours</a>
+                        <a href="index.php?action=add_class.php" class="btn-red btn btn--green ">class</a>
                     </div>
                 </div>
                 <div class="red_prof">
@@ -134,9 +134,9 @@
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-hour-glass"></use>
                     </svg>
                     <h3 class="heading_red">
-                    Créer une evaluation </h3>
+                    Créer un test </h3>
                     <div class="red_bouton">
-                        <a href="index.php?action=home_add_evaluation.php" class="btn-red btn btn--green ">Evaluation</a>
+                        <a href="index.php?action=home_add_test.php" class="btn-red btn btn--green ">test</a>
                     </div>
                 </div>
             </div>

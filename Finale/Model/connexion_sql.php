@@ -1,5 +1,5 @@
 <?php 
-function connexion_db() {
+function connect_start() {
                 $host = "127.0.0.1";
                 $dbname = "athena";
                 $user= "root";

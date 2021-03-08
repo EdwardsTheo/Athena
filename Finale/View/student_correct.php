@@ -1,6 +1,6 @@
 <div class="heading">    
             <p class="heading_primary heading_class">
-                Evaluation de <?php echo htmlspecialchars($_POST['name']); ?>
+                test de <?php echo htmlspecialchars($_POST['name']); ?>
             </p>
         </div>
             
@@ -17,8 +17,8 @@
                     <?php
                     while($data = $request->fetch()) {
                         ?>
-                        <form action="index.php?action=evaluation.php" method="POST" class="form_index">
-                            <input type="submit" class="btn_index btn_add_exo" name="showExo" value="<?php echo $data['nom_exo_eval']; ?>" id="btn">
+                        <form action="index.php?action=test.php" method="POST" class="form_index">
+                            <input type="submit" class="btn_index btn_add_exo" name="showExo" value="<?php echo $data['name_exo_eval']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="id_exo" value="<?php echo $data['id_exo_eval']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="status" value="<?php echo $_POST['status']; ?>" id="btn">
                             <?php hiddenEval(); ?>
@@ -34,8 +34,8 @@
             <?php
             if(isset($_POST['showExo'])) {
                 while($data = $request_exo->fetch()) {
-                    $consigne = $data['contenu_exo_eval'];
-                    $titre = $data['nom_exo_eval'];
+                    $consigne = $data['contents_exo_eval'];
+                    $titre = $data['name_exo_eval'];
                 }
                 $input = "<input type='submit' class='btn btn--green btn_bottom2' name='modifExoEval' value='Modifier cet exercice' id='btn'>";
             }
@@ -61,8 +61,8 @@
                 <div class="drop">
                     <div class="box_drop">
                         <div class="heading_zone">
-                            <p class="contenu_new">
-                                Telecharger l'exercice que vous avez rendu
+                            <p class="contents_new">
+                                Telecharger l'exercice que vous avez return
                             </p>    
                         </div>
                         <svg class="box_drop_svg">
@@ -85,6 +85,6 @@
 
     <div class="bottom_button">
         <form action="#" class="form_bottom">
-            <input type="submit" class="btn btn--green btn_bottom2" value="Valider Evaluation" id="btn">
+            <input type="submit" class="btn btn--green btn_bottom2" value="Valider test" id="btn">
         </form>
     </div>

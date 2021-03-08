@@ -16,8 +16,8 @@
                     <?php
                     while($data = $request->fetch()) {
                         ?>
-                        <form action="index.php?action=add_evaluation.php" method="POST" class="form_index">
-                            <input type="submit" class="btn_index btn_add_exo" name="showExo" value="<?php echo $data['nom_exo_eval']; ?>" id="btn">
+                        <form action="index.php?action=add_test.php" method="POST" class="form_index">
+                            <input type="submit" class="btn_index btn_add_exo" name="showExo" value="<?php echo $data['name_exo_eval']; ?>" id="btn">
                             <input type="hidden" class="btn_index btn_add_exo" name="id_exo" value="<?php echo $data['id_exo_eval']; ?>" id="btn">
                             <?php hiddenEval(); ?>
                         </form>
@@ -32,8 +32,8 @@
             <?php
             if(isset($_POST['showExo'])) {
                 while($data = $request_exo->fetch()) {
-                    $consigne = $data['contenu_exo_eval'];
-                    $titre = $data['nom_exo_eval'];
+                    $consigne = $data['contents_exo_eval'];
+                    $titre = $data['name_exo_eval'];
                 }
                 $input = "<input type='submit' class='btn btn--green btn_bottom2' name='modifExoEval' value='Modifier cet exercice' id='btn'>";
             }
@@ -44,14 +44,14 @@
             }
             ?>
             <div class="box_text">
-                <form action="index.php?action=add_evaluation.php" method="POST" class="form_bottom">  
+                <form action="index.php?action=add_test.php" method="POST" class="form_bottom">  
                     <input type="submit" class="btn btn--green btn_bottom2" name="nothing" value="Retour à l'ajout" id="btn">
                     <?php  hiddenEval(); ?>
                 </form>
                     <div class="box_ressource order">
                         <div class="heading_zone">
                          <div class="input_text">
-                         <form action="index.php?action=add_evaluation.php" method="POST" class="form_bottom">  
+                         <form action="index.php?action=add_test.php" method="POST" class="form_bottom">  
                                 <input type="text" class="form_input" name="exoTitle" value="<?php echo $titre; ?>" id="mdp">
                             </div>
                         </div>
@@ -74,7 +74,7 @@
 
         <section class="bottom_add_eval">
             <div class="bottom_button">
-                <form action="index.php?action=add_evaluation.php" method="POST" class="form_bottom">
+                <form action="index.php?action=add_test.php" method="POST" class="form_bottom">
                 <label for="startTime">Heure de début : </label>
                 <input type="time" name="startTime" id="startTime" value="08:45">
                 <label for="start">Jour de l'éval:</label>

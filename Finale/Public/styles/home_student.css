@@ -28,7 +28,7 @@
 }
 
 
-.contenu {
+.contents {
     display: flex;
     flex-direction: column;
     min-width: 10rem;
@@ -37,7 +37,7 @@
     overflow: hidden;
 }
 
-.contenu_new {
+.contents_new {
     padding: 5px 5px;
     font-family: "Roboto-light";
 }
@@ -188,7 +188,7 @@
     justify-content: center;
 }
 
-.red_contenu {
+.red_contents {
     display: flex;
     flex-direction: column;
     align-items: center;

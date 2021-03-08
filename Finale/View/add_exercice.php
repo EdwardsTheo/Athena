@@ -1,19 +1,19 @@
 <?php
     require_once("Model/request.php");
-    if(isset($_POST["btn"]) || isset($_POST["rubrique"])){
+    if(isset($_POST["btn"]) || isset($_POST["rubric"])){
         if ($_POST["btn"] == "Modifier consigne" || $_POST["btn"] == "Ajouter ressources") {
             $btn = $_POST["btn"];
             $name_ex = $_POST["name_ex"];
             $resources = $_POST["resources"];
             $instructions = $_POST["instructions"];
-            $rubrique = $_POST["rubrique_n"];
+            $rubric = $_POST["rubric_n"];
             $index = $_POST["index"];
         }
-        elseif(isset($_POST["rubrique"])){
+        elseif(isset($_POST["rubric"])){
             $name_ex = $_POST["name_ex"];
             $resources = $_POST["resources"];
             $instructions = $_POST["instructions"];
-            $rubrique = $_POST["rubrique"];
+            $rubric = $_POST["rubric"];
             $index = $_POST["index"];
         }
     }
@@ -43,19 +43,19 @@
         if (isset($_GET["error"])) {
             $error = $_GET["error"];
             switch ($error) {
-                case "1" : echo "<p class=error>Veuillez ne pas trafiquer le formulaire s'il vous plait</p>";
+                case "1" : echo "<p class=error>Veuillez rentrez les bonnes informations</p>";
                 break;
-                case "2" : echo "<p class=error>Veuillez associer un chapitre a cet exercice s'il vous plait</p>";
+                case "2" : echo "<p class=error>Veuillez associer un chapter a cet exercice</p>";
                 break;
-                case "3" : echo "<p class=error>Veuillez mettre au moins une ressource s'il vous plait</p>";
+                case "3" : echo "<p class=error>Veuillez mettre au moins une ressource</p>";
                 break;
-                case "4" : echo "<p class=error>Veuillez donner un nom a cet exercice s'il vous plait</p>";
+                case "4" : echo "<p class=error>Veuillez donner un name a cet exercice</p>";
                 break;
-                case "5" : echo "<p class=error>Veuillez donner une consigne a cet exercice s'il vous plait</p>";
+                case "5" : echo "<p class=error>Veuillez donner une consigne a cet exercice</p>";
                 break;
-                //case "6" : echo "<p class=error>Veuillez mettre un output de référence s'il vous plait</p>";
+                //case "6" : echo "<p class=error>Veuillez mettre un output de référence</p>";
                 //break;
-                case "7" : echo "<p class=error>Ce nom d'exercice existe déjà dans la base de données</p>";
+                case "7" : echo "<p class=error>Ce name d'exercice existe déjà dans la base de données</p>";
                 break;
                 
             }
@@ -66,7 +66,7 @@
             Ajouter un exercice
         </p>
     </div>
-    <!-- –––––––––––––––––––––––––Choix de la rubrique––––––––––––––––––––––––– -->
+    <!-- –––––––––––––––––––––––––Choix de la rubric––––––––––––––––––––––––– -->
     <section class="main_add_exo">
        <div class="box_ressource ressource_add">
             <div class="choose_chapter">
@@ -75,7 +75,7 @@
                         Lier des ressources de cours à l'exercice.
                         <br/>
                         <br/>
-                        Choisir une rubrique 
+                        Choisir une rubric 
                     </p>
                 </div>
                
@@ -83,15 +83,15 @@
                         
                         $request= getRub(); 
                         while($data = $request->fetch()) {
-                            $name_ru = $data['nom_rubrique'];
-                            $id = $data['id_rubrique'];
+                            $name_ru = $data['name_rubric'];
+                            $id = $data['id_rubrics'];
                             $svg = $data['svg'];
                             echo "<form action='index.php?action=add_exercice.php' class='form_index' method='POST'>";
                             echo "<input type='hidden' name='name_ex' value='".$name_ex."'>";
                             echo "<input type='hidden' name='instructions' value='".$instructions."'>";
                             echo "<input type='hidden' name='index' value='".$index."'>";
                     
-                            echo "<input type='submit' name='rubrique' class='btn_index btn_add_exo' value='$name_ru' id='btn'>";
+                            echo "<input type='submit' name='rubric' class='btn_index btn_add_exo' value='$name_ru' id='btn'>";
                             echo "</form>";
                         }
                         $request->closeCursor();  
@@ -101,27 +101,27 @@
 
 
 
-            <!-- –––––––––––––––––––––––––Choix des cours––––––––––––––––––––––––– -->
+            <!-- –––––––––––––––––––––––––Choix des class––––––––––––––––––––––––– -->
             </div>
             <div class="choose_class">
                 <div class="heading_zone">    
                     <p class="heading_zone_class heading_ressource">
-                    Choisir au moins un cours 
+                    Choisir au moins un class 
                     </p>
                 </div>
                 <form action="index.php?action=add_exercice.php" class="form_index check_box" method="POST">
                     <?php 
                         if ($btn == "Modifier consigne" || $btn == "Ajouter ressources"){
-                            $_POST["rubrique"] = $rubrique;
+                            $_POST["rubric"] = $rubric;
                         };
-                        if (isset($_POST["rubrique"])){
+                        if (isset($_POST["rubric"])){
                             $request = getRub();
                             while($data = $request->fetch()) {
-                                $id = $data['id_rubrique'];
-                                $name_ru = $data['nom_rubrique'];
-                                if ($_POST["rubrique"] == $name_ru) {
-                                    echo '<input type="hidden" name="rubrique" value="'.$id.'">';
-                                    $_POST['rubrique']=$id;
+                                $id = $data['id_rubrics'];
+                                $name_ru = $data['name_rubric'];
+                                if ($_POST["rubric"] == $name_ru) {
+                                    echo '<input type="hidden" name="rubric" value="'.$id.'">';
+                                    $_POST['rubric']=$id;
                                 } 
                             }
                             $request->closeCursor();
@@ -130,8 +130,8 @@
                         $request = getClass();
                         $i=0;
                         while($data = $request->fetch()) {
-                            $name_cl = $data['nom_cours'];
-                            $index_cours = $data['index_cours'];
+                            $name_cl = $data['name_class'];
+                            $index_class = $data['index_class'];
                             if ($btn == "Modifier consigne" || $btn == "Ajouter ressources"){
                                 if ($resources != "Aucune ressource n'est attribuée à cet exercice"){
                                     if(is_array($resources)){
@@ -156,7 +156,7 @@
                                         
                     ?>
                     <div class="check">
-                        <input type="checkbox" name="resources[]" value="<?php echo $index_cours ?>" class="btn_check" id="btn" <?php echo $check?> ><label for="html" class="label_class"><?php echo $name_cl?> </label>
+                        <input type="checkbox" name="resources[]" value="<?php echo $index_class ?>" class="btn_check" id="btn" <?php echo $check?> ><label for="html" class="label_class"><?php echo $name_cl?> </label>
                     </div>
                     <?php           
                                         
@@ -168,7 +168,7 @@
 <!-- –––––––––––––––––––––––––––––––––––––––––––––Consigne––––––––––––––––––––––––––––––––––––––––––––––– -->
         <div class="box_text">
             <div class="box_ressource order">
-                <p class="heading_zone_class heading_ressource"> Nom de l'exercice :</p>
+                <p class="heading_zone_class heading_ressource"> name de l'exercice :</p>
                 <?php  
                     if($btn == "Modifier consigne" || $btn == "Ajouter ressources"){
                         $value_ex = 'value="'.$name_ex.'"';

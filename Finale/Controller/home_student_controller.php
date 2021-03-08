@@ -3,8 +3,8 @@
         $request = updatePasseWord();
 }
 
-function isAnnonce() {
-    $request =  getAnnonce();
+function isnews() {
+    $request =  getnews();
     $i = 0;
     while($data = $request->fetch()) {
         $i++;
@@ -27,28 +27,28 @@ function ErrorMessage(){
 }
 
 function title(){
-    if($_SESSION['status'] == 'eleve'){
-        echo 'Bienvenue '.$_SESSION['prenom'];
+    if($_SESSION['status'] == 'student'){
+        echo 'Bienvenue '.$_SESSION['firstname'];
     }
-    elseif($_SESSION['status'] == 'professeur'){
+    elseif($_SESSION['status'] == 'teacher'){
         echo 'Profil de '.$_POST['Profil'];
     }
 }
 
-function titleLastCours(){
-    if($_SESSION['status'] == 'eleve'){
+function titleLastclass(){
+    if($_SESSION['status'] == 'student'){
         echo 'Votre dernier cours suivis';
     }
-    elseif($_SESSION['status'] == 'professeur'){
+    elseif($_SESSION['status'] == 'teacher'){
         echo 'Le dernier cours suivis';
     }
 }
 
 function titleLastExercice(){
-    if($_SESSION['status'] == 'eleve'){
+    if($_SESSION['status'] == 'student'){
         echo 'Votre dernier exercice fait';
     }
-    elseif($_SESSION['status'] == 'professeur'){
+    elseif($_SESSION['status'] == 'teacher'){
         echo 'Le dernier exercice fait';
     }
 }

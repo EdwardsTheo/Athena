@@ -1,8 +1,7 @@
 <?php 
-    require_once("Model/request.php");
-    if (isset($_POST["rubrique"])) {
-        $rubrique = $_POST["rubrique"];
-        if ($rubrique != "") {
+    if (isset($_POST["rubric"])) {
+        $rubric = $_POST["rubric"];
+        if ($rubric != "") {
             if (isset($_POST["resources"])) {
                 $resources = $_POST["resources"];
                 if ($resources != "") {
@@ -24,7 +23,7 @@
                                                 $o_name = "";
                                             }
                                             if(!isset($_POST["index"])){
-                                                $request = findIndex($rubrique);
+                                                $request = findIndex($rubric);
                                                 $result = "notfind";
                                                 while($data = $request->fetch()){
                                                     $id_2 = intval($data["index_exercice"])+1;
@@ -40,7 +39,7 @@
                                                 $index = $_POST["index"];
                                             }
                                             
-                                            verifyEx($rubrique, $instruction, $name, $resources, $btn, $o_name, $index);
+                                            verifyEx($rubric, $instruction, $name, $resources, $btn, $o_name, $index);
                                         /*}
                                         else{
                                             header("Location: index.php?action=add_exercice.php&error=6");

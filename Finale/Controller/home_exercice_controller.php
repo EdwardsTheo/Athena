@@ -30,7 +30,7 @@ function showExo(){
 
 function validExo(){
     
-        $user = $_SESSION["nom"];
+        $user = $_SESSION["name"];
         $ex = $_SESSION["ex"];
         $id_ex = $_POST['exercice'];
         $d = dir("Public/upload/exercices/");
@@ -49,7 +49,7 @@ function validExo(){
 }
 
 function startCorrect(){
-    $id_eleve = $_POST['id_eleve'];
+    $id_student = $_POST['id_student'];
     $name_ex = $_POST['name_ex'];
     $instructions = $_POST['instructions'];
     require('View/correct_exercice.php');

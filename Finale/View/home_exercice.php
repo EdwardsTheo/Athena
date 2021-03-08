@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="Public/styles/font.css">
         <link rel="stylesheet" href="Public/styles/button.css">
         <link rel="stylesheet" href="Public/styles/heading.css">
-        <link rel="stylesheet" href="Public/styles/add_evaluation.css">
+        <link rel="stylesheet" href="Public/styles/add_test.css">
         <title>Home Exercice</title>
 
     </head>
@@ -22,18 +22,18 @@
             <p class="heading_primary">
             INDEX DES EXERCICES
             </p>
-            <?php if($_SESSION['status'] != 'eleve'){ ?>
+            <?php if($_SESSION['status'] != 'student'){ ?>
                         <form method = "POST" action="" class="form_index form_choose">
-                            <select name='eleve' class="custom-select">
+                            <select name='student' class="custom-select">
                             <?php 
                                 $request5 = getStudent();
                                 while($data = $request5->fetch()){
-                                    $nom = $data['nom'].' '.$data['prenom'];
-                                    $id_eleve = $data['id_user'];
-                                    if(isset($_POST['id_eleve']) AND isset($_POST['Profil'])){
-                                        echo '<option selected="selected"  value="'.$_POST['id_eleve'].'">'.$_POST['Profil'].'</option>';
+                                    $name = $data['name'].' '.$data['firstname'];
+                                    $id_student = $data['id_user'];
+                                    if(isset($_POST['id_student']) AND isset($_POST['Profil'])){
+                                        echo '<option selected="selected"  value="'.$_POST['id_student'].'">'.$_POST['Profil'].'</option>';
                                     }
-                                        echo '<option  value="'.$id_eleve.'">'.$nom.'</option>';
+                                        echo '<option  value="'.$id_student.'">'.$name.'</option>';
                                 }
                             ?>
                             </select>
@@ -50,8 +50,8 @@
         <?php 
             $request= getRub(); 
             while($data = $request->fetch()) {
-                $name_ru = $data['nom_rubrique'];
-                $id_ru = $data['id_rubrique'];
+                $name_ru = $data['name_rubric'];
+                $id_ru = $data['id_rubrics'];
                 $svg = $data['svg'];
                 $request4 = howProgressExos($id_ru);
                 $request2 = howMuchExos($id_ru);
@@ -84,12 +84,12 @@
                 <form action="index.php?action=home_exercice.php" class="form_mdp" method="POST">
                     <input type="submit" class="btn btn--green btn_section " value="Afficher" id="btn" name='afficher'><br/>
                     <input type="hidden"  id="btn" name="SVG" value="Public/svg/symbol-defs.svg#<?php echo $svg?>"><br/>
-                    <input type="hidden"  id="btn" name="rubrique" value="<?php echo $id_ru?>"><br/>
-                    <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>">
+                    <input type="hidden"  id="btn" name="rubric" value="<?php echo $id_ru?>"><br/>
+                    <input type="hidden"  id="btn" name="rubric_n" value="<?php echo $name_ru?>">
                     <?php 
-                        if(isset($_POST['eleve'])&& !empty($_POST['eleve'])){
-                            $id_eleve=$_POST['eleve'];
-                            echo "<input type='hidden' name='id_eleve' value='$id_eleve'>";
+                        if(isset($_POST['student'])&& !empty($_POST['student'])){
+                            $id_student=$_POST['student'];
+                            echo "<input type='hidden' name='id_student' value='$id_student'>";
                         }
                     ?>
                 </form>
@@ -104,11 +104,11 @@
         </div>
     </section>
     <?php 
-    if (isset($_POST["rubrique"])){
+    if (isset($_POST["rubric"])){
         $svg = $_POST["SVG"];
-        $_GET["rubrique"] = $_POST["rubrique"];
-        $id_rub = $_GET["rubrique"];
-        $name_ru = $_POST["rubrique_n"];
+        $_GET["rubric"] = $_POST["rubric"];
+        $id_rub = $_GET["rubric"];
+        $name_ru = $_POST["rubric_n"];
     ?>
     <section class="choose_exo">
         <div class="heading">
@@ -119,7 +119,7 @@
 
         <div class="box_row">
             <?php 
-                $r_ou_e = "rubrique";
+                $r_ou_e = "rubric";
 
                 $request = getExWanted($id_rub); 
                 
@@ -128,18 +128,18 @@
                     $trouve2 = false;
                     $trouve3 = false;
 
-                    $name_ex = $data['nom_exercice'];
+                    $name_ex = $data['name_exercice'];
                     $id = $data['id_exercice'];
                     $index_ex = $data['index_exercice'];
                     if($index_ex%4 == 0) {
                         echo "</div>";
                         echo "<div class='box_row'>";
                     }
-                    if ($_SESSION["status"] == 'eleve'){
+                    if ($_SESSION["status"] == 'student'){
                         $id_user = $_SESSION["id_user"];
                     }
                     else{
-                        $id_user = $_POST['id_eleve'];
+                        $id_user = $_POST['id_student'];
                     }
                         $answer = verify1($id_user);
                         while($datas = $answer->fetch()){
@@ -185,13 +185,13 @@
                     <p class="message">
                     <?php
                         if($trouve2 == true){
-                            echo "Exercice rendu";
+                            echo "Exercice return";
                         }
                         elseif($trouve3 == true){
                             echo "Exercice valide";
                         }
                         elseif($trouve1 == true){
-                            echo "Exercice en cours";
+                            echo "Exercice en class";
                         }
                         else{
                             echo "Exercice non lu";
@@ -208,13 +208,13 @@
                 </div>  
                 <form action="index.php?action=exercice.php" class="form_mdp" method="POST">
                     <input type="submit" name="btn" class="btn btn--green btn_section " value="Afficher" id="btn">
-                    <input type="hidden"  id="btn" name="rubrique_n" value="<?php echo $name_ru?>"><br/>
+                    <input type="hidden"  id="btn" name="rubric_n" value="<?php echo $name_ru?>"><br/>
                     <input type="hidden"  id="btn" name="exercice" value="<?php echo $id?>"><br/>
                     <input type="hidden"  id="btn" name="id_rub" value="<?php echo $id_rub?>"><br/>
                     <input type="hidden"  id="btn" name="index" value="<?php echo $index_ex?>"><br/>
                     <?php 
-                        if(isset($_POST['id_eleve'])&& !empty($_POST['id_eleve'])){
-                            echo "<input type='hidden' name='id_eleve' value='$id_user'>";
+                        if(isset($_POST['id_student'])&& !empty($_POST['id_student'])){
+                            echo "<input type='hidden' name='id_student' value='$id_user'>";
                         }
                     ?>
 

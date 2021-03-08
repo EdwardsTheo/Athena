@@ -19,7 +19,7 @@
             if(isset($_GET["error"])){
                 $error = $_GET["error"];
                 if ($error == "1"){
-                    echo "Veuillez ne pas trafiquer le formulaire s'il vous plait";
+                    echo "Veuillez rentrer les bonnes informations";
                 }
                 elseif ($error == "2") {
                     echo "L'email et/ou le mot de passe sont incorrects";
@@ -30,8 +30,7 @@
         </div> 
         <section class="main">
             <div class="book">
-               
-                <form action="index.php?action=connecter.php" class="form" method="POST">
+               <form action="index.php?action=connecter.php" class="form" method="POST">
                     <div class="u-margin-bottom-medium">
                         <p class="heading-secondary">
                             Connectez-vous avec votre adresse email IN'TECH

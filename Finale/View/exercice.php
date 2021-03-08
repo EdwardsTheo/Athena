@@ -19,9 +19,9 @@
 <body>
 <?php 
     require('header.php') ;
-    $name_ru = $_POST["rubrique_n"];
+    $name_ru = $_POST["rubric_n"];
 ?>
-<!--Affiche le nom de l'exercice-->
+<!--Affiche le name de l'exercice-->
 <section class="class">
     <div class="heading">    
         <p class="heading_primary heading_class" id="name_ex">
@@ -30,7 +30,7 @@
             ?>
         </p>
     </div>
-<!--Affiche les ressources et la rubrique-->
+<!--Affiche les ressources et la rubric-->
     <div class="main_class">
         <div class="basic_box box_class index">
             <div class="head_btn">
@@ -47,15 +47,15 @@
                     $request->closeCursor();
                     $request = getIdResources($id_ex, $id_ru);
                     while($data = $request->fetch()) {
-                        $name_res = $data["nom_cours"];
-                        $index_cours = $data['index_cours'];
-                        $id_cours = $data['id_cours'];
+                        $name_res = $data["name_class"];
+                        $index_class = $data['index_class'];
+                        $id_class = $data['id_class'];
                     ?>
                             <form action="index.php?action=class.php" method="POST">
-                                <input type="submit" name="nom_cours" value="<?php echo $name_res ?>" class="btn_news">
-                                <input type="hidden" name="id_cours" value="<?php echo $id_cours ?>">
-                                <input type="hidden" name="index_cours" value="<?php echo $index_cours ?>">
-                                <input type="hidden" name="id_rubrique" value="<?php echo $id_ru ?>">
+                                <input type="submit" name="name_class" value="<?php echo $name_res ?>" class="btn_news">
+                                <input type="hidden" name="id_class" value="<?php echo $id_class ?>">
+                                <input type="hidden" name="index_class" value="<?php echo $index_class ?>">
+                                <input type="hidden" name="id_rubrics" value="<?php echo $id_ru ?>">
                                 
                             </form>
                 
@@ -70,7 +70,7 @@
             <div class="bottom_btn">
                 <?php 
                 /*––––––––––––––––––––––––––Ajouter des ressources––––––––––––––––––––––––––––––––––––––—*/
-                if($_SESSION["status"] == "professeur"){
+                if($_SESSION["status"] == "teacher"){
                     echo '<form action="index.php?action=add_exercice.php" method="POST">';
                         echo '<input type="submit" name="btn" class="btn_news" value="Ajouter ressources" id="btn">';
                         $i = 0;
@@ -83,10 +83,10 @@
                         else{
                             echo "<input type='hidden' name='resources[]' value='".$name_res."'>";
                         }
-                            echo '<input type="hidden"  id="btn" name="rubrique_n" value="'.$name_ru.'">';
+                            echo '<input type="hidden"  id="btn" name="rubric_n" value="'.$name_ru.'">';
                             echo "<input type='hidden' name='name_ex' value='".$name_ex."'>";
                             echo "<input type='hidden' name='instructions' value='".$instructions."'>";
-                            echo "<input type='hidden' name='rub' value='".$id_rubrique."'>";
+                            echo "<input type='hidden' name='rub' value='".$id_rubrics."'>";
                             echo "<input type='hidden' name='index' value='".$index_ex."'>";
                         
                     echo '</form>';
@@ -109,7 +109,7 @@
         <div class="box_btn">
         <?php
             /*–––––––––––––––––––––––Modifier la consigne––––––––––––––––––––––––––––*/
-            if($_SESSION["status"] == "professeur"){
+            if($_SESSION["status"] == "teacher"){
 
                     echo '<form action="index.php?action=add_exercice.php" method="POST">';
                     echo '<input type="submit" name="btn" class="btn_news btn_text btn_prof" value="Modifier consigne" id="btn">';
@@ -123,10 +123,10 @@
                     else{
                         echo "<input type='hidden' name='resources[]' value='".$name_res."'>";
                     }
-                        echo "<input type='hidden' name='rubrique_n' value=''$name_ru''>
+                        echo "<input type='hidden' name='rubric_n' value=''$name_ru''>
                          <input type='hidden' name='name_ex' value='$name_ex'>
                          <input type='hidden' name='instructions' value='$instructions'>
-                         <input type='hidden' name='rub' value='$id_rubrique'>
+                         <input type='hidden' name='rub' value='$id_rubrics'>
                          <input type='hidden' name='index' value='$index_ex'>
                  </form>";
             }
@@ -134,7 +134,7 @@
             
             <?php
             /*––––––––––––––––––––––––Supprimer un exercice––––––––––––––––––––––––––*/
-            if($_SESSION["status"] == "professeur"){
+            if($_SESSION["status"] == "teacher"){
                 echo '<form action="index.php?action=exercice.php" method="POST">';
 
                     echo "<input type='hidden' name='id_ex' value='".$id_ex."'>";
@@ -149,19 +149,19 @@
 
 
 <section class='bottom_exercice'>
-<?php if($_SESSION["status"] == "eleve"){
+<?php if($_SESSION["status"] == "student"){
 echo " <div class='drop'>
         <div class='box_drop'>
             <div class='heading_zone'>
-                <div id='contenu_new'>
+                <div id='contents_new'>
                     Déposer votre exercice ici !
                 </div>    
             </div>";
             $request2 = correctExos($id_ex);
             while($data2 = $request2->fetch()){
-                $contenu = $data2["contenu_rendu"];
+                $contents = $data2["contents_return"];
             }
-            $user = $_SESSION["nom"];
+            $user = $_SESSION["name"];
             $ex = $name_ex;
             $direct = "Public/upload/exercices/";
             $d = dir("Public/upload/exercices/");
@@ -170,7 +170,7 @@ echo " <div class='drop'>
                 preg_match("($test?)", $entry, $new);
                 $data = trim($new[0]);
                 if (!empty($data)) {
-                    if($entry == $contenu){
+                    if($entry == $contents){
                         echo '<a href="'.$direct.$entry.'">'.$entry.'</a><br />';
                         $i++; 
                     }
@@ -187,7 +187,7 @@ echo " <div class='drop'>
                 (function() {
                         var dropzone = document.getElementById('dropzone');
                         var displayUploads = function(data){
-                            var uploads = document.getElementById('contenu_new'),
+                            var uploads = document.getElementById('contents_new'),
                                 anchor,
                                 x;
                             for (let x = 0; x < data.length; x++) {
@@ -246,11 +246,11 @@ echo " <div class='drop'>
         <div class="form_bottom">
             <?php 
             /*––––––––––––––––––––––––Corriger un exercice––––––––––––––––––––––––––*/
-                if($_SESSION["status"] == "professeur"){
-                    $id_eleve = $_POST['id_eleve'];
+                if($_SESSION["status"] == "teacher"){
+                    $id_student = $_POST['id_student'];
                     echo "<form action='index.php?action=correct_exercice.php' method='POST'>
                     <input type='hidden' name='name_ex' value='$name_ex'>
-                    <input type='hidden' name='id_eleve' value='$id_eleve'>
+                    <input type='hidden' name='id_student' value='$id_student'>
                     <input type='hidden' name='instructions' value='$instructions'>
                     <input type='hidden'  id='btn' name='id_ex' value='$id_ex'><br/>
                     <input type='submit' name='btn' class='btn btn--green btn_bottom1' value='Correction' id='btn'>
@@ -258,11 +258,11 @@ echo " <div class='drop'>
                 }
             ?>
             <!--–––––––––––––––––––––Valider un exercice–––––––––––––––––––––––––––-->
-           <?php if($_SESSION["status"] == "eleve"){
+           <?php if($_SESSION["status"] == "student"){
             echo "<form action='index.php?action=home_exercice.php' method='POST'>
                 <input type='submit'  name='btn' class='btn btn--green btn_bottom2' value='Valider exercice' id='btn'>
                 <input type='hidden'  id='btn' name='id_rub' value='$id_ru'><br/>
-                <input type='hidden'  id='btn' name='rubrique_n' value='$name_ru'><br/>
+                <input type='hidden'  id='btn' name='rubric_n' value='$name_ru'><br/>
                 <input type='hidden'  id='btn' name='exercice' value='$id_ex'><br/>
                 <input type='hidden'  id='btn' name='index' value='$index_ex'><br/>
                 
@@ -275,7 +275,7 @@ echo " <div class='drop'>
                 echo "<form action='index.php?action=exercice.php' method='POST'>
                     
                     <input type='submit' name='btn' class='btn btn--green btn_bottom3' value='Exercice suivant &rarr;' id='btn'>
-                    <input type='hidden'  id='btn' name='rubrique_n' value='$name_ru'><br/>
+                    <input type='hidden'  id='btn' name='rubric_n' value='$name_ru'><br/>
                     <input type='hidden'  id='btn' name='exercice' value='$id'><br/>
                     <input type='hidden'  id='btn' name='id_rub' value='$id_ru'><br/>
                     <input type='hidden'  id='btn' name='index' value='$index_ex'><br/>

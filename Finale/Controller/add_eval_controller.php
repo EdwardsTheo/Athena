@@ -2,7 +2,7 @@
 
 function startAddEval() {
     $request = reqPrintEval();
-    require('View/home_add_evaluation.php');
+    require('View/home_add_test.php');
 }
 
 function printStatus($status) {
@@ -39,13 +39,13 @@ function startSecondEval() {
         $requestCorr = requestCorr();
     }
     $request = reqExoEval();
-    require('View/add_evaluation.php');
+    require('View/add_test.php');
 }
 
 function GetIdStudent() {
     $request = getInfoStudent();
     while($data = $request->fetch()) {
-        if($data['nom'] == $_POST['student']) {
+        if($data['name'] == $_POST['student']) {
             return $data['id_user'];
         }
     }
@@ -54,9 +54,9 @@ function GetIdStudent() {
 function addExoEval() {
     $req = reqAddExoEval();
     $req->execute(array(
-        'id_evaluation' => $_POST['id_eval'],
-        'nom_exo_eval' => $_POST['exoTitle'],
-        'contenu_exo_eval' => $_POST['consigne']
+        'id_test' => $_POST['id_eval'],
+        'name_exo_eval' => $_POST['exoTitle'],
+        'contents_exo_eval' => $_POST['consigne']
     ));
     $req->closeCursor();
 }
@@ -71,8 +71,8 @@ function hiddenEval() {
 function modifExoEval() {
     $req = reqModifExoEval();
     $req->execute(array(
-        'nv_nom' => $_POST['exoTitle'],
-        'nv_contenu' => $_POST['consigne']
+        'nv_name' => $_POST['exoTitle'],
+        'nv_contents' => $_POST['consigne']
     ));
     $req->closeCursor();
 }
@@ -98,7 +98,7 @@ function formStudent() {
     $request = getInfoStudent();
     echo "<select name='student' class='custom-select' size='1'>";
     while ($data = $request->fetch()){
-        echo "<option class='option_class'>".$data['nom']."</option>";
+        echo "<option class='option_class'>".$data['name']."</option>";
     }
     echo "</select><br>";
 }

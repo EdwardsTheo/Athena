@@ -22,9 +22,9 @@
 /*–––––––––––––––––––––––––––––Affiche l'exercice sélectionné––––––––––––––––––––––––––––––––––––––––––––––––*/
     $request = getExWanted($id_ru);
     while($data = $request->fetch()) {
-        $id_rubrique = $data["id_rubrique"];
+        $id_rubrics = $data["id_rubrics"];
         if ($index_ex == $data['index_exercice']){
-            $name_ex = $data['nom_exercice'];
+            $name_ex = $data['name_exercice'];
             $id_ex = $data['id_exercice'];
             $instructions = $data["consigne_exercice"];
         } 
@@ -34,7 +34,7 @@
     $request = getIdResources($id_ex, $id_ru);
     $result = $request->fetchAll();
 /*–––––––––––––––––––––––––––––Défini le statut du user––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-    if($_SESSION["status"] == "eleve"){
+    if($_SESSION["status"] == "student"){
         $request = getUser();
         while($data = $request->fetch()) {
             $email = $data['email'];

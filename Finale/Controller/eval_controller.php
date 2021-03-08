@@ -2,7 +2,7 @@
 
 function startHomeEval() {
     $request = reqPrintEval();
-    require('View/home_evaluation.php');
+    require('View/home_test.php');
 }
 
 function startEval() {
@@ -13,16 +13,16 @@ function startEval() {
         $request_exo = reqShowExo(); 
     }
     $request = reqExoEval();
-    require('View/evaluation.php');
+    require('View/test.php');
 }
 
 function showTime($id_eval) {
     $request = reqPrintEval();
     $test = false;
     while($data = $request->fetch()) {
-        if($data['id_evaluation'] == $id_eval) {
+        if($data['id_test'] == $id_eval) {
             date_default_timezone_set('europe/paris');
-            $sTime = $data['heure_debut'];
+            $sTime = $data['heure_start'];
             $hour = date('H:i:s');
             if($sTime <= $hour) {
                 $test = true;
@@ -37,7 +37,7 @@ function showDate($id_eval) {
     $request = reqPrintEval();
     $test = false;
     while($data = $request->fetch()) {
-        if($data['id_evaluation'] == $id_eval) {
+        if($data['id_test'] == $id_eval) {
             $evalDate = $data['date'];
             $currentDate = date('o-m-d');
             if($evalDate == $currentDate) {
@@ -53,7 +53,7 @@ function showDate($id_eval) {
 function existDate($id_eval) {
     $request = reqPrintEval();
     while($data = $request->fetch()) {
-        if($data['id_evaluation'] == $id_eval) {
+        if($data['id_test'] == $id_eval) {
             if($data['date'] != null) {
                 return $data['date'];
                 break;
@@ -74,7 +74,7 @@ function ending($id_eval) {
     $request = reqPrintEval();
     $test = false;
     while($data = $request->fetch()) {
-        if($data['id_evaluation'] == $id_eval) {
+        if($data['id_test'] == $id_eval) {
             date_default_timezone_set('europe/paris');
             $sTime = $data['heure_fin'];
             $hour = date('H:i:s');
@@ -87,7 +87,7 @@ function ending($id_eval) {
 }
 
 function validerExoEval(){
-    $user = $_SESSION["nom"];
+    $user = $_SESSION["name"];
     $ex = $_SESSION["ex"];
     $id_ex = $_POST['id_ex'];
     $d = dir("Public/upload/eval/");

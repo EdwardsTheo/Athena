@@ -11,8 +11,12 @@ require('Controller/home_exercice_controller.php');
 require('Controller/visu_class_controller.php');
 require('Controller/home_student_controller.php');
 require('Controller/home_prof_controller.php');
-require('Controller/chat_controller.php');
 require('Controller/add_eval_controller.php');
+
+require_once("Model/request.php");
+require_once("Model/insert.php");
+require_once("Model/select.php");
+require_once("Model/update.php");
 
 // Main controller 
 
@@ -27,14 +31,14 @@ if(isset($_GET['action'])) {
             startProf2();
         }
         if(isset($_POST['add'])){
-            //var_dump(addAnnonce());
-            addAnnonce();
+            //var_dump(addnews());
+            addnews();
         }
         if(isset($_POST['delete'])){
-            delAnnonce();
+            delnews();
         }
-        if(isset($_POST['nouvelle_annonce'])){
-            endEditAnnonce();
+        if(isset($_POST['nouvelle_news'])){
+            endEditnews();
         }
         startProf();
     }
@@ -72,7 +76,7 @@ if(isset($_GET['action'])) {
         elseif(isset($_POST['Next'])) {
             nextChapter();
         }
-        elseif(isset($_POST['Supprimer_Chapitre'])) {
+        elseif(isset($_POST['Supprimer_chapter'])) {
             suppChap();
         }
         
@@ -84,10 +88,10 @@ if(isset($_GET['action'])) {
             deleteall();
         }
     }
-    elseif($_GET['action'] == 'home_evaluation.php') {
+    elseif($_GET['action'] == 'home_test.php') {
         startHomeEval();
     }
-    elseif($_GET['action'] == 'evaluation.php') {
+    elseif($_GET['action'] == 'test.php') {
         startEval();
     }
     elseif($_GET['action'] == 'add_class.php') {
@@ -99,10 +103,10 @@ if(isset($_GET['action'])) {
         }
         startAddClass();
     }
-    elseif($_GET['action'] == 'home_add_evaluation.php') {
+    elseif($_GET['action'] == 'home_add_test.php') {
         startAddEval();
     }
-    elseif($_GET['action'] == 'add_evaluation.php') {
+    elseif($_GET['action'] == 'add_test.php') {
         if(isset($_POST['addExoEval'])) {
             addExoEval();
         }
@@ -122,8 +126,6 @@ if(isset($_GET['action'])) {
     }
     elseif($_GET['action'] == 'exercice.php') {
         showExo();
-    }elseif($_GET['action'] == 'chat.php') {
-        startChat();
     }elseif($_GET['action'] == 'correct_exercice.php'){
         startCorrect();
     }

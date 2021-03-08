@@ -51,7 +51,7 @@
     $graph->yaxis->SetTickPositions(array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15), array(5,10,15,20));
     $graph->y2axis->SetTickPositions(array(3,4,5,6,7,8,9));
 
-    $chapter = array('Chapitre1','Chapitre2', 'Chapitre3', 'Chapitre 4', 'Chapitre 5');
+    $chapter = array('chapter1','chapter2', 'chapter3', 'chapter 4', 'chapter 5');
     $graph->SetBox(false);
 
     $graph->ygrid->SetFill(false);
@@ -86,7 +86,7 @@
 
     $b5plot->SetColor("#9370DB");
     $b5plot->SetFillColor("#9370DB");
-    $b5plot->SetLegend("Rendu");
+    $b5plot->SetLegend("return");
 
     $graph->legend->SetFrameWeight(1);
     $graph->legend->SetColumns(6);

@@ -2,7 +2,7 @@
 
 function startAddClass() {
     $request = getRub();
-    if(isset($_POST['nom_rubrique'])) $request_class = getClass();
+    if(isset($_POST['name_rubric'])) $request_class = getClass();
     require('View/add_class.php');
 }
 
@@ -17,14 +17,14 @@ function MaxClass() {
 }
 
 function addNewClass() {
-    $id_cours = MaxClass();
-    $new_id_cours = $id_cours + 1;
+    $id_class = MaxClass();
+    $new_id_class = $id_class + 1;
     $req = reqAddClass();
 
     $req->execute(array(
-        'id_rubrique' => $_POST['rubrique'],
-        'index_cours' => $new_id_cours,
-        'nom_cours' => $_POST['new_name_class']
+        'id_rubrics' => $_POST['rubric'],
+        'index_class' => $new_id_class,
+        'name_class' => $_POST['new_name_class']
     ));
     unset($_POST);
 }
@@ -33,10 +33,10 @@ function addNewChapter() {
     $req = reqAddNewChapter();
 
     $req->execute(array(
-        'index_cours' => $_POST['index_cours'], 
-        'id_rubrique' => $_POST['id_rubrique'], 
-        'nom_chapitre' => $_POST['chapitre_title'], 
-        'contenu_chapitre' => $_POST['url_chapter']
+        'index_class' => $_POST['index_class'], 
+        'id_rubrics' => $_POST['id_rubrics'], 
+        'chapter_name' => $_POST['chapter_title'], 
+        'contents_chapter' => $_POST['url_chapter']
     
     ));
     unset($_POST);

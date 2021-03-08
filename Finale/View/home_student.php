@@ -24,7 +24,7 @@
                         <use xlink:href="Public/svg/symbol-defs.svg#icon-book"></use>
                     </svg>
                     <h3 class="heading-tertiary">
-                        Avancement Cours</h3>
+                        Avancement cours</h3>
                     <p class="feature-percent">
                         <?php
                             while($data = $request5->fetch()){
@@ -32,8 +32,8 @@
                                 $count = intval($data[0]) + intval($data[1]);
                             }
                             while($data = $request3->fetch()){
-                                $progress_cours = intval($data[0]);
-                                $total = round($progress_cours * 100 / $countExos);
+                                $progress_classes = intval($data[0]);
+                                $total = round($progress_classes * 100 / $countExos);
                                 echo $total.'%';
                             }
                         ?>
@@ -41,20 +41,20 @@
                 </div>
                 <?php 
                  $i = 1;
-                 $test = isAnnonce();
+                 $test = isnews();
                  if($test !== false) {
                      ?>
                 <div class="box basic_box box-2 news">
                 <?php
                         while($data = $request2->fetch()){
                             if($i<=2){
-                                if($_SESSION['status'] == 'eleve'){
+                                if($_SESSION['status'] == 'student'){
                     ?>
                                 <h3 class="heading_box">News</h3>
-                                <div class="contenu">
-                                    <h4 class="heading_news">Nouvelle du <?php echo $data['date_annonce'] ?></h4>
-                                    <p class="contenu_new">
-                                        <?php echo $data['contenu_annonce']; ?>
+                                <div class="contents">
+                                    <h4 class="heading_news">Nouvelle du <?php echo $data['date_news'] ?></h4>
+                                    <p class="contents_new">
+                                        <?php echo $data['contents_news']; ?>
                                     </p>
                                 </div>
                             <?php 
@@ -74,18 +74,31 @@
                     <h3 class="heading-tertiary">
                         Avancement Exercices</h3></br>
                         <?php 
-                            if($_SESSION['status'] == 'professeur'){
-                                $id = $_POST['id_eleve'];
+                            if($_SESSION['status'] == 'teacher'){
+                                $id = $_POST['id_student'];
                             }else{
                                 $id = $_SESSION['id_user'];
                             } 
                             while($data = $request4->fetch()){
                                 $progress_exo = intval($data[0]);
-                                $progress_total = round($progress_cours + $progress_exo * 100 / $count);
+                                $progress_total = round($progress_classes + $progress_exo * 100 / $count);
                             }
                             if($progress_exo - 1 > 0){
                         ?>  
-                                <iframe src="View/test_graph.php?id_eleve=<?php echo $id ?>" width="190" height="325"></iframe>
+                         <p class="feature-percent">
+                        <?php
+                            while($data = $request5->fetch()){
+                                $countExos = intval($data[0]);
+                                $count = intval($data[0]) + intval($data[1]);
+                            }
+                            while($data = $request3->fetch()){
+                                $progress_classes = intval($data[0]);
+                                $total = round($progress_classes * 100 / $countExos);
+                                echo $total.'10%';
+                            }
+                        ?>
+                    </p>
+                                
                         <?php 
                             }
                             else{
@@ -120,8 +133,8 @@
                         <h3 class="heading_box heading_student">Informations profil</h3>
                         <div class ="box_info label_profil">
                         <?php 
-                            echo '<label for="prenom" class="profil_titre">Prénom : '.$_SESSION["prenom"].'</label>
-                            <label for="nom" class="profil_titre">Nom : '.$_SESSION["nom"].'</label>
+                            echo '<label for="firstname" class="profil_titre">Prénom : '.$_SESSION["firstname"].'</label>
+                            <label for="name" class="profil_titre">Nom : '.$_SESSION["name"].'</label>
                             <label for="email" class="profil_titre">Email : '. $_SESSION["email"].'</label>';
                         ?>                   
                         </div>
@@ -146,12 +159,12 @@
                     <div class="red red1">
                         <div class="red_title">
                             <h3 class="heading_redirect">
-                            <?php titleLastCours(); ?>
+                            <?php titleLastclass(); ?>
                             </h3>
                         </div>
-                        <div class="red_contenu">
-                            <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
-                            <label for="cours" class="redirect_titre">Nom du Cours : Les Variables.</label>
+                        <div class="red_contents">
+                            <label for="chapter" class="redirect_titre">chapitre : Introduction à JavaScript.</label>
+                            <label for="class" class="redirect_titre">nom de l'exercice : Les Variables.</label>
                         </div>
                         <div class="red_bouton">
                             <a href="#" class="btn-red btn btn--green ">Rediriger</a>
@@ -163,9 +176,9 @@
                             <?php titleLastExercice(); ?>
                             </h3>
                         </div>
-                        <div class="red_contenu">
-                            <label for="chapitre" class="redirect_titre">Chapitre : Introduction à JavaScript.</label>
-                            <label for="exercice" class="redirect_titre">Nom de l'exercice : Bonbon.js.</label>
+                        <div class="red_contents">
+                            <label for="chapter" class="redirect_titre">chapitre : Introduction à JavaScript.</label>
+                            <label for="exercice" class="redirect_titre">nom de l'exercice : Bonbon.js.</label>
                         </div>
                         <div class="red_bouton">
                             <a href="#" class="btn-red btn btn--green ">Rediriger</a>
